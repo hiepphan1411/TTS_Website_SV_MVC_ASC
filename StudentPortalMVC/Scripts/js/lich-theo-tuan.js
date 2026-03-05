@@ -273,7 +273,7 @@ async function renderWeekBody(monday) {
             const isToday = currentDay.toDateString() === TODAY.toDateString();
             const todayClass = isToday ? ' today-column' : '';
 
-            const response = await fetch("~/App_Data/lich-theo-tuan.json");
+            const response = await fetch("~/App_Data/LichTheoTuan/lich-theo-tuan.json");
             const data = await response.json();
             const daySchedule = data[dateStr] || [];
 
