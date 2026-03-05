@@ -263,7 +263,7 @@ var KhoiKienThuc = (function () {
         '<div class="section-contents ' +
         activeClass +
         '">' +
-        '  <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>' +
+        '  <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>'+  +
         '  <div class="table-frame">' +
         '    <table class="table table-sm mandatory-courses-table">' +
         tableHeader +

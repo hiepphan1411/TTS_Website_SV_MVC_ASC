@@ -1,10 +1,10 @@
 @{
-    ViewBag.Title = "Ch\u01b0\u01a1ng tr\u00ecnh khung \u0111\u00e0o t\u1ea1o v\u00e0 ti\u1ebfn \u0111\u1ed9 h\u1ecdc t\u1eadp";
+    ViewBag.Title = "Chương trình khung đào tạo và tiến độ học tập";
 }
 
 @section styles {
     <link rel="stylesheet" href="~/Content/css/chuong-trinh-khung.css" />
-    <link rel="stylesheet" href="~/Content/css/common.css"/>
+    <link rel="stylesheet" href="~/Content/css/common.css" />
 }
 
 <!-- Content -->
@@ -12,27 +12,27 @@
     <div class="container-lg d-flex flex-column gap-3" style="padding: 20px">
         <div>
             <h1 class="fs-4 fw-bold" style="color: var(--color-text-primary)">
-                Ch&#432;&#417;ng tr&#236;nh khung &#273;&#224;o t&#7841;o v&#224; ti&#7871;n &#273;&#7897; h&#7885;c t&#7853;p
+                Chương trình khung đào tạo và tiến độ học tập
             </h1>
             <p class="small fw-semibold text-secondary mb-0">
-                Xem ch&#432;&#417;ng tr&#236;nh &#273;&#224;o t&#7841;o v&#224; ti&#7871;n &#273;&#7897; h&#7885;c t&#7853;p c&#7911;a b&#7841;n
+                Xem chương trình đào tạo và tiến độ học tập của bạn
             </p>
         </div>
 
-        <!-- Ti&#7871;n &#273;&#7897; h&#7885;c t&#7853;p -->
+        <!-- Tiến độ học tập -->
         <div class="content-wrapper">
             <div class="progress-section">
                 <div class="learning-progress-title">
-                    <div class="section-title">Ti&#7871;n &#273;&#7897; h&#7885;c t&#7853;p</div>
+                    <div class="section-title">Tiến độ học tập</div>
                     <div class="progress-label">
-                        <span><i class="fa-solid fa-circle badge-completed"></i> &#272;&#227; ho&#224;n th&#224;nh</span>
-                        <span><i class="fa-solid fa-circle badge-progress"></i> Tin ch&#7881; &#273;ang h&#7885;c</span>
-                        <span><i class="fa-solid fa-circle badge-notstart"></i> Tin ch&#7881; c&#242;n l&#7841;i</span>
+                        <span><i class="fa-solid fa-circle badge-completed"></i> Đã hoàn thành</span>
+                        <span><i class="fa-solid fa-circle badge-progress"></i> Tin chỉ đang học</span>
+                        <span><i class="fa-solid fa-circle badge-notstart"></i> Tin chỉ còn lại</span>
                     </div>
                 </div>
                 <div class="progress-bar-div">
                     <div class="progress-bar-title">
-                        <div>&#272;&#227; ho&#224;n th&#224;nh</div>
+                        <div>Đã hoàn thành</div>
                         <div>
                             <span class="progress-percentage" id="overallPercentage">75%</span>
                         </div>
@@ -42,58 +42,58 @@
                 <div class="stats-container">
                     <div class="stat-box">
                         <div class="stat-number green" id="totalCredits">162</div>
-                        <div class="stat-label">T&#7893;ng tin ch&#7881;</div>
+                        <div class="stat-label">Tổng tin chỉ</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-number blue" id="completedCredits">122</div>
-                        <div class="stat-label">&#272;&#227; ho&#224;n th&#224;nh</div>
+                        <div class="stat-label">Đã hoàn thành</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-number yellow" id="currentCredits">24</div>
-                        <div class="stat-label">Tin ch&#7881; &#273;ang h&#7885;c</div>
+                        <div class="stat-label">Tin chỉ đang học</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-number gray" id="remainingCredits">16</div>
-                        <div class="stat-label">Tin ch&#7881; c&#242;n l&#7841;i</div>
+                        <div class="stat-label">Tin chỉ còn lại</div>
                     </div>
                     <div class="stat-box-end">
                         <div class="stat-number yellow" id="progressDiff">+ 2%</div>
-                        <div class="stat-label">Ti&#7871;n &#273;&#7897; so v&#7899;i k&#7871; ho&#7841;ch</div>
+                        <div class="stat-label">Tiến độ so với kế hoạch</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Thanh Tab + T&#236;m ki&#7871;m + L&#7885;c -->
+        <!-- Thanh Tab + Tìm kiếm + Lọc -->
         <div class="content-wrapper-tab-group">
             <div class="tab-buttons">
-                <button class="tab-btn active">H&#7885;c k&#7923;</button>
-                <button class="tab-btn">Kh&#7889;i ki&#7871;n th&#7913;c</button>
+                <button class="tab-btn active">Học kỳ</button>
+                <button class="tab-btn">Khối kiến thức</button>
             </div>
 
             <div class="controls-section">
                 <div class="search-box">
                     <input type="text" class="form-control"
-                           placeholder="T&#236;m ki&#7871;m m&#244;n h&#7885;c theo t&#234;n ho&#7863;c m&#227;..."
+                           placeholder="Tìm kiếm môn học theo tên hoặc mã..."
                            hidden />
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn-custom primary">
-                        <i class="fas fa-bars"></i> T&#7845;t c&#7843;
+                        <i class="fas fa-bars"></i> Tất cả
                     </button>
                     <button class="btn-custom">
-                        <i class="fab fa-leanpub"></i> Ch&#432;a h&#7885;c
+                        <i class="fab fa-leanpub"></i> Chưa học
                     </button>
                     <button class="btn-custom">
-                        <i class="far fa-calendar-alt"></i> B&#7855;t bu&#7897;c
+                        <i class="far fa-calendar-alt"></i> Bắt buộc
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- L&#7897; tr&#236;nh h&#7885;c t&#7853;p -->
+        <!-- Lộ trình học tập -->
         <div class="content-wrapper">
-            <h2 class="section-title">L&#7897; tr&#236;nh h&#7885;c t&#7853;p</h2>
+            <h2 class="section-title">Lộ trình học tập</h2>
             <div class="timeline-section">
                 <div class="timeline-container">
                     <div class="timeline-wrapper">
@@ -112,50 +112,50 @@
                     <div class="legend">
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: var(--success-green)"></div>
-                            <span>Ho&#224;n th&#224;nh</span>
+                            <span>Hoàn thành</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: var(--primary-yellow)"></div>
-                            <span>&#272;ang h&#7885;c</span>
+                            <span>Đang học</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: #ccc"></div>
-                            <span>Ch&#432;a h&#7885;c</span>
+                            <span>Chưa học</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Kh&#7889;i ki&#7871;n th&#7913;c -->
+        <!-- Khối kiến thức -->
         <div class="content-wrapper">
             <div class="knowledge-block-overview">
-                <div class="section-title">T&#7893;ng quan kh&#7889;i ki&#7871;n th&#7913;c</div>
+                <div class="section-title">Tổng quan khối kiến thức</div>
                 <div class="knowledge-blocks" id="knowledgeBlocksContainer"></div>
             </div>
 
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-color" style="background-color: var(--success-green)"></div>
-                    <span>Ho&#224;n th&#224;nh</span>
+                    <span>Hoàn thành</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background-color: var(--primary-yellow)"></div>
-                    <span>&#272;ang h&#7885;c</span>
+                    <span>Đang học</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background-color: #ccc"></div>
-                    <span>Ch&#432;a h&#7885;c</span>
+                    <span>Chưa học</span>
                 </div>
             </div>
         </div>
 
-        <!-- Danh s&#225;ch m&#244;n h&#7885;c (JS render)  -->
+        <!-- Danh sách môn học (JS render)  -->
         <div class="content-wrapper" id="expandableSections"></div>
 
         <!-- Footer -->
         <div class="text-center py-3 small text-secondary bg-white rounded-1 mt-auto">
-            &copy; ASC Education Solutions 2026
+            © ASC Education Solutions 2026
         </div>
     </div>
 </main>
@@ -177,3 +177,4 @@
         });
     </script>
 }
+

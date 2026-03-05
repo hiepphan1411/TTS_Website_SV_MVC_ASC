@@ -159,6 +159,7 @@
     <Content Include="bin\System.Web.Webpages.xml" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\lib\bootstrap.min.css" />
     <Content Include="Content\lib\kendo-ui.common.min.css" />
     <Content Include="Content\lib\kendo.default.min.css" />
@@ -167,6 +168,7 @@
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\process-chuong-trinh-khung.js" />
     <Content Include="Scripts\process-khoi-kien-thuc.js" />
     <Content Include="Web.config" />
@@ -175,12 +177,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChuongTrinhKhungViewModels.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,12 +207,15 @@
     <Content Include="App_Data\ChuongTrinhKhung\chuong-trinh-khung.json" />
     <Content Include="App_Data\ChuongTrinhKhung\hoc-ky.json" />
     <Content Include="App_Data\ChuongTrinhKhung\khoi-kien-thuc.json" />
+    <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\ThanhToanTrucTuyen\ThanhToanTrucTuyen.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Scripts\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
