@@ -1,39 +1,50 @@
-﻿
-const TODAY = new Date();
+﻿const TODAY = new Date();
 let currentMonth = TODAY.getMonth();
 let currentYear = TODAY.getFullYear();
 let selectedDate = null;
 let viewDate = new Date(TODAY);
 let activeFilter = 'all';
 
+// Cache dữ liệu để tránh fetch nhiều lần
+let scheduleData = null;
+
 const MONTH_NAMES = [
-    'Tháng 1',
-    'Tháng 2',
-    'Tháng 3',
-    'Tháng 4',
-    'Tháng 5',
-    'Tháng 6',
-    'Tháng 7',
-    'Tháng 8',
-    'Tháng 9',
-    'Tháng 10',
-    'Tháng 11',
-    'Tháng 12',
+    'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+    'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12',
 ];
 
 const DAY_NAMES = [
-    'THỨ 2',
-    'THỨ 3',
-    'THỨ 4',
-    'THỨ 5',
-    'THỨ 6',
-    'THỨ 7',
-    'CHỦ NHẬT',
+    'THỨ 2', 'THỨ 3', 'THỨ 4', 'THỨ 5', 'THỨ 6', 'THỨ 7', 'CHỦ NHẬT',
 ];
+
 const TIME_PERIODS = ['Sáng', 'Chiều', 'Tối'];
 const TIME_KEYS = ['morning', 'afternoon', 'evening'];
 
-$(document).ready(function () {
+// ===== THÊM HÀM LOAD DATA TỪ CONTROLLER =====
+async function loadScheduleData() {
+    try {
+        // Gọi API từ Controller
+        const response = await fetch('/LichTheoTuan/GetData');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        scheduleData = data; // Cache dữ liệu
+        return data;
+    } catch (error) {
+        console.error('Lỗi khi tải dữ liệu lịch:', error);
+        alert('Không thể tải dữ liệu lịch. Vui lòng thử lại sau.');
+        return {};
+    }
+}
+
+// ===== KHỞI TẠO =====
+$(document).ready(async function () {
+    // Load dữ liệu trước khi render
+    await loadScheduleData();
+
     initializeCalendar();
     setupEventHandlers();
 });
@@ -67,7 +78,6 @@ function setupFilterButtons() {
         };
 
         activeFilter = filterMap[filterText] || 'all';
-
         renderWeekCalendar(viewDate);
     });
 }
@@ -128,7 +138,6 @@ function setupMonthNavigation() {
         renderMiniCalendar(currentMonth, currentYear);
     });
 
-    // Next month
     $('.month-selector button:last-child').click(function () {
         currentMonth++;
         if (currentMonth > 11) {
@@ -173,7 +182,7 @@ function renderMiniCalendar(month, year) {
                     month === TODAY.getMonth() &&
                     year === TODAY.getFullYear();
                 const todayClass = isToday ? ' today' : '';
-                html += `<td class="text-center" ><span class="${todayClass}" data-date="${dateStr}">${dayCount}</span></td>`;
+                html += `<td class="text-center"><span class="${todayClass}" data-date="${dateStr}">${dayCount}</span></td>`;
                 dayCount++;
             }
         }
@@ -191,11 +200,7 @@ function setupMiniCalendarClick() {
             const dateStr = $(this).data('date');
             const dateParts = dateStr.split('-');
 
-            selectedDate = new Date(
-                dateParts[0],
-                dateParts[1] - 1,
-                dateParts[2],
-            );
+            selectedDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
             viewDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
 
             $('.mini-calendar td span').removeClass('selected');
@@ -211,7 +216,7 @@ function updateMiniCalendarSelection() {
     if (!selectedDate) return;
 
     const dateStr = `${selectedDate.getFullYear()}-${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`;
-    $(`.mini-calendar td span[data-date="${dateStr}"] `).addClass('selected');
+    $(`.mini-calendar td span[data-date="${dateStr}"]`).addClass('selected');
 }
 
 function getMonday(date) {
@@ -228,7 +233,6 @@ function formatDate(date) {
 
 function renderWeekCalendar(date) {
     const monday = getMonday(date);
-
     renderWeekHeader(monday);
     renderWeekBody(monday);
     attachEventHandlers();
@@ -258,7 +262,15 @@ function renderWeekHeader(monday) {
     $('.calendar-header').html(headerHtml);
 }
 
-async function renderWeekBody(monday) {
+// ===== SỬA LẠI HÀM RENDER WEEK BODY =====
+function renderWeekBody(monday) {
+    // Kiểm tra data đã load chưa
+    if (!scheduleData) {
+        console.warn('Dữ liệu lịch chưa được tải');
+        $('.calendar-body').html('<div class="text-center p-4">Đang tải dữ liệu...</div>');
+        return;
+    }
+
     let bodyHtml = '';
 
     for (let t = 0; t < TIME_PERIODS.length; t++) {
@@ -273,13 +285,12 @@ async function renderWeekBody(monday) {
             const isToday = currentDay.toDateString() === TODAY.toDateString();
             const todayClass = isToday ? ' today-column' : '';
 
-            const response = await fetch("~/App_Data/LichTheoTuan/lich-theo-tuan.json");
-            const data = await response.json();
-            const daySchedule = data[dateStr] || [];
+            // Lấy dữ liệu từ scheduleData đã cache
+            const daySchedule = scheduleData[dateStr] || [];
 
+            // Lọc events theo thời gian và filter
             const timeEvents = daySchedule.filter((e) => {
                 if (e.time !== TIME_KEYS[t]) return false;
-
                 if (activeFilter === 'all') return true;
                 return e.category === activeFilter;
             });
@@ -289,18 +300,17 @@ async function renderWeekBody(monday) {
 
         bodyHtml += '</div>';
     }
+
     $('.calendar-body').html(bodyHtml);
 }
 
 function attachEventHandlers() {
     $('.btn-join').click(function () {
         const eventContainer = $(this).closest('.event');
-
-        // Tìm các element trong parent container
         const code = eventContainer.find('.event-code').text();
         const noteElement = eventContainer.find('.event-note');
-
         let note = noteElement.text().replace('Ghi chú:', '').trim();
+
         alert(`${code}\nOpen with ${note}`);
     });
 }
@@ -328,32 +338,30 @@ function renderEvents(events) {
             </div>
             ${event.room === 'Trực tuyến'
                     ? `<div class="event-note"><span class="label-note">Ghi chú:</span> ${event.note}</div>
-            <input type='button' class="btn-join" value="Tham gia">`
+                       <input type='button' class="btn-join" value="Tham gia">`
                     : ''
                 }
-
         </div>
     `,
         )
         .join('');
 }
+
 function updateEmptyColumns() {
-    const headerColumns = document.querySelectorAll(
-        '.calendar-header .day-column',
-    );
+    const headerColumns = document.querySelectorAll('.calendar-header .day-column');
 
     headerColumns.forEach((_, index) => {
-        console.log("chirmucj : ", index);
-
         const bodyColumns = document.querySelectorAll(
             `.calendar-body .time-row .day-column:nth-child(${index + 2})`,
         );
+
         let hasEvent = false;
         bodyColumns.forEach((col) => {
             if (col.querySelector('.event')) {
                 hasEvent = true;
             }
         });
+
         if (!hasEvent) {
             headerColumns[index].classList.add('no-event');
         } else {
