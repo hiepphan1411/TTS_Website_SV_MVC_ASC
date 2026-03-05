@@ -1,0 +1,158 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch theo tuần</title>
+
+    <link href="~/Content/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <link href="~/Scripts/"
+          rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/kendo-ui@2016.3.1118/styles/kendo.common.min.css"
+          rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/kendo-ui@2016.3.1118/styles/kendo.default.min.css"
+          rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/6f955e325d.js"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="~/Content/css/lich-theo-tuan.css" />
+</head>
+<body>
+    <main class="main-content">
+        <!-- Sidebar -->
+        <div id="sidebar-container"></div>
+        <!-- Details -->
+        <div class="container-fluid">
+            <!--Nav-->
+            <div class="navbar-header">
+                <div class="d-flex gap-3">
+                    <button type="button" class="navbar-brand">
+                        Hôm nay
+                    </button>
+
+                    <div class="nav-buttons week-nav">
+                        <button type="button" class="btn-prev-week">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </button>
+                        <button type="button" class="btn-next-week">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="nav-buttons filter-buttons">
+                    <button type="button" class="button-schedule">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <p>Tất cả</p>
+                    </button>
+                    <button type="button" class="button-schedule">
+                        <i class="fa-solid fa-calendar"></i>
+                        <p>Lịch học</p>
+                    </button>
+                    <button type="button" class="button-schedule">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <p>Lịch thi</p>
+                    </button>
+                </div>
+
+                <button type="button" class="btn-print">
+                    <i class="fa-solid fa-print"></i> In lịch
+                </button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-container">
+                <!-- Sidebar -->
+                <div class="sidebar-schedule">
+                    <!-- Calendar and Month Selector Wrapper -->
+                    <div>
+                        <!-- Month Selector -->
+                        <div class="month-selector">
+                            <button type="button">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <span class="month-text">Tháng 1, 2026</span>
+                            <button type="button">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="mini-calendar">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>CN</th>
+                                        <th>T2</th>
+                                        <th>T3</th>
+                                        <th>T4</th>
+                                        <th>T5</th>
+                                        <th>T6</th>
+                                        <th>T7</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Will be rendered by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="legend">
+                        <div class="legend-title">Chú thích</div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-theory"></div>
+                            <span>Lịch học lý thuyết</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-practice"></div>
+                            <span>Lịch học thực hành</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-exam"></div>
+                            <span>Lịch thi</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-online"></div>
+                            <span>Lịch học trực tuyến</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-suspended"></div>
+                            <span>Lịch tạm ngưng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar-content">
+                    <!-- Calendar Header - Will be rendered by JS -->
+                    <div class="calendar-header">
+                        <!-- Will be rendered by JS -->
+                    </div>
+
+                    <!-- Calendar Body - Will be rendered by JS -->
+                    <div class="calendar-body">
+                        <!-- Will be rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.14.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2016.3.1118/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/js/lich-theo-tuan.js"></script>
+</body>
+</html>
+
+
