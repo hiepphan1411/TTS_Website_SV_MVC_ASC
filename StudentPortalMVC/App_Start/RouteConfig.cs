@@ -18,6 +18,21 @@ namespace StudentPortalMVC
                 defaults: new { controller = "Dashboard", action = "Index" }
             );
             routes.MapRoute(
+                name: "LichTheoTuan",
+                url: "lich-theo-tuan",
+                defaults: new { controller = "LichTheoTuan", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "HocBong",
+                url: "hoc-bong",
+                defaults: new { controller = "HocBong", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "ThanhToanTrucTuyen",
+                url: "thanh-toan-truc-tuyen",
+                defaults: new { controller = "ThanhToanTrucTuyen", action = "Index" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

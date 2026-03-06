@@ -160,17 +160,112 @@
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dashboard.css" />
+    <Content Include="Content\css\hoc-bong.css" />
+    <Content Include="Content\css\lich-theo-tuan.css" />
+    <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
+    <Content Include="Content\images\napas-logo.png" />
+    <Content Include="Content\images\QR-payment.png" />
+    <Content Include="Content\images\user.png" />
+    <Content Include="Content\lib\bootstrap-grid.css" />
+    <Content Include="Content\lib\bootstrap-grid.min.css" />
+    <Content Include="Content\lib\bootstrap-grid.rtl.css" />
+    <Content Include="Content\lib\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\lib\bootstrap-reboot.css" />
+    <Content Include="Content\lib\bootstrap-reboot.min.css" />
+    <Content Include="Content\lib\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\lib\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\lib\bootstrap-utilities.css" />
+    <Content Include="Content\lib\bootstrap-utilities.min.css" />
+    <Content Include="Content\lib\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\lib\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\lib\bootstrap.css" />
     <Content Include="Content\lib\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap.rtl.css" />
+    <Content Include="Content\lib\bootstrap.rtl.min.css" />
     <Content Include="Content\lib\kendo-ui.common.min.css" />
     <Content Include="Content\lib\kendo.default.min.css" />
+    <Content Include="Content\lib\themes\base\accordion.css" />
+    <Content Include="Content\lib\themes\base\all.css" />
+    <Content Include="Content\lib\themes\base\autocomplete.css" />
+    <Content Include="Content\lib\themes\base\base.css" />
+    <Content Include="Content\lib\themes\base\button.css" />
+    <Content Include="Content\lib\themes\base\core.css" />
+    <Content Include="Content\lib\themes\base\datepicker.css" />
+    <Content Include="Content\lib\themes\base\dialog.css" />
+    <Content Include="Content\lib\themes\base\draggable.css" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\lib\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\lib\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\lib\themes\base\jquery-ui.css" />
+    <Content Include="Content\lib\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\lib\themes\base\menu.css" />
+    <Content Include="Content\lib\themes\base\progressbar.css" />
+    <Content Include="Content\lib\themes\base\resizable.css" />
+    <Content Include="Content\lib\themes\base\selectable.css" />
+    <Content Include="Content\lib\themes\base\selectmenu.css" />
+    <Content Include="Content\lib\themes\base\slider.css" />
+    <Content Include="Content\lib\themes\base\sortable.css" />
+    <Content Include="Content\lib\themes\base\spinner.css" />
+    <Content Include="Content\lib\themes\base\tabs.css" />
+    <Content Include="Content\lib\themes\base\theme.css" />
+    <Content Include="Content\lib\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
     <Content Include="obj\Debug\StudentPortalMVC.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
-    <Content Include="Scripts\common.js" />
-    <Content Include="Scripts\dashboard.js" />
-    <Content Include="Scripts\process-chuong-trinh-khung.js" />
-    <Content Include="Scripts\process-khoi-kien-thuc.js" />
+    <Content Include="Scripts\js\dashboard.js" />
+    <Content Include="Scripts\js\common.js" />
+    <Content Include="Scripts\js\hoc-bong.js" />
+    <Content Include="Scripts\js\lich-theo-tuan.js" />
+    <Content Include="Scripts\js\chuong-trinh-khung.js" />
+    <Content Include="Scripts\js\khoi-kien-thuc.js" />
+    <Content Include="Scripts\js\thanh-toan-truc-tuyen.js" />
+    <Content Include="Scripts\lib\bootstrap.bundle.js" />
+    <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\lib\bootstrap.esm.js" />
+    <Content Include="Scripts\lib\bootstrap.esm.min.js" />
+    <Content Include="Scripts\lib\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap.min.js" />
+    <Content Include="Content\lib\bootstrap-grid.css.map" />
+    <Content Include="Content\lib\bootstrap-grid.min.css.map" />
+    <Content Include="Content\lib\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\lib\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\lib\bootstrap-reboot.css.map" />
+    <Content Include="Content\lib\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\lib\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\lib\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\lib\bootstrap-utilities.css.map" />
+    <Content Include="Content\lib\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\lib\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\lib\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\lib\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap.min.css.map" />
+    <Content Include="Content\lib\bootstrap.rtl.min.css.map" />
+    <None Include="Scripts\lib\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\lib\jquery-3.7.1.js" />
+    <Content Include="Scripts\lib\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\lib\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\lib\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\lib\jquery-ui-1-14.1.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.14.1.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.14.1.min.js" />
+    <Content Include="Scripts\lib\kendo.all.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +273,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LichTheoTuanController.cs" />
+    <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,7 +313,19 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\ThanhToanTrucTuyen\ThanhToanTrucTuyen.cshtml" />
+    <Content Include="Scripts\lib\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\lib\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap.esm.js.map" />
+    <Content Include="Scripts\lib\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap.js.map" />
+    <Content Include="Scripts\lib\bootstrap.min.js.map" />
+    <Content Include="Scripts\lib\jquery-3.7.1.min.map" />
+    <Content Include="Scripts\lib\jquery-3.7.1.slim.min.map" />
+    <Content Include="Views\LichTheoTuan\LichTheoTuan.cshtml" />
+    <Content Include="Views\ThanhToanTrucTuyen\Index.cshtml" />
+    <Content Include="Views\HocBong\Index.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\KetQuaHocTap\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -225,7 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Scripts\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

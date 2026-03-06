@@ -29,6 +29,7 @@
     --orange-bg-light: #fff4e6;
     /* Text */
     --color-text-primary: #505050;
+    --color-text-secondary: #8e8e8e;
     --text-dark: #505050;
     --text-light: #666666;
     --text-muted: #999999;
@@ -43,15 +44,25 @@
     --shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.1);
     /* Icons */
     --gray-icon-color: #656565;
+    --primary-color: #3a74f0;
+    --secondary-color: #1976d2;
+    --success-color: #2e7d32;
+    --warning-color: #ff9800;
+    --danger-color: #d32f2f;
+    --dark-bg: #1a1a1a;
+    --success-green: #28a745;
+    --white: #ffffff;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: var(--primary-color);
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
+:root {
+    --border-color: #e4e4e4;
+    --gray-icon-color: #656565;
+    --table-border-color: #f7f7f7;
+    --table-header-bg: #f9fafb;
+    --color-text-primary: #505050;
+    --color-text-secondary: #8e8e8e;
 }
+
 
 
 /* Sidebar Styles */

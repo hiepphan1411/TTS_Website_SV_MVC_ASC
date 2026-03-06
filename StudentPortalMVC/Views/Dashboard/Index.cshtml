@@ -1,16 +1,19 @@
+@{
+    ViewBag.Title = "Dashboard";
+}
+
 @section styles {
-    <link rel="stylesheet" href="~/Content/css/common.css" />
-    <link rel="stylesheet" href="~/Content/css/dashboard.css"/>
+    <link rel="stylesheet" href="~/Content/css/dashboard.css" />
 }
 
 <main class="section-content content-area">
-    <div class="container-lg d-flex flex-column gap-3" style="padding: 20px">
+    <div class="container-lg d-flex flex-column gap-3">
         <!-- Highest priority -->
-        <div class="container-fluid">
+        <div>
             <div class="row gap-3">
                 <!-- student information -->
                 <div class="col-xl-4 student-card text-center">
-                    <div class="avatar-card mx-auto mb-3"></div>
+                    <div class="avatar-card mx-auto"></div>
                     <h6 class="fw-bold mb-0">Asc Test</h6>
                     <small class="fw-semibold text-muted">2552010678</small>
 
@@ -39,9 +42,9 @@
 
                 <!-- Lịch hôm nay -->
                 <div class="schedule-card col-xl-6 d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="fw-bold mb-0" style="font-size: 22px">
+                            <h6>
                                 Lịch hôm nay
                             </h6>
                             <small class="fw-semibold text-muted">Thứ Tư, 13 Tháng 01, 2026</small>
@@ -193,10 +196,10 @@
         </div>
 
         <!-- Quick Function Container -->
-        <div class="card-access shadow-sm mb-4">
+        <div class="card-access shadow-sm">
             <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h5 class="fw-bold mb-0">Truy cập nhanh</h5>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="card-title mb-0">Truy cập nhanh</h5>
                     <div class="btn-group btn-group-sm">
                         <button class="btn btn-toggle btn-compact active">
                             <i class="fas fa-compress-alt me-1"></i> Gần đây
@@ -227,7 +230,7 @@
                         </div>
                     </button>
 
-                    <button class="card-access-quick border-0 shadow-sm"
+                    <button class="card-access-quick shadow-sm"
                             onclick="window.location.href = '../html/dang-ky-hoc-phan.html'">
                         <div class="card-body d-flex align-items-center gap-3">
                             <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
@@ -245,7 +248,7 @@
                         </div>
                     </button>
 
-                    <button class="card-access-quick border-0 shadow-sm"
+                    <button class="card-access-quick shadow-sm"
                             onclick="window.location.href = '../html/lich-theo-tuan.html'">
                         <div class="card-body d-flex align-items-center gap-3">
                             <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
@@ -263,7 +266,7 @@
                         </div>
                     </button>
 
-                    <button class="card-access-quick border-0 shadow-sm"
+                    <button class="card-access-quick shadow-sm"
                             onclick="window.location.href = '../html/tra-cuu-cong-no.html'">
                         <div class="card-body d-flex align-items-center gap-3">
                             <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
@@ -281,7 +284,7 @@
                         </div>
                     </button>
 
-                    <button class="card-access-quick border-0 shadow-sm"
+                    <button class="card-access-quick shadow-sm"
                             onclick="window.location.href = '../html/khao-sat-su-kien.html'">
                         <div class="card-body d-flex align-items-center gap-3">
                             <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
@@ -485,7 +488,7 @@
                 </div>
                 <div class="card-body">
                     <!-- GPA and Progress Container -->
-                    <div class="gpa-progress-container mb-3">
+                    <div class="gpa-progress-container">
                         <!-- GPA Display Card -->
                         <div class="gpa-display-card rounded-4 text-white p-4">
                             <div class="gpa-label mb-2">GPA Tích lũy</div>
@@ -566,7 +569,7 @@
                     </select>
                 </div>
                 <div class="card-body">
-                    <div class="scholarship-list h-100 d-flex flex-column gap-3 mb-4">
+                    <div class="scholarship-list h-100 d-flex flex-column gap-3">
                         <div class="scholarship-item scholarship-approved">
                             <div class="scholarship-header">
                                 <div class="scholarship-name">
@@ -639,5 +642,5 @@
 </main>
 
 @section scripts {
-        <script src="~/Scripts/dashboard.js"></script>
+    <script src="~/Scripts/js/dashboard.js"></script>
 }

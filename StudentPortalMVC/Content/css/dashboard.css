@@ -1,11 +1,8 @@
-
-/* Main Content */
 .main-content {
     display: flex;
     min-height: calc(100vh - 70px);
 }
 
-/* Dashboard Content */
 .dashboard-content {
     flex: 1;
     padding: 20px;
@@ -14,11 +11,9 @@
     overflow-x: hidden;
 }
 
-/* first Priority Container */
 .container-fluid {
     margin-bottom: 20px;
 }
-/* info student */
 .student-card {
     border-radius: 16px;
     min-width: 300px;
@@ -72,8 +67,8 @@
 }
 
     .schedule-card h6 {
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 22px;
+        font-weight: bold;
         color: var(--text-dark);
     }
 
@@ -104,10 +99,16 @@
     color: var(--warning-orange) !important;
 }
 
-/* schedule items */
+
 .schedule-item-border {
     border-left: 2px solid #f7f7f7;
     padding: 20px 0 0 20px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-dark);
 }
 
 .schedule-item {
@@ -560,7 +561,6 @@
 /* Section Info */
 .section-info {
     width: 100%;
-    margin-top: 20px;
     height: auto;
 }
 
@@ -568,7 +568,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 16px;
-    margin-bottom: 20px;
 }
 
 /* Card Styles */
@@ -1535,6 +1534,7 @@ canvas.gpa-chart {
         .gpa-display-card .gpa-badge {
             font-size: 11px;
             padding: 3px 8px;
+            display: none;
         }
 
     .credit-number {
@@ -1848,16 +1848,14 @@ canvas.gpa-chart {
 }
 
     .card-access-quick:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        border-color: var(--primary-blue);
+        border-color: #d0d0d0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
     .card-access-quick .card-body {
         height: 100%;
         display: flex;
         min-width: 250px;
-        border: 0.5px solid var(--blue-bg-light);
         border-radius: 8px;
         align-items: center;
         padding: 12px !important;

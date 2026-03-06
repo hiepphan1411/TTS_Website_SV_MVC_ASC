@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - Student Portal</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Library CSS -->
+    <link rel="stylesheet" href="~/Content/css/common.css" />
     <link href="~/Content/lib/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/lib/kendo-ui.common.min.css rel="stylesheet" />
+    <link href="~/Content/lib/kendo-ui.common.min.css" rel="stylesheet" />
     <link href="~/Content/lib/kendo.default.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/6f955e325d.js" crossorigin="anonymous"></script>
 
@@ -28,10 +29,15 @@
         <!-- Details -->
         @RenderBody()
     </main>
-    <!-- Library JS -->
+    <!-- Footer -->
+    <div id="footer-container">
+        @Html.Partial("_Footer")
+    </div>
+
+
     <script src="~/Scripts/lib/jquery-3.7.1.min.js"></script>
     <script src="~/Scripts/lib/jquery-ui-1.14.1.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2016.3.1118/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/lib/kendo.all.min.js"></script>
     <script src="~/Scripts/lib/bootstrap.bundle.min.js"></script>
 
     <script src="~/Scripts/js/common.js"></script>
