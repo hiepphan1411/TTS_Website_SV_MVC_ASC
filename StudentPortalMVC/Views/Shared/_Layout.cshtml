@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - Student Portal</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Library CSS -->
+    <link href="~/Content/lib/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/lib/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/lib/kendo-ui.common.min.css rel="stylesheet" />
     <link href="~/Content/lib/kendo.default.min.css" rel="stylesheet" />
@@ -28,6 +29,10 @@
         <!-- Details -->
         @RenderBody()
     </main>
+    <!-- Footer -->
+    <div id="footer-container">
+        @Html.Partial("_Footer")
+    </div>
     <!-- Library JS -->
     <script src="~/Scripts/lib/jquery-3.7.1.min.js"></script>
     <script src="~/Scripts/lib/jquery-ui-1.14.1.min.js"></script>

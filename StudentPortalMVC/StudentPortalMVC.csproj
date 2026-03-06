@@ -160,6 +160,15 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
+    <Content Include="Content\css\dang-ky-muon-phong.css" />
+    <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
+    <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
+    <Content Include="Content\css\ghi-chu-nhac-nho.css" />
+    <Content Include="Content\css\ho-so-sinh-vien.css" />
+    <Content Include="Content\css\ket-qua-ren-luyen.css" />
+    <Content Include="Content\css\thong-tin-sinh-vien.css" />
+    <Content Include="Content\images\user.png" />
     <Content Include="Content\lib\bootstrap.rtl.css" />
     <Content Include="Content\lib\bootstrap.rtl.min.css" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
@@ -225,6 +234,14 @@
     <Content Include="obj\Debug\StudentPortalMVC.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
+    <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
+    <Content Include="Scripts\js\dang-ky-muon-phong.js" />
+    <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
+    <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
+    <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
+    <Content Include="Scripts\js\ho-so-sinh-vien.js" />
+    <Content Include="Scripts\js\ket-qua-ren-luyen.js" />
+    <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
     <Content Include="Scripts\lib\bootstrap.esm.js" />
@@ -253,6 +270,7 @@
     <Content Include="Content\lib\bootstrap-utilities.rtl.css.map" />
     <Content Include="Content\lib\bootstrap-utilities.rtl.min.css.map" />
     <Content Include="Content\lib\bootstrap.css.map" />
+    <Content Include="App_Data\ket-qua-ren-luyen.json" />
     <None Include="Scripts\lib\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.js" />
@@ -269,8 +287,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
+    <Compile Include="Controllers\DangKyChuyenNganhController.cs" />
+    <Compile Include="Controllers\DangKyMuonPhongController.cs" />
+    <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
+    <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
+    <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HoSoSinhVienController.cs" />
+    <Compile Include="Controllers\KetQuaRenLuyenController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
+    <Compile Include="Controllers\ThongTinSinhVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -306,6 +332,15 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Scripts\lib\jquery-3.7.1.slim.min.map" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.map" />
+    <Content Include="Views\KetQuaRenLuyen\KetQuaRenLuyen.cshtml" />
+    <Content Include="Views\DangKyMuonPhong\DangKyMuonPhong.cshtml" />
+    <Content Include="Views\DangKyChuyenNganh\DangKyChuyenNganh.cshtml" />
+    <Content Include="Views\GhiChuNhacNho\GhiChuNhacNho.cshtml" />
+    <Content Include="Views\HoSoSinhVien\HoSoSinhVien.cshtml" />
+    <Content Include="Views\ThongTinSinhVien\ThongTinSinhVien.cshtml" />
+    <Content Include="Views\DeXuatCapNhatThongTin\DeXuatCapNhatThongTin.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\DanhGiaRenLuyenLop\DanhGiaRenLuyenLop.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -324,7 +359,7 @@
     <Content Include="Views\LichTheoTuan\LichTheoTuan.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\images\" />
+    <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>

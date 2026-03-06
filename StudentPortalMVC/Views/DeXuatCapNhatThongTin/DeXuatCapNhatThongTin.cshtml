@@ -1,0 +1,797 @@
+﻿
+@{
+    ViewBag.Title = "Đề xuất cập nhật thông tin";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+    <link rel="stylesheet" href="~/Content/css/de-xuat-cap-nhat-thong-tin.css" />
+}
+
+<div class="container-lg pt-4">
+    <!-- Header -->
+    <div>
+        <h2 class="fw-bold mb-2">Cập nhật thông tin sinh viên</h2>
+        <p class="text-muted">
+            Vui lòng kiểm tra và hoàn thiện thông tin định danh cá
+            nhân.
+        </p>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="card border-0 rounded-3 shadow-sm">
+        <div class="card-header bg-white p-0">
+            <ul class="nav nav-tabs border-0"
+                id="mainTabs"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active px-4 py-3 fw-500"
+                            id="personal-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#personal"
+                            type="button"
+                            role="tab">
+                        Thông tin cá nhân
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link px-4 py-3 fw-500"
+                            id="certificate-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#certificate"
+                            type="button"
+                            role="tab">
+                        Bằng cấp
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link px-4 py-3 fw-500"
+                            id="family-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#family"
+                            type="button"
+                            role="tab">
+                        Quan hệ gia đình
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="tabContent">
+            <div class="tab-pane fade show active p-4"
+                 id="personal"
+                 role="tabpanel">
+                <form id="personalForm">
+                    <!-- Định danh cá nhân -->
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">
+                            Định danh cá nhân
+                        </h6>
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Họ đệm<span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Nhập họ tên"
+                                       value="Nguyễn Văn A" />
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Tên<span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Nhập họ tên"
+                                       value="Nguyễn Văn A" />
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Ngày sinh<span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="date"
+                                           class="form-control"
+                                           placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Giới tính
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="d-flex align-items-center pt-2">
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="gender"
+                                               id="male"
+                                               value="Nam"
+                                               checked />
+                                        <label class="form-check-label"
+                                               for="male">Nam</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="gender"
+                                               id="female"
+                                               value="Nữ" />
+                                        <label class="form-check-label"
+                                               for="female">Nữ</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Dân tộc
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select">
+                                    <option>Kinh</option>
+                                    <option>Tày</option>
+                                    <option>Mường</option>
+                                    <option>Khmer</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">Tôn giáo</label>
+                                <select class="form-select">
+                                    <option>Không</option>
+                                    <option>Phật giáo</option>
+                                    <option>Công giáo</option>
+                                    <option>Hồi giáo</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">Nơi sinh Tỉnh/Thành phố</label>
+                                <select class="form-select">
+                                    <option>
+                                        Chọn nơi sinh Tỉnh/Thành phố
+                                    </option>
+                                    <option>Hà Nội</option>
+                                    <option>TP. Hồ Chí Minh</option>
+                                    <option>Đà Nẵng</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">Nơi sinh Phường/Xã *</label>
+                                <select class="form-select">
+                                    <option>
+                                        Chọn nơi sinh Phường/Xã
+                                    </option>
+                                    <option>Phường 1</option>
+                                    <option>Phường 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Giấy tờ & Liên hệ -->
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">
+                            Giấy tờ & Liên hệ
+                        </h6>
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Số CCCD<span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="0000000000"
+                                       value="0000000000" />
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Ngày cấp<span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="date"
+                                           class="form-control"
+                                           placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Nơi cấp
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select">
+                                    <option>Chọn</option>
+                                    <option>Hà Nội</option>
+                                    <option>TP. Hồ Chí Minh</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">
+                                    Quốc tịch
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select">
+                                    <option>Việt Nam</option>
+                                    <option>Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="form-label fw-500">Email</label>
+                                <input type="email"
+                                       class="form-control"
+                                       placeholder="abcdef@gmail.com"
+                                       value="abcdef@gmail.com" />
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">Số điện thoại di động</label>
+                                <input type="tel"
+                                       class="form-control"
+                                       placeholder="0123456789"
+                                       value="0123456789" />
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label fw-500">Mã BHXH/BHYT</label>
+                                <input type="tel"
+                                       class="form-control"
+                                       placeholder="0123456789"
+                                       value="0123456789" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- hộ khẩu thường trú -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="section-box">
+                                <h6 class="section-title mb-3">
+                                    Hộ khẩu thường trú
+                                </h6>
+                                <div class="mb-3">
+                                    <label class="form-label fw-500">
+                                        Số nhà/Tên đường
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Nhập địa chỉ" />
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label class="form-label fw-500">
+                                            Nơi sinh Tỉnh/Thành phố
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select">
+                                            <option>
+                                                Chọn Tỉnh/Thành phố
+                                            </option>
+                                            <option>Hà Nội</option>
+                                            <option>
+                                                TP. Hồ Chí Minh
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="form-label fw-500">
+                                            Xã/ Phường<span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select">
+                                            <option>
+                                                Chọn Xã/ Phường
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="section-box">
+                                <h6 class="section-title mb-3">
+                                    Địa chỉ liên hệ
+                                </h6>
+                                <div class="mb-3">
+                                    <label class="form-label fw-500">
+                                        Số nhà/Tên đường
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Nhập địa chỉ" />
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label class="form-label fw-500">
+                                            Nơi sinh Tỉnh/Thành phố
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select">
+                                            <option>
+                                                Chọn Tỉnh/Thành phố
+                                            </option>
+                                            <option>Hà Nội</option>
+                                            <option>
+                                                TP. Hồ Chí Minh
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="form-label fw-500">
+                                            Xã/ Phường<span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select">
+                                            <option>
+                                                Chọn Xã/ Phường
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- đoàn - đảng, tuyển sinh -->
+
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">
+                            Đoàn - Đảng & Tuyển sinh
+                        </h6>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-500">Ngày vào Đoàn</label>
+                                <div class="input-group">
+                                    <input type="date"
+                                           class="form-control"
+                                           placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-500">Ngày vào Đảng</label>
+                                <div class="input-group">
+                                    <input type="date"
+                                           class="form-control"
+                                           placeholder="dd/mm/yyyy" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-500">Khu vực tuyên sinh</label>
+                                <select class="form-select">
+                                    <option>Khu vực 1</option>
+                                    <option>Khu vực 2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-500">Khu vực tuyên sinh</label>
+                                <select class="form-select">
+                                    <option>Khu vực 1</option>
+                                    <option>Khu vực 2</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-500">Dự tượng tuyển sinh *</label>
+                                <select class="form-select">
+                                    <option>Không</option>
+                                    <option>Có</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-500">Email phụ huynh *</label>
+                                <input type="email"
+                                       class="form-control"
+                                       placeholder="abcdef@gmail.com" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- thông tin ngân hàng -->
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">
+                            Thông tin ngân hàng
+                        </h6>
+                        <div class="row">
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label fw-500">Ngân hàng</label>
+                                <select class="form-select">
+                                    <option>Chọn ngân hàng</option>
+                                    <option>Vietcombank</option>
+                                    <option>Techcombank</option>
+                                    <option>BIDV</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label fw-500">Chi nhánh</label>
+                                <select class="form-select">
+                                    <option>Chọn chi nhánh</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label fw-500">Số tài khoản</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Nhập số tài khoản" />
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label fw-500">Tên chủ tài khoản</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Nhập tên chủ tài khoản" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thông tin THPT -->
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">
+                            Thông tin THPT
+                        </h6>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Năm tốt nghiệp THPT</label>
+                                <input type="year"
+                                       class="form-control"
+                                       placeholder="yyyy" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Trường tốt nghiệp THPT</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Tên trường" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Ký hiệu trường</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Ký hiệu trường" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Dự tương chính sách *</label>
+                                <select class="form-select">
+                                    <option>Không</option>
+                                    <option>Có</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Điểm môn 1</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Điểm" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Điểm môn 2</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Điểm" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Điểm môn 3</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Điểm" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Điểm thưởng (Nếu có)</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Điểm" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="form-label fw-500">Số báo danh</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-500">Độ tượng dự thi</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-500">
+                                    Kết quả học tập ở THPT, THBT,
+                                    THN, TCCN
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="" />
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label fw-500">Xếp loại về tốt nghiệp</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ghi chú -->
+                    <div class="section-box mb-4">
+                        <h6 class="section-title mb-3">Ghi chú</h6>
+                        <div class="mb-3">
+                            <label class="form-label fw-500">
+                                Lý do tuyển thẳng và được thưởng
+                                điểm
+                            </label>
+                            <textarea class="form-control"
+                                      rows="3"
+                                      placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-500">Khen thưởng, kỷ luật</label>
+                            <textarea class="form-control"
+                                      rows="3"
+                                      placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-500">
+                                Tóm tắt quá trình học tập, công tác
+                                và lao động
+                            </label>
+                            <textarea class="form-control"
+                                      rows="3"
+                                      placeholder=""></textarea>
+                        </div>
+                        <div>
+                            <label class="form-label fw-500">Để xuất thông tin khác</label>
+                            <textarea class="form-control"
+                                      rows="3"
+                                      placeholder=""></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- bằng cấp -->
+            <div class="tab-pane fade p-4"
+                 id="certificate"
+                 role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="section-title">
+                        Danh sách bằng cấp
+                    </h5>
+                    <button class="btn addFamilyBtn"
+                            id="addCertificateBtn"
+                            onclick="addCertificateItem()">
+                        <i class="fas fa-plus me-1"></i> Thêm mới
+                    </button>
+                </div>
+
+                <div class="row certificate-list"
+                     id="certificateList">
+                    <div class="col-md-6 mb-3">
+                        <div class="certificate-item-wrapper position-relative">
+                            <button class="btn-remove-certificate"
+                                    onclick="removeCertificate(this)"
+                                    title="Xóa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Số hiệu văn bằng</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder=""
+                                           value="VB123456789" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Ngày cấp</label>
+                                    <div class="input-group">
+                                        <input type="date"
+                                               class="form-control"
+                                               placeholder="01/01/2004"
+                                               value="15/06/2020" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Item 2 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="certificate-item-wrapper position-relative">
+                            <button class="btn-remove-certificate"
+                                    onclick="removeCertificate(this)"
+                                    title="Xóa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Số hiệu văn bằng</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder=""
+                                           value="VB987654321" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Ngày cấp</label>
+                                    <div class="input-group">
+                                        <input type="date"
+                                               class="form-control"
+                                               placeholder="01/01/2004"
+                                               value="20/08/2021" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Item 3 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="certificate-item-wrapper position-relative">
+                            <button class="btn-remove-certificate"
+                                    onclick="removeCertificate(this)"
+                                    title="Xóa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Số hiệu văn bằng</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder=""
+                                           value="" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-500 mb-2">Ngày cấp</label>
+                                    <div class="input-group">
+                                        <input type="date"
+                                               class="form-control"
+                                               placeholder="01/01/2004"
+                                               value="01/01/2004" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Family Relationships -->
+            <div class="tab-pane fade p-4"
+                 id="family"
+                 role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="section-title">
+                        Danh sách quan hệ gia đình
+                    </h5>
+                    <button class="btn addFamilyBtn"
+                            id="addFamilyBtn"
+                            onclick="addFamilyItem()">
+                        <i class="fas fa-plus me-1"></i> Thêm mới
+                    </button>
+                </div>
+
+                <div class="row" id="familyList">
+                    <!-- Family Item 1 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="family-item-wrapper position-relative">
+                            <button class="btn-remove-family"
+                                    onclick="removeFamily(this)"
+                                    title="Xóa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Họ và tên nhân thân</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Nhập họ tên"
+                                           value="Nguyễn Văn A" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Mối quan hệ</label>
+                                    <select class="form-select">
+                                        <option>Chọn</option>
+                                        <option selected>
+                                            Cha
+                                        </option>
+                                        <option>Mẹ</option>
+                                        <option>Anh</option>
+                                        <option>Em</option>
+                                        <option>Chị</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Năm sinh</label>
+                                    <div class="input-group">
+                                        <input type="number"
+                                               class="form-control"
+                                               placeholder="yyyy"
+                                               value="1975" />
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">
+                                        Số điện thoại di
+                                        động
+                                    </label>
+                                    <input type="tel"
+                                           class="form-control"
+                                           placeholder="Nhập số điện thoại"
+                                           value="0987654321" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Family Item 2 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="family-item-wrapper position-relative">
+                            <button class="btn-remove-family"
+                                    onclick="removeFamily(this)"
+                                    title="Xóa">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Họ và tên nhân thân</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Nhập họ tên"
+                                           value="Nguyễn Thị B" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Mối quan hệ</label>
+                                    <select class="form-select">
+                                        <option>Chọn</option>
+                                        <option>Cha</option>
+                                        <option selected>Mẹ</option>
+                                        <option>Anh</option>
+                                        <option>Em</option>
+                                        <option>Chị</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">Năm sinh</label>
+                                    <div class="input-group">
+                                        <input type="number"
+                                               class="form-control"
+                                               placeholder="yyyy"
+                                               value="1978" />
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-500 mb-2">
+                                        Số điện thoại di
+                                        động
+                                    </label>
+                                    <input type="tel"
+                                           class="form-control"
+                                           placeholder="Nhập số điện thoại"
+                                           value="0912345678" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="card-footer bg-white border-top p-4 d-flex justify-content-end gap-2">
+            <button type="button"
+                    class="btn btn-outline-secondary px-4">
+                Hủy
+            </button>
+            <button type="button" class="btn addFamilyBtn px-4">
+                Lưu thông tin
+            </button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/de-xuat-cap-nhat-thong-tin.js"></script>
+}
+

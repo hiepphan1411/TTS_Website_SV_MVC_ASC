@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký chuyên ngành";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/dang-ky-chuyen-nganh.css">
+    <link rel="stylesheet" href="~/Content/css/common.css">
+
+}
+<div class="container-lg pt-4">
+    <div class="p-3 bg-white rounded-3">
+        <div class="page-title">Đăng ký chuyên ngành</div>
+
+        <div id="statusAlert" class="mb-3">
+            <div id="warningAlert"
+                 class="alert alert-warning mb-0"
+                 role="alert">
+                <div class="d-flex align-items-start gap-2">
+                    <i class="fa-solid fa-circle-exclamation text-warning"
+                       style="margin-top: 2px"></i>
+                    <div style="font-size: 14px">
+                        <strong>Lưu ý:</strong> Việc đăng ký chuyên
+                        ngành chỉ được thực hiện
+                        <strong>1 lần duy nhất</strong> và không
+                        được hoàn tác sau khi xác nhận. Hãy cân nhắc
+                        kỹ lưỡng trước khi đăng ký.
+                    </div>
+                </div>
+            </div>
+
+            <div id="infoAlert"
+                 class="alert alert-warning mb-0 d-none"
+                 role="alert"
+                 style="
+                                background-color: #fff3cd;
+                                border: 1px solid #ffc107;
+                            ">
+                <div class="d-flex align-items-start gap-2">
+                    <i class="fas fa-exclamation-circle text-warning"
+                       style="margin-top: 2px"></i>
+                    <div style="font-size: 14px">
+                        <strong>Lưu ý:</strong> Hiện tại sinh viên
+                        không được phép thực hiện đăng ký chuyên
+                        ngành. Vui lòng liên hệ
+                        <strong>Phòng Đào Tạo</strong> để biết thêm
+                        chi tiết về kế hoạch và điều kiện đăng ký.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="registrationInfo" class="d-none">
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body p-4">
+                    <h6 class="mb-3"
+                        style="
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        color: #505050;
+                                    ">
+                        Thông tin chuyên ngành hiện tại
+                    </h6>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3"
+                                 style="
+                                                background-color: #f8f9fa;
+                                                border-radius: 8px;
+                                            ">
+                                <div class="text-uppercase text-muted mb-2 fw-bold"
+                                     style="
+                                                    font-size: 11px;
+
+                                                    letter-spacing: 0.5px;
+                                                ">
+                                    CHUYÊN NGÀNH
+                                </div>
+                                <div class="fw-bold mb-1"
+                                     style="font-size: 16px"
+                                     id="displaySpecialty">
+                                    <!-- Loaded data -->
+                                </div>
+                                <div class="text-muted"
+                                     style="font-size: 13px"
+                                     id="displayFaculty">
+                                    <!-- Loaded data -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3"
+                                 style="
+                                                background-color: #f8f9fa;
+                                                border-radius: 8px;
+                                            ">
+                                <div class="text-uppercase text-muted mb-2"
+                                     style="
+                                                    font-size: 11px;
+                                                    font-weight: 600;
+                                                    letter-spacing: 0.5px;
+                                                ">
+                                    LỚP HỌC
+                                </div>
+                                <div class="fw-bold mb-1"
+                                     style="font-size: 16px"
+                                     id="displayCode">
+                                    <!-- Loaded data -->
+                                </div>
+                                <div class="text-muted"
+                                     style="font-size: 13px"
+                                     id="displayAcademicYear">
+                                    <!-- Loaded data -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="registrationForm">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h6 class="mb-3"
+                        style="font-size: 15px; font-weight: 600">
+                        Ngành Công nghệ thông tin
+                    </h6>
+
+                    <form id="specialtyForm">
+                        <div class="row align-items-end g-3">
+                            <div class="col-md-1">
+                                <label for="specialtySelect"
+                                       class="form-label mb-2"
+                                       style="
+                                                    font-size: 14px;
+                                                    font-weight: 500;
+                                                    padding: 2px;
+                                                ">Chuyên ngành:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select id="specialtySelect"
+                                        class="form-select"
+                                        required
+                                        style="
+                                                    font-size: 14px;
+                                                    padding: 10px 12px;
+                                                ">
+                                    <option value=""
+                                            selected
+                                            disabled>
+                                        Chọn chuyên ngành
+                                    </option>
+                                    <!-- load data -->
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit"
+                                        class="btn btn-primary w-100"
+                                        style="
+                                                    padding: 10px;
+                                                    font-size: 14px;
+                                                    font-weight: 600;
+                                                ">
+                                    ĐĂNG KÝ
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/dang-ky-chuyen-nganh.js"></script>
+}

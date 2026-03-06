@@ -1,0 +1,295 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Sinh Viên";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/thong-tin-sinh-vien.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+<div class="container-lg pt-4">
+    <div class="row gx-3">
+        <div class="col-lg-3 student-info-sidebar">
+            <div class="sumary-info">
+                <div class="text-center mb-3">
+                    <div class="student-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="name-student">Asc Test</div>
+                    <small class="code-student">2552010678</small>
+                </div>
+
+                <div class="student-block-body">
+                    <div class="info-row">
+                        <span class="info-label">KHÓA HỌC</span>
+                        <span class="info-value">2025-2026</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">MÃ HỒ SƠ</span>
+                        <span class="info-value">11AAA12345678</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-block">
+                <div class="student-block-header">
+                    <p><i class="fa-solid fa-flag icon-info"></i></p>
+                    <p>Đoàn - Đảng</p>
+                </div>
+                <div class="student-block-body"
+                     style="background: none">
+                    <ul class="info-list">
+                        <li>
+                            Ngày vào đoàn<br /><span class="text-flag">20/07/2025</span>
+                        </li>
+                        <li>
+                            Ngày vào đảng<br /><span class="text-flag">Chưa kết nạp</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="student-block">
+                <div class="student-block-header">
+                    <div>
+                        <p><i class="fa-brands fa-cc-visa icon-info"></i></p>
+                    </div>
+
+                    <p>Thông tin thanh toán</p>
+                </div>
+                <div class="student-block-body"
+                     style="background: none; padding: 0">
+                    <div>
+                        <span class="info-label">Chủ tài khoản</span>
+                        <p class="info-value">Asc Test</p>
+                    </div>
+                    <div>
+                        <span class="info-label">Số tài khoản</span>
+                        <p class="info-value">
+                            **** **** 1234
+                            <i class="fa-solid fa-eye"></i>
+                        </p>
+                    </div>
+                    <div>
+                        <span class="info-label">Ngân hàng</span>
+                        <p class="info-value">
+                            Vietcombank - Chi nhánh Gò Vấp
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main content-->
+        <div class="col-lg-9">
+            <!-- thông tin học vấn -->
+            <div class="student-information">
+                <div class="student-section">
+                    <div class="section-header">
+                        <div class="student-block-header">
+                            <p><i class="fa-solid fa-graduation-cap icon-info"></i></p>
+                            <p>Thông tin học vấn</p>
+                        </div>
+                        <span class="student-badge">ĐANG HỌC</span>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                LOẠI HÌNH ĐÀO TẠO
+                            </div>
+                            <div class="grid-value">Chính quy</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                NGÀY VÀO TRƯỜNG
+                            </div>
+                            <div class="grid-value">20/09/2025</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                BẬC ĐÀO TẠO
+                            </div>
+                            <div class="grid-value">Đại học</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">CƠ SỞ</div>
+                            <div class="grid-value">
+                                Cơ sở 1 (Thành phố Hồ Chí Minh)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">LỚP HỌC</div>
+                            <div class="grid-value">DHKTPM188</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">KHOA</div>
+                            <div class="grid-value">
+                                Khoa Công nghệ Thông tin
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">NGÀNH</div>
+                            <div class="grid-value">
+                                Công nghệ thông tin
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                CHUYÊN NGÀNH
+                            </div>
+                            <div class="grid-value">
+                                Kỹ thuật phần mềm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- thông tin cá nhân -->
+                <div class="student-section">
+                    <div class="student-block-header">
+                        <p><i class="fa-solid fa-circle-user icon-info"></i></p>
+                        <p>Thông tin cá nhân</p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">NGÀY SINH</div>
+                            <div class="grid-value">20/11/2001</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">GIỚI TÍNH</div>
+                            <div class="grid-value">Nam</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">SỐ CCCD</div>
+                            <div class="grid-value">
+                                011101011111
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">ĐỐI TƯỢNG</div>
+                            <div class="grid-value">----</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">NƠI SINH</div>
+                            <div class="grid-value">
+                                TP Hồ Chí Minh
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">DÂN TỘC</div>
+                            <div class="grid-value">Kinh</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">NGÀY CẤP</div>
+                            <div class="grid-value">01/01/2020</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                DIỆN CHÍNH SÁCH
+                            </div>
+                            <div class="grid-value">-----</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">
+                                SỐ ĐIỆN THOẠI
+                            </div>
+                            <div class="grid-value">0123456789</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">TÔN GIÁO</div>
+                            <div class="grid-value">----</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">NƠI CẤP</div>
+                            <div class="grid-value">01/01/2020</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="grid-label">KHU VỰC</div>
+                            <div class="grid-value">Khu vực 1</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div>
+                            <div class="grid-label">EMAIL</div>
+                            <div class="grid-value">
+                                asctest123@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div>
+                            <div class="grid-label">
+                                ĐỊA CHỈ LIÊN HỆ
+                            </div>
+                            <div class="grid-value grid-full">
+                                2 Nguyễn Thế Lộc Str.,W.Bay Hien,
+                                HCM City, VIETNAM
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="grid-label">
+                                HỘ KHẨU THƯỜNG TRÚ
+                            </div>
+                            <div class="grid-value grid-full">
+                                2 Nguyễn Thế Lộc Str.,W.Bay Hien,
+                                HCM City, VIETNAM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- quan hệ gia đình -->
+                <div class="student-section">
+                    <div class="student-block-header">
+                        <p><i class="fa-solid fa-home icon-info"></i></p>
+                        <p>Quan hệ gia đình</p>
+                    </div>
+
+                    <div id="familyAccordion"></div>
+                </div>
+
+                <!-- thông tin CVHT/GVCN -->
+                <div class="student-section">
+                    <div class="student-block-header">
+                        <p><i class="fa-solid fa-address-book icon-info"></i></p>
+                        <p>Thông tin CVHT/GVCN</p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="grid-label">HỌ TÊN</div>
+                            <div class="grid-value">
+                                Nguyễn Văn A
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="grid-label">ĐIỆN THOẠI</div>
+                            <div class="grid-value">0123456789</div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="grid-label">EMAIL</div>
+                            <div class="grid-value grid-full">
+                                nguyenvana@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/thong-tin-sinh-vien.js"></script>
+
+}
+

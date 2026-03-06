@@ -1,11 +1,13 @@
 ﻿/* Theme chung */
 :root {
     --primary-blue: #3a74f0;
+    --secondary-blue: #153898;
     --primary-yellow: #ffb800;
     --success-green: #28a745;
     --light-gray: #f5f5f5;
     --border-color: #e4e4e4;
     --gray-icon-color: #656565;
+    --gray-text: #6c757d;
     --table-border-color: #f7f7f7;
     --table-header-bg: #f9fafb;
     --color-text-primary: #505050;
@@ -15,6 +17,14 @@
     --color-green-completed: #70ad47;
     --color-yellow-active: #ffc107;
     --border-thickness: 5px;
+    --red-badge: #dc3545;
+    --danger-color: #dc3545;
+    --red-text: #dc0000;
+    --text-light: #666666;
+    --text-muted: #6c757d;
+    --text-dark: #505050;
+    --bg-light: #e7e7e7;
+    --light-bg: #f5f7fa;
 }
 
 body {
