@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Khai báo BHYT";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/khai-bao-bhyt.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-title">Khai báo BHYT</div>
+        <div class="header-subtitle">
+            Trường hợp sinh viên không tham gia bảo hiểm y tế tại trường.
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="content-wrapper">
+        <!-- Form Title -->
+        <div class="bhyt-form-title">
+            <i class="fas fa-file-alt"></i>
+            Thông tin sinh viên không tham gia gia BHYT
+        </div>
+
+        <!-- Main Form -->
+        <form id="bhytForm" class="bhyt-form">
+            <!-- Row 1: Họ Tên, Giới tính, Lớp -->
+            <div class="bhyt-form-row">
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Họ và Tên
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="text"
+                           class="bhyt-form-input"
+                           id="fullName"
+                           placeholder="Nguyễn Văn A"
+                           required />
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Giới tính
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <div class="bhyt-radio-group">
+                        <label class="bhyt-radio-label">
+                            <input type="radio" name="gender" value="Nam" required />
+                            Nam
+                        </label>
+                        <label class="bhyt-radio-label">
+                            <input type="radio" name="gender" value="Nữ" />
+                            Nữ
+                        </label>
+                    </div>
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Lớp
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="text"
+                           class="bhyt-form-input"
+                           id="classInfo"
+                           placeholder="D.01.01.01"
+                           required />
+                </div>
+            </div>
+
+            <!-- Row 2: Ngày sinh, Quốc tịch, Dối tương BHYT -->
+            <div class="bhyt-form-row">
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Ngày sinh
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <div class="bhyt-date-input">
+                        <input type="date" id="birthDate" required />
+                    </div>
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Quốc tịch
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <select class="bhyt-form-select" id="nationality" required>
+                        <option value="">Việt Nam</option>
+                        <option value="other">Khác</option>
+                    </select>
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Dối tương tham gia BHYT
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <select class="bhyt-form-select" id="bhytCategory" required>
+                        <option value="">Đối tưọng khác</option>
+                        <option value="student">Sinh viên</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 3: Dân tộc, CCCD/Hộ chiếu, Mã BHXH -->
+            <div class="bhyt-form-row">
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Dân tộc
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <select class="bhyt-form-select" id="ethnicity" required>
+                        <option value="">Kinh</option>
+                        <option value="other">Khác</option>
+                    </select>
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        CCCD/Hộ chiếu
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="text"
+                           class="bhyt-form-input"
+                           id="idNumber"
+                           placeholder="Việt Nam"
+                           required />
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Mã BHXH
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="text"
+                           class="bhyt-form-input"
+                           id="socialCode"
+                           placeholder="8901234567"
+                           required />
+                </div>
+            </div>
+
+            <!-- Row 4: Số điện thoại, Email, Hộ số định kèm -->
+            <div class="bhyt-form-row">
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Số điện thoại
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="tel"
+                           class="bhyt-form-input"
+                           id="phoneNumber"
+                           placeholder="0123456789"
+                           required />
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">
+                        Email
+                        <span class="bhyt-required">*</span>
+                    </label>
+                    <input type="email"
+                           class="bhyt-form-input"
+                           id="email"
+                           placeholder="sinhvien@example.com"
+                           required />
+                </div>
+                <div class="bhyt-form-group">
+                    <label class="bhyt-form-label">Hồ sơ đính kèm</label>
+                    <div class="bhyt-upload-box">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>
+                            Kéo thả file hoặc
+                            <span class="bhyt-upload-link">nhấn để tải lên</span>
+                        </p>
+                        <p class="bhyt-upload-hint">
+                            Định dạng JPG, PNG, PDF (Max 30MB)
+                        </p>
+                        <input type="file"
+                               id="fileUpload"
+                               class="bhyt-file-input"
+                               accept=".jpg,.jpeg,.png,.pdf" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Box -->
+            <div class="bhyt-warning-box">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>
+                    Lưu ý: Sinh viên gửi lại hộ khẩu để báo cáo cho phòng Tài chính
+                    kế toán như thông tin liên liệc kế phía trên trong thời gian sớm
+                    nhất.
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="bhyt-action-buttons">
+                <button type="reset" class="bhyt-btn-cancel">Hủy bỏ</button>
+                <button type="submit" class="bhyt-btn-submit">Chính sửa</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/js/khai-bao-bhyt.js"></script>
+}

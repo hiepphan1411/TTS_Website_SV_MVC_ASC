@@ -157,8 +157,15 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\css\chi-tiet-khao-sat.css" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\dang-ky-noi-tru.css" />
+    <Content Include="Content\css\khai-bao-bhyt.css" />
+    <Content Include="Content\css\khao-sat-su-kien.css" />
+    <Content Include="Content\css\lich-su-bhyt.css" />
+    <Content Include="Content\css\lich-theo-tien-do.css" />
+    <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\lib\bootstrap.min.css" />
     <Content Include="Content\lib\kendo-ui.common.min.css" />
     <Content Include="Content\lib\kendo.default.min.css" />
@@ -167,15 +174,35 @@
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
+    <Content Include="Scripts\js\dang-ky-noi-tru.js" />
+    <Content Include="Scripts\js\khai-bao-bhyt.js" />
+    <Content Include="Scripts\js\khao-sat-su-kien.js" />
+    <Content Include="Scripts\js\lich-su-bhyt.js" />
+    <Content Include="Scripts\js\lich-theo-tien-do.js" />
+    <Content Include="Scripts\js\status-barchart.js" />
+    <Content Include="Scripts\js\thong-tin-diem-danh.js" />
+    <Content Include="Scripts\js\toggle-util.js" />
     <Content Include="Scripts\process-chuong-trinh-khung.js" />
     <Content Include="Scripts\process-khoi-kien-thuc.js" />
+    <Content Include="Views\KhaiBaoBHYT\Index.cshtml" />
+    <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
+    <Content Include="Views\ChiTietKhaoSat\Index.cshtml" />
+    <None Include="Views\LichSuBHYT\Index.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietKhaoSatController.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
+    <Compile Include="Controllers\DangKyNoiTruController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhaiBaoBHYTController.cs" />
+    <Compile Include="Controllers\KhaoSatSuKienController.cs" />
+    <Compile Include="Controllers\LichSuBHYTController.cs" />
+    <Compile Include="Controllers\LichTheoTienDoController.cs" />
+    <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,6 +236,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\ThongTinDiemDanh\Index.cshtml" />
+    <Content Include="Views\DangKyNoiTru\Index.cshtml" />
+    <Content Include="Views\LichTheoTienDo\Index.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -217,6 +248,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\ThongTinDiemDanh\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>

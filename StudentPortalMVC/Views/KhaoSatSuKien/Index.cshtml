@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Khảo sát sự kiện";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/khao-sat-su-kien.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-title">Khảo sát sự kiện</div>
+        <div class="header-subtitle">
+            Vui lòng hoàn thành các khảo sát để đánh giá đơn vị đạo tạo phát
+            triển tốt hơn
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section-full">
+        <!-- Tab Control -->
+        <div class="tab-control" style="padding: 10px 20px 0 0">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="pending">
+                    <i class="fas fa-list"></i> Danh sách phiếu chưa khảo sát
+                </button>
+                <button class="tab-btn" data-tab="completed">
+                    <i class="fas fa-check"></i> Danh sách phiếu đã khảo sát
+                </button>
+            </div>
+        </div>
+
+        <!-- Pending Surveys -->
+        <div id="pending-tab" class="tab-content active">
+            <div id="pendingSurveysList" class="sv-survey-list"></div>
+            <div id="pendingEmpty" class="sv-empty-state" style="display: none">
+                <i class="fas fa-inbox"></i>
+                <p>Không có phiếu khảo sát nào cần hoàn thành</p>
+            </div>
+        </div>
+
+        <!-- Completed Surveys -->
+        <div id="completed-tab" class="tab-content">
+            <div id="completedSurveysList" class="sv-survey-list"></div>
+            <div id="completedEmpty"
+                 class="sv-empty-state"
+                 style="display: none">
+                <i class="fas fa-inbox"></i>
+                <p>Chưa có phiếu khảo sát nào được hoàn thành</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/khao-sat-su-kien.js"></script>
+}

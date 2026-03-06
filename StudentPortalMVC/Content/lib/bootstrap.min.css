@@ -7391,6 +7391,9 @@ fieldset:disabled .btn {
 .d-inline-grid {
   display: inline-grid !important;
 }
+.grid-2x2 {
+
+}
 .d-table {
   display: table !important;
 }

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Lịch theo tiến độ";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/lich-theo-tien-do.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container-lg">
+    <div class="container-schedule">
+        <!-- Header Title -->
+        <div class="schedule-header">
+            <div class="schedule-title">Lịch học, thi theo tiến độ</div>
+            <div class="schedule-controls">
+                <button class="control-btn active" id="btnAll">
+                    <i class="fas fa-list"></i> Tất cả
+                </button>
+                <button class="control-btn" id="btnLecture">
+                    <i class="fas fa-book"></i> Lịch học
+                </button>
+                <button class="control-btn" id="btnExam">
+                    <i class="fas fa-edit"></i> Lịch thi
+                </button>
+
+                <select class="control-btn"
+                        style="border: 1px solid var(--color-border)">
+                    <option>HK1 (2025-2026)</option>
+                    <option>HK2 (2025-2026)</option>
+                    <option>HK1 (2024-2025)</option>
+                    <option>HK2 (2024-2025)</option>
+                    <option>HK1 (2023-2024)</option>
+                    <option>HK2 (2023-2024)</option>
+                </select>
+                <button class="control-btn print-btn" id="btnPrint">
+                    <i class="fas fa-print"></i> In lịch
+                </button>
+            </div>
+        </div>
+
+        <div class="schedule-content">
+            <table class="schedule-table" id="scheduleTable">
+                <thead>
+                    <!-- Header JavaScript -->
+                </thead>
+                <tbody id="scheduleBody">
+                    <!-- JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color theory"></div>
+                <span>Lịch học lý thuyết</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color practice"></div>
+                <span>Lịch học thực hành</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color online"></div>
+                <span>Lịch học trực tuyến</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color exam"></div>
+                <span>Lịch thi</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color offline"></div>
+                <span>Lịch tạm ngưng</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/lich-theo-tien-do.js"></script>
+}

@@ -1,0 +1,90 @@
+﻿.content-wrapper-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.attendance-total-card {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.authorized-leave {
+  background-color: #fff3d7;
+  color: #ff9800;
+}
+
+.unauthorized-leave {
+  background-color: #fef2f2;
+  color: #e61515;
+}
+
+#semesterButtonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.attendance-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.attendance-status.status-pass {
+  background-color: #ecfdf5;
+  color: #22c55e;
+}
+
+.attendance-status.status-fail {
+  background-color: #fef2f2;
+  color: #ef4444;
+}
+
+.section-summary {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-wrapper-tab-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  #semesterButtonGroup {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .attendance-total-card {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .table {
+    font-size: 11px;
+  }
+}

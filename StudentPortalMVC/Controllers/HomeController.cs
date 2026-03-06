@@ -6,7 +6,7 @@ namespace StudentPortalMVC.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "ChuongTrinhKhung");
+            return RedirectToAction("Index", "ChiTietKhaoSat");
         }
     }
 }

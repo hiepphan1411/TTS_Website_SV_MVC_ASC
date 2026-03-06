@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - Student Portal</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Library CSS -->
-    <link href="~/Content/lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/lib/kendo-ui.common.min.css" rel="stylesheet" />
     <link href="~/Content/lib/kendo.default.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/6f955e325d.js" crossorigin="anonymous"></script>
@@ -20,14 +20,19 @@
         @Html.Partial("_Header")
     </div>
 
-    <main class="main-content">
+    <main class="main-content pb-4">
         <!-- Sidebar -->
         <div id="sidebar-container">
             @Html.Partial("_Sidebar")
         </div>
-        <!-- Details -->
+        <!-- Content -->
         @RenderBody()
     </main>
+
+    <!-- Footer -->
+    <div id="footer-container">
+        @Html.Partial("_Footer")
+    </div>
     <!-- Library JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>

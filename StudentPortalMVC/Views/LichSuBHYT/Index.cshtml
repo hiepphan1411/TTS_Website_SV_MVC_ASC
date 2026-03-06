@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Lịch sử khai báo BHYT";
+}
+
+@section styles {
+<link rel="stylesheet" href="~/Content/css/lich-su-bhyt.css" />
+<link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <div class="header-section">
+        <span class="header-title">Lịch sử khai báo BHYT</span>
+        <span class="header-subtitle">Xem lịch sử các kỳ khai báo BHYT</span>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Filter and Search -->
+        <div class="d-flex flex-wrap gap-4 mb-4 align-items-end">
+            <div class="search-box" style="min-width: 150px">
+                <label for="periodSelect" class="form-label input-label">Đợt khai báo</label>
+                <select id="periodSelect" class="form-control">
+                    <option value="dot1-hk1">Đợt 1 - HK1</option>
+                    <option value="dot2-hk1">Đợt 2 - HK1</option>
+                    <option value="dot1-hk2">Đợt 1 - HK2</option>
+                </select>
+            </div>
+
+            <div class="search-box" style="min-width: 150px">
+                <label for="fromDate" class="form-label input-label">Từ ngày</label>
+                <input type="date"
+                       id="fromDate"
+                       class="form-control"
+                       placeholder="Từ ngày" />
+            </div>
+
+            <div class="search-box" style="min-width: 150px">
+                <label for="toDate" class="form-label input-label">Đến ngày</label>
+                <input type="date"
+                       id="toDate"
+                       class="form-control"
+                       placeholder="Đến ngày" />
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-custom primary" onclick="searchHistory()">
+                    <i class="fas fa-search"></i> Tìm kiếm
+                </button>
+                <button class="btn-custom" onclick="refreshHistory()">
+                    Làm mới
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-responsive">
+            <table class="table" id="historyTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th class="ps-4">ĐỢT KHAI BÁO</th>
+                        <th class="text-center">NGÀY BẮT ĐẦU</th>
+                        <th class="text-center">NGÀY KẾT THÚC</th>
+                        <th class="text-center">TRẠNG THÁI</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+<script src="~/Scripts/js/lich-su-bhyt.js"></script>
+}
