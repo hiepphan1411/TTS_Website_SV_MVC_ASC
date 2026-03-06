@@ -1,0 +1,228 @@
+[
+  {
+    "id": 1,
+    "semester": "HK1 (2025-2026)",
+    "score": 92,
+    "classification": "Xuất sắc",
+    "isCurrent": true,
+    "expanded": true,
+    "violations": [
+      {
+        "stt": 1,
+        "date": "15/10/2025",
+        "content": "Tham gia ngày hội hiến máu nhân đạo cấp Trường",
+        "type": "—",
+        "note": "Có giấy chứng nhận",
+        "points": "+5"
+      },
+      {
+        "stt": 2,
+        "date": "20/10/2025",
+        "content": "Tham gia hoạt động tình nguyện mùa hè xanh",
+        "type": "—",
+        "note": "Có xác nhận từ đơn vị",
+        "points": "+3"
+      },
+      {
+        "stt": 3,
+        "date": "05/11/2025",
+        "content": "Đạt giải Nhì cuộc thi Hackathon cấp Khoa",
+        "type": "—",
+        "note": "Có giấy khen",
+        "points": "+7"
+      },
+      {
+        "stt": 4,
+        "date": "15/11/2025",
+        "content": "Tham gia câu lạc bộ tin học",
+        "type": "—",
+        "note": "Tham gia đều đặn",
+        "points": "+2"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "semester": "HK2 (2024-2025)",
+    "score": 70,
+    "classification": "Khá",
+    "isCurrent": false,
+    "expanded": false,
+    "violations": [
+      {
+        "stt": 1,
+        "date": "10/03/2025",
+        "content": "Tham gia hoạt động chào cờ đầu tuần",
+        "type": "—",
+        "note": "Điểm danh đầy đủ",
+        "points": "+2"
+      },
+      {
+        "stt": 2,
+        "date": "15/03/2025",
+        "content": "Vi phạm quy định về trang phục",
+        "type": "Nhắc nhở",
+        "note": "Mặc quần jean rách",
+        "points": "-3"
+      },
+      {
+        "stt": 3,
+        "date": "20/04/2025",
+        "content": "Tham gia lao động vệ sinh công cộng",
+        "type": "—",
+        "note": "Hoàn thành tốt",
+        "points": "+3"
+      },
+      {
+        "stt": 4,
+        "date": "01/05/2025",
+        "content": "Đi học muộn không lý do",
+        "type": "Cảnh cáo",
+        "note": "Lần thứ 2 trong tháng",
+        "points": "-5"
+      },
+      {
+        "stt": 5,
+        "date": "10/05/2025",
+        "content": "Tham gia hoạt động văn nghệ khoa",
+        "type": "—",
+        "note": "Biểu diễn xuất sắc",
+        "points": "+4"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "semester": "HK1 (2024-2025)",
+    "score": 34,
+    "classification": "Yếu",
+    "isCurrent": false,
+    "expanded": false,
+    "violations": [
+      {
+        "stt": 1,
+        "date": "15/09/2024",
+        "content": "Vắng mặt không phép tại lễ khai giảng",
+        "type": "Cảnh cáo",
+        "note": "Không có lý do chính đáng",
+        "points": "-10"
+      },
+      {
+        "stt": 2,
+        "date": "20/09/2024",
+        "content": "Gây rối trong giờ học",
+        "type": "Khiển trách",
+        "note": "Làm ồn, ảnh hưởng lớp học",
+        "points": "-15"
+      },
+      {
+        "stt": 3,
+        "date": "01/10/2024",
+        "content": "Vi phạm nội quy ký túc xá",
+        "type": "Cảnh cáo",
+        "note": "Về muộn giờ quy định",
+        "points": "-8"
+      },
+      {
+        "stt": 4,
+        "date": "15/10/2024",
+        "content": "Không tham gia sinh hoạt lớp",
+        "type": "Nhắc nhở",
+        "note": "Vắng mặt 3 buổi liên tiếp",
+        "points": "-5"
+      },
+      {
+        "stt": 5,
+        "date": "05/11/2024",
+        "content": "Hút thuốc trong khuôn viên trường",
+        "type": "Khiển trách",
+        "note": "Vi phạm nghiêm trọng",
+        "points": "-12"
+      },
+      {
+        "stt": 6,
+        "date": "20/11/2024",
+        "content": "Tham gia lao động tập thể",
+        "type": "—",
+        "note": "Thực hiện tốt",
+        "points": "+3"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "semester": "HK2 (2023-2024)",
+    "score": 60,
+    "classification": "Trung bình",
+    "isCurrent": false,
+    "expanded": false,
+    "violations": [
+      {
+        "stt": 1,
+        "date": "10/02/2024",
+        "content": "Tham gia hoạt động tình nguyện",
+        "type": "—",
+        "note": "Nhiệt tình, tích cực",
+        "points": "+5"
+      },
+      {
+        "stt": 2,
+        "date": "15/03/2024",
+        "content": "Nộp bài tập muộn nhiều lần",
+        "type": "Nhắc nhở",
+        "note": "Không có lý do hợp lý",
+        "points": "-3"
+      },
+      {
+        "stt": 3,
+        "date": "01/04/2024",
+        "content": "Tham gia hoạt động thể thao",
+        "type": "—",
+        "note": "Đạt huy chương đồng",
+        "points": "+4"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "semester": "HK1 (2023-2024)",
+    "score": 30,
+    "classification": "Kém",
+    "isCurrent": false,
+    "expanded": false,
+    "violations": [
+      {
+        "stt": 1,
+        "date": "05/09/2023",
+        "content": "Gian lận trong thi cử",
+        "type": "Kỷ luật",
+        "note": "Bị đình chỉ thi 1 môn",
+        "points": "-20"
+      },
+      {
+        "stt": 2,
+        "date": "15/09/2023",
+        "content": "Đánh nhau trong trường",
+        "type": "Khiển trách",
+        "note": "Vi phạm nghiêm trọng",
+        "points": "-25"
+      },
+      {
+        "stt": 3,
+        "date": "20/10/2023",
+        "content": "Vi phạm quy định sử dụng mạng nội bộ",
+        "type": "Cảnh cáo",
+        "note": "Truy cập nội dung không phù hợp",
+        "points": "-10"
+      },
+      {
+        "stt": 4,
+        "date": "10/11/2023",
+        "content": "Tham gia sinh hoạt lớp",
+        "type": "—",
+        "note": "Có mặt đầy đủ",
+        "points": "+2"
+      }
+    ]
+  }
+]

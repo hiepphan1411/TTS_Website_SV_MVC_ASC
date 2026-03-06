@@ -2,20 +2,20 @@
 
 namespace StudentPortalMVC.Controllers
 {
-    public class LichTheoTuanController : Controller
+    public class KetQuaRenLuyenController : Controller
     {
+        // GET: KetQuaRenLuyen
         public ActionResult Index()
         {
-            return View("LichTheoTuan");
+            return View("KetQuaRenLuyen");
         }
 
         public ActionResult GetData()
         {
-            string filePath = Server.MapPath("~/App_Data/LichTheoTuan/lich-theo-tuan.json");
+            string filePath = Server.MapPath("~/App_Data/ket-qua-ren-luyen.json");
             string json = System.IO.File.ReadAllText(filePath);
             return Content(json, "application/json");
         }
 
-        
     }
 }

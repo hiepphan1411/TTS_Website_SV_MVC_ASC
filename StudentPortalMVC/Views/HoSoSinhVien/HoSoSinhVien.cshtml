@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Hồ sơ sinh viên";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/ho-so-sinh-vien.css">
+    <link rel="stylesheet" href="~/Content/css/common.css">
+}
+
+<div class="container-lg mt-4">
+    <h4 class="title">Hồ sơ sinh viên</h4>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr class="table-header">
+                    <th>STT</th>
+                    <th>TÊN HỒ SƠ</th>
+                    <th>BẮT BUỘC</th>
+                    <th>ĐÃ NHẬN</th>
+                    <th>ĐÍNH KÈM</th>
+                    <th>CHỌN CHI TIẾT ĐỂ ĐÍNH KÈM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        Giấy chứng nhận tốt nghiệp tạm thời hoặc
+                        Bằng tốt nghiệp THPT (Bản sao công chứng)
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Giấy chứng nhận tốt nghiệp tạm thời hoặc Bằng tốt nghiệp THPT (Bản sao công chứng)">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Giấy khai sinh bản sao công chứng</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Giấy khai sinh bản sao công chứng">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Học bạ THPT bản sao công chứng</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Học bạ THPT bản sao công chứng">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Căn cước công dân (Bản sao công chứng)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Căn cước công dân (Bản sao công chứng)">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>
+                        Chứng chỉ ngoại ngữ quốc tế (Bản sao công
+                        chứng)
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Chứng chỉ ngoại ngữ quốc tế">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        Giấy chứng nhận kết quả thi tốt nghiệp THPT
+                        năm 2024 (Bản sao công chứng)
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <button class="btn btn-sm btn-detail"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-title="Kết quả thi tốt nghiệp THPT 2024">
+                            Chi tiết
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal chi tiết hồ sơ -->
+<div class="modal fade"
+     id="detailModal"
+     tabindex="-1"
+     aria-labelledby="detailModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="border: none">
+            <div class="modal-header">
+                <p class="modal-title modal-title-custom"
+                   id="detailModalLabel"></p>
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <div class="upload-area mb-3">
+                    <p class="mb-2 fw-bold">
+                        Chọn file để nộp / bổ sung
+                    </p>
+                    <button type="button"
+                            class="btn btn-sm btn-upload-file">
+                        <i class="fa-solid fa-file-arrow-up"></i>
+                        Chọn file
+                    </button>
+                    <input type="file"
+                           id="fileInput"
+                           style="display: none" />
+                </div>
+
+                <div class="table-responsive scroll-x">
+                    <table class="table table-bordered table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên file</th>
+                                <th>Ngày nộp</th>
+                                <th>Trạng thái</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5"
+                                    class="empty-message">
+                                    Không có dữ liệu hiển thị
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/ho-so-sinh-vien.js"></script>
+}
