@@ -293,8 +293,6 @@ $(document).ready(function () {
                                   </div>
                               </div>
                             
-                              <hr class="course-divider" />
-                            
                               <div class="progress-section">
                                   <div class="progress-title mb-2">Tiến độ học</div>
                               

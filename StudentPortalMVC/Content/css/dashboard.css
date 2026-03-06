@@ -14,6 +14,7 @@
 .container-fluid {
     margin-bottom: 20px;
 }
+
 .student-card {
     border-radius: 16px;
     min-width: 300px;
@@ -55,7 +56,7 @@
     color: #56a2e8;
     text-decoration: none;
 }
-/* schedule */
+
 .schedule-card {
     border: none;
     border-radius: 12px;
@@ -82,6 +83,12 @@
     gap: 10px;
 }
 
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-dark)
+}
+
 .badge {
     font-size: 13px;
     padding: 6px 12px;
@@ -103,12 +110,6 @@
 .schedule-item-border {
     border-left: 2px solid #f7f7f7;
     padding: 20px 0 0 20px;
-}
-
-.card-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--text-dark);
 }
 
 .schedule-item {
@@ -1030,13 +1031,19 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
-    min-height: 480px;
+    height: 480px;
 }
+
+    .section-3 > div {
+        height: 100%;
+    }
 
 .chart-container {
     background: white;
     border-radius: 8px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -1083,7 +1090,8 @@
 .chart-wrapper {
     position: relative;
     width: 100%;
-    height: 300px;
+    flex: 1;
+    min-height: 280px;
 }
 
 canvas.gpa-chart {
@@ -1196,7 +1204,9 @@ canvas.gpa-chart {
     background: #fff;
     border-radius: 12px;
     padding: 20px;
-    height: 100%;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
 }
 
 .semester-select {
@@ -1248,6 +1258,11 @@ canvas.gpa-chart {
     font-weight: bold;
     background: #1d84e1;
     border-radius: 8px;
+}
+
+#gpaChart {
+    width: 100%;
+    height: 100%;
 }
 
 .course-title {
@@ -1338,15 +1353,25 @@ canvas.gpa-chart {
     }
 
 .course-list-wrapper {
-    max-height: 86%;
-    overflow-x: auto;
+    flex: 1;
+    overflow-y: auto;
     overflow-x: hidden;
+    min-height: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 1400px) {
     .section-3 {
         grid-template-columns: 1fr;
+        height: auto;
+    }
+
+        .section-3 > div {
+            height: auto;
+        }
+
+    .course-list-wrapper {
+        max-height: 400px;
     }
 
     .dashboard-content {
@@ -1534,7 +1559,6 @@ canvas.gpa-chart {
         .gpa-display-card .gpa-badge {
             font-size: 11px;
             padding: 3px 8px;
-            display: none;
         }
 
     .credit-number {
@@ -1841,21 +1865,23 @@ canvas.gpa-chart {
     min-height: 80px;
     border-radius: 12px;
     background-color: white;
-    border: 0.5px solid var(--blue-bg-light);
+    border: 1px solid #e8e8e8;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
     .card-access-quick:hover {
-        border-color: #d0d0d0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        border-color: var(--primary-blue);
     }
 
     .card-access-quick .card-body {
         height: 100%;
         display: flex;
         min-width: 250px;
+        border: 0.5px solid var(--blue-bg-light);
         border-radius: 8px;
         align-items: center;
         padding: 12px !important;
