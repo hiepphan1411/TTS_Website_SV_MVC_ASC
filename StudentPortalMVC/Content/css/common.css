@@ -54,17 +54,6 @@
     --white: #ffffff;
 }
 
-:root {
-    --border-color: #e4e4e4;
-    --gray-icon-color: #656565;
-    --table-border-color: #f7f7f7;
-    --table-header-bg: #f9fafb;
-    --color-text-primary: #505050;
-    --color-text-secondary: #8e8e8e;
-}
-
-
-
 /* Sidebar Styles */
 .sidebar {
     position: fixed;

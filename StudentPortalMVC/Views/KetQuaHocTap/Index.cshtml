@@ -1,7 +1,166 @@
-@{ 
+@{
     ViewBag.title = "Kết quả học tập";
 }
 
 @section styles {
-        
+    <link rel="stylesheet" href="~/Content/css/ket-qua-hoc-tap.css" />
 }
+
+<main class="container-lg section-content content-area">
+    <!-- Page Header -->
+    <div class="header-section">
+        <div class="header-title">Kết quả học tập</div>
+        <div class="header-subtitle">
+            Xem điểm số và kết quả học tập của bạn
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="summary-card primary">
+            <div>
+                <div class="card-label">GPA Tích lũy</div>
+                <div class="card-value">
+                    3.62<span class="card-scale">/4.0</span>
+                </div>
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>
+                <span>Xếp loại: Giỏi</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm trung bình (Hệ 10)</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Tổng tín chỉ hoàn thành</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm rèn luyện</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+                <!-- <div class="card-sub-label">Khá</div> -->
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>
+                <span>Xếp loại: Khá</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="semester-selection">
+        <!-- Semester Tabs -->
+        <span class="fw-semibold fs-[18px]">Chọn học kỳ</span>
+        <div class="semester-tabs">
+            <!-- JS Render -->
+        </div>
+        <!-- Statistics Cards -->
+        <div class="stats-grid" hidden>
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">7</span>
+                    <span class="stat-text">Môn học</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">12</span>
+                    <span class="stat-text">Tín chỉ</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">3.75</span>
+                    <span class="stat-text">GPA HK này</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">8.40</span>
+                    <span class="stat-text">Điểm TB (Hệ 10)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-section">
+        <div class="table-header">
+            <h3>Bảng điểm chi tiết - HK2 (2024-2025)</h3>
+            <div class="table-actions">
+                <button class="action-btn" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Tất cả
+                </button>
+                <button class="action-btn" hidden>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Cần cải thiện
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <!-- JS Render Table -->
+        </div>
+    </div>
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>So sánh điểm theo học kỳ</h3>
+                <select class="form-select form-select-sm"
+                        id="semesterChartSelect"
+                        style="width: auto"></select>
+            </div>
+            <div class="chart-body">
+                <div id="gradeDistChart"></div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>Xu hướng GPA qua các học kỳ</h3>
+            </div>
+            <div class="chart-body">
+                <div id="gpaTrendChart"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section scripts {
+    <script src="~/Scripts/js/ket-qua-hoc-tap.js"></script>    
+} 

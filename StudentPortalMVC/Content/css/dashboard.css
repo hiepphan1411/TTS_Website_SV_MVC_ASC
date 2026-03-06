@@ -441,13 +441,12 @@
 }
 
     .btn-toggle:hover {
-        background-color: #f0f5ff;
-        color: var(--info-color);
-        border-color: var(--info-color);
+        color: var(--primary-blue);
+        border-color: var(--primary-blue);
     }
 
     .btn-toggle.active {
-        background-color: var(--info-color) !important;
+        background-color: var(--primary-blue) !important;
         color: var(--white) !important;
         border-color: var(--info-color) !important;
         font-weight: 600;
@@ -1872,16 +1871,14 @@ canvas.gpa-chart {
 }
 
     .card-access-quick:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        border-color: var(--primary-blue);
+        border-color: #d0d0d0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
     .card-access-quick .card-body {
         height: 100%;
         display: flex;
         min-width: 250px;
-        border: 0.5px solid var(--blue-bg-light);
         border-radius: 8px;
         align-items: center;
         padding: 12px !important;

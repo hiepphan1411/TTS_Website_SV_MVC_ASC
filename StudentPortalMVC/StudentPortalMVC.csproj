@@ -161,6 +161,7 @@
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\css\hoc-bong.css" />
+    <Content Include="Content\css\ket-qua-hoc-tap.css" />
     <Content Include="Content\css\lich-theo-tuan.css" />
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
     <Content Include="Content\images\napas-logo.png" />
@@ -232,6 +233,7 @@
     <Content Include="Scripts\js\dashboard.js" />
     <Content Include="Scripts\js\common.js" />
     <Content Include="Scripts\js\hoc-bong.js" />
+    <Content Include="Scripts\js\ket-qua-hoc-tap.js" />
     <Content Include="Scripts\js\lich-theo-tuan.js" />
     <Content Include="Scripts\js\chuong-trinh-khung.js" />
     <Content Include="Scripts\js\khoi-kien-thuc.js" />
@@ -257,6 +259,7 @@
     <Content Include="Content\lib\bootstrap.css.map" />
     <Content Include="Content\lib\bootstrap.min.css.map" />
     <Content Include="Content\lib\bootstrap.rtl.min.css.map" />
+    <Content Include="App_Data\LichTheoTuan\lich-theo-tuan.json" />
     <None Include="Scripts\lib\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.js" />
@@ -275,6 +278,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KetQuaHocTapController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
     <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
     <Compile Include="Global.asax.cs">

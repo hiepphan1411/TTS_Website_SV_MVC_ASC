@@ -28,6 +28,11 @@ namespace StudentPortalMVC
                 defaults: new { controller = "HocBong", action = "Index" }
             );
             routes.MapRoute(
+                name: "KetQuaHocTap",
+                url: "ket-qua-hoc-tap",
+                defaults: new { controller = "KetQuaHocTap", action = "Index" }
+            );
+            routes.MapRoute(
                 name: "ThanhToanTrucTuyen",
                 url: "thanh-toan-truc-tuyen",
                 defaults: new { controller = "ThanhToanTrucTuyen", action = "Index" }
