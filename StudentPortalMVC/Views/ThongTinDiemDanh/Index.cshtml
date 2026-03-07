@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin điểm danh";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+    <link rel="stylesheet" href="~/Content/css/thong-tin-diem-danh.css" />
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <div class="header-section">
+        <div class="header-title">Thông tin điểm danh</div>
+        <div class="header-subtitle">
+            Theo dõi số tiết nghỉ chi tiết trong các kỳ của sinh viên.
+        </div>
+    </div>
+
+    <div class="content-wrapper-column">
+        <!-- Controls Section -->
+        <div class="content-wrapper-tab-group">
+            <div class="search-box" style="flex: 1; min-width: 300px">
+                <input type="text"
+                       id="searchInput"
+                       placeholder="Tìm kiếm khóa học..." />
+            </div>
+            <div class="action-buttons">
+                <button class="btn-custom primary" id="filterAll">
+                    <i class="fas fa-bars"></i>
+                    Tất cả
+                </button>
+                <div id="semesterButtonGroup">
+                    <!-- JavaScript Render -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Semester Attendance Table -->
+        <div class="content-wrapper" id="expandableSections">
+            <!-- JavaScript Render -->
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/status-barchart.js"></script>
+    <script src="~/Scripts/js/toggle-util.js"></script>
+    <script src="~/Scripts/js/thong-tin-diem-danh.js"></script>
+}

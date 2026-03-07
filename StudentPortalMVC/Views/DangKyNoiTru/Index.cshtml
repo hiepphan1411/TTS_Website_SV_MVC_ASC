@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "Đăng ký nội trú";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/dang-ky-noi-tru.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4"> 
+    <div class="header-section">
+        <div class="header-title">Đăng ký nội trú</div>
+        <div class="header-subtitle">
+            Vui lòng hoàn thành các bước dưới đây để đăng ký chỗ ở
+        </div>
+    </div>
+
+    <form id="dormForm" class="dorm-form">
+        <!-- Step 1: Basic Information -->
+        <div class="dorm-section">
+            <div class="dorm-section-header">
+                <span class="dorm-step-number">1. </span>
+                <span class="dorm-step-text">Thông tin cơ bản</span>
+            </div>
+
+            <div class="dorm-section-content">
+                <div class="dorm-form-grid">
+                    <div class="dorm-form-group">
+                        <label>Năm học <span class="dorm-required">*</span></label>
+                        <select id="academicYear" class="dorm-select">
+                            <option value="">Chọn năm học</option>
+                            <option value="2025-2026">2025-2026</option>
+                            <option value="2024-2025">2024-2025</option>
+                            <option value="2023-2024">2023-2024</option>
+                        </select>
+                    </div>
+
+                    <div class="dorm-form-group">
+                        <label>Đợt đăng ký <span class="dorm-required">*</span></label>
+                        <select id="registrationRound" class="dorm-select">
+                            <option value="">Chọn đợt đăng ký</option>
+                            <option value="dot1">Đợt 1 - HK1</option>
+                            <option value="dot2">Đợt 2 - HK2</option>
+                        </select>
+                    </div>
+
+                    <div class="dorm-form-group">
+                        <label>Ngày đăng ký <span class="dorm-required">*</span></label>
+                        <input type="date" id="registrationDate" class="dorm-input" />
+                    </div>
+
+                    <div class="dorm-form-group">
+                        <label>Loại xe</label>
+                        <select id="housingType" class="dorm-select">
+                            <option value="">Không đăng ký</option>
+                            <option value="single">Phòng đơn</option>
+                            <option value="double">Phòng đôi</option>
+                            <option value="shared">Phòng dorm</option>
+                        </select>
+                    </div>
+
+                    <div class="dorm-form-group">
+                        <label>Biển số xe</label>
+                        <input type="text" id="bedNumber" class="dorm-input" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 2: Dormitory Period -->
+        <div class="dorm-section">
+            <div class="dorm-section-header">
+                <span class="dorm-step-number">2. </span>
+                <span class="dorm-step-text">Thời gian nội trú</span>
+            </div>
+
+            <div class="dorm-section-content">
+                <div class="dorm-month-tabs" id="monthTabs">
+                    <!-- Months will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Choose Room -->
+        <div class="dorm-section-full">
+            <div class="dorm-section-header"
+                 style="margin-top: 15px; margin-left: 20px; margin-right: 20px">
+                <span class="dorm-step-number">3. </span>
+                <span class="dorm-step-text">Chọn nơi ở</span>
+            </div>
+
+            <div class="dorm-section-content-full">
+                <div class="dorm-room-selection">
+                    <div class="dorm-room-filters">
+                        <div class="dorm-form-group">
+                            <span class="secondary-label">CƠ SỞ <span class="dorm-required">*</span></span>
+                            <select id="buildingSelect" class="dorm-select">
+                                <option value="">Cơ sở chính</option>
+                            </select>
+                        </div>
+
+                        <div class="dorm-form-group">
+                            <span class="secondary-label">NHÓM ĐỊA ĐIỂM <span class="dorm-required">*</span></span>
+                            <select id="familyGroupSelect" class="dorm-select">
+                                <option value="">Cơ sở 1</option>
+                            </select>
+                        </div>
+
+                        <div class="dorm-form-group">
+                            <span class="secondary-label">DÃY NHÀ</span>
+                            <select id="floorSelect" class="dorm-select">
+                                <option value="">Tòa nhà KTX2</option>
+                            </select>
+                        </div>
+
+                        <div class="dorm-form-group">
+                            <span class="secondary-label">PHÂN LOẠI PHÒNG</span>
+                            <select id="roomTypeSelect" class="dorm-select">
+                                <option value="">Tất cả</option>
+                            </select>
+                        </div>
+
+                        <div class="dorm-form-group">
+                            <span class="secondary-label">TẦNG</span>
+                            <select id="floorSelect" class="dorm-select">
+                                <option value="">Tất cả</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="dorm-btn-primary">
+                            <i class="fas fa-search"></i> Tìm kiếm
+                        </button>
+                    </div>
+
+                    
+
+                    <div class="dorm-room-display">
+                        <button type="button" class="dorm-building-toggle" id="buildingToggle">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+
+                        <div class="dorm-building-list" id="buildingList">
+                            <button type="button" class="dorm-building-close" id="buildingClose">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <!-- JavaScript Render -->
+                        </div>
+
+                        <div class="dorm-floor-list">
+                            <div id="floorTabsContainer" class="dorm-floor-list">
+                                <!-- JavaScript Render -->
+                            </div>
+
+                            <div class="dorm-room-legend">
+                                <div class="dorm-legend-item">
+                                    <i class="fas fa-user dorm-legend-icon available"></i>
+                                    <span>Chờ trống</span>
+                                </div>
+                                <div class="dorm-legend-item">
+                                    <i class="fas fa-user dorm-legend-icon occupied"></i>
+                                    <span>Đã có người</span>
+                                </div>
+                                <div class="dorm-legend-item">
+                                    <i class="fas fa-user dorm-legend-icon selected"></i>
+                                    <span>Đang chọn</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dorm-selected-room" id="selectedRoom">
+                        <!-- JavaScript Render -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Pricing Table -->
+        <div class="dorm-section-full">
+            <div class="dorm-section-header"
+                 style="margin-top: 15px; margin-left: 20px; margin-right: 20px">
+                <span class="dorm-step-number">4. </span>
+                <span class="dorm-step-text">Bảng giá phòng</span>
+            </div>
+
+            <div class="dorm-section-content-full">
+                <div class="dorm-table-wrapper">
+                    <table class="dorm-price-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">STT</th>
+                                <th>Cơ sở</th>
+                                <th>Dãy nhà</th>
+                                <th class="text-center">Tầng</th>
+                                <th class="text-center">Phòng</th>
+                                <th class="text-center">Giường</th>
+                                <th>Thăng/Năm</th>
+                                <th class="text-end">Đơn giá</th>
+                            </tr>
+                        </thead>
+                        <tbody id="priceTableBody">
+                            <!-- Pricing data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dorm-total-price">
+                <span>TỔNG TIỀN</span>
+                <span class="dorm-price-amount" id="totalPrice">0 VND</span>
+            </div>
+        </div>
+
+        <!-- Step 5: Complete Registration -->
+        <div class="dorm-section">
+            <div class="dorm-section-header">
+                <span class="dorm-step-number">5. </span>
+                <span class="dorm-step-text">Hoàn tất đăng ký</span>
+            </div>
+
+            <div class="dorm-section-content">
+                <div class="dorm-form-group">
+                    <label>Ghi chú thêm</label>
+                    <textarea id="additionalNotes"
+                              class="dorm-textarea"
+                              placeholder="Nhập yêu cầu hoặc ghi chú chi tiết có..."></textarea>
+                </div>
+
+                <div class="dorm-terms">
+                    <input type="checkbox" id="termsCheckbox" />
+                    <p>
+                        Tôi đã đọc và đồng ý với các
+                        <a href="#" class="dorm-link">điều khoản nội quy ký túc xá</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="dorm-form-actions">
+            <button type="button" class="dorm-btn-secondary">Hủy bỏ</button>
+            <button type="submit" class="dorm-btn-primary">
+                <i class="fas fa-check"></i> ĐĂNG KÝ NỘI TRÚ
+            </button>
+        </div>
+    </form>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/js/dang-ky-noi-tru.js"></script>
+}

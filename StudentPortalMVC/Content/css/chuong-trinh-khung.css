@@ -23,13 +23,6 @@
   background-color: #0052a3;
 }
 
-.content-wrapper {
-  background-color: white;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
 .progress-section {
   display: flex;
   flex-direction: column;
@@ -136,44 +129,6 @@
   color: var(--color-text-primary);
   font-weight: 500;
   margin-top: 8px;
-}
-
-.content-wrapper-tab-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.tab-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  padding: 10px;
-  gap: 10px;
-  background-color: #f1f5f9;
-  border-radius: 16px;
-}
-
-.tab-btn {
-  padding: 5px 30px;
-  border-radius: 12px;
-  color: var(--color-text-primary);
-  font-size: 13px;
-  border: 1px solid #eef2f6;
-  background-color: transparent;
-}
-
-.tab-btn.active {
-  background-color: #ffffff;
-  color: var(--primary-blue);
-  font-weight: 600;
 }
 
 .controls-section {
@@ -643,21 +598,20 @@
 }
 
 .knowledge-blocks {
-    /*  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 30px;
-  padding: 0px 50px;*/
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    position: relative;
-    padding-bottom: 32px;
-    overflow: visible;
+  position: relative;
+  padding-bottom: 32px;
+  overflow: visible;
 }
 
 .knowledge-block {
   text-align: center;
+  min-width: 180px;
+  flex: 0 1 auto;
 }
 
 .circle-progress {
@@ -745,64 +699,6 @@
   width: 12px;
   height: 12px;
   border-radius: 2px;
-}
-
-/* BẢNG DỮ LIỆU (Data Tables) */
-#expandableSections {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.expandable-section {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.section-header {
-  background-color: white;
-  padding: 15px 20px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.3s;
-}
-
-.section-header:hover {
-  background-color: #f9f9f9;
-}
-
-.section-header-text {
-  font-weight: 600;
-  color: var(--primary-blue);
-  font-size: 14px;
-}
-
-.section-meta {
-  font-size: 12px;
-  color: #666;
-  margin-top: 3px;
-}
-
-.section-icon {
-  color: var(--gray-icon-color);
-  transition: transform 0.3s;
-}
-
-.section-icon.rotated {
-  transform: rotate(-180deg);
-}
-
-.section-contents {
-  display: none;
-  background-color: white;
-  border-top: 1px solid var(--border-color);
-}
-
-.section-contents.active {
-  display: block;
 }
 
 .semester-title {
@@ -1144,7 +1040,21 @@
   }
 
   .knowledge-blocks {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .knowledge-block {
+    min-width: 150px;
+  }
+
+  .circle-progress {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-text {
+    font-size: 14px;
   }
 
   .controls-section {
@@ -1157,6 +1067,39 @@
 @media (max-width: 768px) {
   .timeline-wrapper {
     display: none;
+  }
+
+  .knowledge-block-overview {
+    gap: 15px;
+  }
+
+  .knowledge-blocks {
+    gap: 20px;
+  }
+
+  .knowledge-block {
+    min-width: 140px;
+  }
+
+  .circle-progress {
+    width: 90px;
+    height: 90px;
+  }
+
+  .circle-text {
+    font-size: 13px;
+  }
+
+  .block-title {
+    font-size: 12px;
+  }
+
+  .legend {
+    gap: 20px;
+  }
+
+  .legend-item {
+    font-size: 0.813rem;
   }
 
   .timeline-mobile {
@@ -1313,25 +1256,88 @@
     flex-direction: column;
     gap: 1rem;
   }
+}
 
-  .tab-buttons {
-    justify-content: stretch;
-    width: 100%;
+/* Small Tablet */
+@media (max-width: 767px) and (min-width: 577px) {
+  .knowledge-blocks {
+    gap: 20px;
+    justify-content: space-evenly;
   }
 
-  .tab-btn {
-    flex: 1;
-    justify-content: center;
+  .knowledge-block {
+    min-width: 160px;
+    flex: 0 1 calc(50% - 10px);
   }
 }
 
 @media (max-width: 576px) {
+  .learning-progress-title {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+
   .stats-container {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .knowledge-block-overview {
+    gap: 12px;
+  }
+
   .knowledge-blocks {
-    grid-template-columns: 1fr;
+    gap: 15px;
+    justify-content: space-evenly;
+    padding: 5px;
+  }
+
+  .knowledge-block {
+    min-width: 120px;
+    flex: 0 1 calc(50% - 8px);
+  }
+
+  .circle-progress {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+
+  .circle-text {
+    font-size: 12px;
+  }
+
+  .block-title {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .block-code {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .block-progress {
+    height: 6px;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .legend-item {
+    font-size: 0.75rem;
   }
 
   .timeline-mobile {
@@ -1340,5 +1346,45 @@
 
   .timeline-year-marker-mobile {
     left: -35px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 400px) {
+  .knowledge-blocks {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .knowledge-block {
+    min-width: 110px;
+    flex: 0 1 calc(50% - 5px);
+  }
+
+  .circle-progress {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .circle-text {
+    font-size: 11px;
+  }
+
+  .block-title {
+    font-size: 11px;
+  }
+
+  .block-code {
+    font-size: 9px;
+  }
+
+  .legend {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .legend-item {
+    font-size: 0.688rem;
   }
 }
