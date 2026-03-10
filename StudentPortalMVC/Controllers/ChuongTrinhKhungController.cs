@@ -49,9 +49,8 @@ namespace StudentPortalMVC.Controllers
 
         private List<SP_WEB_XemChuongTrinhKhung> GetRawData()
         {
-            var maSinhVien = Session["MaSinhVien"]?.ToString() ?? string.Empty;
             var repo = new ChuongTrinhKhungRepository();
-            return repo.GetAll(maSinhVien);
+            return repo.GetAll();
         }
 
 
