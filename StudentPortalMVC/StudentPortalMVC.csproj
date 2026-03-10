@@ -157,10 +157,12 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\css\chi-tiet-khao-sat.css" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
+    <Content Include="Content\css\dang-ky-noi-tru.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
     <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
@@ -169,8 +171,13 @@
     <Content Include="Content\css\hoc-bong.css" />
     <Content Include="Content\css\ket-qua-hoc-tap.css" />
     <Content Include="Content\css\ket-qua-ren-luyen.css" />
+    <Content Include="Content\css\khai-bao-bhyt.css" />
+    <Content Include="Content\css\khao-sat-su-kien.css" />
+    <Content Include="Content\css\lich-su-bhyt.css" />
+    <Content Include="Content\css\lich-theo-tien-do.css" />
     <Content Include="Content\css\lich-theo-tuan.css" />
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
+    <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
@@ -238,8 +245,10 @@
     <Content Include="obj\Debug\StudentPortalMVC.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
+    <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
     <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
+    <Content Include="Scripts\js\dang-ky-noi-tru.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
     <Content Include="Scripts\js\dashboard.js" />
     <Content Include="Scripts\js\common.js" />
@@ -249,11 +258,18 @@
     <Content Include="Scripts\js\hoc-bong.js" />
     <Content Include="Scripts\js\ket-qua-hoc-tap.js" />
     <Content Include="Scripts\js\ket-qua-ren-luyen.js" />
+    <Content Include="Scripts\js\khai-bao-bhyt.js" />
+    <Content Include="Scripts\js\khao-sat-su-kien.js" />
+    <Content Include="Scripts\js\lich-su-bhyt.js" />
+    <Content Include="Scripts\js\lich-theo-tien-do.js" />
     <Content Include="Scripts\js\lich-theo-tuan.js" />
     <Content Include="Scripts\js\chuong-trinh-khung.js" />
     <Content Include="Scripts\js\khoi-kien-thuc.js" />
+    <Content Include="Scripts\js\status-barchart.js" />
     <Content Include="Scripts\js\thanh-toan-truc-tuyen.js" />
+    <Content Include="Scripts\js\thong-tin-diem-danh.js" />
     <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
+    <Content Include="Scripts\js\toggle-util.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
     <Content Include="Scripts\lib\bootstrap.esm.js" />
@@ -291,9 +307,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietKhaoSatController.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
     <Compile Include="Controllers\DangKyChuyenNganhController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
+    <Compile Include="Controllers\DangKyNoiTruController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
@@ -303,8 +321,13 @@
     <Compile Include="Controllers\HoSoSinhVienController.cs" />
     <Compile Include="Controllers\KetQuaHocTapController.cs" />
     <Compile Include="Controllers\KetQuaRenLuyenController.cs" />
+    <Compile Include="Controllers\KhaiBaoBHYTController.cs" />
+    <Compile Include="Controllers\KhaoSatSuKienController.cs" />
+    <Compile Include="Controllers\LichSuBHYTController.cs" />
+    <Compile Include="Controllers\LichTheoTienDoController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
     <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
+    <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -363,6 +386,12 @@
     <Content Include="Views\HoSoSinhVien\HoSoSinhVien.cshtml" />
     <Content Include="Views\KetQuaRenLuyen\KetQuaRenLuyen.cshtml" />
     <Content Include="Views\ThongTinSinhVien\ThongTinSinhVien.cshtml" />
+    <Content Include="Views\ChiTietKhaoSat\Index.cshtml" />
+    <Content Include="Views\DangKyNoiTru\Index.cshtml" />
+    <Content Include="Views\KhaiBaoBHYT\Index.cshtml" />
+    <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
+    <Content Include="Views\LichSuBHYT\Index.cshtml" />
+    <Content Include="Views\LichTheoTienDo\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
