@@ -5,7 +5,6 @@ let selectedDate = null;
 let viewDate = new Date(TODAY);
 let activeFilter = 'all';
 
-// Cache dữ liệu để tránh fetch nhiều lần
 let scheduleData = null;
 
 const MONTH_NAMES = [
@@ -20,10 +19,9 @@ const DAY_NAMES = [
 const TIME_PERIODS = ['Sáng', 'Chiều', 'Tối'];
 const TIME_KEYS = ['morning', 'afternoon', 'evening'];
 
-// ===== THÊM HÀM LOAD DATA TỪ CONTROLLER =====
 async function loadScheduleData() {
     try {
-        // Gọi API từ Controller
+
         const response = await fetch('/LichTheoTuan/GetData');
 
         if (!response.ok) {
@@ -31,7 +29,7 @@ async function loadScheduleData() {
         }
 
         const data = await response.json();
-        scheduleData = data; // Cache dữ liệu
+        scheduleData = data; 
         return data;
     } catch (error) {
         console.error('Lỗi khi tải dữ liệu lịch:', error);
@@ -40,9 +38,7 @@ async function loadScheduleData() {
     }
 }
 
-// ===== KHỞI TẠO =====
 $(document).ready(async function () {
-    // Load dữ liệu trước khi render
     await loadScheduleData();
 
     initializeCalendar();

@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Phiếu khảo sát môn học và tình hình giảng dạy";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/chi-tiet-khao-sat.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-title">
+            Phiếu khảo sát môn học và tình hình giảng dạy
+        </div>
+    </div>
+
+    <!-- Survey Info Card -->
+    <div class="content-wrapper">
+        <div class="row g-4 sv-detail-grid">
+            <div>
+                <div class="sv-detail-info-label">MÔN HỌC</div>
+                <div class="sv-detail-info-value" id="courseName">
+                    Kế toán tài chính
+                </div>
+                <div class="sv-detail-info-code" id="courseCode">
+                    Mã HP: DKT021401
+                </div>
+            </div>
+            <div>
+                <div class="sv-detail-info-label">LOẠI HỌC PHẦN</div>
+                <div class="sv-detail-info-value" id="courseName">
+                    Kế toán tài chính
+                </div>
+            </div>
+            <div>
+                <div class="sv-detail-info-label">GIẢNG VIÊN</div>
+                <div class="sv-detail-info-value" id="instructorName">
+                    TS. Phan Phước Hiệp
+                </div>
+            </div>
+            <div>
+                <div class="sv-detail-info-label">HỌC KỲ / NĂM HỌC</div>
+                <div class="sv-detail-info-value" id="semester">
+                    Đợt 1 HK1 - 2024-2025
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instruction Card -->
+    <div class="sv-detail-instruction-card">
+        <div class="sv-detail-instruction-icon">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="sv-detail-instruction-content">
+            <p class="sv-detail-instruction-text">
+                Anh chị sinh viên hãy chọn mức độ đánh giá tương ứng theo thang
+                điểm từ
+                <strong>1 đến 5</strong> cho từng vấn đề trong quá trình học môn
+                học.
+            </p>
+            <p class="sv-detail-instruction-scale">
+                <span class="sv-detail-scale-item">
+                    (5: Rất hài lòng | 4: Hài lòng | 3: Bình thường | 2: Không hài
+                    lòng | 1: Rất không hài lòng)
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Survey Content -->
+    <div id="surveyContent" class="sv-detail-content"></div>
+
+    <!-- Button Group -->
+    <div class="sv-detail-footer">
+        <div class="sv-detail-footer-left">
+            <div class="sv-detail-status-indicator">
+                <span class="sv-detail-status-dot"></span>
+                <span class="sv-detail-status-text">Đang soạn thảo</span>
+            </div>
+        </div>
+        <div class="sv-detail-footer-right">
+            <button class="sv-detail-btn sv-detail-btn-submit">
+                <i class="fas fa-paper-plane"></i> Gửi khảo sát
+            </button>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/chi-tiet-khao-sat.js"></script>    
+}
+

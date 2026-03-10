@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "Kết quả học tập ngành 2";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/css/ket-qua-hoc-tap.css" />
+}
+
+<div class="container-lg section-content content-area">
+    <!-- Page Header -->
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h1 class="page-title">Kết quả học tập ngành 2</h1>
+            <p class="page-subtitle">
+                Xem điểm số và kết quả học tập ngành 2 của bạn
+            </p>
+        </div>
+        <div>
+            <button class="btn-xet-thu-tn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalXetThuTN">
+                Xét thử TN
+            </button>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards" hidden>
+        <div class="summary-card primary">
+            <div>
+                <div class="card-label">GPA Tích lũy</div>
+                <div class="card-value">
+                    3.62<span class="card-scale">/4.0</span>
+                </div>
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>
+                <span>Xếp loại: Giỏi</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm trung bình (Hệ 10)</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Tổng tín chỉ hoàn thành</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm rèn luyện</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+                <!-- <div class="card-sub-label">Khá</div> -->
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>
+                <span>Xếp loại: Khá</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="semester-selection">
+        <!-- Semester Tabs -->
+        <span class="fw-semibold fs-[18px]">Chọn học kỳ</span>
+        <div class="semester-tabs">
+            <!-- JS Render -->
+        </div>
+        <!-- Statistics Cards -->
+        <div class="stats-grid" hidden>
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">7</span>
+                    <span class="stat-text">Môn học</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">12</span>
+                    <span class="stat-text">Tín chỉ</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">3.75</span>
+                    <span class="stat-text">GPA HK này</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number">8.40</span>
+                    <span class="stat-text">Điểm TB (Hệ 10)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-section">
+        <div class="table-header">
+            <h3>Bảng điểm chi tiết - HK2 (2024-2025)</h3>
+            <div class="table-actions">
+                <button class="action-btn" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Tất cả
+                </button>
+                <button class="action-btn" hidden>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Cần cải thiện
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <!-- JS Render Table -->
+        </div>
+    </div>
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>So sánh điểm theo học kỳ</h3>
+                <select class="form-select form-select-sm"
+                        id="semesterChartSelect"
+                        style="width: auto"></select>
+            </div>
+            <div class="chart-body">
+                <div id="gradeDistChart"></div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>Xu hướng GPA qua các học kỳ</h3>
+            </div>
+            <div class="chart-body">
+                <div id="gpaTrendChart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xét thử tốt nghiệp -->
+<div class="modal fade modal-xet-tn"
+     id="modalXetThuTN"
+     tabindex="-1"
+     aria-labelledby="modalXetThuTNLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalXetThuTNLabel">
+                    Kết quả xét thử tốt nghiệp
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="xet-tn-info-grid">
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">
+                            STC CTK / Số TC phải tích lũy
+                        </div>
+                        <div class="xet-tn-info-value highlight" id="xetTnStcCtk">
+                            144 / 144
+                        </div>
+                    </div>
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">
+                            Số TC đã học / Số TC tích lũy
+                        </div>
+                        <div class="xet-tn-info-value" id="xetTnStcHoc">3 / 3</div>
+                    </div>
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">Điểm TBC TL Hệ 10</div>
+                        <div class="xet-tn-info-value" id="xetTnDiemHe10">8,40</div>
+                    </div>
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">Điểm TBC TL Hệ 4</div>
+                        <div class="xet-tn-info-value" id="xetTnDiemHe4">3,50</div>
+                    </div>
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">Số TC không đạt</div>
+                        <div class="xet-tn-info-value" id="xetTnStcKhongDat">118</div>
+                    </div>
+                    <div class="xet-tn-info-item">
+                        <div class="xet-tn-info-label">Tỷ lệ học lại</div>
+                        <div class="xet-tn-info-value" id="xetTnTyLeHocLai">-</div>
+                    </div>
+                </div>
+
+                <div class="xet-tn-info-grid" style="margin-bottom: 20px">
+                    <div class="xet-tn-info-item"
+                         style="grid-column: 1 / -1; border-left-color: #f44336">
+                        <div class="xet-tn-info-label">Công nợ</div>
+                        <div class="xet-tn-info-value"
+                             style="color: #f44336"
+                             id="xetTnCongNo">
+                            3,930,000 VNĐ
+                        </div>
+                    </div>
+                </div>
+                <div class="xet-tn-info-grid" style="margin-bottom: 20px">
+                    <div class="xet-tn-info-item"
+                         style="grid-column: 1 / -1; border-left-color: #f44336">
+                        <div class="xet-tn-info-label">Kết quả</div>
+                        <div class="xet-tn-info-value"
+                             style="color: #f44336"
+                             id="xetTnCongNo">
+                            Không đạt
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xet-tn-notes">
+                    <div class="xet-tn-notes-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Ghi chú
+                    </div>
+                    <div class="xet-tn-notes-content" id="xetTnGhiChu">
+                        <strong>- Môn chưa học/ nợ học phần:</strong><br />
+                        Nợ môn tự chọn nhóm Kiến thức chuyên ngành: Quan hệ kinh tế quốc
+                        tế, Luật tố tụng hình sự...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/js/ket-qua-hoc-tap.js"></script>
+}

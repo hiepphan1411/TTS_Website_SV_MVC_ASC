@@ -8,7 +8,7 @@ namespace StudentPortalMVC.Controllers
 {
     public class DangKyHocPhanNganh2Controller : Controller
     {
-        // GET: DangKyHocPhanNganh2
+        // GET:     
         public ActionResult Index()
         {
             return View("DangKyHocPhanNganh2");

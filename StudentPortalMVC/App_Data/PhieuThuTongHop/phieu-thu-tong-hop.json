@@ -1,0 +1,202 @@
+{
+  "receipts": [
+    {
+      "id": 1,
+      "soPhieu": "73411",
+      "maHoaDon": "-",
+      "ngayThu": "02/12/2024 10:33",
+      "soTien": 18200000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Kế toán máy và thực hành kế toán",
+          "hocKy": "2024-2025",
+          "soTien": 6400000
+        },
+        {
+          "stt": 2,
+          "ma": "DKT012806",
+          "noiDungThu": "Kế toán máy và thực hành kế toán",
+          "hocKy": "2024-2025",
+          "soTien": -1200000
+        },
+        {
+          "stt": 3,
+          "ma": "DKT012801",
+          "noiDungThu": "Kiểm toán tuần thứ",
+          "hocKy": "2024-2025",
+          "soTien": 6400000
+        },
+        {
+          "stt": 4,
+          "ma": "DKT012801",
+          "noiDungThu": "Kiểm toán tuần thứ",
+          "hocKy": "2024-2025",
+          "soTien": -1200000
+        },
+        {
+          "stt": 5,
+          "ma": "DKT012801",
+          "noiDungThu": "Kiểm toán hoạt động",
+          "hocKy": "2024-2025",
+          "soTien": 6400000
+        },
+        {
+          "stt": 6,
+          "ma": "DKT012801",
+          "noiDungThu": "Kiểm toán hoạt động",
+          "hocKy": "2024-2025",
+          "soTien": -1800000
+        }
+      ],
+      "logs": [
+        {
+          "stt": 1,
+          "maGiaoDich": "22719711-2-1119093",
+          "kyHieu": "C26TAA",
+          "ngayTao": "23/01/2026 15:52",
+          "soHoaDon": "00001942",
+          "trangThaiHoaDon": "Gốc",
+          "trangThaiKy": "Đã ký",
+          "thongBao": "Tạo hóa đơn(23/01/2026 15:52:52)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "soPhieu": "72093",
+      "maHoaDon": "008918",
+      "ngayThu": "31/10/2024 09:44",
+      "soTien": 200000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Phí lệ phí thi lại",
+          "hocKy": "2024-2025",
+          "soTien": 200000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 3,
+      "soPhieu": "71249",
+      "maHoaDon": "-",
+      "ngayThu": "23/09/2024 16:02",
+      "soTien": 5400000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Học phí học kỳ 1",
+          "hocKy": "2024-2025",
+          "soTien": 5400000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 4,
+      "soPhieu": "48996",
+      "maHoaDon": "-",
+      "ngayThu": "11/07/2024 10:24",
+      "soTien": 300000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Phí thi lại môn Toán",
+          "hocKy": "2023-2024",
+          "soTien": 300000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 5,
+      "soPhieu": "58895",
+      "maHoaDon": "-",
+      "ngayThu": "11/04/2024 14:28",
+      "soTien": 200000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Phí học phần bổ túc",
+          "hocKy": "2023-2024",
+          "soTien": 200000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 6,
+      "soPhieu": "67432",
+      "maHoaDon": "009123",
+      "ngayThu": "15/03/2024 08:15",
+      "soTien": 3200000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Tổ chức",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Học phí học kỳ 2",
+          "hocKy": "2023-2024",
+          "soTien": 3200000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 7,
+      "soPhieu": "54321",
+      "maHoaDon": "-",
+      "ngayThu": "28/02/2024 16:30",
+      "soTien": 150000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Tổ chức",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Phí làm thẻ sinh viên",
+          "hocKy": "2023-2024",
+          "soTien": 150000
+        }
+      ],
+      "logs": []
+    },
+    {
+      "id": 8,
+      "soPhieu": "49876",
+      "maHoaDon": "007654",
+      "ngayThu": "12/01/2024 11:20",
+      "soTien": 4800000,
+      "donViThu": "Đăng Thị A",
+      "loaiHDDT": "Cá nhân",
+      "details": [
+        {
+          "stt": 1,
+          "ma": "DKT012801",
+          "noiDungThu": "Học phí học kỳ 1",
+          "hocKy": "2023-2024",
+          "soTien": 4800000
+        }
+      ],
+      "logs": []
+    }
+  ]
+}

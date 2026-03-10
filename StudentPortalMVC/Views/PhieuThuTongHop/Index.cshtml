@@ -1,0 +1,508 @@
+﻿
+@{
+    ViewBag.Title = "Phiếu thu tổng hợp";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/phieu-thu-tong-hop.css"/>    
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <!-- Page Header -->
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="page-header">
+            <h1 class="page-title">Phiếu thu tổng hợp</h1>
+            <p class="page-subtitle">Xem phiếu thu tổng hợp của bạn</p>
+        </div>
+        <div class="filter-wrapper">
+            <button class="filter-btn">
+                <i class="fas fa-filter"></i>
+                <span>Lọc</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <!-- Lọc -->
+            <div class="filter-dropdown" id="filterDropdown">
+                <div class="filter-dropdown-header">
+                    <h5 class="filter-dropdown-title">Lọc phiếu thu</h5>
+                    <button type="button"
+                            class="filter-close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-dropdown-body">
+                    <div class="filter-form">
+                        <div class="filter-group">
+                            <label for="fromDate" class="filter-label"> Từ ngày </label>
+                            <input type="date" id="fromDate" class="filter-input" />
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="toDate" class="filter-label"> Đến ngày </label>
+                            <input type="date" id="toDate" class="filter-input" />
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="loaiHDDT" class="filter-label">
+                                Loại HDDT
+                            </label>
+                            <select id="loaiHDDT" class="filter-input">
+                                <option value="all">Tất cả</option>
+                                <option value="Cá nhân">Cá nhân</option>
+                                <option value="Tổ chức">Tổ chức</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-dropdown-footer">
+                    <button type="button" class="btn-reset">
+                        Đặt lại
+                    </button>
+                    <button type="button" class="btn-apply">
+                        Áp dụng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content here -->
+    <div class="content-area">
+        <div class="table-section">
+            <div class="table-header">
+                <h3>Danh sách phiếu thu</h3>
+            </div>
+
+            <div class="table-container" data-url="@Url.Action("GetDataPhieuThuTongHop", "PhieuThuTongHop")">
+                <table class="receipts-table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">STT</th>
+                            <th>SỐ PHIẾU</th>
+                            <th>MÃ HÓA ĐƠN</th>
+                            <th>NGÀY THU</th>
+                            <th class="text-center">SỐ TIỀN</th>
+                            <th>ĐƠN VỊ THU</th>
+                            <th>LOẠI HDDT</th>
+                            <th class="text-center">HDDT</th>
+                            <th class="text-center">CHI TIẾT</th>
+                            <th class="text-center">NHẬT KÝ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td>
+                                <span class="receipt-number">73411</span>
+                            </td>
+                            <td>-</td>
+                            <td>02/12/2024 10:33</td>
+                            <td class="text-center">
+                                <span class="amount">18.200.000</span>
+                            </td>
+                            <td>Đăng Thị A</td>
+                            <td>
+                                <span class="type-badge">Cá nhân</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn refresh" title="Làm mới">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn view"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptDetailModal"
+                                            title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn history"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptLogModal"
+                                            title="Lịch sử">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2</td>
+                            <td>
+                                <span class="receipt-number">72093</span>
+                            </td>
+                            <td>008918</td>
+                            <td>31/10/2024 09:44</td>
+                            <td class="text-center">
+                                <span class="amount">200.000</span>
+                            </td>
+                            <td>Đăng Thị A</td>
+                            <td>
+                                <span class="type-badge">Cá nhân</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn refresh" title="Làm mới">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn view"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptDetailModal"
+                                            title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn history" title="Lịch sử">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">3</td>
+                            <td>
+                                <span class="receipt-number">71249</span>
+                            </td>
+                            <td>-</td>
+                            <td>23/09/2024 16:02</td>
+                            <td class="text-center">
+                                <span class="amount">5.400.000</span>
+                            </td>
+                            <td>Đăng Thị A</td>
+                            <td>
+                                <span class="type-badge">Cá nhân</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn refresh" title="Làm mới">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn view"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptDetailModal"
+                                            title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn history" title="Lịch sử">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">4</td>
+                            <td>
+                                <span class="receipt-number">48996</span>
+                            </td>
+                            <td>-</td>
+                            <td>11/07/2024 10:24</td>
+                            <td class="text-center">
+                                <span class="amount">300.000</span>
+                            </td>
+                            <td>Đăng Thị A</td>
+                            <td>
+                                <span class="type-badge">Cá nhân</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn refresh" title="Làm mới">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn view"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptDetailModal"
+                                            title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn history" title="Lịch sử">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">5</td>
+                            <td>
+                                <span class="receipt-number">58895</span>
+                            </td>
+                            <td>-</td>
+                            <td>11/04/2024 14:28</td>
+                            <td class="text-center">
+                                <span class="amount">200.000</span>
+                            </td>
+                            <td>Đăng Thị A</td>
+                            <td>
+                                <span class="type-badge">Cá nhân</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn refresh" title="Làm mới">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn view"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#receiptDetailModal"
+                                            title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons">
+                                    <button class="action-icon-btn history" title="Lịch sử">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination-container">
+                <div class="pagination-info align-items-center justify-content-center">
+                    Hiển thị 1-5 trong tổng số 20 phiếu thu
+                </div>
+                <ul class="pagination align-items-center justify-content-center">
+                    <li class="page-item">
+                        <a class="page-step" href="#">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link border-raddius-50" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link border-raddius-50" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link border-raddius-50" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link border-raddius-50" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-step" href="#">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal chi tiết phiếu thu-->
+<div class="modal fade"
+     id="receiptDetailModal"
+     tabindex="-1"
+     aria-labelledby="receiptDetailModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="receiptDetailModalLabel">
+                    Chi tiết phiếu thu
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="receipt-info-section">
+                    <div class="receipt-info-grid">
+                        <div class="receipt-info-item">
+                            <div class="receipt-info-label">
+                                <i class="fas fa-hashtag"></i>
+                                SỐ PHIẾU
+                            </div>
+                            <div class="receipt-info-value primary">73411</div>
+                        </div>
+                        <div class="receipt-info-item">
+                            <div class="receipt-info-label">
+                                <i class="fas fa-file-invoice"></i>
+                                MÃ HÓA ĐƠN
+                            </div>
+                            <div class="receipt-info-value">-</div>
+                        </div>
+                        <div class="receipt-info-item">
+                            <div class="receipt-info-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                NGÀY THU
+                            </div>
+                            <div class="receipt-info-value">02/12/2024 10:33</div>
+                        </div>
+                        <div class="receipt-info-item">
+                            <div class="receipt-info-label">
+                                <i class="fas fa-user"></i>
+                                ĐƠN VỊ THU
+                            </div>
+                            <div class="receipt-info-value">Đặng Thị A</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Table -->
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>MÃ</th>
+                            <th>NỘI DUNG THU</th>
+                            <th>HỌC KỲ</th>
+                            <th class="text-right">SỐ TIỀN(VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>DKT012801</td>
+                            <td>Kế toán máy và thực hành kế toán</td>
+                            <td>2024-2025</td>
+                            <td class="text-right">6.400.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>DKT012806</td>
+                            <td>Kế toán máy và thực hành kế toán</td>
+                            <td>2024-2025</td>
+                            <td class="text-right amount negative">-1.200.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>DKT012801</td>
+                            <td>Kiểm toán tuần thứ</td>
+                            <td>2024-2025</td>
+                            <td class="text-right">6.400.000</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>DKT012801</td>
+                            <td>Kiểm toán tuần thứ</td>
+                            <td>2024-2025</td>
+                            <td class="text-right amount negative">-1.200.000</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>DKT012801</td>
+                            <td>Kiểm toán hoạt động</td>
+                            <td>2024-2025</td>
+                            <td class="text-right">6.400.000</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>DKT012801</td>
+                            <td>Kiểm toán hoạt động</td>
+                            <td>2024-2025</td>
+                            <td class="text-right amount negative">-1.800.000</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="4" class="text-right">TỔNG CỘNG:</td>
+                            <td class="text-right">18.200.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-print">In phiếu thu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal nhật ký phiếu thu -->
+<div class="modal fade"
+     id="receiptLogModal"
+     tabindex="-1"
+     aria-labelledby="receiptLogModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="receiptDetailModalLabel">
+                    Nhật ký xuất hóa đơn
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="detail-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã giao dịch</th>
+                                <th>Ký hiệu</th>
+                                <th>Ngày tạo</th>
+                                <th>Số hóa đơn</th>
+                                <th>Trạng thái hóa đơn</th>
+                                <th>Trạng thái ký</th>
+                                <th>Thông báo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>22719711-2-1119093</td>
+                                <td>C26TAA</td>
+                                <td>23/01/2026 15:52</td>
+                                <td>00001942</td>
+                                <td>Gốc</td>
+                                <td>Đã ký</td>
+                                <td>Tạo hóa đơn(23/01/2026 15:52:52)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                Đóng
+              </button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/phieu-thu-tong-hop.js"></script>
+}

@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,15 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -61,31 +60,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -94,13 +70,34 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -160,23 +157,44 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\css\chi-tiet-khao-sat.css" />
+    <Content Include="Content\css\chuong-trinh-khung.css" />
+    <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
+    <Content Include="Content\css\dang-ky-danh-gia-hp-hoan-thi.css" />
+    <Content Include="Content\css\dang-ky-hoan-thi.css" />
     <Content Include="Content\css\dang-ky-hoc-phan.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
     <Content Include="Content\css\dang-ky-phuc-khao.css" />
     <Content Include="Content\css\dang-ky-thi-lai-thi-cai-thien.css" />
+    <Content Include="Content\css\dang-ky-noi-tru.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
+    <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
     <Content Include="Content\css\de-xuat-khen-thuong.css" />
     <Content Include="Content\css\ghi-chu-nhac-nho.css" />
     <Content Include="Content\css\ho-so-sinh-vien.css" />
+    <Content Include="Content\css\hoc-bong.css" />
+    <Content Include="Content\css\hop-thu-sinh-vien.css" />
+    <Content Include="Content\css\ket-qua-hoc-tap.css" />
     <Content Include="Content\css\ket-qua-ren-luyen.css" />
+    <Content Include="Content\css\khai-bao-bhyt.css" />
+    <Content Include="Content\css\khao-sat-su-kien.css" />
+    <Content Include="Content\css\lich-su-bhyt.css" />
+    <Content Include="Content\css\lich-theo-tien-do.css" />
+    <Content Include="Content\css\lich-theo-tuan.css" />
+    <Content Include="Content\css\lich-toan-truong.css" />
+    <Content Include="Content\css\phieu-thu-tong-hop.css" />
+    <Content Include="Content\css\phieu-thu-truc-tuyen.css" />
+    <Content Include="Content\css\thanh-toan-noi-tru.css" />
+    <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
+    <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
+    <Content Include="Content\css\tra-cuu-cong-no.css" />
+    <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
+    <Content Include="Content\images\napas-logo.png" />
+    <Content Include="Content\images\QR-payment.png" />
     <Content Include="Content\images\user.png" />
-    <Content Include="Content\lib\bootstrap.rtl.css" />
-    <Content Include="Content\lib\bootstrap.rtl.min.css" />
-    <Content Include="Content\css\chuong-trinh-khung.css" />
-    <Content Include="Content\css\common.css" />
     <Content Include="Content\lib\bootstrap-grid.css" />
     <Content Include="Content\lib\bootstrap-grid.min.css" />
     <Content Include="Content\lib\bootstrap-grid.rtl.css" />
@@ -191,6 +209,8 @@
     <Content Include="Content\lib\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\lib\bootstrap.css" />
     <Content Include="Content\lib\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap.rtl.css" />
+    <Content Include="Content\lib\bootstrap.rtl.min.css" />
     <Content Include="Content\lib\kendo-ui.common.min.css" />
     <Content Include="Content\lib\kendo.default.min.css" />
     <Content Include="Content\lib\themes\base\accordion.css" />
@@ -238,34 +258,52 @@
     <Content Include="obj\Debug\StudentPortalMVC.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
+    <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
     <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
+    <Content Include="Scripts\js\dang-ky-danh-gia-hp-hoan-thi.js" />
+    <Content Include="Scripts\js\dang-ky-hoan-thi.js" />
     <Content Include="Scripts\js\dang-ky-hoc-phan.js" />
     <Content Include="Scripts\js\dang-ky-mon-hoc-dieu-kien.js" />
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
     <Content Include="Scripts\js\dang-ky-phuc-khao.js" />
     <Content Include="Scripts\js\dang-ky-thi-lai-thi-cai-thien.js" />
+    <Content Include="Scripts\js\dang-ky-noi-tru.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
+    <Content Include="Scripts\js\dashboard.js" />
+    <Content Include="Scripts\js\common.js" />
     <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
     <Content Include="Scripts\js\de-xuat-khen-thuong.js" />
     <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
     <Content Include="Scripts\js\ho-so-sinh-vien.js" />
+    <Content Include="Scripts\js\hoc-bong.js" />
+    <Content Include="Scripts\js\hop-thu-sinh-vien.js" />
+    <Content Include="Scripts\js\ket-qua-hoc-tap.js" />
     <Content Include="Scripts\js\ket-qua-ren-luyen.js" />
+    <Content Include="Scripts\js\khai-bao-bhyt.js" />
+    <Content Include="Scripts\js\khao-sat-su-kien.js" />
+    <Content Include="Scripts\js\lich-su-bhyt.js" />
+    <Content Include="Scripts\js\lich-theo-tien-do.js" />
+    <Content Include="Scripts\js\lich-theo-tuan.js" />
+    <Content Include="Scripts\js\chuong-trinh-khung.js" />
+    <Content Include="Scripts\js\khoi-kien-thuc.js" />
+    <Content Include="Scripts\js\lich-toan-truong.js" />
+    <Content Include="Scripts\js\phieu-thu-tong-hop.js" />
+    <Content Include="Scripts\js\phieu-thu-truc-tuyen.js" />
+    <Content Include="Scripts\js\status-barchart.js" />
+    <Content Include="Scripts\js\thanh-toan-dich-vu.js" />
+    <Content Include="Scripts\js\thanh-toan-noi-tru.js" />
+    <Content Include="Scripts\js\thanh-toan-truc-tuyen.js" />
+    <Content Include="Scripts\js\thong-tin-diem-danh.js" />
     <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
+    <Content Include="Scripts\js\toggle-util.js" />
+    <Content Include="Scripts\js\tra-cuu-cong-no.js" />
+    <Content Include="Scripts\js\xem-diem-tich-luy-nganh-2.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
     <Content Include="Scripts\lib\bootstrap.esm.js" />
     <Content Include="Scripts\lib\bootstrap.esm.min.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap.min.js" />
-    <Content Include="Scripts\js\common.js" />
-    <Content Include="Scripts\lib\bootstrap.min.js.map" />
-    <Content Include="Scripts\lib\bootstrap.js.map" />
-    <Content Include="Scripts\lib\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\lib\bootstrap.esm.js.map" />
-    <Content Include="Scripts\lib\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\lib\bootstrap.bundle.js.map" />
-    <Content Include="Content\lib\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\lib\bootstrap.min.css.map" />
     <Content Include="Content\lib\bootstrap-grid.css.map" />
     <Content Include="Content\lib\bootstrap-grid.min.css.map" />
     <Content Include="Content\lib\bootstrap-grid.rtl.css.map" />
@@ -279,7 +317,12 @@
     <Content Include="Content\lib\bootstrap-utilities.rtl.css.map" />
     <Content Include="Content\lib\bootstrap-utilities.rtl.min.css.map" />
     <Content Include="Content\lib\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap.min.css.map" />
+    <Content Include="Content\lib\bootstrap.rtl.min.css.map" />
+    <Content Include="App_Data\LichTheoTuan\lich-theo-tuan.json" />
     <Content Include="App_Data\ket-qua-ren-luyen.json" />
+    <Content Include="App_Data\LichToanTruong\lich-toan-truong.json" />
+    <Content Include="App_Data\PhieuThuTongHop\phieu-thu-tong-hop.json" />
     <None Include="Scripts\lib\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.js" />
@@ -288,13 +331,13 @@
     <Content Include="Scripts\lib\jquery-ui-1-14.1.js" />
     <Content Include="Scripts\lib\jquery-ui-1.14.1.js" />
     <Content Include="Scripts\lib\jquery-ui-1.14.1.min.js" />
-    <Content Include="Scripts\js\process-chuong-trinh-khung.js" />
-    <Content Include="Scripts\js\process-khoi-kien-thuc.js" />
+    <Content Include="Scripts\lib\kendo.all.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietKhaoSatController.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
     <Compile Include="Controllers\DangKyChuyenNganhController.cs" />
     <Compile Include="Controllers\DangKyHoanThiController.cs" />
@@ -303,21 +346,44 @@
     <Compile Include="Controllers\DangKyMonHocDieuKienController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
     <Compile Include="Controllers\DangKyPhucKhaoController.cs" />
+    <Compile Include="Controllers\DangKyNoiTruController.cs" />
     <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
+    <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
     <Compile Include="Controllers\DeXuatKhenThuongController.cs" />
     <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
+    <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HopThuSinhVienController.cs" />
     <Compile Include="Controllers\HoSoSinhVienController.cs" />
+    <Compile Include="Controllers\KetQuaHocTapController.cs" />
+    <Compile Include="Controllers\KetQuaHocTapNganh2Controller.cs" />
     <Compile Include="Controllers\KetQuaRenLuyenController.cs" />
+    <Compile Include="Controllers\KhaiBaoBHYTController.cs" />
+    <Compile Include="Controllers\KhaoSatSuKienController.cs" />
+    <Compile Include="Controllers\LichSuBHYTController.cs" />
+    <Compile Include="Controllers\LichTheoTienDoController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
+    <Compile Include="Controllers\LichToanTruongController.cs" />
+    <Compile Include="Controllers\PhieuThuTongHopController.cs" />
+    <Compile Include="Controllers\PhieuThuTrucTuyenController.cs" />
+    <Compile Include="Controllers\ThanhToanDichVuController.cs" />
+    <Compile Include="Controllers\ThanhToanNoiTruController.cs" />
+    <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
+    <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
+    <Compile Include="Controllers\TraCuuCongNoController.cs" />
+    <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChuongTrinhKhungModel.cs" />
     <Compile Include="Models\ChuongTrinhKhungViewModels.cs" />
+    <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -340,25 +406,55 @@
     <Content Include="App_Data\ChuongTrinhKhung\chuong-trinh-khung.json" />
     <Content Include="App_Data\ChuongTrinhKhung\hoc-ky.json" />
     <Content Include="App_Data\ChuongTrinhKhung\khoi-kien-thuc.json" />
+    <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Scripts\lib\jquery-3.7.1.slim.min.map" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Scripts\lib\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\lib\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap.esm.js.map" />
+    <Content Include="Scripts\lib\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\lib\bootstrap.js.map" />
+    <Content Include="Scripts\lib\bootstrap.min.js.map" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.map" />
-    <Content Include="Views\KetQuaRenLuyen\KetQuaRenLuyen.cshtml" />
-    <Content Include="Views\DangKyMuonPhong\DangKyMuonPhong.cshtml" />
+    <Content Include="Scripts\lib\jquery-3.7.1.slim.min.map" />
+    <Content Include="Views\LichTheoTuan\LichTheoTuan.cshtml" />
+    <Content Include="Views\ThanhToanTrucTuyen\Index.cshtml" />
+    <Content Include="Views\HocBong\Index.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\KetQuaHocTap\Index.cshtml" />
     <Content Include="Views\DangKyChuyenNganh\DangKyChuyenNganh.cshtml" />
+    <Content Include="Views\DangKyMuonPhong\DangKyMuonPhong.cshtml" />
+    <Content Include="Views\DanhGiaRenLuyenLop\DanhGiaRenLuyenLop.cshtml" />
+    <Content Include="Views\DeXuatCapNhatThongTin\DeXuatCapNhatThongTin.cshtml" />
     <Content Include="Views\GhiChuNhacNho\GhiChuNhacNho.cshtml" />
     <Content Include="Views\HoSoSinhVien\HoSoSinhVien.cshtml" />
+    <Content Include="Views\KetQuaRenLuyen\KetQuaRenLuyen.cshtml" />
     <Content Include="Views\ThongTinSinhVien\ThongTinSinhVien.cshtml" />
-    <Content Include="Views\DeXuatCapNhatThongTin\DeXuatCapNhatThongTin.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\DanhGiaRenLuyenLop\DanhGiaRenLuyenLop.cshtml" />
-    <Content Include="Views\DangKyHocPhan\DangKyHocPhan.cshtml" />
+    <Content Include="Views\ChiTietKhaoSat\Index.cshtml" />
+    <Content Include="Views\DangKyNoiTru\Index.cshtml" />
+    <Content Include="Views\KhaiBaoBHYT\Index.cshtml" />
+    <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
+    <Content Include="Views\LichSuBHYT\Index.cshtml" />
+    <Content Include="Views\LichTheoTienDo\Index.cshtml" />
+    <Content Include="Views\ThongTinDiemDanh\Index.cshtml" />
+    <Content Include="Views\TraCuuCongNo\Index.cshtml" />
+    <Content Include="Views\LichToanTruong\Index.cshtml" />
+    <Content Include="Views\PhieuThuTongHop\Index.cshtml" />
+    <Content Include="Views\PhieuThuTrucTuyen\Index.cshtml" />
+    <Content Include="Views\ThanhToanNoiTru\Index.cshtml" />
+    <Content Include="Views\ThanhToanDichVu\Index.cshtml" />
+    <Content Include="Views\HopThuSinhVien\Index.cshtml" />
+    <Content Include="Views\KetQuaHocTapNganh2\Index.cshtml" />
+    <Content Include="Views\XemDiemTichLuyNganh2\Index.cshtml" />
+    <Content Include="Views\DanhKyDanhGiaLaiHPHoanThi\Index.cshtml" />
+    <Content Include="Views\DangKyHoanThi\DangKyHoanThi.cshtml" />
     <Content Include="Views\DangKyHocPhanNganh2\DangKyHocPhanNganh2.cshtml" />
+    <Content Include="Views\DangKyHocPhan\DangKyHocPhan.cshtml" />
     <Content Include="Views\DangKyMonHocDieuKien\DangKyMonHocDieuKien.cshtml" />
     <Content Include="Views\DeXuatKhenThuong\DeXuatKhenThuong.cshtml" />
     <Content Include="Views\DangKyHoanThi\DangKyHoanThi.cshtml" />
@@ -372,17 +468,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <!-- Ví dụ cho file JSON -->
-    <Content Include="App_Data\LichTheoTuan\lich-theo-tuan.json" />
-    <!-- Ví dụ cho file CSS -->
-    <Content Include="Content\css\lich-theo-tuan.css" />
-    <!-- Ví dụ cho file JS -->
-    <Content Include="Scripts\js\lich-theo-tuan.js" />
-    <!-- Ví dụ cho View -->
-    <Content Include="Views\LichTheoTuan\LichTheoTuan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
@@ -410,12 +495,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

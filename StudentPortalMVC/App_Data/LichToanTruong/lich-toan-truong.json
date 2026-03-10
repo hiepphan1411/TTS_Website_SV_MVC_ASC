@@ -1,0 +1,137 @@
+{
+  "schedules": [
+    {
+      "id": 1,
+      "tenMonHoc": "Tâm lý đại cương",
+      "maMonHoc": "25101002710",
+      "khoa": "Khoa Pháp luật hình sự",
+      "lopHoc": "2410402",
+      "lichHoc": [
+        {
+          "stt": 1,
+          "thu": 3,
+          "tiet": "13 - 15",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "11/11/2025",
+          "ketThuc": "18/11/2025",
+          "tenPhong": "Trực tuyến (ONLINE10)",
+          "giangVien": "Nguyễn Thị A, Nguyễn Văn B"
+        },
+        {
+          "stt": 2,
+          "thu": 5,
+          "tiet": "13 - 15",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "13/11/2025",
+          "ketThuc": "18/11/2025",
+          "tenPhong": "Trực tuyến (ONLINE10)",
+          "giangVien": "Nguyễn Thị A, Nguyễn Văn B"
+        },
+        {
+          "stt": 3,
+          "thu": 6,
+          "tiet": "13 - 15",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "14/11/2025",
+          "ketThuc": "20/11/2025",
+          "tenPhong": "Trực tuyến (ONLINE10)",
+          "giangVien": "Nguyễn Thị A"
+        },
+        {
+          "stt": 4,
+          "thu": 7,
+          "tiet": "13 - 15",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "15/11/2025",
+          "ketThuc": "19/11/2025",
+          "tenPhong": "Trực tuyến (ONLINE10)",
+          "giangVien": "Nguyễn Thị A, Nguyễn Văn B"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "tenMonHoc": "Luật tố tụng hình sự",
+      "maMonHoc": "225101003805",
+      "khoa": "Khoa Pháp luật hình sự",
+      "lopHoc": "258932",
+      "lichHoc": [
+        {
+          "stt": 1,
+          "thu": 2,
+          "tiet": "7 - 9",
+          "soTinChi": 3,
+          "nhom": "",
+          "batDau": "10/11/2025",
+          "ketThuc": "15/11/2025",
+          "tenPhong": "Phòng 101",
+          "giangVien": "Trần Văn C"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tenMonHoc": "Tâm lý đại cương",
+      "maMonHoc": "25101002707",
+      "khoa": "Khoa Pháp luật hình sự",
+      "lopHoc": "147852",
+      "lichHoc": [
+        {
+          "stt": 1,
+          "thu": 4,
+          "tiet": "13 - 15",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "12/11/2025",
+          "ketThuc": "17/11/2025",
+          "tenPhong": "Online",
+          "giangVien": "Nguyễn Thị D"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tenMonHoc": "Tâm lý đại cương",
+      "maMonHoc": "25101002799",
+      "khoa": "Khoa Pháp luật hình sự",
+      "lopHoc": "168624",
+      "lichHoc": [
+        {
+          "stt": 1,
+          "thu": 3,
+          "tiet": "10 - 12",
+          "soTinChi": 2,
+          "nhom": "",
+          "batDau": "11/11/2025",
+          "ketThuc": "16/11/2025",
+          "tenPhong": "Phòng 205",
+          "giangVien": "Lê Văn E"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tenMonHoc": "Luật hình sự 2",
+      "maMonHoc": "25101003616",
+      "khoa": "Khoa Pháp luật hình sự",
+      "lopHoc": "258963",
+      "lichHoc": [
+        {
+          "stt": 1,
+          "thu": 5,
+          "tiet": "7 - 9",
+          "soTinChi": 3,
+          "nhom": "",
+          "batDau": "13/11/2025",
+          "ketThuc": "18/11/2025",
+          "tenPhong": "Phòng 301",
+          "giangVien": "Phạm Thị F"
+        }
+      ]
+    }
+  ]
+}

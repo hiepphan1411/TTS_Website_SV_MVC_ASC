@@ -1,0 +1,80 @@
+﻿/* BHYT History Styles */
+:root {
+  --danger: #ea5455;
+  --danger-light: #fdeeee;
+  --success: #4caf50;
+  --success-light: #e2f3ec;
+  --warning: #ff9f43;
+  --warning-light: #fff5ec;
+}
+
+.bhyt-history-status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bhyt-history-status-badge.pending {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.bhyt-history-status-badge.approved {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.bhyt-history-status-badge.rejected {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+/* Date Input Styling */
+.search-box select,
+.search-box input[type="date"] {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: white;
+}
+
+.search-box select:focus,
+.search-box input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.search-box input[type="date"]::placeholder {
+  color: #999;
+}
+
+.search-box .input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .content-wrapper-tab-group {
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  .action-buttons .btn-custom {
+    flex: 1;
+  }
+}

@@ -1,0 +1,1425 @@
+﻿
+/* Page Layout */
+.scholarship-content {
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 15px;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.header-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+    .btn-primary:hover {
+        background: #0f2a6e;
+    }
+
+/* Progress Timeline */
+.progress-timeline {
+    padding: 8px 12px;
+    position: relative;
+}
+
+.progress-bar {
+    position: relative;
+    height: 3px;
+    background: #e5e7eb;
+    border-radius: 2px;
+}
+
+.progress-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+    .progress-step .step-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+
+    .progress-step.completed .step-icon {
+        background: #10b981;
+        color: white;
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    }
+
+    .progress-step.active .step-icon {
+        background: #f59e0b;
+        color: white;
+        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    .progress-step.pending .step-icon {
+        background: #e5e7eb;
+        color: var(--color-text-secondary);
+    }
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.2);
+    }
+}
+
+.progress-step .step-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: 0.125rem;
+    max-width: 120px;
+}
+
+.progress-step.pending .step-label {
+    color: #9ca3af;
+}
+
+.progress-step .step-date {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.progress-step.pending .step-date {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Responsive For Timeline */
+/*@media (max-width: 768px) {*/
+/*  .progress-timeline {*/
+/*    padding: 1rem 12px;*/
+/*  }*/
+
+/*  .progress-steps {*/
+/*    gap: 0.5rem;*/
+/*  }*/
+
+/*  .progress-step .step-icon {*/
+/*    width: 32px;*/
+/*    height: 32px;*/
+/*    font-size: 16px;*/
+/*  }*/
+
+/*  .progress-step .step-label {*/
+/*    font-size: 0.6875rem;*/
+/*    max-width: 80px;*/
+/*  }*/
+
+/*  .progress-step .step-date {*/
+/*    font-size: 10px;*/
+/*  }*/
+/*}*/
+
+/* Section Styles */
+.my-applications,
+.available-scholarships {
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+    .section-header h3 {
+        font-size: 1.125rem;
+        color: var(--color-text-primary);
+        margin: 0;
+        font-weight: 600;
+    }
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-tab {
+    padding: 0.4rem 16px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+
+    .filter-tab.active {
+        background: var(--primary-blue);
+        color: white;
+        border-color: var(--primary-blue);
+    }
+
+    .filter-tab:hover:not(.active) {
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+    }
+
+/* Application Cards */
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+    .applications-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .applications-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .applications-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+        .applications-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+.application-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+}
+
+    .application-card:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .application-card.status-approved {
+        border-color: #10b981;
+    }
+
+    .application-card.status-pending {
+        border-color: #feebcc;
+    }
+
+.application-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.application-title {
+    display: flex;
+    flex-direction: row;
+}
+
+    .application-title h4 {
+        font-size: 13px;
+        color: var(--color-text-primary);
+        margin: 0 0 6px 0;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+.scholarship-type-badge {
+    display: inline-block;
+    padding: 0.2rem 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.type-academic {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.type-external {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.type-support {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.application-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+}
+
+.status-approved {
+    background: #f6fbf6;
+    color: #10b981;
+}
+
+.status-approved-stats {
+    background: #10b98130;
+    color: #10b981;
+}
+
+.status-pending {
+    background: #fffaf2;
+    color: var(--primary-yellow);
+}
+
+.status-pending-stats {
+    background: #febb132b;
+    color: var(--primary-yellow);
+}
+
+.application-info-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    padding: 8px;
+    background: #f9fafb;
+    border-radius: 6px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.info-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.info-value {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 16px;
+}
+
+    .info-value.amount {
+        color: #10b981;
+        font-size: 15px;
+    }
+
+.application-footer {
+    display: flex;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s;
+    color: var(--color-text-primary);
+}
+
+    .btn-action:hover {
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+        background: #f9fafb;
+    }
+
+/* Scholarship Filters */
+.scholarship-filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.view-toggle-btn {
+    padding: 0.4rem 12px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+}
+
+    .view-toggle-btn.active {
+        background: var(--primary-blue);
+        color: white;
+    }
+
+    .view-toggle-btn:hover:not(.active) {
+        background: #f9fafb;
+    }
+
+.filter-select {
+    padding: 0.4rem 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: var(--color-text-primary);
+}
+
+    .filter-select:focus {
+        outline: none;
+        border-color: #153898;
+    }
+
+/* Scholarship Cards */
+.scholarships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+    .scholarships-grid.table-view {
+        display: block;
+    }
+
+/* Scholarship Table View */
+.scholarship-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+    .scholarship-table thead {
+        background: #f9fafb;
+    }
+
+    .scholarship-table th {
+        padding: 12px;
+        text-align: center;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .scholarship-table td {
+        padding: 16px 12px;
+        font-size: 16px;
+        color: var(--color-text-primary);
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    .scholarship-table tbody tr:hover {
+        background: #f9fafb;
+    }
+
+    .scholarship-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .scholarship-table .scholarship-name {
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .scholarship-table .type-badge {
+        display: inline-block;
+        padding: 0.125rem 0.5rem;
+        border-radius: 10px;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        background: #e5e7eb;
+        color: var(--color-text-primary);
+    }
+
+    .scholarship-table .amount-highlight {
+        font-weight: 700;
+        color: #153898;
+        font-size: 0.9375rem;
+    }
+
+    .scholarship-table .requirements-compact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .scholarship-table .table-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .scholarship-table .btn-table {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid #d1d5db;
+        background: white;
+        color: var(--color-text-primary);
+    }
+
+        .scholarship-table .btn-table:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .scholarship-table .btn-table.btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+            .scholarship-table .btn-table.btn-primary:hover {
+                background: #3b82f6;
+            }
+
+        .scholarship-table .btn-table.disabled {
+            background: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            border-color: #e5e7eb;
+        }
+
+            .scholarship-table .btn-table.disabled:hover {
+                background: #e5e7eb;
+                color: #9ca3af;
+                border-color: #e5e7eb;
+            }
+
+.scholarship-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    transition: all 0.2s;
+    position: relative;
+    border: 1px solid #e5e7eb;
+}
+
+    .scholarship-card:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .scholarship-card.eligible {
+        border-color: #10b981;
+    }
+
+.scholarship-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #10b981;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 0 8px 0 8px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+    .scholarship-badge.hot {
+        background: #ef4444;
+    }
+
+.scholarship-card-header {
+    margin-bottom: 16px;
+}
+
+    .scholarship-card-header h4 {
+        font-size: 15px;
+        color: var(--color-text-primary);
+        margin: 0 0 6px 0;
+        font-weight: 600;
+    }
+
+.type-badge {
+    display: inline-block;
+    padding: 0.2rem 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #e5e7eb;
+    color: var(--color-text-primary);
+}
+
+.scholarship-card-body {
+    margin-bottom: 16px;
+}
+
+.scholarship-amount {
+    text-align: center;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.amount-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #153898;
+    margin-bottom: 0.25rem;
+}
+
+.amount-note {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+}
+
+.scholarship-requirements {
+    margin-bottom: 16px;
+    min-height: 150px;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 6px 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-primary);
+    border-radius: 6px;
+}
+
+    .requirement-item i {
+        font-size: 12px;
+        width: 14px;
+    }
+
+/* Requirement icon base */
+.req-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+}
+
+/* Met condition: green check with 20% green background */
+.req-icon-met {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1.5px solid #10b981;
+}
+
+/* Unmet / undetermined condition: checkbox outline */
+.req-icon-unmet {
+    background: white;
+    border: 1.5px solid #d9d9d9;
+}
+
+.req-text-unmet {
+    color: #9ca3af;
+}
+
+/* Compact requirement for table view */
+.requirement-compact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 0.2rem 0;
+}
+
+    .requirement-compact .req-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+    }
+
+.scholarship-meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+}
+
+    .scholarship-meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .scholarship-meta i {
+        font-size: 12px;
+    }
+
+.scholarship-card-footer {
+    display: flex;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.btn-apply {
+    flex: 2;
+    padding: 0.5rem;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+    .btn-apply:hover {
+        background: var(--primary-blue);
+    }
+
+    .btn-apply.disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+    }
+
+        .btn-apply.disabled:hover {
+            background: #9ca3af;
+        }
+
+.btn-details {
+    flex: 1;
+    padding: 0.5rem;
+    background: white;
+    color: var(--color-text-primary);
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+    .btn-details:hover {
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+        background: #f9fafb;
+    }
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+    .modal-overlay.active {
+        display: flex;
+    }
+
+.modal {
+    border-radius: 12px;
+    width: 100%;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+    .modal-header h3 {
+        margin: 0;
+        font-size: 20px;
+        color: var(--color-text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+    .modal-close:hover {
+        background: #f3f4f6;
+        color: var(--color-text-primary);
+    }
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 1rem 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    background: white;
+}
+
+/* Detail Modal Content */
+.detail-section {
+    margin-bottom: 24px;
+}
+
+    .detail-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .detail-section h4 {
+        font-size: 1rem;
+        color: var(--color-text-primary);
+        margin: 0 0 16px 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 16px;
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .detail-list li {
+        padding: 10px;
+        background: #f9fafb;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 16px;
+    }
+
+        .detail-list li span {
+            flex: 1;
+        }
+
+        .detail-list li .btn-link {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+        }
+
+            .detail-list li .btn-link:hover {
+                background: #eff6ff;
+                color: var(--primary-blue);
+            }
+
+.detail-description {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.card-access {
+    height: fit-content;
+    border-radius: 12px;
+    background-color: var(--white);
+}
+
+.detail-highlight {
+    background: #fef3c7;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #92400e;
+    margin-top: 16px;
+}
+
+/* Form Styles */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+    .form-field.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .form-field label {
+        font-size: 16px;
+        color: var(--color-text-primary);
+        font-weight: 600;
+    }
+
+        .form-field label .required {
+            color: #ef4444;
+        }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: all 0.2s;
+        font-family: inherit;
+    }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(86, 162, 232, 0.1);
+        }
+
+    .form-field textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    .form-field .field-hint {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+    }
+
+.file-upload {
+    border: 2px dashed #d1d5db;
+    border-radius: 6px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .file-upload:hover {
+        border-color: var(--primary-blue);
+        background: #f9fafb;
+    }
+
+    .file-upload input[type="file"] {
+        display: none;
+    }
+
+.file-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-upload-icon {
+    font-size: 2rem;
+    color: #9ca3af;
+}
+
+.file-upload-text {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+
+.file-upload-hint {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.uploaded-files {
+    margin-top: 16px;
+}
+
+.uploaded-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+.uploaded-file-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+    .uploaded-file-info i {
+        color: var(--primary-blue);
+    }
+
+.remove-file {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: all 0.2s;
+}
+
+    .remove-file:hover {
+        color: #dc2626;
+    }
+
+.form-info-box {
+    background: #feebcc;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #92400e;
+    margin-bottom: 8px;
+}
+
+    .form-info-box i {
+        margin-right: 0.5rem;
+    }
+
+/* Modal Buttons */
+.btn-cancel {
+    padding: 10px 20px;
+    background: white;
+    color: var(--color-text-primary);
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .btn-cancel:hover {
+        background: #f9fafb;
+        border-color: #9ca3af;
+    }
+
+.btn-submit {
+    padding: 10px 20px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+    .btn-submit:hover {
+        background: var(--primary-blue);
+    }
+
+    .btn-submit:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+    }
+
+.amount-pending {
+    font-size: 13px;
+    color: var(--primary-yellow);
+}
+
+/* =============================================
+   RESPONSIVE - Tablet (≤ 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+    .scholarships-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .application-info-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* =============================================
+   RESPONSIVE - Mobile (≤ 768px)
+   ============================================= */
+@media (max-width: 768px) {
+    /* Page header */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    /* Section header: stack title and controls */
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .filter-tabs {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .scholarship-filters {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .view-toggle {
+        width: 100%;
+    }
+
+    .view-toggle-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    /* Application card */
+    .application-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .application-title {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .application-status {
+        align-self: flex-start;
+    }
+
+    .application-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Scholarship grid */
+    .scholarships-grid {
+        grid-template-columns: 1fr;
+    }
+
+        /* Table view: horizontal scroll on mobile */
+        .scholarships-grid.table-view {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+    .scholarship-table {
+        min-width: 600px;
+    }
+
+    /* Modal */
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .modal-content {
+        border-radius: 8px;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        padding: 12px 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+        .modal-footer .btn-details,
+        .modal-footer .btn-apply,
+        .modal-footer .btn-cancel,
+        .modal-footer .btn-submit {
+            flex: 1;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+    /* Detail grid in modal: 1 column */
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Form rows in modal: 1 column */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Progress timeline: tighten up */
+    .progress-timeline {
+        padding: 12px 0.5rem;
+    }
+
+    .progress-steps {
+        gap: 0.25rem;
+    }
+
+    .progress-step .step-date {
+        display: none;
+    }
+
+    .progress-step .step-label {
+        font-size: 10px;
+        max-width: 70px;
+    }
+
+    /* Scholarship card footer: stack buttons */
+    .scholarship-card-footer {
+        flex-direction: column;
+    }
+
+    .btn-apply,
+    .btn-details {
+        flex: unset;
+        width: 100%;
+    }
+}
+
+/* =============================================
+   RESPONSIVE - Small mobile (≤ 480px)
+   ============================================= */
+@media (max-width: 480px) {
+    .application-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-tabs {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filter-tab {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hide step dates entirely and shrink icons */
+    .progress-step .step-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .progress-step .step-label {
+        font-size: 0.5625rem;
+        max-width: 56px;
+    }
+
+    /* Scholarship card: compact */
+    .scholarship-card {
+        padding: 12px;
+    }
+
+    .scholarship-amount {
+        padding: 10px;
+    }
+
+    .amount-value {
+        font-size: 1.125rem;
+    }
+
+    /* Application title wraps */
+    .application-title h4 {
+        font-size: 0.8125rem;
+    }
+
+    /* Modal full-screen on very small screens */
+    .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+
+        .modal-dialog.modal-dialog-centered {
+            align-items: flex-end;
+        }
+
+    .modal-content {
+        border-radius: 12px 12px 0 0;
+        max-height: 92vh;
+    }
+}
