@@ -271,56 +271,6 @@
   overflow: hidden;
 }
 
-.dorm-floor-tabs {
-  display: flex;
-  gap: 10px;
-  border-bottom: 2px solid var(--border-color);
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 #f1f5f9;
-}
-
-/* Custom scrollbar for webkit browsers */
-.dorm-floor-tabs::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-.dorm-floor-tab {
-  padding: 10px 20px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.dorm-floor-tab:hover {
-  color: var(--primary-blue);
-}
-
-.dorm-floor-tab.active {
-  color: var(--primary-blue);
-  font-weight: 600;
-  border-bottom: 1.5px solid var(--primary-blue);
-}
-
-.dorm-floor-tab.active::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--primary-blue);
-}
-
 .dorm-floor-content {
   display: none;
   padding: 0 20px 20px 20px;

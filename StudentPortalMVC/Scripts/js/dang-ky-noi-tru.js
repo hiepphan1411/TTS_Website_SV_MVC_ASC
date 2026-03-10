@@ -231,7 +231,7 @@ function renderFloorTabs(buildingId) {
     .map(
       (floor, index) => `
       <button type="button" 
-        class="dorm-floor-tab ${index === 0 ? "active" : ""}" 
+        class="noborder-tab ${index === 0 ? "active" : ""}" 
         data-floor-id="${floor.id}">
         ${floor.name} (${floor.roomCount})
       </button>
@@ -250,13 +250,13 @@ function renderFloorTabs(buildingId) {
     .join("");
 
   floorTabsContainer.innerHTML = `
-    <div class="dorm-floor-tabs">
+    <div class="noborder-tabs">
       ${tabsHTML}
     </div>
     ${contentsHTML}
   `;
 
-  floorTabsContainer.querySelectorAll(".dorm-floor-tab").forEach((tab) => {
+  floorTabsContainer.querySelectorAll(".noborder-tab").forEach((tab) => {
     tab.addEventListener("click", () => selectFloor(tab, buildingId));
   });
 
@@ -267,7 +267,7 @@ function selectFloor(tabElement, buildingId) {
   const floorId = parseInt(tabElement.dataset.floorId);
 
   document
-    .querySelectorAll(".dorm-floor-tab")
+    .querySelectorAll(".noborder-tab")
     .forEach((tab) => tab.classList.remove("active"));
   tabElement.classList.add("active");
 

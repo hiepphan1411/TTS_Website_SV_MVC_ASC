@@ -1,0 +1,213 @@
+﻿@{
+    ViewBag.Title = "Đề xuất chứng chỉ";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/de-xuat-chung-chi.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container pt-4">
+    <div class="content-wrapper">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+            <div class="header-section">
+                <span class="header-title">Đề xuất chứng chỉ</span>
+                <span class="header-subtitle">Theo dõi, quản lý và đề xuẩt các chứng chỉ.</span>
+            </div>
+            <button class="btn button-propose"
+                    id="proposeCertificateBtn"
+                    onclick="openCertificateModal()">
+                Đề xuất
+            </button>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th class="ps-4">LOẠI CHỨNG CHỈ</th>
+                        <th class="ps-4">CHỨNG CHỈ</th>
+                        <th class="text-center">CHỈNH SỬA</th>
+                        <th class="text-center">NGƯỜI CẤP</th>
+                        <th class="text-center">NGÀY CẤP</th>
+                        <th class="text-center">NƠI CẤP</th>
+                        <th class="text-center">NGÀY ĐỀ XUẤT</th>
+                        <th class="text-center">TRẠNG THÁI</th>
+                        <th class="text-center">NGƯỜI DUYỆT</th>
+                        <th class="text-center">NGÀY DUYỆT</th>
+                        <th class="ps-4">GHI CHÚ DUYỆT</th>
+                        <th class="text-center">sỐ SERI</th>
+                        <th class="text-center">ĐIỂM TB</th>
+                        <th class="text-center">KẾT QUẢ</th>
+                        <th class="text-center">SỐ VÀO SỔ</th>
+                        <th class="text-center">SỐ QUYẾT ĐỊNH</th>
+                        <th class="text-center">NGÀY QUYẾT ĐỊNH</th>
+                        <th class="text-center">NGƯỜI KÝ</th>
+                        <th class="text-center">NGÀY KÝ</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JavaScript Render -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="certificate-modal-overlay" id="certificateModal">
+    <div class="certificate-modal-dialog">
+        <div class="certificate-modal-content">
+            <div class="certificate-modal-header">
+                <h2 class="certificate-modal-title">Tạo chứng chỉ đề xuất mới</h2>
+                <button class="certificate-modal-close"
+                        onclick="closeCertificateModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="certificate-modal-body">
+                <form id="certificateForm">
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    LOẠI CHỨNG CHỈ
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="form-input" id="certificateType" required>
+                                    <option value="">Chọn loại chứng chỉ</option>
+                                    <option value="Ngoại ngữ">Ngoại ngữ</option>
+                                    <option value="Tin học">Tin học</option>
+                                    <option value="Kỹ năng">Kỹ năng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-col-6">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    CHỨNG CHỈ
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="form-input" id="certificateName" required>
+                                    <option value="">Chọn chứng chỉ</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <label class="form-label">TIỀN TỐ - SỐ HIỆU</label>
+                            <input type="text" class="form-input" id="prefixSerial" />
+                        </div>
+                        <div class="form-col-6">
+                            <label class="form-label">SỐ HIỆU</label>
+                            <input type="text" class="form-input" id="serialNumber" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <label class="form-label">TIỀN TỐ - SỐ VÀO SỔ</label>
+                            <input type="text" class="form-input" id="prefixRegister" />
+                        </div>
+                        <div class="form-col-6">
+                            <label class="form-label">SỐ VÀO SỔ</label>
+                            <input type="text" class="form-input" id="registerNumber" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">KẾT QUẢ ĐẠT ĐƯỢC</label>
+                        <select class="form-input" id="result">
+                            <option value="">Chọn loại chứng chỉ</option>
+                            <option value="Đạt">Đạt</option>
+                            <option value="Không đạt">Không đạt</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <label class="form-label">SỐ QUYẾT ĐỊNH</label>
+                            <input type="text" class="form-input" id="decisionNumber" />
+                        </div>
+                        <div class="form-col-6">
+                            <label class="form-label">NGÀY QUYẾT ĐỊNH</label>
+                            <input type="date" class="form-input" id="decisionDate" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">NGƯỜI CẤP</label>
+                        <input type="text" class="form-input" id="issuer" />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <label class="form-label">NƠI CẤP</label>
+                            <select class="form-input" id="issuePlace">
+                                <option value="">Chọn nơi cấp</option>
+                                <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Đà Nẵng">Đà Nẵng</option>
+                            </select>
+                        </div>
+                        <div class="form-col-6">
+                            <label class="form-label">NGÀY CẤP</label>
+                            <input type="date" class="form-input" id="issueDate" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col-6">
+                            <label class="form-label">NGƯỜI KÝ</label>
+                            <input type="text" class="form-input" id="signer" />
+                        </div>
+                        <div class="form-col-6">
+                            <label class="form-label">NGÀY KÝ</label>
+                            <input type="date" class="form-input" id="signDate" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">HỒ SƠ ĐÍNH KÈM</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="fileInput" multiple hidden />
+                            <div class="upload-placeholder"
+                                 onclick="document.getElementById('fileInput').click()">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <p>Nhấn để chọn file hoặc kéo thả file vào đây</p>
+                                <small>PDF, JPG, PNG - Tối đa 5MB mỗi file</small>
+                            </div>
+                            <div class="file-list" id="fileList"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">GHI CHÚ</label>
+                        <textarea class="form-textarea"
+                                  id="note"
+                                  rows="3"
+                                  placeholder="Nhập ghi chú"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="certificate-modal-footer">
+                <button class="btn-cancel" onclick="closeCertificateModal()">
+                    Hủy
+                </button>
+                <button class="btn-save" onclick="submitCertificateForm()">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Lưu thay đổi
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/js/de-xuat-chung-chi.js"></script>
+}

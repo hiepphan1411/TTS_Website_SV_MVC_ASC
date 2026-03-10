@@ -160,11 +160,14 @@
             var dataUrls = {
                 progressData: '@Url.Action("GetProgressData", "ChuongTrinhKhung")',
                 hocKy: '@Url.Action("GetHocKyData", "ChuongTrinhKhung")',
-                khoiKienThuc: '@Url.Action("GetKhoiKienThucData", "ChuongTrinhKhung")'
+                khoiKienThuc: '@Url.Action("GetKhoiKienThucData", "ChuongTrinhKhung")',
+                ctk: '@Url.Action("GetCTKData", "ChuongTrinhKhung")'
             };
 
             ChuongTrinhKhung.setUrls(dataUrls);
-            KhoiKienThuc.init(dataUrls);
+            KhoiKienThuc.init({
+                ctk: "/ChuongTrinhKhung/GetCTKData"
+            });
             ChuongTrinhKhung.init();
         });
     </script>

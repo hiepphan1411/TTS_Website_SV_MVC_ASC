@@ -1,6 +1,8 @@
-using System.IO;
-using System.Web;
+﻿using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Web.Mvc;
+using StudentPortalMVC.Models;
 
 namespace StudentPortalMVC.Controllers
 {
@@ -31,6 +33,25 @@ namespace StudentPortalMVC.Controllers
             string filePath = Server.MapPath("~/App_Data/ChuongTrinhKhung/khoi-kien-thuc.json");
             string json = System.IO.File.ReadAllText(filePath);
             return Content(json, "application/json");
+        }
+
+        /*public ActionResult GetCTKData()
+        {
+            string filePath = Server.MapPath("~/App_Data/ChuongTrinhKhung/ctk-dataset.json");
+            string json = System.IO.File.ReadAllText(filePath);
+            return Content(json, "application/json");
+        }*/
+
+        public ActionResult GetCTKData()
+        {
+            using (var context = new StudentPortalDbContext())
+            {
+                var data = context.Database.SqlQuery<SP_WEB_XemChuongTrinhKhung>(
+                    "SELECT * FROM tmpCTK"
+                ).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

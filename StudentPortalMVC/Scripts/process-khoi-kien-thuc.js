@@ -1,8 +1,9 @@
 var KhoiKienThuc = (function () {
   "use strict";
 
-  var curriculumData = null;
-  var semesterCurriculumData = null;
+  var rawCurriculumData = null;
+  var groupedBySemester = null;
+  var groupedByKnowledgeBlock = null;
   var currentView = "semester";
 
   var tooltipElement = null;
@@ -10,41 +11,156 @@ var KhoiKienThuc = (function () {
 
   function loadCurriculumData() {
     var urls = ChuongTrinhKhung._dataUrls || {};
-    return $.getJSON(urls.khoiKienThuc || "")
+
+    if (!urls.ctk) {
+      return $.Deferred().reject();
+    }
+
+    return $.getJSON(urls.ctk)
       .then(function (data) {
-        curriculumData = data;
+        rawCurriculumData = data;
+        processData();
         return data;
       })
-      .fail(function () {
-        console.error("Loi khi tai du lieu chuong trinh dao tao.");
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("=== ERROR LOADING DATA ===");
+        console.error("URL:", urls.ctk);
+        console.error("Status:", textStatus);
+        console.error("Error:", errorThrown);
+        console.error("Status Code:", jqXHR.status);
+        console.error("Response:", jqXHR.responseText);
+        console.error("========================");
       });
   }
 
-  function loadSemesterCurriculumData() {
-    var urls = ChuongTrinhKhung._dataUrls || {};
-    return $.getJSON(urls.hocKy || "")
-      .then(function (data) {
-        semesterCurriculumData = data;
-        return data;
-      })
-      .fail(function () {
-        console.error("Loi khi tai du lieu hoc ky.");
-      });
+  function processData() {
+    if (!rawCurriculumData || rawCurriculumData.length === 0) {
+      console.warn("processData: No data to process!");
+      return;
+    }
+    console.log("processData: Processing", rawCurriculumData.length, "courses");
+
+    // Group by semester (HocKy)
+    var semesterMap = {};
+    for (var i = 0; i < rawCurriculumData.length; i++) {
+      var course = rawCurriculumData[i];
+      var hocKy = course.HocKy;
+
+      if (!semesterMap[hocKy]) {
+        semesterMap[hocKy] = {
+          HocKy: hocKy,
+          SoTCBatBuoc: course.SoTCBatBuoc || 0,
+          SoTCTuChon: course.SoTCTuChon || 0,
+          mandatory: [],
+          elective: [],
+        };
+      }
+
+      var courseData = $.extend({}, course, { stt: 0 });
+      if (course.IsBatBuoc === true) {
+        semesterMap[hocKy].mandatory.push(courseData);
+      } else {
+        semesterMap[hocKy].elective.push(courseData);
+      }
+    }
+
+    // Convert to array and sort by semester
+    groupedBySemester = [];
+    for (var key in semesterMap) {
+      if (semesterMap.hasOwnProperty(key)) {
+        // Update STT
+        for (var j = 0; j < semesterMap[key].mandatory.length; j++) {
+          semesterMap[key].mandatory[j].stt = j + 1;
+        }
+        for (var k = 0; k < semesterMap[key].elective.length; k++) {
+          semesterMap[key].elective[k].stt = k + 1;
+        }
+        groupedBySemester.push(semesterMap[key]);
+      }
+    }
+    groupedBySemester.sort(function (a, b) {
+      return a.HocKy - b.HocKy;
+    });
+
+    // Group by knowledge block (IDKhoiKienThuc)
+    var kbMap = {};
+    for (var i = 0; i < rawCurriculumData.length; i++) {
+      var course = rawCurriculumData[i];
+      var kbId = course.IDKhoiKienThuc;
+
+      if (!kbMap[kbId]) {
+        kbMap[kbId] = {
+          IDKhoiKienThuc: kbId,
+          TenKhoiKienThuc: course.TenKhoiKienThuc,
+          mandatory: [],
+          electiveGroups: {},
+        };
+      }
+
+      var courseData = $.extend({}, course, { stt: 0 });
+      if (course.IsBatBuoc === true) {
+        kbMap[kbId].mandatory.push(courseData);
+      } else {
+        // Group electives by SoNhomTuChon
+        var groupNum = course.SoNhomTuChon || 0;
+        if (!kbMap[kbId].electiveGroups[groupNum]) {
+          kbMap[kbId].electiveGroups[groupNum] = [];
+        }
+        kbMap[kbId].electiveGroups[groupNum].push(courseData);
+      }
+    }
+
+    // Convert to array and organize elective groups
+    groupedByKnowledgeBlock = [];
+    for (var key in kbMap) {
+      if (kbMap.hasOwnProperty(key)) {
+        var kb = kbMap[key];
+
+        // Update STT for mandatory courses
+        for (var j = 0; j < kb.mandatory.length; j++) {
+          kb.mandatory[j].stt = j + 1;
+        }
+
+        // Update STT for each elective group
+        var electiveGroupsArray = [];
+        for (var groupKey in kb.electiveGroups) {
+          if (kb.electiveGroups.hasOwnProperty(groupKey)) {
+            var group = kb.electiveGroups[groupKey];
+            for (var k = 0; k < group.length; k++) {
+              group[k].stt = k + 1;
+            }
+            electiveGroupsArray.push({
+              SoNhomTuChon: parseInt(groupKey),
+              courses: group,
+            });
+          }
+        }
+
+        // Sort elective groups by group number
+        electiveGroupsArray.sort(function (a, b) {
+          return a.SoNhomTuChon - b.SoNhomTuChon;
+        });
+
+        kb.electiveGroupsArray = electiveGroupsArray;
+        groupedByKnowledgeBlock.push(kb);
+      }
+    }
   }
 
   function getAllCourses() {
-    if (!curriculumData) return [];
-    return [].concat(
-      curriculumData.professionalEducation.mandatory,
-      curriculumData.professionalEducation.elective.block1,
-      curriculumData.professionalEducation.elective.block2,
-    );
+    return rawCurriculumData || [];
   }
 
-  function isPrerequisiteCompleted(prerequisiteStr) {
-    if (!prerequisiteStr || prerequisiteStr === "-") return true;
+  // Determine if all prerequisite courses are completed
+  function isPrerequisiteCompleted(HocPhanTienQuyet) {
+    if (
+      !HocPhanTienQuyet ||
+      HocPhanTienQuyet === "-" ||
+      HocPhanTienQuyet === null
+    )
+      return true;
 
-    var matches = prerequisiteStr.match(/\d{6}/g);
+    var matches = HocPhanTienQuyet.match(/\w{3}\d{5}/g);
     if (!matches || matches.length === 0) return true;
 
     var allCourses = getAllCourses();
@@ -52,9 +168,9 @@ var KhoiKienThuc = (function () {
       var prereqCode = matches[i];
       var found = false;
       for (var j = 0; j < allCourses.length; j++) {
-        if (allCourses[j].courseCode === prereqCode) {
+        if (allCourses[j].MaMonHoc === prereqCode) {
           found = true;
-          if (!allCourses[j].completed) return false;
+          if (!allCourses[j].IsDat) return false;
           break;
         }
       }
@@ -62,10 +178,16 @@ var KhoiKienThuc = (function () {
     return true;
   }
 
-  function getPrerequisiteTooltip(prerequisiteStr) {
-    if (!prerequisiteStr || prerequisiteStr === "-") return null;
+  // Find prerequisite courses
+  function getPrerequisiteTooltip(HocPhanTienQuyet) {
+    if (
+      !HocPhanTienQuyet ||
+      HocPhanTienQuyet === "-" ||
+      HocPhanTienQuyet === null
+    )
+      return null;
 
-    var matches = prerequisiteStr.match(/\d{6}/g);
+    var matches = HocPhanTienQuyet.match(/\w{3}\d{5}/g);
     if (!matches || matches.length === 0) return null;
 
     var allCourses = getAllCourses();
@@ -74,11 +196,11 @@ var KhoiKienThuc = (function () {
     for (var i = 0; i < matches.length; i++) {
       var prereqCode = matches[i];
       for (var j = 0; j < allCourses.length; j++) {
-        if (allCourses[j].courseCode === prereqCode) {
+        if (allCourses[j].MaMonHoc === prereqCode) {
           prerequisites.push({
-            courseName: allCourses[j].courseName,
-            courseCode: prereqCode,
-            completed: allCourses[j].completed,
+            TenMonHoc: allCourses[j].TenMonHoc,
+            MaMonHoc: prereqCode,
+            IsDat: allCourses[j].IsDat,
           });
           break;
         }
@@ -90,103 +212,81 @@ var KhoiKienThuc = (function () {
 
   function createTableRow(course, viewMode) {
     viewMode = viewMode || "knowledgeBlock";
-    var isLocked = !isPrerequisiteCompleted(course.prerequisite);
+
+    // Học phần tiên quyết chưa hoàn thành sẽ bị làm mờ
+    var isLocked = !isPrerequisiteCompleted(course.HocPhanTienQuyet);
     var lockedClass = isLocked ? ' class="row-locked"' : "";
 
-    var bgStyle = course.completed
+    var bgStyle = course.IsDat
       ? ' style="background-color: #F4FFF5 !important;"'
       : "";
 
-    var tooltipData = getPrerequisiteTooltip(course.prerequisite);
+    var tooltipData = getPrerequisiteTooltip(course.HocPhanTienQuyet);
     var dataTooltip = tooltipData
       ? ' data-tooltip="' +
         encodeURIComponent(JSON.stringify(tooltipData)) +
         '"'
       : "";
 
-    var completedIcon = course.completed
-      ? '<span class="checkmark">\u2713</span>'
+    var completedIcon = course.IsDat
+      ? '<span class="checkmark">✓</span>'
       : '<span class="dash">-</span>';
 
     var secondColumn =
       viewMode === "semester"
-        ? '<td class="column-center">' + course.knowledgeBlock + "</td>"
-        : '<td class="column-center">' + course.semester + "</td>";
+        ? '<td class="column-center">' +
+          (course.TenKhoiKienThuc || "-") +
+          "</td>"
+        : '<td class="column-center">' + (course.HocKy || "-") + "</td>";
 
-    return (
-      "<tr" +
-      lockedClass +
-      bgStyle +
-      dataTooltip +
-      ">" +
-      '<td class="column-center">' +
-      course.stt +
-      "</td>" +
-      secondColumn +
-      "<td>" +
-      course.courseName +
-      "</td>" +
-      '<td class="column-center">' +
-      course.courseCode +
-      "</td>" +
-      '<td class="column-center">' +
-      course.prerequisite +
-      "</td>" +
-      '<td class="column-center">' +
-      course.equivalent +
-      "</td>" +
-      '<td class="column-center">' +
-      course.replacement +
-      "</td>" +
-      '<td class="column-center">' +
-      course.credits +
-      "</td>" +
-      '<td class="column-center">' +
-      course.theoryHours +
-      "</td>" +
-      '<td class="column-center">' +
-      course.practiceHours +
-      "</td>" +
-      '<td class="column-center">' +
-      completedIcon +
-      "</td>" +
-      '<td class="column-center">' +
-      '  <button class="btn btn-sm btn-outline-primary"' +
-      (isLocked ? " disabled" : "") +
-      '><i class="fa-solid fa-file-invoice"></i></button>' +
-      "</td>" +
-      "</tr>"
-    );
+    return `
+      <tr ${lockedClass} ${bgStyle} ${dataTooltip}>
+        <td class="column-center">${course.stt || ""}</td>
+        <td class="column-center">${viewMode === "semester" ? course.TenKhoiKienThuc || "-" : course.HocKy || "-"}</td>
+        <td>${course.TenMonHoc || ""}</td>
+        <td class="column-center">${course.MaMonHoc || ""}</td>
+        <td class="column-center">${course.HocPhanTienQuyet || "-"}</td>
+        <td class="column-center">${course.MaHocPhanTuongDuong || "-"}</td>
+        <td class="column-center">${course.HocPhanSongHanh || "-"}</td>
+        <td class="column-center">${course.SoTinChi || ""}</td>
+        <td class="column-center">${course.SoTietLyThuyet || 0}</td>
+        <td class="column-center">${course.SoTietThucHanh || 0}</td>
+        <td class="column-center">${completedIcon}</td>
+        <td class="column-center">
+          <button class="btn btn-sm btn-outline-primary" ${isLocked ? "disabled" : ""}>
+            <i class="fa-solid fa-file-invoice"></i>
+          </button>
+        </td>
+      </tr>
+      `;
   }
 
   function buildTableHeader(viewMode) {
     viewMode = viewMode || "knowledgeBlock";
-    var secondColTitle =
-      viewMode === "semester"
-        ? "KH\u1eccI KI\u1ebeN TH\u1ee8C"
-        : "H\u1eccC K\u1ef2";
+    var secondColTitle = viewMode === "semester" ? "KHỐI KIẾN THỨC" : "HỌC KỲ";
     return (
       "<thead><tr>" +
       '<th class="column-center">STT</th>' +
       '<th class="column-center">' +
       secondColTitle +
       "</th>" +
-      "<th>T\u00caN M\u00d4N H\u1eccC/H\u1eccC PH\u1ea6N</th>" +
-      '<th class="column-center">M\u00c3 HP</th>' +
-      '<th class="column-center">H\u1eccC PH\u1ea6N</th>' +
-      '<th class="column-center">HP T\u01af\u01a0NG \u0110\u01af\u01a0NG</th>' +
-      '<th class="column-center">HP THAY TH\u1ebe</th>' +
-      '<th class="column-center">S\u1ed0 TC</th>' +
-      '<th class="column-center">S\u1ed0 TI\u1ebeT L\u00dd</th>' +
-      '<th class="column-center">S\u1ed0 TI\u1ebeT THI</th>' +
-      '<th class="column-center">\u0110\u1ea0T</th>' +
-      '<th class="column-center">\u0110\u1ec0 C\u01af\u01a0NG</th>' +
+      "<th>TÊN MÔN HỌC HỌC PHẦN</th>" +
+      '<th class="column-center">MÃ HP</th>' +
+      '<th class="column-center">HỌC PHẦN</th>' +
+      '<th class="column-center">HP TƯƠNG ĐƯƠNG</th>' +
+      '<th class="column-center">HP THAY THẾ</th>' +
+      '<th class="column-center">SỐ TC</th>' +
+      '<th class="column-center">SỐ TIẾT LÝ THUYẾT</th>' +
+      '<th class="column-center">SỐ TIẾT THỰC HÀNH</th>' +
+      '<th class="column-center">ĐẠT</th>' +
+      '<th class="column-center">ĐỀ CƯƠNG</th>' +
       "</tr></thead>"
     );
   }
 
   function renderKnowledgeBlockView() {
-    if (!curriculumData) return;
+    if (!groupedByKnowledgeBlock || groupedByKnowledgeBlock.length === 0)
+      return;
 
     var container = document.getElementById("expandableSections");
     var timelineSection = $(".timeline-section").closest(".content-wrapper");
@@ -194,135 +294,125 @@ var KhoiKienThuc = (function () {
       ".content-wrapper",
     );
 
+    console.log("BB: ", groupedByKnowledgeBlock);
+
     if (timelineSection.length) timelineSection.css("display", "none");
     if (knowledgeSection.length) knowledgeSection.css("display", "block");
 
-    var data = curriculumData.professionalEducation;
     var tableHeader = buildTableHeader("knowledgeBlock");
+    var sectionsHTML = "";
 
-    function buildElectiveBlock(title, courses) {
-      var rows = "";
-      for (var i = 0; i < courses.length; i++) {
-        rows += createTableRow(courses[i], "knowledgeBlock");
-      }
-      return (
-        '<div style="width: max-content; min-width: 100%">' +
-        '<div class="block-type">' +
-        title +
-        "</div>" +
-        '<table class="table table-sm elective-table">' +
-        tableHeader +
-        "<tbody>" +
-        rows +
-        "</tbody></table>" +
-        "</div>"
-      );
-    }
-
-    function buildSection(
-      title,
-      mandatoryCredits,
-      electiveCredits,
-      isExpanded,
-      electiveBlocks,
-    ) {
+    $.each(groupedByKnowledgeBlock, function (index, kbData) {
+      var isExpanded = index === 0;
       var expandedClass = isExpanded ? "expanded" : "";
       var rotatedClass = isExpanded ? "rotated" : "";
       var activeClass = isExpanded ? "active" : "";
 
-      var mandatoryRows = "";
-      for (var i = 0; i < data.mandatory.length; i++) {
-        mandatoryRows += createTableRow(data.mandatory[i], "knowledgeBlock");
+      // Calculate credits
+      var totalMandatoryCredits = 0;
+      var totalElectiveCredits = 0;
+      $.each(kbData.mandatory, function (_, c) {
+        var credits = parseInt(c.DVHT) || 0;
+        totalMandatoryCredits += credits;
+      });
+
+      // Calculate elective credits from all groups
+      if (kbData.electiveGroupsArray) {
+        $.each(kbData.electiveGroupsArray, function (_, group) {
+          $.each(group.courses, function (_, c) {
+            var credits = parseInt(c.DVHT) || 0;
+            totalElectiveCredits += credits;
+          });
+        });
       }
 
-      return (
-        '<div class="expandable-section">' +
-        '<div class="section-header ' +
-        expandedClass +
-        '" onclick="KhoiKienThuc.toggleSection(this)">' +
-        '  <div class="semester-title">' +
-        '    <div class="semester-head-icon"></div>' +
-        "    <div>" +
-        '      <div class="section-header-text">' +
-        title +
-        "</div>" +
-        '      <div class="section-meta">' +
-        '        B\u1eaft bu\u1ed9c: <span class="bold-text">' +
-        mandatoryCredits +
-        " t\u00edn ch\u1ec9</span>" +
-        '        \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">' +
-        electiveCredits +
-        " t\u00edn ch\u1ec9</span>" +
-        "      </div>" +
-        "    </div>" +
-        "  </div>" +
-        '  <div class="section-icon ' +
-        rotatedClass +
-        '"><i class="fas fa-chevron-up"></i></div>' +
-        "</div>" +
-        '<div class="section-contents ' +
-        activeClass +
-        '">' +
-        '  <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>' +
-        '  <div class="table-frame">' +
-        '    <table class="table table-sm mandatory-courses-table">' +
-        tableHeader +
-        "<tbody>" +
-        mandatoryRows +
-        "</tbody></table>" +
-        "  </div>" +
-        '  <div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>' +
-        '  <div class="elective-course">' +
-        electiveBlocks +
-        "</div>" +
-        "</div>" +
-        "</div>"
-      );
-    }
+      // Render Bắt buộc
+      var mandatoryHTML = "";
+      if (kbData.mandatory.length > 0) {
+        var mandatoryRows = "";
+        $.each(kbData.mandatory, function (idx, c) {
+          mandatoryRows += createTableRow(c, "knowledgeBlock");
+        });
+        mandatoryHTML = `
+          <div class="subtitle-header">Học phần bắt buộc</div>
+          <div class="table-frame">
+            <table class="table table-sm mandatory-courses-table">
+              ${tableHeader}
+              <tbody>${mandatoryRows}</tbody>
+            </table>
+          </div>
+        `;
+      }
 
-    container.innerHTML =
-      buildSection(
-        "Kh\u1ed1i ki\u1ebfn th\u1ee9c gi\u00e1o d\u1ee5c \u0111\u1ea1i c\u01b0\u01a1ng",
-        12,
-        6,
-        false,
-        buildElectiveBlock(
-          "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG 1",
-          data.elective.block1,
-        ) +
-          buildElectiveBlock(
-            "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG 2",
-            data.elective.block2,
-          ),
-      ) +
-      buildSection(
-        "Kh\u1ed1i ki\u1ebfn th\u1ee9c gi\u00e1o d\u1ee5c chuy\u00ean nghi\u1ec7p",
-        6,
-        6,
-        true,
-        buildElectiveBlock(
-          "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C CHUY\u00caN NGHI\u1ec6P 1",
-          data.elective.block1,
-        ) +
-          buildElectiveBlock(
-            "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C CHUY\u00caN NGHI\u1ec6P 2",
-            data.elective.block2,
-          ),
-      ) +
-      buildSection(
-        "Kh\u1ed1i ki\u1ebfn th\u1ee9c ch\u01b0a x\u00e1c \u0111\u1ecbnh",
-        6,
-        6,
-        false,
-        buildElectiveBlock(
-          "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG",
-          data.elective.block1,
-        ),
-      );
+      // Render Tự chọn
+      var electiveHTML = "";
+      if (kbData.electiveGroupsArray && kbData.electiveGroupsArray.length > 0) {
+        electiveHTML = `<div class="subtitle-header">Học phần tự chọn</div>
+            <div class="elective-course">`;
+
+        console.log("Rendering block:", kbData.electiveGroupsArray);
+
+        $.each(kbData.electiveGroupsArray, function (_, group) {
+          var electiveRows = "";
+          $.each(group.courses, function (idx, c) {
+            electiveRows += createTableRow(c, "knowledgeBlock");
+          });
+
+          var groupTitle =
+            group.SoNhomTuChon > 0
+              ? "TỰ CHỌN KHỐI KIẾN THỨC " +
+                kbData.TenKhoiKienThuc.toUpperCase() +
+                " " +
+                group.SoNhomTuChon
+              : "TỰ CHỌN KHỐI KIẾN THỨC " +
+                kbData.TenKhoiKienThuc.toUpperCase();
+
+          electiveHTML += `
+            <div style="width: max-content; min-width: 100%">
+              <div class="block-type">
+                ${groupTitle}
+              </div>
+              <table class="table table-sm elective-table">
+                ${tableHeader}
+                <tbody>
+                  ${electiveRows}
+                </tbody>
+              </table>
+            </div>
+          `;
+        });
+
+        electiveHTML += "</div>";
+      }
+
+      sectionsHTML += `
+        <div class="expandable-section">
+          <div class="section-header ${expandedClass}" onclick="KhoiKienThuc.toggleSection(this)">
+            <div class="semester-title">
+              <div class="semester-head-icon"></div>
+              <div>
+                <div class="section-header-text">Khối kiến thức ${kbData.TenKhoiKienThuc}</div>
+                <div class="section-meta">
+                  Bắt buộc: <span class="bold-text">${totalMandatoryCredits} tín chỉ</span>
+                  • Tự chọn: <span class="bold-text">${totalElectiveCredits} tín chỉ</span>
+                </div>
+              </div>
+            </div>
+            <div class="section-icon ${rotatedClass}"><i class="fas fa-chevron-up"></i></div>
+          </div>
+          <div class="section-contents ${activeClass}">
+            ${mandatoryHTML}
+            ${electiveHTML}
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = sectionsHTML;
   }
 
   function renderSemesterView() {
-    if (!semesterCurriculumData) return;
+    if (!groupedBySemester || groupedBySemester.length === 0) return;
 
     var container = document.getElementById("expandableSections");
     var timelineSection = $(".timeline-section").closest(".content-wrapper");
@@ -336,7 +426,7 @@ var KhoiKienThuc = (function () {
     var tableHeader = buildTableHeader("semester");
     var semestersHTML = "";
 
-    $.each(semesterCurriculumData.semesters, function (index, semData) {
+    $.each(groupedBySemester, function (index, semData) {
       var isExpanded = index === 0;
       var expandedClass = isExpanded ? "expanded" : "";
       var rotatedClass = isExpanded ? "rotated" : "";
@@ -346,69 +436,59 @@ var KhoiKienThuc = (function () {
       if (semData.mandatory.length > 0) {
         var mandatoryRows = "";
         $.each(semData.mandatory, function (idx, c) {
-          mandatoryRows += createTableRow(
-            $.extend({}, c, { stt: idx + 1 }),
-            "semester",
-          );
+          mandatoryRows += createTableRow(c, "semester");
         });
-        mandatoryHTML =
-          '<div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>' +
-          '<div class="table-frame"><table class="table table-sm mandatory-courses-table">' +
-          tableHeader +
-          "<tbody>" +
-          mandatoryRows +
-          "</tbody></table></div>";
+        mandatoryHTML = `
+        <div class="subtitle-header">Học phần bắt buộc</div>
+        <div class="table-frame">
+          <table class="table table-sm mandatory-courses-table">
+            ${tableHeader}
+            <tbody>${mandatoryRows}</tbody>
+          </table>
+        </div>
+        `;
       }
 
       var electiveHTML = "";
       if (semData.elective.length > 0) {
         var electiveRows = "";
         $.each(semData.elective, function (idx, c) {
-          electiveRows += createTableRow(
-            $.extend({}, c, { stt: idx + 1 }),
-            "semester",
-          );
+          electiveRows += createTableRow(c, "semester");
         });
-        electiveHTML =
-          '<div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>' +
-          '<div class="table-frame"><table class="table table-sm">' +
-          tableHeader +
-          "<tbody>" +
-          electiveRows +
-          "</tbody></table></div>";
+        electiveHTML = `
+        <div class="subtitle-header">Học phần tự chọn</div>
+          <div class="table-frame">
+            <table class="table table-sm">
+              ${tableHeader}
+              <tbody>
+                ${electiveRows}
+              </tbody>
+            </table>
+          </div>
+        `;
       }
 
-      semestersHTML +=
-        '<div class="expandable-section">' +
-        '<div class="section-header ' +
-        expandedClass +
-        '" onclick="KhoiKienThuc.toggleSection(this)">' +
-        '  <div class="semester-title">' +
-        '    <div class="semester-head-icon"></div>' +
-        "    <div>" +
-        '      <div class="section-header-text">H\u1ecdc k\u1ef3 ' +
-        semData.semester +
-        "</div>" +
-        '      <div class="section-meta">' +
-        '        B\u1eaft bu\u1ed9c: <span class="bold-text">' +
-        semData.mandatoryCredits +
-        " t\u00edn ch\u1ec9</span>" +
-        '        \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">' +
-        semData.electiveCredits +
-        " t\u00edn ch\u1ec9</span>" +
-        "      </div>" +
-        "    </div>" +
-        "  </div>" +
-        '  <div class="section-icon ' +
-        rotatedClass +
-        '"><i class="fas fa-chevron-up"></i></div>' +
-        "</div>" +
-        '<div class="section-contents ' +
-        activeClass +
-        '">' +
-        mandatoryHTML +
-        electiveHTML +
-        "</div></div>";
+      semestersHTML += `
+        <div class="expandable-section">
+          <div class="section-header ${expandedClass}" onclick="KhoiKienThuc.toggleSection(this)">
+            <div class="semester-title">
+              <div class="semester-head-icon"></div>
+              <div>
+                <div class="section-header-text">Học kỳ ${semData.HocKy}</div>
+                <div class="section-meta">
+                  Bắt buộc: <span class="bold-text">${semData.SoTCBatBuoc} tín chỉ</span>
+                  • Tự chọn: <span class="bold-text">${semData.SoTCTuChon} tín chỉ</span>
+                </div>
+              </div>
+            </div>
+            <div class="section-icon ${rotatedClass}"><i class="fas fa-chevron-up"></i></div>
+          </div>
+          <div class="section-contents ${activeClass}">
+            ${mandatoryHTML}
+            ${electiveHTML}
+          </div>
+        </div>
+      `;
     });
 
     container.innerHTML = semestersHTML;
@@ -455,65 +535,55 @@ var KhoiKienThuc = (function () {
     var allCompleted = true;
     var uncompletedCourses = [];
     for (var i = 0; i < prerequisites.length; i++) {
-      if (!prerequisites[i].completed) {
+      if (!prerequisites[i].IsDat) {
         allCompleted = false;
-        uncompletedCourses.push(prerequisites[i].courseName);
+        uncompletedCourses.push(prerequisites[i].TenMonHoc);
       }
     }
 
     var tooltipFrames = "";
     for (var k = 0; k < prerequisites.length; k++) {
       var prereq = prerequisites[k];
-      var statusClass = prereq.completed ? "completed" : "not-completed";
-      var statusText = prereq.completed
-        ? "\u0110\u00e3 h\u1ecdc"
-        : "Ch\u01b0a h\u1ecdc";
-      var statusIcon = prereq.completed
+      var statusClass = prereq.IsDat ? "completed" : "not-completed";
+      var statusText = prereq.IsDat ? "Đã học" : "Chưa học";
+      var statusIcon = prereq.IsDat
         ? '<i class="fa-solid fa-circle-check" style="color: #22C55E"></i>'
         : '<i class="fa-solid fa-circle-xmark" style="color: #EA5455"></i>';
-      var requiredText = prereq.completed
-        ? "\u0110\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh"
-        : "M\u00f4n ph\u1ea3i h\u1ecdc ti\u00ean quy\u1ebft";
+      var requiredText = prereq.IsDat
+        ? "Đã hoàn thành chương trình"
+        : "Môn phải học tiên quyết";
 
-      tooltipFrames +=
-        '<div class="tooltip-frame">' +
-        "<div>" +
-        statusIcon +
-        "</div>" +
-        '<div class="tooltip-body">' +
-        '  <div class="tooltip-content">' +
-        prereq.courseName +
-        "</div>" +
-        '  <div class="tooltip-require">Y\u00eau c\u1ea7u: <i>' +
-        requiredText +
-        "</i></div>" +
-        "</div>" +
-        '<div class="tooltip-status ' +
-        statusClass +
-        '">' +
-        statusText +
-        "</div>" +
-        "</div>";
+      tooltipFrames += `
+      <div class="tooltip-frame">
+        <div>${statusIcon}</div>
+        <div class="tooltip-body">
+          <div class="tooltip-content">
+            ${prereq.TenMonHoc}
+          </div>
+          <div class="tooltip-require">
+            Yêu cầu: <i>${requiredText}</i>
+          </div>
+        </div>
+        <div class="tooltip-status ${statusClass}">${statusText}</div>
+      </div>
+      `;
     }
 
     var remindText = allCompleted
-      ? "M\u00f4n h\u1ecdc \u0111\u00e3 \u0111\u1ee7 \u0111i\u1ec1u ki\u1ec7n \u0111\u0103ng k\u00fd."
-      : '<span class="remind-text">B\u1ea1n <span class="text-danger">CH\u01af\u0041 TH\u1ec2 \u0110\u0102NG K\u00dd</span> m\u00f4n n\u00e0y do ch\u01b0a ho\u00e0n th\u00e0nh h\u1ecdc ph\u1ea7n ti\u00ean quy\u1ebft: <b>' +
+      ? "Môn học đã đủ điều kiện đăng ký."
+      : '<span class="remind-text">Bạn <span class="text-danger">CHƯA THỂ ĐĂNG KÝ</span> môn này do chưa hoàn thành học phần tiên quyết: <b>' +
         uncompletedCourses.join(", ") +
         "</b>.</span>";
 
-    tooltip.innerHTML =
-      '<div class="tooltip-title">M\u00d4N H\u1eccC TI\u00caN QUY\u1ebeT' +
-      (prerequisites.length > 1
-        ? " (" + prerequisites.length + " m\u00f4n)"
-        : "") +
-      "</div>" +
-      '<div style="display: flex; flex-direction: column; gap: 10px;">' +
-      tooltipFrames +
-      "</div>" +
-      '<div class="tooltip-remind">' +
-      remindText +
-      "</div>";
+    tooltip.innerHTML = `
+      <div class="tooltip-title">MÔN HỌC TIÊN QUYẾT ${prerequisites.length > 1 ? " (" + prerequisites.length + " môn)" : ""}</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        ${tooltipFrames}
+      </div>
+      <div class="tooltip-remind">
+        ${remindText}
+      </div>
+    `;
 
     var tooltipLeft = event.clientX - 22;
     tooltip.style.left = tooltipLeft + "px";
@@ -588,7 +658,6 @@ var KhoiKienThuc = (function () {
   }
 
   /* Knowledge Blocks Overview */
-
   function renderKnowledgeBlocksOverview() {
     var knowledgeBlocksData = ChuongTrinhKhung.getKnowledgeBlocksData();
     if (!knowledgeBlocksData) return;
@@ -692,7 +761,7 @@ var KhoiKienThuc = (function () {
         "</div>" +
         '  <div class="block-code">' +
         displayCredits +
-        " t\u00edn ch\u1ec9</div>" +
+        " tín chỉ</div>" +
         '  <div class="timeline-progress">' +
         '    <div class="timeline-progress-bar">' +
         progressBar.html +
@@ -712,22 +781,20 @@ var KhoiKienThuc = (function () {
   function init(dataUrls) {
     ChuongTrinhKhung._dataUrls = dataUrls;
 
-    return $.when(loadCurriculumData(), loadSemesterCurriculumData()).then(
-      function () {
-        switchView(currentView);
-        attachTooltipListeners();
+    return loadCurriculumData().then(function () {
+      switchView(currentView);
+      attachTooltipListeners();
 
-        var tabBtns = $(".tab-btn");
-        if (tabBtns.length >= 2) {
-          tabBtns.eq(0).on("click", function () {
-            switchView("semester");
-          });
-          tabBtns.eq(1).on("click", function () {
-            switchView("knowledgeBlock");
-          });
-        }
-      },
-    );
+      var tabBtns = $(".tab-btn");
+      if (tabBtns.length >= 2) {
+        tabBtns.eq(0).on("click", function () {
+          switchView("semester");
+        });
+        tabBtns.eq(1).on("click", function () {
+          switchView("knowledgeBlock");
+        });
+      }
+    });
   }
 
   // Public API

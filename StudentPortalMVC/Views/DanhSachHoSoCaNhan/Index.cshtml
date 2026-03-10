@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách hồ sơ cá nhân";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/danh-sach-ho-so-ca-nhan.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <div class="header-section">
+        <span class="header-title">Danh sách hồ sơ cá nhân</span>
+        <span class="header-subtitle">Theo dõi và quản lý danh sách các hồ sơ cá nhân.</span>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Filter and Search -->
+        <div class="d-flex flex-wrap gap-4 mb-4 align-items-end">
+            <div class="search-box">
+                <label for="periodSelect" class="form-label input-label">Trạng thái</label>
+                <select id="periodSelect" class="form-control">
+                    <option value="dot1-hk1">Tất cả</option>
+                    <option value="dot2-hk1">Đã nộp</option>
+                    <option value="dot1-hk2">Chưa nộp</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <input type="text"
+                       id="keywordInput"
+                       class="form-control"
+                       placeholder="Từ khóa tìm kiếm (tên hồ sơ, mã hồ sơ, ...)" />
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-responsive">
+            <table class="table" id="historyTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th class="text-center">MÃ HỒ SƠ</th>
+                        <th class="ps-4">TÊN HỒ SƠ</th>
+                        <th class="text-center">NGÀY CẬP NHẬT</th>
+                        <th class="text-center">BẮT BUỘC</th>
+                        <th class="text-center">ĐÃ NỘP</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JavaScript Render -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/danh-sach-ho-so-ca-nhan.js"></script>
+}
