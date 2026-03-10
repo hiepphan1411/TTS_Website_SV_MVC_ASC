@@ -231,7 +231,6 @@
     }
 
     // Lọc theo học kỳ
-
     function renderSemesterTabs() {
         var recentSemesters = academicResultsData.slice(-3);
         var parts = [

@@ -13,18 +13,6 @@
     transition: all 0.3s;
 }
 
-.refresh-btn {
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 6px 18px;
-    font-size: 16px;
-    font-weight: 550;
-    background-color: white;
-    color: var(--color-text-primary);
-    border: 1px solid var(--border-color);
-}
-
     .back-btn:hover {
         background: var(--border-color);
     }
@@ -32,10 +20,11 @@
 /* Main Layout */
 .payment-layout {
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid-template-columns: 1fr 22%;
     gap: 20px;
 }
 
+/* Left Section - Payment Items */
 .payment-section {
     background: white;
     border-radius: 12px;
@@ -44,9 +33,9 @@
 }
 
 .section-header {
-    background: #f8f9fa;
-    color: var(--text-dark);
-    padding: 18px 24px;
+    background: white;
+    color: var(--color-text-primary);
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,15 +69,14 @@
 .section-title {
     font-size: 17px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
     gap: 10px;
+    margin: 0;
 }
 
 .filter-dropdown {
     background: rgba(255, 255, 255, 0.15);
-    border: 1px solid var(--text-dark);
-    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-primary);
     padding: 8px 14px;
     border-radius: 6px;
     font-size: 13px;
@@ -97,7 +85,7 @@
 }
 
     .filter-dropdown option {
-        color: #333;
+        color: var(--color-text-primary);
     }
 
 /* Payment Table */
@@ -108,14 +96,14 @@
 
     .payment-table thead {
         background: #fafafa;
-        border-bottom: 2px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
     }
 
     .payment-table th {
         padding: 14px 18px;
         text-align: left;
         font-weight: 600;
-        color: var(--text-light);
+        color: #666;
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -129,7 +117,7 @@
     .payment-table td {
         padding: 14px 18px;
         border-bottom: 1px solid #f0f0f0;
-        color: #333;
+        color: var(--color-text-primary);
         font-size: 14px;
     }
 
@@ -143,7 +131,7 @@
         }
 
         .payment-table tbody tr.selected {
-            background: #e3f2fd;
+            background: var(--light-gray);
         }
 
 .action-cell {
@@ -151,14 +139,14 @@
 }
 
 .select-btn {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     padding: 4px 16px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 550;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -166,7 +154,7 @@
 }
 
 .search-btn {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     padding: 8px 16px;
@@ -174,18 +162,32 @@
 }
 
 .select-all-btn {
-    float: right;
-    margin: 20px;
     padding: 6px 18px;
-    font-size: 18px;
+    font-size: 16px;
 }
+
+.refresh-btn {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 18px;
+    font-size: 16px;
+    font-weight: 550;
+    background-color: white;
+    color: var(--color-text-primary);
+    border: 1px solid var(--border-color);
+}
+
+    .refresh-btn:hover {
+        background-color: #f5f5f5;
+    }
 
 .select-btn i {
     font-size: 11px;
 }
 
 .select-btn:hover:not(:disabled) {
-    background: var(--primary-color);
+    background: var(--primary-blue);
 }
 
 .select-btn:disabled {
@@ -218,7 +220,7 @@
 
     .status-badge.optional {
         background: #e3f2fd;
-        color: var(--secondary-color);
+        color: #1976d2;
     }
 
     .status-badge i {
@@ -227,25 +229,25 @@
 
 .amount {
     font-weight: 700;
-    color: var(--danger-color);
+    color: #d32f2f;
 }
 
 /* Total Row */
 .total-row {
     background: #f5f5f5;
-    border-top: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
 
     .total-row td {
         padding: 18px;
         font-size: 15px;
         font-weight: 700;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
 .total-amount {
     font-size: 18px;
-    color: var(--danger-color);
+    color: #d32f2f;
 }
 
 /* Right Section */
@@ -265,13 +267,14 @@
 
 .selected-items-header {
     background: #f8f9fa;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     padding: 14px 20px;
     font-weight: 700;
     font-size: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .selected-items-body {
@@ -338,7 +341,7 @@
 
 .selected-item-name {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     margin-bottom: 4px;
     overflow: hidden;
@@ -353,14 +356,14 @@
 
 .selected-item-amount {
     font-weight: 700;
-    color: var(--danger-color);
+    color: #d32f2f;
     font-size: 14px;
     white-space: nowrap;
 }
 
 .remove-item-btn {
     background: #f5f5f5;
-    color: var(--danger-color);
+    color: #d32f2f;
     border: 1px solid var(--border-color);
     width: 26px;
     height: 26px;
@@ -375,15 +378,15 @@
 }
 
     .remove-item-btn:hover {
-        background: var(--danger-color);
+        background: #d32f2f;
         color: white;
-        border-color: var(--danger-color);
+        border-color: #d32f2f;
     }
 
 .selected-items-total {
     padding: 14px 20px;
     background: #f8f9fa;
-    border-top: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -391,13 +394,13 @@
 
 .selected-total-label {
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 14px;
 }
 
 .selected-total-amount {
     font-weight: 700;
-    color: var(--danger-color);
+    color: #d32f2f;
     font-size: 18px;
 }
 
@@ -414,7 +417,7 @@
     padding: 14px 20px;
     border-bottom: 1px solid var(--border-color);
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -443,12 +446,12 @@
     }
 
     .method-option:hover {
-        border-color: var(--secondary-color);
+        border-color: #1976d2;
         background: #fafafa;
     }
 
     .method-option.selected {
-        border-color: var(--secondary-color);
+        border-color: #1976d2;
         background: #e3f2fd;
     }
 
@@ -456,7 +459,7 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: var(--secondary-color);
+    accent-color: #1976d2;
     flex-shrink: 0;
 }
 
@@ -473,7 +476,7 @@
 
 .method-name {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     margin-bottom: 2px;
 }
@@ -494,7 +497,7 @@
 .payment-btn {
     width: 100%;
     padding: 14px;
-    background: var(--secondary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     border-radius: 8px;
@@ -506,12 +509,10 @@
     justify-content: center;
     gap: 10px;
     transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
 }
 
     .payment-btn:hover:not(:disabled) {
-        background: #1565c0;
-        box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+        background: var(--color-completed);
         transform: translateY(-1px);
     }
 
@@ -520,12 +521,6 @@
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
-}
-
-.btn-removeAll {
-    background-color: white !important;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
 }
 
 .payment-btn:disabled {
@@ -582,7 +577,7 @@
 .modal-title {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     margin-bottom: 8px;
 }
 
@@ -596,7 +591,7 @@
 }
 
 .countdown-time {
-    background: var(--danger-color);
+    background: #d32f2f;
     color: white;
     padding: 4px 10px;
     border-radius: 6px;
@@ -635,7 +630,7 @@
 .scan-instruction {
     text-align: center;
     font-size: 14px;
-    color: var(--secondary-color);
+    color: #1976d2;
     font-weight: 600;
     margin-bottom: 14px;
 }
@@ -668,7 +663,7 @@
 
 .info-value {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -678,7 +673,7 @@
 .copy-btn {
     background: none;
     border: none;
-    color: var(--secondary-color);
+    color: #1976d2;
     cursor: pointer;
     font-size: 14px;
     padding: 4px;
@@ -706,7 +701,7 @@
 }
 
 .download-btn {
-    background: var(--secondary-color);
+    background: #1976d2;
     color: white;
 }
 
@@ -765,7 +760,7 @@
 
         .payment-table tr {
             margin-bottom: 15px;
-            border: 1.5px solid var(--border-color);
+            border: 10px solid var(--border-color);
             border-radius: 12px;
             padding: 15px;
             background: white;
@@ -773,8 +768,8 @@
         }
 
             .payment-table tr.selected {
-                border-color: var(--secondary-color);
-                background: #e3f2fd;
+                border-color: #1976d2;
+                background: var(--light-gray);
             }
 
         .payment-table td {
@@ -791,7 +786,7 @@
             .payment-table td:nth-child(3) {
                 font-weight: 700;
                 font-size: 15px;
-                color: var(--secondary-color);
+                color: #1976d2;
                 padding: 0 0 10px 0;
                 border-bottom: 1px solid var(--border-color);
                 margin-bottom: 10px;

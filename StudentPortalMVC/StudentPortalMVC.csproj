@@ -161,6 +161,7 @@
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
+    <Content Include="Content\css\dang-ky-danh-gia-hp-hoan-thi.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
     <Content Include="Content\css\dang-ky-noi-tru.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
@@ -169,6 +170,7 @@
     <Content Include="Content\css\ghi-chu-nhac-nho.css" />
     <Content Include="Content\css\ho-so-sinh-vien.css" />
     <Content Include="Content\css\hoc-bong.css" />
+    <Content Include="Content\css\hop-thu-sinh-vien.css" />
     <Content Include="Content\css\ket-qua-hoc-tap.css" />
     <Content Include="Content\css\ket-qua-ren-luyen.css" />
     <Content Include="Content\css\khai-bao-bhyt.css" />
@@ -176,9 +178,15 @@
     <Content Include="Content\css\lich-su-bhyt.css" />
     <Content Include="Content\css\lich-theo-tien-do.css" />
     <Content Include="Content\css\lich-theo-tuan.css" />
+    <Content Include="Content\css\lich-toan-truong.css" />
+    <Content Include="Content\css\phieu-thu-tong-hop.css" />
+    <Content Include="Content\css\phieu-thu-truc-tuyen.css" />
+    <Content Include="Content\css\thanh-toan-noi-tru.css" />
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
     <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
+    <Content Include="Content\css\tra-cuu-cong-no.css" />
+    <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
     <Content Include="Content\images\user.png" />
@@ -247,6 +255,7 @@
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
     <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
     <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
+    <Content Include="Scripts\js\dang-ky-danh-gia-hp-hoan-thi.js" />
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
     <Content Include="Scripts\js\dang-ky-noi-tru.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
@@ -256,6 +265,7 @@
     <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
     <Content Include="Scripts\js\ho-so-sinh-vien.js" />
     <Content Include="Scripts\js\hoc-bong.js" />
+    <Content Include="Scripts\js\hop-thu-sinh-vien.js" />
     <Content Include="Scripts\js\ket-qua-hoc-tap.js" />
     <Content Include="Scripts\js\ket-qua-ren-luyen.js" />
     <Content Include="Scripts\js\khai-bao-bhyt.js" />
@@ -265,11 +275,18 @@
     <Content Include="Scripts\js\lich-theo-tuan.js" />
     <Content Include="Scripts\js\chuong-trinh-khung.js" />
     <Content Include="Scripts\js\khoi-kien-thuc.js" />
+    <Content Include="Scripts\js\lich-toan-truong.js" />
+    <Content Include="Scripts\js\phieu-thu-tong-hop.js" />
+    <Content Include="Scripts\js\phieu-thu-truc-tuyen.js" />
     <Content Include="Scripts\js\status-barchart.js" />
+    <Content Include="Scripts\js\thanh-toan-dich-vu.js" />
+    <Content Include="Scripts\js\thanh-toan-noi-tru.js" />
     <Content Include="Scripts\js\thanh-toan-truc-tuyen.js" />
     <Content Include="Scripts\js\thong-tin-diem-danh.js" />
     <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
     <Content Include="Scripts\js\toggle-util.js" />
+    <Content Include="Scripts\js\tra-cuu-cong-no.js" />
+    <Content Include="Scripts\js\xem-diem-tich-luy-nganh-2.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
     <Content Include="Scripts\lib\bootstrap.esm.js" />
@@ -293,6 +310,8 @@
     <Content Include="Content\lib\bootstrap.rtl.min.css.map" />
     <Content Include="App_Data\LichTheoTuan\lich-theo-tuan.json" />
     <Content Include="App_Data\ket-qua-ren-luyen.json" />
+    <Content Include="App_Data\LichToanTruong\lich-toan-truong.json" />
+    <Content Include="App_Data\PhieuThuTongHop\phieu-thu-tong-hop.json" />
     <None Include="Scripts\lib\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.js" />
     <Content Include="Scripts\lib\jquery-3.7.1.min.js" />
@@ -313,22 +332,32 @@
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
     <Compile Include="Controllers\DangKyNoiTruController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
+    <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
     <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
     <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HopThuSinhVienController.cs" />
     <Compile Include="Controllers\HoSoSinhVienController.cs" />
     <Compile Include="Controllers\KetQuaHocTapController.cs" />
+    <Compile Include="Controllers\KetQuaHocTapNganh2Controller.cs" />
     <Compile Include="Controllers\KetQuaRenLuyenController.cs" />
     <Compile Include="Controllers\KhaiBaoBHYTController.cs" />
     <Compile Include="Controllers\KhaoSatSuKienController.cs" />
     <Compile Include="Controllers\LichSuBHYTController.cs" />
     <Compile Include="Controllers\LichTheoTienDoController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
+    <Compile Include="Controllers\LichToanTruongController.cs" />
+    <Compile Include="Controllers\PhieuThuTongHopController.cs" />
+    <Compile Include="Controllers\PhieuThuTrucTuyenController.cs" />
+    <Compile Include="Controllers\ThanhToanDichVuController.cs" />
+    <Compile Include="Controllers\ThanhToanNoiTruController.cs" />
     <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
     <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
+    <Compile Include="Controllers\TraCuuCongNoController.cs" />
+    <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -392,6 +421,17 @@
     <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
     <Content Include="Views\LichSuBHYT\Index.cshtml" />
     <Content Include="Views\LichTheoTienDo\Index.cshtml" />
+    <Content Include="Views\ThongTinDiemDanh\Index.cshtml" />
+    <Content Include="Views\TraCuuCongNo\Index.cshtml" />
+    <Content Include="Views\LichToanTruong\Index.cshtml" />
+    <Content Include="Views\PhieuThuTongHop\Index.cshtml" />
+    <Content Include="Views\PhieuThuTrucTuyen\Index.cshtml" />
+    <Content Include="Views\ThanhToanNoiTru\Index.cshtml" />
+    <Content Include="Views\ThanhToanDichVu\Index.cshtml" />
+    <Content Include="Views\HopThuSinhVien\Index.cshtml" />
+    <Content Include="Views\KetQuaHocTapNganh2\Index.cshtml" />
+    <Content Include="Views\XemDiemTichLuyNganh2\Index.cshtml" />
+    <Content Include="Views\DanhKyDanhGiaLaiHPHoanThi\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

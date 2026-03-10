@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewBag.Title = "Hộp thư sinh viên";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/hop-thu-sinh-vien.css" />
+}
+
+<div class="container-lg section-content content-area">
+    <div class="page-header-with-button">
+        <h1 class="page-title">Hộp thư sinh viên</h1>
+        <button class="btn-create"
+                data-bs-toggle="modal"
+                data-bs-target="#createMessageModal">
+            Tạo mới
+        </button>
+    </div>
+
+    <!-- Content here -->
+    <div class="message-list">
+        <div class="message-card">
+            <div class="message-item" onclick="toggleMessage(1)">
+                <div class="message-header">
+                    <div class="message-title">Tiêu đề của thư</div>
+                    <div class="message-sender-info">
+                        <div class="message-sender-name">Nguyễn Văn A</div>
+                        <div>21/01/2026 14:43:55</div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-content" id="message-1">
+                <div class="message-text">
+                    Chào thầy/cô, Em hiện tại đang gặp khó khăn trong việc đăng ký
+                    môn "Lập trình Web" do lớp đã đầy số sĩ. Em mong thầy có có thể
+                    xem xét cho em đăng ký bổ sung vào lớp này vì đây là môn học
+                    tiên quyết cho kỳ sau của em. Em xin cảm ơn.
+                </div>
+
+                <div class="message-status">Trạng thái: <span>mới</span></div>
+
+                <div class="message-reply-section">
+                    <div class="no-reply-text">Không có phản hồi</div>
+
+                    <div class="reply-form">
+                        <textarea class="reply-input"
+                                  placeholder="Nhập nội dung phản hồi"></textarea>
+                        <div class="reply-actions">
+                            <button class="attach-btn"
+                                    onclick="document.getElementById('replyFile1').click()">
+                                <i class="bi bi-paperclip"></i>
+                                File đính kèm
+                            </button>
+                            <input type="file"
+                                   id="replyFile1"
+                                   style="display: none"
+                                   multiple />
+                            <button class="send-btn" onclick="sendReply(1)">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message 2 -->
+        <div class="message-card">
+            <div class="message-item" onclick="toggleMessage(2)">
+                <div class="message-header">
+                    <div class="message-title">Tiêu đề của thư</div>
+                    <div class="message-sender-info">
+                        <div class="message-sender-name">Nguyễn Văn A</div>
+                        <div>21/01/2026 14:43:55</div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-content" id="message-2">
+                <div class="message-status">Trạng thái: <span>mới</span></div>
+
+                <div class="message-reply-section">
+                    <div class="no-reply-text">Không có phản hồi</div>
+
+                    <div class="reply-form">
+                        <textarea class="reply-input"
+                                  placeholder="Nhập nội dung phản hồi"></textarea>
+                        <div class="reply-actions">
+                            <button class="attach-btn"
+                                    onclick="document.getElementById('replyFile2').click()">
+                                <i class="bi bi-paperclip"></i>
+                                File đính kèm
+                            </button>
+                            <input type="file"
+                                   id="replyFile2"
+                                   style="display: none"
+                                   multiple />
+                            <button class="send-btn" onclick="sendReply(2)">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">© 2026</div>
+</div>
+<div class="modal fade"
+     id="createMessageModal"
+     tabindex="-1"
+     aria-labelledby="createMessageModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createMessageModalLabel">
+                    Liên hệ giải đáp thắc mắc
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="messageForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Mã sinh viên</label>
+                            <input type="text"
+                                   class="form-control"
+                                   value="00000000"
+                                   disabled />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text"
+                                   class="form-control"
+                                   value="Nguyễn Văn A"
+                                   disabled />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Tiêu đề <span class="required">*</span>
+                        </label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Nhập tiêu đề"
+                               required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Đơn vị/ Phòng ban</label>
+                        <select class="form-select">
+                            <option selected>Chọn phòng ban</option>
+                            <option value="1">Phòng Đào tạo</option>
+                            <option value="2">Phòng Công tác sinh viên</option>
+                            <option value="3">Phòng Tài chính - Kế toán</option>
+                            <option value="4">Khoa Công nghệ thông tin</option>
+                            <option value="5">Khoa Kinh tế</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Nội dung <span class="required">*</span>
+                        </label>
+                        <textarea class="form-control"
+                                  placeholder="Nhập nội dung"
+                                  required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="file-attach"
+                             onclick="
+                      document.getElementById('messageFileInput').click()
+                    ">
+                            <i class="bi bi-paperclip"></i>
+                            <span>File đính kèm</span>
+                        </div>
+                        <input type="file"
+                               id="messageFileInput"
+                               style="display: none"
+                               multiple />
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn-modal-cancel"
+                        data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button"
+                        class="btn-modal-submit"
+                        onclick="submitMessage()">
+                    Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/hop-thu-sinh-vien.js"></script>
+}
