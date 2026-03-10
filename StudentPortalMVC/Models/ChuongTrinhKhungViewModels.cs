@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 namespace StudentPortalMVC.Models
 {
-    // Data tiến độ tổng quan
     public class ProgressData
     {
         public int TotalCredits { get; set; }
@@ -12,7 +11,6 @@ namespace StudentPortalMVC.Models
         public string ProgressDiff { get; set; }
     }
 
-    // Data Chart
     public class ChartData
     {
         public int Completed { get; set; }
@@ -20,17 +18,18 @@ namespace StudentPortalMVC.Models
         public int Remaining { get; set; }
     }
 
-    // Khối kiến thức
     public class KnowledgeBlock
     {
+        public int IDKhoiKienThuc { get; set; }  
         public string Code { get; set; }
         public string Name { get; set; }
         public int CompletedCredits { get; set; }
         public int CurrentCredits { get; set; }
         public int TotalCredits { get; set; }
+        public int RequiredCredits { get; set; }  
+        public int ElectiveCredits { get; set; }  
     }
 
-    // TimeLine data
     public class TimelineSemester
     {
         public int Semester { get; set; }
@@ -42,24 +41,41 @@ namespace StudentPortalMVC.Models
         public int CurrentCredits { get; set; }
     }
 
-    // Khóa học
     public class Course
     {
         public int Stt { get; set; }
         public int Semester { get; set; }
+        public int IDKhoiKienThuc { get; set; }         
         public string KnowledgeBlock { get; set; }
+        public string MaMonHoc { get; set; }           
         public string CourseName { get; set; }
-        public string CourseCode { get; set; }
-        public string Prerequisite { get; set; }
-        public string Equivalent { get; set; }
-        public string Replacement { get; set; }
-        public int Credits { get; set; }
+        public string CourseCode { get; set; }           
+        public string SoTinChi { get; set; }           
+        public int Credits { get; set; }               
         public int TheoryHours { get; set; }
         public int PracticeHours { get; set; }
+        public int? SoTietTHBT { get; set; }           
+        public string Prerequisite { get; set; }        
+        public string Equivalent { get; set; }         
+        public string Replacement { get; set; }         
+        public string CoRequisite { get; set; }        
+        public bool IsBatBuoc { get; set; }            
+        public bool? KhongTinhDiemTBC { get; set; }    
+        public int? SoNhomTuChon { get; set; }         
+        public decimal? DiemTongKet { get; set; }       
+        public bool? IsDat { get; set; }                
+        public bool? IsDuSTCNhomTC { get; set; }        
+        public int? TrangThaiHocTap { get; set; }     
         public bool Completed { get; set; }
+        public int? IDHinhThucThi { get; set; }         
+        public string TenHinhThucThi { get; set; }     
+        public int? IDLoaiHinhGiangDay { get; set; }     
+        public string TenLoaiHinhGiangDay { get; set; }  
+        public int? IDDeCuongMonHoc { get; set; }       
+        public string UrlDeCuongMonHoc { get; set; }    
+        public int? IDDeCuongHocPhan { get; set; }      
     }
 
-    // Chương trình khung học kỳ
     public class SemesterCurriculum
     {
         public int Semester { get; set; }
@@ -69,7 +85,6 @@ namespace StudentPortalMVC.Models
         public List<Course> Elective { get; set; }
     }
 
-    // Khối kiến thức
     public class ElectiveBlocks
     {
         public List<Course> Block1 { get; set; }
