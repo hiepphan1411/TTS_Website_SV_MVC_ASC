@@ -27,8 +27,8 @@
         name: 'Cơ sở dữ liệu',
         credits: 3,
         required: true,
-        condition: 'A', // Học trước - Chưa học môn tiên quyết
-        prerequisiteId: 1, // Cần học Lập trình hướng đối tượng
+        condition: 'A', 
+        prerequisiteId: 1, 
         type: 'new',
     },
 
@@ -38,8 +38,8 @@
         name: 'Lập trình Web',
         credits: 4,
         required: true,
-        condition: 'B', // Tiên quyết đã hoàn thành
-        prerequisiteId: 1, // Đã học Lập trình hướng đối tượng
+        condition: 'B', 
+        prerequisiteId: 1, 
         type: 'new',
     },
 
@@ -49,8 +49,8 @@
         name: 'Hệ điều hành',
         credits: 3,
         required: true,
-        condition: 'C', // Song hành
-        prerequisiteId: 2, // Có thể học cùng với Cấu trúc dữ liệu
+        condition: 'C', 
+        prerequisiteId: 2,
         type: 'new',
     },
 
@@ -71,8 +71,8 @@
         name: 'Công nghệ phần mềm',
         credits: 3,
         required: true,
-        condition: 'B', // Tiên quyết đã hoàn thành
-        prerequisiteId: 3, // Đã học Cơ sở dữ liệu
+        condition: 'B', 
+        prerequisiteId: 3, 
         type: 'new',
     },
 
@@ -82,8 +82,8 @@
         name: 'Phát triển ứng dụng di động',
         credits: 4,
         required: false,
-        condition: 'A', // Học trước - Chưa học môn tiên quyết
-        prerequisiteId: 4, // Cần học Lập trình Web
+        condition: 'A', 
+        prerequisiteId: 4, 
         type: 'new',
     },
 
@@ -93,8 +93,8 @@
         name: 'Trí tuệ nhân tạo',
         credits: 3,
         required: false,
-        condition: 'C', // Song hành
-        prerequisiteId: 2, // Có thể học cùng với Cấu trúc dữ liệu
+        condition: 'C',
+        prerequisiteId: 2, 
         type: 'new',
     },
 
@@ -104,8 +104,8 @@
         name: 'An toàn thông tin',
         credits: 3,
         required: true,
-        condition: 'A', // Học trước - Chưa học môn tiên quyết
-        prerequisiteId: 6, // Cần học Mạng máy tính
+        condition: 'A', 
+        prerequisiteId: 6,
         type: 'new',
     },
 
@@ -115,8 +115,8 @@
         name: 'Thực tập dự án',
         credits: 4,
         required: true,
-        condition: 'B', // Tiên quyết đã hoàn thành
-        prerequisiteId: 7, // Đã học Công nghệ phần mềm
+        condition: 'B', 
+        prerequisiteId: 7, 
         type: 'new',
     },
 
@@ -126,8 +126,8 @@
         name: 'Phân tích dữ liệu lớn',
         credits: 3,
         required: false,
-        condition: 'B', // Tiên quyết đã hoàn thành
-        prerequisiteId: 3, // Đã học Cơ sở dữ liệu
+        condition: 'B', 
+        prerequisiteId: 3, 
         type: 'new',
     },
 ];
@@ -135,7 +135,7 @@
 // Data lớp học phần
 const classes = {
     1: [
-        // Lớp 01 - Chờ sinh viên đăng ký (30/100)
+
         {
             id: '01',
             courseCode: 'THCS101',

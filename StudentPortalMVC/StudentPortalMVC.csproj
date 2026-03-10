@@ -342,6 +342,7 @@
     <Compile Include="Controllers\DangKyMonHocDieuKienController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
     <Compile Include="Controllers\DangKyNoiTruController.cs" />
+    <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
