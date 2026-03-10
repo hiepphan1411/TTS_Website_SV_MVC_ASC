@@ -1954,8 +1954,6 @@ function registerClass() {
 
     renderRegisteredTable();
 
-    updateSchedule();
-
     renderCourseTable();
 
     selectedClass = null;
@@ -2039,7 +2037,6 @@ function deleteRegistered(index) {
     if (confirm('Bạn chắc chắn muốn hủy đăng ký lớp này?')) {
         registeredClasses.splice(index, 1);
         renderRegisteredTable();
-        updateSchedule();
 
         renderCourseTable();
     }

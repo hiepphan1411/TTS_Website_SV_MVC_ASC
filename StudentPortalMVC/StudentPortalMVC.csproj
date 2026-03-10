@@ -298,6 +298,7 @@
     <Compile Include="Controllers\DangKyHocPhanNganh2Controller.cs" />
     <Compile Include="Controllers\DangKyMonHocDieuKienController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
+    <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
     <Compile Include="Controllers\DeXuatKhenThuongController.cs" />
@@ -356,6 +357,7 @@
     <Content Include="Views\DangKyMonHocDieuKien\DangKyMonHocDieuKien.cshtml" />
     <Content Include="Views\DeXuatKhenThuong\DeXuatKhenThuong.cshtml" />
     <Content Include="Views\DangKyHoanThi\DangKyHoanThi.cshtml" />
+    <Content Include="Views\DangKyThiLaiThiCaiThien\DangKyThiLaiThiCaiThien.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
