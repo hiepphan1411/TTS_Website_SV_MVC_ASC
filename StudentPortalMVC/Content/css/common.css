@@ -339,6 +339,18 @@ body {
     z-index: 1000;
 }
 
+.header-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.header-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8e8e8e;
+}
+
 .left-header-container {
     display: flex;
     align-items: center;
@@ -346,6 +358,7 @@ body {
     flex: 1;
     max-width: 45%;
 }
+
 
 /* .logo-div {
   min-width: 35px;
