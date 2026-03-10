@@ -163,6 +163,8 @@
     <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
     <Content Include="Content\css\dang-ky-hoc-phan.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
+    <Content Include="Content\css\dang-ky-phuc-khao.css" />
+    <Content Include="Content\css\dang-ky-thi-lai-thi-cai-thien.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
     <Content Include="Content\css\de-xuat-khen-thuong.css" />
@@ -240,6 +242,8 @@
     <Content Include="Scripts\js\dang-ky-hoc-phan.js" />
     <Content Include="Scripts\js\dang-ky-mon-hoc-dieu-kien.js" />
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
+    <Content Include="Scripts\js\dang-ky-phuc-khao.js" />
+    <Content Include="Scripts\js\dang-ky-thi-lai-thi-cai-thien.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
     <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
     <Content Include="Scripts\js\de-xuat-khen-thuong.js" />
@@ -298,6 +302,7 @@
     <Compile Include="Controllers\DangKyHocPhanNganh2Controller.cs" />
     <Compile Include="Controllers\DangKyMonHocDieuKienController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
+    <Compile Include="Controllers\DangKyPhucKhaoController.cs" />
     <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
@@ -358,6 +363,7 @@
     <Content Include="Views\DeXuatKhenThuong\DeXuatKhenThuong.cshtml" />
     <Content Include="Views\DangKyHoanThi\DangKyHoanThi.cshtml" />
     <Content Include="Views\DangKyThiLaiThiCaiThien\DangKyThiLaiThiCaiThien.cshtml" />
+    <Content Include="Views\DangKyPhucKhao\DangKyPhucKhao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
