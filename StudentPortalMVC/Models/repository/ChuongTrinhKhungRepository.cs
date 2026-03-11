@@ -14,11 +14,11 @@ namespace StudentPortalMVC.Models.repository
 
         public ChuongTrinhKhungRepository()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["StudentPortalDb"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["TempDbsContext"].ConnectionString;
         }
 
         // Lấy danh sách CCK 
-        public List<SP_WEB_XemChuongTrinhKhung> GetAll(string maSinhVien)
+        public List<SP_WEB_XemChuongTrinhKhung> GetAll()
         {
             var result = new List<SP_WEB_XemChuongTrinhKhung>();
 

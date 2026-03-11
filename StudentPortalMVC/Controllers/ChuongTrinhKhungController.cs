@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -49,11 +47,16 @@ namespace StudentPortalMVC.Controllers
 
         private List<SP_WEB_XemChuongTrinhKhung> GetRawData()
         {
-            var maSinhVien = Session["MaSinhVien"]?.ToString() ?? string.Empty;
             var repo = new ChuongTrinhKhungRepository();
-            return repo.GetAll(maSinhVien);
+            return repo.GetAll();
         }
 
+        public ActionResult GetCTKData()
+        {
+            var repo = new ChuongTrinhKhungRepository();
+            var data = repo.GetAll();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
 
         private static ChuongTrinhKhungData BuildProgressData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {

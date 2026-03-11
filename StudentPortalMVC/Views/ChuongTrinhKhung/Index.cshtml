@@ -6,16 +6,14 @@
     <link rel="stylesheet" href="~/Content/css/chuong-trinh-khung.css" />
 }
 
-<!-- Content -->
-
 <div class="container-lg d-flex flex-column gap-3" style="padding: 20px">
-    <div>
-        <h1 class="fs-4 fw-bold" style="color: var(--color-text-primary)">
+    <div class="header-section">
+        <div class="header-title">
             Chương trình khung đào tạo và tiến độ học tập
-        </h1>
-        <p class="small fw-semibold text-secondary mb-0">
+        </div>
+        <div class="header-subtitle">
             Xem chương trình đào tạo và tiến độ học tập của bạn
-        </p>
+        </div>
     </div>
 
     <!-- Tiến độ học tập -->
@@ -153,7 +151,6 @@
     <div class="content-wrapper" id="expandableSections"></div>
 </div>
 
-
 @section scripts {
     <script src="~/Scripts/js/chuong-trinh-khung.js"></script>
     <script src="~/Scripts/js/khoi-kien-thuc.js"></script>
@@ -162,7 +159,8 @@
             var dataUrls = {
                 progressData: '@Url.Action("GetProgressData", "ChuongTrinhKhung")',
                 hocKy: '@Url.Action("GetHocKyData", "ChuongTrinhKhung")',
-                khoiKienThuc: '@Url.Action("GetKhoiKienThucData", "ChuongTrinhKhung")'
+                khoiKienThuc: '@Url.Action("GetKhoiKienThucData", "ChuongTrinhKhung")',
+                ctk: '@Url.Action("GetCTKData", "ChuongTrinhKhung")'
             };
 
             ChuongTrinhKhung.setUrls(dataUrls);
