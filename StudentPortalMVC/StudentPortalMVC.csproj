@@ -158,6 +158,7 @@
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
     <Content Include="Content\css\chi-tiet-khao-sat.css" />
+    <Content Include="Content\css\chi-tiet-tin-tuc.css" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\dang-ky-chuyen-nganh.css" />
@@ -167,9 +168,13 @@
     <Content Include="Content\css\dang-ky-muon-phong.css" />
     <Content Include="Content\css\dang-ky-noi-tru.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
+    <Content Include="Content\css\danh-sach-ho-so-ca-nhan.css" />
     <Content Include="Content\css\dashboard.css" />
+    <Content Include="Content\css\de-xuat-bieu-mau.css" />
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
+    <Content Include="Content\css\de-xuat-chung-chi.css" />
     <Content Include="Content\css\de-xuat-khen-thuong.css" />
+    <Content Include="Content\css\diem-thuong-sinh-vien.css" />
     <Content Include="Content\css\ghi-chu-nhac-nho.css" />
     <Content Include="Content\css\ho-so-sinh-vien.css" />
     <Content Include="Content\css\hoc-bong.css" />
@@ -182,12 +187,15 @@
     <Content Include="Content\css\lich-theo-tien-do.css" />
     <Content Include="Content\css\lich-theo-tuan.css" />
     <Content Include="Content\css\lich-toan-truong.css" />
+    <Content Include="Content\css\lien-he-gop-y.css" />
     <Content Include="Content\css\phieu-thu-tong-hop.css" />
     <Content Include="Content\css\phieu-thu-truc-tuyen.css" />
     <Content Include="Content\css\thanh-toan-noi-tru.css" />
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
     <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
+    <Content Include="Content\css\tin-tuc-chung.css" />
+    <Content Include="Content\css\tin-tuc.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
     <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />

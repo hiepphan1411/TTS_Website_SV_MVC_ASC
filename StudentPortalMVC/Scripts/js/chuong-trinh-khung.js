@@ -107,7 +107,6 @@ var ChuongTrinhKhung = (function () {
     }
 
     /* Timeline */
-
     function getCircleStyles(sem) {
         var completedPercent = (sem.completedCredits / sem.totalCredits) * 100;
         var currentPercent = (sem.currentCredits / sem.totalCredits) * 100;

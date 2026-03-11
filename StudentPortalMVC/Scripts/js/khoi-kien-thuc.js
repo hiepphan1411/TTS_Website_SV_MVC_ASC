@@ -146,7 +146,7 @@ var KhoiKienThuc = (function () {
             <td class="column-center">${safeValue(course.practiceHours)}</td>
             <td class="column-center">${completedIcon}</td>
             <td class="column-center">
-                <button class="btn btn-sm btn-outline-primary" ${isLocked ? "disabled" : ""}>
+                <button class="btn btn-sm btn-outline-primary">
                     <i class="fa-solid fa-file-invoice"></i>
                 </button>
             </td>
@@ -219,7 +219,7 @@ var KhoiKienThuc = (function () {
                     });
                     groupsHTML += `
                         <div style="width: max-content; min-width: 100%">
-                            <div class="block-type">NHÓM TỰ CHỌN ${eg.groupNumber}</div>
+                            <div class="block-type">TỰ CHỌN KHỐI KIẾN THỨC ${block.name.toUpperCase()}</div>
                             <table class="table table-sm elective-table">
                                 ${tableHeader}
                                 <tbody>${electiveRows}</tbody>
@@ -370,7 +370,6 @@ var KhoiKienThuc = (function () {
     }
 
     /* Tooltip */
-
     function createTooltipElement() {
         if (!tooltipElement) {
             tooltipElement = document.createElement("div");
@@ -390,8 +389,6 @@ var KhoiKienThuc = (function () {
         var prerequisites = Array.isArray(tooltipData)
             ? tooltipData
             : [tooltipData];
-
-        console.log("Tooltip Data: " + tooltipData);
 
         var allCompleted = true;
         var uncompletedCourses = [];
