@@ -7,7 +7,7 @@ var ChuongTrinhKhung = (function () {
     var chartData = null;
     var knowledgeBlocksData = null;
 
-    // Data demo
+    // Data Load
     var dataUrls = {
         progressData: "",
         hocKy: "",
