@@ -191,6 +191,7 @@
     <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
+    <Content Include="Content\css\tu-danh-gia-ket-qua-ren-luyen.css" />
     <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
@@ -297,6 +298,7 @@
     <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
     <Content Include="Scripts\js\toggle-util.js" />
     <Content Include="Scripts\js\tra-cuu-cong-no.js" />
+    <Content Include="Scripts\js\tu-danh-gia-ket-qua-ren-luyen.js" />
     <Content Include="Scripts\js\xem-diem-tich-luy-nganh-2.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
@@ -375,6 +377,7 @@
     <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
     <Compile Include="Controllers\TraCuuCongNoController.cs" />
+    <Compile Include="Controllers\TuDanhGiaKetQuaRenLuyenController.cs" />
     <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -458,6 +461,7 @@
     <Content Include="Views\DangKyHoanThi\DangKyHoanThi.cshtml" />
     <Content Include="Views\DangKyThiLaiThiCaiThien\DangKyThiLaiThiCaiThien.cshtml" />
     <Content Include="Views\DangKyPhucKhao\DangKyPhucKhao.cshtml" />
+    <Content Include="Views\TuDanhGiaKetQuaRenLuyen\TuDanhGiaKetQuaRenLuyen.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

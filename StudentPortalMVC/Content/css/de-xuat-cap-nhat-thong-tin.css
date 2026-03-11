@@ -1,4 +1,32 @@
-﻿h2 {
+﻿:root {
+    --primary-color: #3a74f0;
+    --secondary-color: #6c757d;
+    --danger-color: #dc3545;
+    --light-bg: #f5f7fa;
+    --border-color: #e9ecef;
+    --text-dark: #505050;
+    --text-muted: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.container-lg {
+    padding: 20px;
+}
+
+h2 {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 1.75rem;
@@ -68,7 +96,7 @@
 }
 
 .addFamilyBtn {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-color);
     color: #ffffff;
     font-size: 14px;
     padding: 2px 12px;
@@ -121,7 +149,7 @@
 
     .form-control:focus,
     .form-select:focus {
-        border-color: var(--primary-blue);
+        border-color: var(--primary-color);
         box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
         outline: none;
     }
@@ -151,8 +179,8 @@
 }
 
     .form-check-input:checked {
-        background-color: var(--primary-blue);
-        border-color: var(--primary-blue);
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
 .form-check-label {
@@ -176,13 +204,13 @@
 }
 
 .btn-outline-secondary {
-    color: var(--gray-text);
-    border: 1px solid var(--gray-text);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     background-color: transparent;
 }
 
     .btn-outline-secondary:hover {
-        background-color: var(--gray-text);
+        background-color: var(--secondary-color);
         color: white;
     }
 
@@ -312,7 +340,7 @@
     .family-item:hover,
     .certificate-item:hover {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        border-color: var(--primary-blue);
+        border-color: var(--primary-color);
     }
 
 @keyframes slideIn {
@@ -327,13 +355,16 @@
     }
 }
 
+/* Responsive cho màn hình < 1500px - Thông tin THPT thành 2 cột */
 @media (max-width: 1499px) {
-   .row .col-md-3 {
+    /* Thông tin THPT: 4 phần tử (col-md-3) -> thành 2 cột */
+    .row .col-md-3 {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
-   .row .col {
+    /* Đoàn - Đảng & Tuyển sinh: 6 phần tử (.col) -> thành 3 cột */
+    .row .col {
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
@@ -349,21 +380,25 @@
         padding: 1.25rem;
     }
 
-   .row .col-lg-3 {
+    /* Các dòng có 4 phần tử (col-lg-3) -> thành 2 dòng 2 phần tử */
+    .row .col-lg-3 {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
+    /* Các dòng có 6 phần tử (col-lg-2) -> thành 2 dòng 3 phần tử */
     .row .col-lg-2 {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
+    /* Đoàn - Đảng section: 6 phần tử (.col) -> thành 2 cột */
     .row .col {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
+    /* Thêm margin bottom cho các cột */
     .row .col-lg-3,
     .row .col-lg-2,
     .row .col {
@@ -371,8 +406,10 @@
     }
 }
 
+/* Responsive cho màn hình < 690px - Thông tin THPT thành 1 cột */
 @media (max-width: 689px) {
-   .row .col-md-3 {
+    /* Thông tin THPT: col-md-3 -> thành 1 cột */
+    .row .col-md-3 {
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -478,6 +515,7 @@
         margin-bottom: 0.75rem;
     }
 
+    /* MỖI DÒNG 1 PHẦN TỬ cho tất cả các cột */
     .row .col-lg-3,
     .row .col-lg-2,
     .row .col,
@@ -489,6 +527,7 @@
         margin-bottom: 0.75rem;
     }
 
+    /* Quan hệ gia đình - các trường bên trong mỗi item cũng thành 1 cột */
     .family-item-wrapper .row .col-6 {
         flex: 0 0 100%;
         max-width: 100%;
