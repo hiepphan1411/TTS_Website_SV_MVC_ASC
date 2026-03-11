@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Xem điểm tích lũy ngành 2";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/ket-qua-hoc-tap.css" />
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <!-- Page Header -->
+    <div class="header-section">
+        <span class="header-title">Xem điểm tích lũy chuyên ngành 2</span>
+        <span class="header-subtitle">
+            Xem điểm số tích lũy chuyên ngành 2 của bạn
+        </span>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="summary-card primary">
+            <div>
+                <div class="card-label">GPA Tích lũy</div>
+                <div class="card-value">
+                    3.62<span class="card-scale">/4.0</span>
+                </div>
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>
+                <span>Xếp loại: Giỏi</span>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm trung bình (Hệ 10)</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Tổng tín chỉ hoàn thành</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div>
+                <div class="card-label">Điểm rèn luyện</div>
+                <div class="card-value card-value-content">
+                    <!-- JS Render -->
+                    <span class="card-scale">
+                        <!-- JS Render -->
+                    </span>
+                </div>
+                <!-- <div class="card-sub-label">Khá</div> -->
+            </div>
+            <div class="card-badge">
+                <i class="fas fa-star"></i>     
+                <span>Xếp loại: Khá</span>
+            </div>
+        </div>
+    </div>
+    <!-- Table Section -->
+    <div class="table-frame bg-white rounded-3 d-flex flex-column gap-2">
+        <span class="card-title">Kết quả học tập tích lũy ngành 2</span>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" rowspan="2">STT</th>
+                        <th class="text-center" rowspan="2">MÃ LỚP HỌC PHẦN</th>
+                        <th class="ps-4" rowspan="2">TÊN MÔN HỌC</th>
+                        <th class="text-center" rowspan="2">TÍN CHỈ</th>
+                        <th class="text-center" rowspan="2">TÍCH CỰC</th>
+                        <th class="text-center" colspan="2">THƯỜNG KỲ</th>
+                        <th class="text-center" colspan="2">
+                            TIỂU LUẬN/ BÀI TẬP LỚN
+                        </th>
+                        <th class="text-center" rowspan="2">THANG ĐIỂM 4</th>
+                        <th class="text-center" rowspan="2">ĐIỂM CHỮ</th>
+                        <th class="text-center" rowspan="2">XẾP LOẠI</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">1</th>
+                        <th class="text-center">2</th>
+                        <th class="text-center">Tiểu luận</th>
+                        <th class="text-center">Tiểu luận</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JavaScript Render -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/xem-diem-tich-luy-nganh-2.js"></script>
+}

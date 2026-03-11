@@ -1,0 +1,398 @@
+﻿ {
+    "2026-03-03": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "practice",
+        "title": "Kiến trúc và Thiết kế Phần mềm",
+        "code": "DHKTPM18A - 42030015401",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "6:30",
+        "timeTo": "9:00",
+        "room": "A2.04",
+        "teacher": "TS. Hà Thị C",
+        "note": ""
+      },
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "practice",
+        "title": "Kiến trúc và Thiết kế Phần mềm",
+        "code": "DHKTPM18A - 42030015401",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "A2.04",
+        "teacher": "TS. Hà Thị C",
+        "note": ""
+      },
+      {
+        "time": "afternoon",
+        "category": "study",
+        "type": "online",
+        "title": "Lập trình Web",
+        "code": "DHKTPM18A - 42030018901",
+        "periodFrom": 7,
+        "periodTo": 9,
+        "timeFrom": "12:30",
+        "timeTo": "15:00",
+        "room": "Trực tuyến",
+        "teacher": "TS. Ngô Thị D",
+        "note": "Zoom FI30: 652 722 8922 / 123456"
+      },
+      {
+        "time": "afternoon",
+        "category": "study",
+        "type": "online",
+        "title": "Lập trình Web",
+        "code": "DHKTPM18A - 42030018901",
+        "periodFrom": 10,
+        "periodTo": 12,
+        "timeFrom": "15:00",
+        "timeTo": "17:40",
+        "room": "Trực tuyến",
+        "teacher": "TS. Ngô Thị D",
+        "note": "Zoom FI30: 652 722 8922 / 123456"
+      },
+      {
+        "time": "evening",
+        "category": "exam",
+        "type": "exam",
+        "title": "Kiểm tra giữa kỳ - Toán rời rạc",
+        "code": "DHKTPM18A - 42030010201",
+        "periodFrom": 7,
+        "periodTo": 9,
+        "timeFrom": "12:30",
+        "timeTo": "15:00",
+        "room": "A1.05",
+        "teacher": "TS. Lê Văn E",
+        "note": ""
+      }
+    ],
+    "2026-03-04": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "online",
+        "title": "Kiến trúc và Thiết kế Phần mềm",
+        "code": "DHKTPM18A - 42030015401",
+        "period": "10 - 12 (7:30 - 12:00)",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "Trực tuyến",
+        "teacher": "TS. Nguyễn Văn A",
+        "note": "Zoom FI30: 652 722 8922 / 123456"
+      },
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "suspended",
+        "title": "Hệ điều hành (TẠM NGỪNG)",
+        "code": "DHKTPM18A - 42030014801",
+        "periodFrom": 13,
+        "periodTo": 15,
+        "timeFrom": "18:00",
+        "timeTo": "20:30",
+        "room": "A2.04",
+        "teacher": "TS. Trần Văn E",
+        "note": ""
+      }
+    ],
+    "2026-03-05": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Mạng máy tính",
+        "code": "DHKTPM18A - 42030016501",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "7:00",
+        "timeTo": "9:30",
+        "room": "A3.02",
+        "teacher": "TS. Huỳnh Thị B",
+        "note": ""
+      },
+      {
+        "time": "evening",
+        "category": "exam",
+        "type": "exam",
+        "title": "Thi cuối kỳ - Cấu trúc dữ liệu",
+        "code": "DHKTPM18A - 42030011101",
+        "periodFrom": 13,
+        "periodTo": 15,
+        "timeFrom": "18:00",
+        "timeTo": "20:30",
+        "room": "A1.01",
+        "teacher": "Ban Giám thị",
+        "note": ""
+      }
+    ],
+    "2026-03-06": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Trí tuệ nhân tạo",
+        "code": "DHKTPM18A - 42030019801",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "09:30",
+        "timeTo": "12:00",
+        "room": "A2.05",
+        "teacher": "TS. Phạm Văn F",
+        "note": ""
+      },
+      {
+        "time": "evening",
+        "category": "exam",
+        "type": "exam",
+        "title": "Lập trình hướng đối tượng",
+        "code": "DHKTPM18A - 42030012801",
+        "periodFrom": 10,
+        "periodTo": 12,
+        "timeFrom": "15:00",
+        "timeTo": "17:40",
+        "room": "A1.02",
+        "teacher": "Ban Giám thị",
+        "note": ""
+      }
+    ],
+    "2026-03-07": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "An toàn thông tin",
+        "code": "DHKTPM18A - 42030020501",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "7:00",
+        "timeTo": "9:30",
+        "room": "A3.01",
+        "teacher": "TS. Võ Thị G",
+        "note": ""
+      }
+    ],
+    "2026-03-08": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Phân tích thiết kế hệ thống",
+        "code": "DHKTPM18A - 42030017201",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "A2.03",
+        "teacher": "TS. Đỗ Văn H",
+        "note": ""
+      }
+    ],
+    "2026-03-09": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Trí tuệ nhân tạo",
+        "code": "DHKTPM18A - 42030019801",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "A2.05",
+        "teacher": "TS. Phạm Văn F",
+        "note": ""
+      }
+    ],
+    "2026-03-10": [
+      {
+        "time": "afternoon",
+        "category": "study",
+        "type": "online",
+        "title": "Trí tuệ nhân tạo",
+        "code": "DHKTPM18A - 42030019801",
+        "periodFrom": 7,
+        "periodTo": 9,
+        "timeFrom": "12:30",
+        "timeTo": "15:00",
+        "room": "A2.05",
+        "teacher": "TS. Phạm Văn F",
+        "note": ""
+      }
+    ],
+    "2026-03-11": [
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "suspended",
+        "title": "Trí tuệ nhân tạo",
+        "code": "DHKTPM18A - 42030019801",
+        "periodFrom": 13,
+        "periodTo": 15,
+        "timeFrom": "18:00",
+        "timeTo": "20:30",
+        "room": "A2.05",
+        "teacher": "TS. Phạm Văn F",
+        "note": ""
+      }
+    ],
+    "2026-03-12": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Nhập môn Lập trình",
+        "code": "DHKTPM18A - 42030001101",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "7:00",
+        "timeTo": "9:30",
+        "room": "A1.01",
+        "teacher": "TS. Nguyễn Văn Z",
+        "note": ""
+      }
+    ],
+    "2026-03-13": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "practice",
+        "title": "Lập trình C",
+        "code": "DHKTPM18A - 42030002201",
+
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "B3.01",
+        "teacher": "TS. Trần Thị Y",
+        "note": ""
+      },
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "theory",
+        "title": "Toán cao cấp",
+        "code": "DHKTPM18A - 42030003301",
+        "period": "7 - 9 (12:30 - 15:00)",
+        "room": "A1.02",
+        "teacher": "TS. Lê Văn X",
+        "note": ""
+      }
+    ],
+    "2026-03-14": [
+      {
+        "time": "morning",
+        "category": "exam",
+        "type": "exam",
+        "title": "Nhập môn CNTT",
+        "code": "DHKTPM18A - 42030004401",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "6:00",
+        "timeTo": "9:30",
+        "room": "A1.05",
+        "teacher": "Ban Giám thị",
+        "note": ""
+      }
+    ],
+    "2026-03-15": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "online",
+        "title": "Tiếng Anh chuyên ngành",
+        "code": "DHKTPM18A - 42030005501",
+        "periodFrom": 4,
+        "periodTo": 6,
+        "timeFrom": "9:30",
+        "timeTo": "12:00",
+        "room": "Trực tuyến",
+        "teacher": "ThS. Phạm Thị W",
+        "note": "Zoom FI30: 652 722 8922 / 123456"
+      }
+    ],
+    "2026-03-16": [
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "theory",
+        "title": "Giáo dục thể chất",
+        "code": "DHKTPM18A - 42030006601",
+        "periodFrom": 13,
+        "periodTo": 15,
+        "timeFrom": "18:00",
+        "timeTo": "20:30",
+        "room": "Sân vận động",
+        "teacher": "Võ Văn V",
+        "note": ""
+      }
+    ],
+
+    "2026-03-17": [
+      {
+        "time": "morning",
+        "category": "study",
+        "type": "theory",
+        "title": "Kiến trúc và Thiết kế Phần mềm",
+        "code": "DHKTPM18A - 42030015401",
+        "periodFrom": 1,
+        "periodTo": 3,
+        "timeFrom": "6:30",
+        "timeTo": "9:00",
+        "room": "A2.04",
+        "teacher": "TS. Nguyễn Văn A",
+        "note": ""
+      },
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "practice",
+        "title": "Cơ sở dữ liệu",
+        "code": "DHKTPM18B - 42030013701",
+        "periodFrom": 13,
+        "periodTo": 15,
+        "timeFrom": "18:00",
+        "timeTo": "20:30",
+        "room": "B3.01",
+        "teacher": "TS. Trần Thị B",
+        "note": ""
+      },
+      {
+        "time": "evening",
+        "category": "study",
+        "type": "practice",
+        "title": "Mạng máy tính",
+        "code": "DHKTPM18B - 42030013701",
+        "periodFrom": 16,
+        "periodTo": 16,
+        "timeFrom": "20:30",
+        "timeTo": "21:20",
+        "room": "B3.01",
+        "teacher": "TS. Trần Thị B",
+        "note": ""
+      }
+    ],
+    "2026-03-18": [
+      {
+        "time": "afternoon",
+        "category": "study",
+        "type": "suspended",
+        "title": "Giáo dục thể chất",
+        "code": "DHKTPM18A - 42030006601",
+        "periodFrom": 7,
+        "periodTo": 9,
+        "timeFrom": "12:30",
+        "timeTo": "15:00",
+        "room": "Sân vận động",
+        "teacher": "Võ Văn V",
+        "note": ""
+      }
+    ]
+  }

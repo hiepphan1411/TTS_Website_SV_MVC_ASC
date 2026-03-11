@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Ghi chú nhắc nhở";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/ghi-chu-nhac-nho.css">
+    <link rel="stylesheet" href="~/Content/css/common.css">
+}
+
+<div class="container-lg pt-4">
+    <div>
+        <div class="header-notes-remind">
+            <h5 class="notes-title">Ghi chú nhắc nhở</h5>
+            <div class="filter-btns d-flex gap-3">
+                <button class="btn btn-primary active"
+                        data-filter="all">
+                    Tất cả (<span id="totalCount">0</span>)
+                </button>
+                <button class="btn btn-outline-secondary"
+                        data-filter="new">
+                    Mới
+                </button>
+                <button class="btn btn-outline-secondary"
+                        data-filter="expired">
+                    Hết hạn
+                </button>
+            </div>
+        </div>
+        <!-- Accordion sẽ được render bằng JavaScript -->
+        <div class="accordion" id="notesAccordion"></div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/ghi-chu-nhac-nho.js"></script>
+}

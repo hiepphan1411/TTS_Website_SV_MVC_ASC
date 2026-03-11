@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký đánh giá lại học phần hoãn thi";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/dang-ky-danh-gia-hp-hoan-thi.css" />
+}
+
+<div class="container" style="margin-top: 20px">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-title">Đăng ký đánh giá lại học phần hoãn thi</div>
+        <div class="header-subtitle">
+            Theo dõi, quản lý đề xuất khen thưởng.
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <div class="w-100 d-flex flex-wrap mb-4 align-items-end justify-content-between">
+            <div class="search-box">
+                <select id="periodSelect" class="form-control">
+                    <option value="">Tất cả</option>
+                    <option value="dot1-hk1">HK1 2024-2025</option>
+                    <option value="dot2-hk1">HK1 2024-2025</option>
+                    <option value="dot1-hk2">HK2 2024-2025</option>
+                </select>
+            </div>
+
+            <div class="d-flex gap-3">
+                <button class="button btn-add">Tìm kiếm</button>
+                <button class="button btn-refresh">Làm mới</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" rowspan="2">STT</th>
+                        <th class="text-center" rowspan="2">THAO TÁC</th>
+                        <th class="text-center" rowspan="2">MÃ HỌC PHẦN</th>
+                        <th class="ps-4" rowspan="2">TÊN HỌC PHẦN</th>
+                        <th class="text-center" rowspan="2">TÍN CHỈ</th>
+                        <th class="text-center" colspan="2">
+                            THÔNG TIN ĐĂNG KÝ HOÃN THI
+                        </th>
+                        <th class="text-center" colspan="9">
+                            THÔNG TIN ĐĂNG KÝ ĐÁNH GIÁ LẠI
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Học kỳ</th>
+                        <th class="text-center">Hình thức thi</th>
+                        <th class="text-center">Học kỳ</th>
+                        <th class="text-center">Hình thức thi</th>
+                        <th class="text-center">Mã LHP</th>
+                        <th class="text-center">Lớp dự kiến</th>
+                        <th class="text-center">Ngày đăng ký</th>
+                        <th class="text-center">Trạng thái</th>
+                        <th class="text-center">Phản hổi</th>
+                        <th class="text-center">Ngày phản hổi</th>
+                        <th class="text-center">Người phản hổi</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="certificateModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    Thông tin đăng ký đánh giá lại học phần hoãn thi
+                </h2>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formModal">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                ĐỢT ĐĂNG KÝ
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-input" id="period" required>
+                                <option value="">Chọn đợt</option>
+                                <option value="HK1 (2023-2024)">HK1 (2023-2024)</option>
+                                <option value="HK2 (2023-2024)">HK2 (2023-2024)</option>
+                                <option value="HK1 (2023-2024)">HK1 (2024-2025)</option>
+                                <option value="HK2 (2023-2024)">HK2 (2024-2025)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Table Section -->
+                    <div class="table-responsive">
+                        <div class="table-title">
+                            <span>Danh sách các học phần được mở</span>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        <input type="checkbox"
+                                               id="selectAllSubjects"
+                                               onclick="toggleSelectAll(this)" />
+                                    </th>
+                                    <th class="text-center">STT</th>
+                                    <th class="text-center">MÃ HỌC PHẦN</th>
+                                    <th class="ps-4">TÊN HỌC PHẦN</th>
+                                    <th class="ps-4">LỚP DỰ KIẾN</th>
+                                    <th class="text-center">TÍN CHỈ</th>
+                                    <th class="text-center">HỌC KỲ</th>
+                                    <th class="text-center">HÌNH THỨC THI</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableOpenSubject">
+                                <!-- JavaScript Render -->
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="button btn-refresh" onclick="closeModal()">
+                    Đóng
+                </button>
+                <button class="button btn-add" onclick="submitForm()">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Đăng ký
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/dang-ky-danh-gia-hp-hoan-thi.js"></script>
+}

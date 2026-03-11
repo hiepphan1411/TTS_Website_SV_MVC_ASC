@@ -1,0 +1,391 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký mượn phòng";
+}
+
+<link rel="stylesheet" href="~/Content/css/common.css" />
+
+<script src="https://kit.fontawesome.com/6f955e325d.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="~/Content/css/dang-ky-muon-phong.css" />
+
+<div class="container-lg pt-4">
+    <div class="header-section">
+        <div class="header-title">Thông tin điểm danh</div>
+        <div class="header-subtitle">
+            Theo dõi số tiết nghỉ chi tiết trong các kỳ của sinh
+            viên.
+        </div>
+    </div>
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="section-header">
+            <h3 class="section-title-room-reservation">
+                TÌM KIẾM PHIẾU MƯỢN PHÒNG
+            </h3>
+
+            <div class="search-controls">
+                <button class="btn btn-primary btn-search">
+                    <i class="fa-solid fa-search"></i> Tìm kiếm
+                </button>
+                <button class="btn btn-secondary btn-refresh">
+                    <i class="fa-solid fa-rotate-right"></i> Làm mới
+                </button>
+                <button class="btn btn-danger btn-delete-selected">
+                    <i class="fa-solid fa-trash"></i> Xóa
+                </button>
+            </div>
+        </div>
+
+        <div class="search-form">
+            <div class="form-row-4 gap-3">
+                <div class="form-group">
+                    <label for="semester">Đợt *</label>
+                    <select id="semester"
+                            class="form-select"></select>
+                </div>
+
+                <div class="form-group d-flex flex-row gap-3">
+                    <div class="w-50">
+                        <label for="fromPeriod">Từ tiết</label>
+                        <select id="fromPeriod"
+                                class="form-select"></select>
+                    </div>
+
+                    <div class="w-50">
+                        <label for="toPeriod">Đến tiết</label>
+                        <select id="toPeriod"
+                                class="form-select"></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Thời gian bắt đầu</label>
+                    <input type="date"
+                           id="startDate"
+                           class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">Thời gian kết thúc</label>
+                    <input type="date"
+                           id="endDate"
+                           class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-row-4">
+                <div class="form-group">
+                    <label for="campus">Cơ sở</label>
+                    <select id="campus"
+                            class="form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="building">Dãy nhà</label>
+                    <select id="building"
+                            class="form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="room">Phòng</label>
+                    <select id="room" class="form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Trạng thái</label>
+                    <select id="status"
+                            class="form-select"></select>
+                </div>
+            </div>
+
+            <div class="form-row-4">
+                <div class="form-group">
+                    <label for="faculty">Đơn vị</label>
+                    <select id="faculty"
+                            class="form-select"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- List Section -->
+    <div class="list-section">
+        <div class="section-header">
+            <h3 class="section-title-room-reservation">
+                DANH SÁCH PHIẾU MƯỢN PHÒNG
+            </h3>
+            <button class="btn btn-primary create-new-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addReservationModal">
+                <i class="fa-solid fa-plus"></i> Tạo phiếu mới
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="table-custom" id="reservationTable">
+                <thead>
+                    <tr>
+                        <th class="col-checkbox">
+                            <input type="checkbox"
+                                   class="checkbox-custom"
+                                   id="selectAllCheckbox" />
+                        </th>
+                        <th>STT</th>
+                        <th>THỨ</th>
+                        <th>TIẾT</th>
+                        <th>PHÒNG NHẬN</th>
+                        <th>NGÀY BẮT ĐẦU</th>
+                        <th>NGÀY KẾT THÚC</th>
+                        <th>SỐ CHỖ</th>
+                        <th>THUỘC ĐƠN VỊ</th>
+                        <th>-</th>
+                        <th>TRẠNG THÁI</th>
+                        <th>LÝ DO MƯỢN PHÒNG</th>
+                        <th>LÝ DO KHÔNG DUYỆT</th>
+                        <th>THAO TÁC</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Thêm Phiếu Mới -->
+<div class="modal fade"
+     id="addReservationModal"
+     tabindex="-1"
+     aria-labelledby="addReservationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="addReservationModalLabel">
+                    Thêm phiếu mới
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        style="margin-right: 10px"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Grid: 2 rows x 4 cols -->
+                <div class="form-grid-2x4">
+                    <!-- Row 1 -->
+                    <div class="form-group">
+                        <label>
+                            Đợt
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="modalDot"></select>
+                    </div>
+
+                    <div class="form-group form-group-double">
+                        <div class="double-input-wrapper">
+                            <div class="double-input-item">
+                                <label>
+                                    Từ tiết
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="form-select"
+                                        id="modalTuTiet"></select>
+                            </div>
+                            <div class="double-input-item">
+                                <label>
+                                    Đến tiết
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="form-select"
+                                        id="modalDenTiet">
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Thời gian bắt đầu
+                            <span class="required">*</span>
+                        </label>
+                        <input type="date"
+                               class="form-control"
+                               id="modalThoiGianBatDau"
+                               required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Thời gian kết thúc
+                            <span class="required">*</span>
+                        </label>
+                        <input type="date"
+                               class="form-control"
+                               id="modalThoiGianKetThuc"
+                               required />
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="form-group">
+                        <label>
+                            Cơ sở
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="modalCoSo"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Dãy nhà
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="modalDayNha"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Phòng
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="modalPhong"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Số chỗ
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number"
+                               class="form-control"
+                               id="modalSoCho"
+                               placeholder="Nhập số chỗ" />
+                    </div>
+                </div>
+
+                <!-- Additional Fields -->
+                <div class="form-grid-additional mt-3">
+                    <div class="form-group">
+                        <label>
+                            Thuộc đơn vị
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select"
+                                id="modalThuocDonVi"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Lý do mượn phòng
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text"
+                               class="form-control"
+                               id="modalLyDoMuonPhong"
+                               placeholder="Nhập lý do mượn phòng" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-primary"
+                        id="btnSaveReservation">
+                    Lưu
+                </button>
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Hủy
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/lib/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/lib/jquery-ui-1.14.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2016.3.1118/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/js/dang-ky-muon-phong.js"></script>
+
+    <script>
+        // Handle Save button in modal
+        document
+            .getElementById('btnSaveReservation')
+            .addEventListener('click', function () {
+                // Get values from form
+                const newReservation = {
+                    dot: document.getElementById('modalDot').value,
+                    tuTiet: document.getElementById('modalTuTiet').value,
+                    denTiet: document.getElementById('modalDenTiet').value,
+                    thoiGianBatDau: document.getElementById(
+                        'modalThoiGianBatDau',
+                    ).value,
+                    thoiGianKetThuc: document.getElementById(
+                        'modalThoiGianKetThuc',
+                    ).value,
+                    coSo: document.getElementById('modalCoSo').value,
+                    dayNha: document.getElementById('modalDayNha').value,
+                    phong: document.getElementById('modalPhong').value,
+                    trangThai:
+                        document.getElementById('modalTrangThai').value,
+                    soCho: document.getElementById('modalSoCho').value,
+                    thuocDonVi:
+                        document.getElementById('modalThuocDonVi').value,
+                    lyDoMuonPhong:
+                        document.getElementById('modalLyDoMuonPhong').value,
+                };
+
+                // Log to console
+                console.log('New reservation:', newReservation);
+
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(
+                    document.getElementById('addReservationModal'),
+                );
+                modal.hide();
+
+                // TODO: Add to table or send to server
+            });
+
+        // Handle Search button
+        document
+            .querySelector('.btn-search')
+            .addEventListener('click', function () {
+                console.log('Searching...');
+                // TODO: Implement search logic
+            });
+
+        // Handle Refresh button
+        document
+            .querySelector('.btn-refresh')
+            .addEventListener('click', function () {
+                // Reset all form fields
+                document.getElementById('semester').selectedIndex = 0;
+                document.getElementById('fromPeriod').selectedIndex = 0;
+                document.getElementById('toPeriod').selectedIndex = 0;
+                document.getElementById('startDate').value = '2026-01-16';
+                document.getElementById('endDate').value = '2026-01-23';
+                document.getElementById('faculty').selectedIndex = 0;
+                document.getElementById('building').selectedIndex = 0;
+                document.getElementById('room').selectedIndex = 0;
+                document.getElementById('status').selectedIndex = 0;
+
+                console.log('Form refreshed');
+            });
+    </script>
+}
+
+
+

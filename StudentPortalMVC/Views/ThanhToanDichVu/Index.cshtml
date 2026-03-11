@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Thanh toán dịch vụ";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/thanh-toan-truc-tuyen.css" />
+}
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+
+    <div class="header-section">
+        <div class="header-title">Thanh toán dịch vụ</div>
+        <div class="header-subtitle">
+            Quản lý và thực hiện các giao dịch thanh toán dịch vụ
+        </div>
+    </div>
+
+    <div class="payment-layout">
+        <div class="payment-section">
+            <div class="section-header">
+                <div class="section-title">Các khoản thu dịch vụ</div>
+                <div class="d-flex flex-row align-items-center gap-3">
+                    <select class="form-select">
+                        <option>Tất cả</option>
+                        <option>Lệ phí</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px">STT</th>
+                            <th style="width: 80px">Mã</th>
+                            <th style="width: auto; min-width: 200px">Nội dung thu</th>
+                            <th style="width: 120px" class="text-center">
+                                Loại khoản thu
+                            </th>
+                            <th style="width: 80px" class="text-center">Số lượng</th>
+                            <th style="text-align: right; width: auto">
+                                Đơn giá (VNĐ)
+                            </th>
+                            <th style="text-align: right; width: auto">
+                                Số tiền (VNĐ)
+                            </th>
+                            <th style="min-width: 100px; width: 100px">Chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="serviceTableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex align-items-center justify-content-end gap-4 p-3">
+                <button class="refresh-btn"
+                        id="discardAll">
+                    Bỏ chọn tất cả
+                </button>
+                <button class="select-btn select-all-btn">
+                    Chọn tất cả
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="payment-methods">
+            <div class="selected-items-card">
+                <div class="selected-items-header">
+                    Khoản đã chọn:<span id="selectedCount">0</span>
+                </div>
+                <div class="selected-items-body" id="selectedItemsList"></div>
+                <div class="selected-items-total"
+                     id="selectedItemsTotal"
+                     style="display: none">
+                    <span class="selected-total-label">Tổng cộng:</span>
+                    <span class="selected-total-amount" id="selectedTotalAmount">0₫</span>
+                </div>
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">Phương thức thanh toán</div>
+                <div class="method-body">
+                    <label class="method-option selected" data-method="vietqr">
+                        <input type="radio"
+                               name="payment-method"
+                               class="method-radio"
+                               value="vietqr"
+                               checked />
+                        <img src="~/Content/images/napas-logo.png"
+                             alt="VietQR"
+                             class="method-logo" />
+                        <div class="method-info">
+                            <div class="method-name">VietQR</div>
+                            <div class="method-desc">Quét mã QR để thanh toán</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="payment-action">
+                <button class="payment-btn"
+                        id="paymentBtn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#paymentByQRModal">
+                    <i class="fas fa-qrcode"></i>
+                    Thanh toán QR-Code
+                </button>
+                <div class="payment-note">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Lưu ý:</strong> Kiểm tra kỹ thông tin trước khi thanh
+                    toán. Giao dịch được xử lý ngay lập tức.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="paymentByQRModal"
+     tabindex="-1"
+     aria-labelledby="paymentByQRModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body d-flex flex-row gap-2">
+                <div>
+                    <div class="qr-container">
+                        <img src="~/Content/images/QR-payment.png"
+                             alt="QR Code"
+                             class="qr-code" />
+                        <div class="vietqr-logo">
+                            <img src="~/Content/images/napas-logo.png" alt="VietQR" />
+                        </div>
+                    </div>
+
+                    <div class="scan-instruction">Quét để thanh toán học phí</div>
+                    <div class="countdown">
+                        Giao dịch hết hạn sau:
+                        <span class="countdown-time">
+                            <span id="minutes">30</span>:<span id="seconds">00</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="payment-info">
+                    <div class="info-row">
+                        <span class="info-label">Mã sinh viên:</span>
+                        <span class="info-value"><strong>22719711</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Học kỳ:</span>
+                        <span class="info-value"><strong>HK1 - 2024–2025</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ngân hàng:</span>
+                        <span class="info-value"><strong>VIETCOMBANK</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Tổng tiền:</span>
+                        <span class="info-value" id="totalPayment">
+                            <strong style="color: #d32f2f">6.500.000 VNĐ</strong>
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Mã GD:</span>
+                        <span class="info-value"><strong>TUITION2025HK1</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit"
+                        form="applyForm"
+                        class="modal-btn download-btn">
+                    Tải QR
+                </button>
+                <button type="button"
+                        class="modal-btn close-btn"
+                        data-bs-dismiss="modal">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/js/thanh-toan-dich-vu.js"></script>
+}

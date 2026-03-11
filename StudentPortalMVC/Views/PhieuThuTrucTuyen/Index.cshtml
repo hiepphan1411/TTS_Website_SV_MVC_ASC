@@ -1,0 +1,303 @@
+﻿
+@{
+    ViewBag.Title = "Phiếu thu trực tuyến";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/phieu-thu-truc-tuyen.css" />
+}
+
+<div class="container-lg section-content content-area">
+
+    <div class="page-header">
+        <h1 class="page-title">Phiếu thu trực tuyến</h1>
+        <p class="page-subtitle">
+            Xem phiếu thu và thông tin thanh toán của bạn
+        </p>
+    </div>
+
+    <!-- Content here -->
+    <div class="section-card">
+        <div class="section-title">Danh sách phiếu thu</div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>MÃ ĐƠN</th>
+                        <th>NỘI DUNG THU</th>
+                        <th>SỐ TIỀN (VNĐ)</th>
+                        <th>NGÀY THANH TOÁN</th>
+                        <th>ĐÃ THANH TOÁN</th>
+                        <th>ĐÃ CẬP NHẬT CÔNG NỢ</th>
+                        <th>TRẠNG THÁI GIAO DỊCH</th>
+                        <th>CHI TIẾT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2F5D379</td>
+                        <td style="text-align: left; padding-left: 20px">
+                            Thu học phí
+                        </td>
+                        <td>6.400.000</td>
+                        <td>20/10/2025 18:33:49</td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>Thành công</td>
+                        <td>
+                            <button class="view-detail-btn"
+                                    ">
+                                <i class="fa-solid fa-eye" style="font-size: 18px"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>40C3314</td>
+                        <td style="text-align: left; padding-left: 20px">
+                            Thu học phí
+                        </td>
+                        <td>4.800.000</td>
+                        <td>20/10/2025 17:30:100</td>
+                        <td>
+                            <div class="status-error">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="status-error">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </div>
+                        </td>
+                        <td>Giao dịch đã hủy</td>
+                        <td>
+                            <button class="view-detail-btn"
+                                    ">
+                                <i class="fa-solid fa-eye" style="font-size: 18px"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>71929FD6</td>
+                        <td style="text-align: left; padding-left: 20px">
+                            Thu học phí
+                        </td>
+                        <td>11.600.000</td>
+                        <td>19/05/2025 01:29:51</td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>Thành công</td>
+                        <td>
+                            <button class="view-detail-btn"
+                                    ">
+                                <i class="fa-solid fa-eye" style="font-size: 18px"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>4D0B2E1</td>
+                        <td style="text-align: left; padding-left: 20px">
+                            Thu học phí
+                        </td>
+                        <td>4.800.000</td>
+                        <td>20/03/2025 09:50:45</td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>Thành công</td>
+                        <td>
+                            <button class="view-detail-btn">
+                                <i class="fa-solid fa-eye" style="font-size: 18px"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>FD40454</td>
+                        <td style="text-align: left; padding-left: 20px">
+                            Thu học phí
+                        </td>
+                        <td>4.800.000</td>
+                        <td>20/03/2025 09:50:45</td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="status-success">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </td>
+                        <td>Thành công</td>
+                        <td>
+                            <button class="view-detail-btn">
+                                <i class="fa-solid fa-eye" style="font-size: 18px"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-wrapper">
+            <div class="pagination-info">
+                Hiển thị 1-5 trong tổng số 20 phiếu thu
+            </div>
+            <div class="pagination">
+                <button class="page-btn-next-prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn-next-prev">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal chi tiết -->
+<div class="modal fade"
+     id="detailModal"
+     tabindex="-1"
+     aria-labelledby="detailModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">
+                    Chi tiết phiếu thu trực tuyến
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="info-card">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label"> MÃ ĐƠN </span>
+                            <span class="info-value primary" id="detailCode">2F5D379</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"> MÃ HÓA ĐƠN </span>
+                            <span class="info-value" id="detailInvoice">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"> NGÀY THANH TOÁN </span>
+                            <span class="info-value" id="detailDate">20/10/2025 18:33:49</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"> TRẠNG THÁI </span>
+                            <span class="info-value success" id="detailStatus">Thành công</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h6>Chi tiết các khoản thu</h6>
+                    <table class="detail-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>MÃ</th>
+                                <th>NỘI DUNG THU</th>
+                                <th>HỌC KỲ</th>
+                                <th style="text-align: right">SỐ TIỀN(VND)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailItems">
+                            <tr>
+                                <td>1</td>
+                                <td>DKT012801</td>
+                                <td style="text-align: left">
+                                    Kế toán máy và thực hành kế toán 1
+                                </td>
+                                <td>2024-2025</td>
+                                <td style="text-align: right">1.600.000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>DKT012801A</td>
+                                <td style="text-align: left">
+                                    Kế toán máy và thực hành kế toán 2
+                                </td>
+                                <td>2024-2025</td>
+                                <td style="text-align: right">1.600.000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>DKT012801</td>
+                                <td style="text-align: left">Kiểm toán tuần thủ</td>
+                                <td>2024-2025</td>
+                                <td style="text-align: right">1.600.000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>DKT012801</td>
+                                <td style="text-align: left">Kiểm toán hoạt động</td>
+                                <td>2024-2025</td>
+                                <td style="text-align: right">1.600.000</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="4"
+                                    style="text-align: right; padding-right: 20px">
+                                    TỔNG CỘNG:
+                                </td>
+                                <td style="text-align: right" id="detailTotal">
+                                    6.400.000
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-print">
+                    <i class="bi bi-printer"></i>
+                    In phiếu thu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/phieu-thu-truc-tuyen.js"></script>
+}

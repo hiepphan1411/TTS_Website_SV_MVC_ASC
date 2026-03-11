@@ -1,0 +1,1285 @@
+﻿
+@{
+    ViewBag.Title = "Tra cứu công nợ";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/tra-cuu-cong-no.css" />
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <!-- Page Header -->
+    <div class="page-header">
+        <h2 class="page-title">Tra cứu công nợ</h2>
+    </div>
+    <div class="card-access shadow-sm mb-4">
+        <div class="card-body p-3">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="card-title mb-0">Các khoản chưa thanh toán</h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn-payment" onclick="window.location.href='@Url.Action("Index", "ThanhToanTrucTuyen")'">
+                        Chuyển đến trang thanh toán
+                    </button>
+                </div>
+            </div>
+            <!-- Unpaid Fees Section -->
+            <div class="unpaid-section">
+                <div class="unpaid-content">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px">STT</th>
+                                <th>Loại khoản thu</th>
+                                <th>Nội dung</th>
+                                <th>Năm học / Học kỳ</th>
+                                <th style="text-align: right">Số tiền</th>
+                                <th style="text-align: center">Hạn thanh toán</th>
+                            </tr>
+                        </thead>
+                        <tbody id="unpaid-table-body"></tbody>
+                    </table>
+                    <div class="summary-section">
+                        <h3 class="summary-text">Các khoản chưa thanh toán</h3>
+                        <span class="summary-amount" id="unpaid-total-display">0₫</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-access shadow-sm mb-4">
+        <div class="card-body p-3">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="card-title mb-0">Danh sách khoản thu</h5>
+                <div class="semester-filter">
+                    <label>Học Kỳ</label>
+                    <select>
+                        <option>Tất cả</option>
+                        <option>2025 - 2026 (HK2)</option>
+                        <option>2025 - 2026 (HK1)</option>
+                        <option>2024 - 2025 (HK2)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Tabs Container  -->
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="fees">
+                        Khoản thu khác
+                    </button>
+                    <button class="tab-btn" data-tab="tuition">
+                        Học phí
+                    </button>
+                    <button class="tab-btn" data-tab="courses">
+                        Môn học đăng ký
+                    </button>
+                    <button class="tab-btn"
+                            data-tab="deductions">
+                        Danh sách khấu trừ
+                    </button>
+                </div>
+
+                <!-- Tab: Khoản thu khác -->
+                <div id="fees" class="tab-content active">
+                    <div class="summary-section">
+                        <span class="summary-text">Tổng công nợ:</span>
+                        <span class="summary-amount">1.000.000₫</span>
+                    </div>
+
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px">STT</th>
+                                    <th>Năm học</th>
+                                    <th>Tên đợt</th>
+                                    <th>Mã khoản thu</th>
+                                    <th>Tên khoản thu khác</th>
+                                    <th style="text-align: right">Mức nộp</th>
+                                    <th style="text-align: center">Bắt buộc</th>
+                                    <th style="text-align: center">Ngày nộp</th>
+                                    <th style="text-align: right">Số tiền nộp</th>
+                                    <th style="text-align: right">Công nợ</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                        <div class="pagination-wrapper">
+                            <div class="pagination-info">1 - 2 của 2</div>
+                            <div class="pagination-controls">
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-double-left"></i>
+                                </button>
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-left"></i>
+                                </button>
+                                <select class="pagination-btn">
+                                    <option>1</option>
+                                </select>
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-double-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Học phí -->
+                <div id="tuition" class="tab-content">
+                    <div class="summary-section">
+                        <span class="summary-text">Tổng học phí đã đăng ký:</span>
+                        <span class="summary-amount amount-positive">55.890.000₫</span>
+                    </div>
+
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px">STT</th>
+                                    <th>Đợt</th>
+                                    <th>Mã</th>
+                                    <th>Mã LHP</th>
+                                    <th>Nội dung</th>
+                                    <th style="text-align: center">Số TC</th>
+                                    <th style="text-align: right">Mức phí ban đầu</th>
+                                    <th style="text-align: center">% Miễn giảm</th>
+                                    <th style="text-align: right">Số tiền miễn giảm</th>
+                                    <th style="text-align: right">Mức nộp</th>
+                                    <th>Trạng thái ĐK</th>
+                                    <th style="text-align: center">Ngày nộp</th>
+                                    <th style="text-align: right">Số tiền nộp</th>
+                                    <th style="text-align: right">Khấu trừ (+)</th>
+                                    <th style="text-align: right">Trừ nợ (-)</th>
+                                    <th style="text-align: right">Công nợ</th>
+                                    <th style="text-align: center">Trạng thái</th>
+                                    <th style="text-align: center">
+                                        Không truy cứu công nợ
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="group-row" data-group="tuition-hk2-2025">
+                                    <td>1</td>
+                                    <td>HK2 (2025 - 2026)</td>
+                                    <td>4203001549</td>
+                                    <td>420300154901</td>
+                                    <td>Kiến trúc và Thiết kế Phần mềm</td>
+                                    <td style="text-align: center">4</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">11/12/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        3.380.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk2-2025">
+                                    <td>2</td>
+                                    <td>HK2 (2025 - 2026)</td>
+                                    <td>4203003147</td>
+                                    <td>420300314705</td>
+                                    <td>Công nghệ mới trong phát triển ứng dụng CNTT</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">11/12/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.630.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk2-2025">
+                                    <td>3</td>
+                                    <td>HK2 (2025 - 2026)</td>
+                                    <td>4203003098</td>
+                                    <td>420300309801</td>
+                                    <td>Thực tập doanh nghiệp</td>
+                                    <td style="text-align: center">5</td>
+                                    <td style="text-align: right">3.750.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">3.750.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">07/01/2026</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        3.750.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="total-row group-row"
+                                    data-group="tuition-hk2-2025">
+                                    <td></td>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: center">12</td>
+                                    <td style="text-align: right">9.760.000</td>
+                                    <td></td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">9.760.000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: right">9.760.000</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <!-- Đợt HK1 2025-2026 -->
+                                <tr class="group-header"
+                                    onclick="toggleGroup(this, 'tuition-hk1-2025')"
+                                    data-group="tuition-hk1-2025">
+                                    <td colspan="18">
+                                        <i class="fas fa-chevron-down toggle-icon"></i> Đợt:
+                                        2025_HK1 (2025 - 2026)
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk1-2025">
+                                    <td>4</td>
+                                    <td>HK1 (2025 - 2026)</td>
+                                    <td>4203001366</td>
+                                    <td>420300136602</td>
+                                    <td>Automat & ngôn ngữ hình thức</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.250.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.250.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">29/07/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.250.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk1-2025">
+                                    <td>5</td>
+                                    <td>HK1 (2025 - 2026)</td>
+                                    <td>4203001432</td>
+                                    <td>420300143201</td>
+                                    <td>Lập trình cho thiết bị di động</td>
+                                    <td style="text-align: center">4</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">19/09/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        3.380.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk1-2025">
+                                    <td>6</td>
+                                    <td>HK1 (2025 - 2026)</td>
+                                    <td>4203003592</td>
+                                    <td>420300359202</td>
+                                    <td>Đảm bảo chất lượng và Kiểm thử phần mềm</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">19/09/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.630.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk1-2025">
+                                    <td>7</td>
+                                    <td>HK1 (2025 - 2026)</td>
+                                    <td>4203003621</td>
+                                    <td>420300362102</td>
+                                    <td>Lập trình WWW (Java)</td>
+                                    <td style="text-align: center">4</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">3.380.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">19/09/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        3.380.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="group-row" data-group="tuition-hk1-2025">
+                                    <td>8</td>
+                                    <td>HK1 (2025 - 2026)</td>
+                                    <td>4203002329</td>
+                                    <td>420300232902</td>
+                                    <td>Nhập môn dữ liệu lớn</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.630.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">19/09/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.630.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="total-row group-row"
+                                    data-group="tuition-hk1-2025">
+                                    <td></td>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: center">17</td>
+                                    <td style="text-align: right">14.270.000</td>
+                                    <td></td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">14.270.000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: right">14.270.000</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <!-- Đợt HK2 2024-2025 -->
+                                <tr class="group-header"
+                                    onclick="toggleGroup(this, 'tuition-hk2-2024')"
+                                    data-group="tuition-hk2-2024">
+                                    <td colspan="18">
+                                        <i class="fas fa-chevron-down toggle-icon"></i> Đợt:
+                                        2024_HK2 (2024 - 2025)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203001004</td>
+                                    <td>420300100401</td>
+                                    <td>Nhập môn an toàn thông tin</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.160.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203001111</td>
+                                    <td>420300111101</td>
+                                    <td>Công nghệ phần mềm</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.160.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203002031</td>
+                                    <td>420300203102</td>
+                                    <td>Lập trình phân tích dữ liệu 1</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203002146</td>
+                                    <td>420300214603</td>
+                                    <td>Lập trình phân tán với công nghệ Java</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203003451</td>
+                                    <td>420300345101</td>
+                                    <td>Thống kê máy tính và ứng dụng</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>HK2 (2024 - 2025)</td>
+                                    <td>4203015413</td>
+                                    <td>420301541301</td>
+                                    <td>Phát triển giao diện ứng dụng</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">28/02/2025</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td></td>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: center">18</td>
+                                    <td style="text-align: right">14.480.000</td>
+                                    <td></td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">14.480.000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: right">14.480.000</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <!-- Đợt HK1 2024-2025 -->
+                                <tr class="group-header">
+                                    <td colspan="18">
+                                        <i class="fas fa-chevron-down"></i> Đợt: 2024_HK1
+                                        (2024 - 2025)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203015254</td>
+                                    <td>420301525401</td>
+                                    <td>Tiếng Anh 2</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-times-circle"
+                                               style="color: #f44336"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-square" style="color: #999"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203003198</td>
+                                    <td>420300319813</td>
+                                    <td>Phương pháp luận nghiên cứu khoa học</td>
+                                    <td style="text-align: center">2</td>
+                                    <td style="text-align: right">1.440.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">1.440.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">30/07/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        1.440.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203014193</td>
+                                    <td>420301419311</td>
+                                    <td>Kỹ năng sử dụng bàn phím và thiết bị văn phòng</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">30/07/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>18</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203002422</td>
+                                    <td>420300242203</td>
+                                    <td>Pháp luật đại cương</td>
+                                    <td style="text-align: center">2</td>
+                                    <td style="text-align: right">1.440.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">1.440.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">13/09/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        1.440.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203000908</td>
+                                    <td>420300090802</td>
+                                    <td>Lý thuyết đồ thị</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">22/09/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.160.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203003501</td>
+                                    <td>420300350103</td>
+                                    <td>Phát triển ứng dụng</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.540.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">22/09/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.540.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>21</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203014168</td>
+                                    <td>420301416803</td>
+                                    <td>Mô hình hóa dữ liệu NoSQL MongoDB</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">22/09/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.160.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>22</td>
+                                    <td>HK1 (2024 - 2025)</td>
+                                    <td>4203015414</td>
+                                    <td>420301541403</td>
+                                    <td>Tư duy thiết kế và Trải nghiệm người dùng</td>
+                                    <td style="text-align: center">3</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">2.160.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">22/09/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        2.160.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td></td>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: center">22</td>
+                                    <td style="text-align: right">16.600.000</td>
+                                    <td></td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">14.440.000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: right">14.440.000</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <!-- Đợt HK3 2023-2024 -->
+                                <tr class="group-header">
+                                    <td colspan="18">
+                                        <i class="fas fa-chevron-down"></i> Đợt: 2023_HK3
+                                        (2023 - 2024)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>23</td>
+                                    <td>HK3 (2023 - 2024)</td>
+                                    <td>4203014169</td>
+                                    <td>420301416909</td>
+                                    <td>Lịch sử Đảng Cộng sản Việt Nam</td>
+                                    <td style="text-align: center">2</td>
+                                    <td style="text-align: right">1.380.000</td>
+                                    <td style="text-align: center">-</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">1.380.000</td>
+                                    <td>
+                                        <span class="status-badge registered">Đăng ký mới</span>
+                                    </td>
+                                    <td style="text-align: center">31/05/2024</td>
+                                    <td style="text-align: right" class="amount-positive">
+                                        1.380.000
+                                    </td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right" class="amount-zero">0</td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-circle"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="status-icon">
+                                            <i class="fas fa-check-square"
+                                               style="color: #4caf50"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td></td>
+                                    <td colspan="4"></td>
+                                    <td style="text-align: center">2</td>
+                                    <td style="text-align: right">1.380.000</td>
+                                    <td></td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">1.380.000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: right">1.380.000</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td style="text-align: right">0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab: Môn học đăng ký -->
+                <div id="courses" class="tab-content">
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px">STT</th>
+                                    <th>Đợt</th>
+                                    <th>Mã môn học</th>
+                                    <th>Mã LHP</th>
+                                    <th style="text-align: right">Đơn giá</th>
+                                    <th>Tên môn</th>
+                                    <th style="text-align: center">Số TC</th>
+                                    <th style="text-align: center">Ngày đăng ký</th>
+                                    <th>Trạng thái ĐK</th>
+                                    <th>Trạng thái LHP</th>
+                                    <th style="text-align: right">Học phí ban đầu</th>
+                                    <th style="text-align: right">Miễn giảm</th>
+                                    <th style="text-align: right">Mức nộp</th>
+                                    <th style="text-align: center">Không tính công nợ</th>
+                                    <th style="text-align: right">Đã nộp</th>
+                                    <th style="text-align: center">Có điểm</th>
+                                    <th style="text-align: right">Công nợ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be rendered by JavaScript -->
+                            </tbody>
+                        </table>
+
+                        <div class="pagination-wrapper">
+                            <div class="pagination-info">1 - 10 của 34</div>
+                            <div class="pagination-controls">
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-double-left"></i>
+                                </button>
+                                <button class="pagination-btn" disabled>
+                                    <i class="fas fa-angle-left"></i>
+                                </button>
+                                <select class="pagination-btn">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                                <button class="pagination-btn">
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
+                                <button class="pagination-btn">
+                                    <i class="fas fa-angle-double-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Danh sách khấu trừ -->
+                <div id="deductions" class="tab-content">
+                    <div class="two-table-layout">
+                        <!-- Danh sách dư nợ -->
+                        <div class="table-section">
+                            <div class="table-section-header">Danh sách dư nợ</div>
+                            <div class="table-section-content">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 50px">STT</th>
+                                            <th>Tên đợt</th>
+                                            <th>Mã LHP</th>
+                                            <th>Tên môn học</th>
+                                            <th style="text-align: right">Đã nộp</th>
+                                            <th style="text-align: right">Trừ nợ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-total-section">
+                                <div class="table-total-row">
+                                    <span class="table-total-label">Tổng cộng:</span>
+                                    <span class="table-total-values">
+                                        <span class="table-total-item">
+                                            <span class="table-total-value"
+                                                  id="debt-list-total-paid">0</span>
+                                        </span>
+                                        <span class="table-total-item">
+                                            <span class="table-total-value"
+                                                  id="debt-list-total-reduction">0</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pagination-wrapper">
+                                <div class="pagination-info"
+                                     id="debt-list-pagination-info">
+                                    1 - 10 của 13
+                                </div>
+                                <div class="pagination-controls">
+                                    <button class="pagination-btn" id="debt-list-first-btn">
+                                        <i class="fas fa-angle-double-left"></i>
+                                    </button>
+                                    <button class="pagination-btn" id="debt-list-prev-btn">
+                                        <i class="fas fa-angle-left"></i>
+                                    </button>
+                                    <select class="pagination-btn"
+                                            id="debt-list-page-select">
+                                        <option>1</option>
+                                    </select>
+                                    <button class="pagination-btn" id="debt-list-next-btn">
+                                        <i class="fas fa-angle-right"></i>
+                                    </button>
+                                    <button class="pagination-btn" id="debt-list-last-btn">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chi tiết trừ nợ -->
+                        <div class="table-section">
+                            <div class="table-section-header">Chi tiết trừ nợ</div>
+                            <div class="table-section-content">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 50px">STT</th>
+                                            <th>Đợt</th>
+                                            <th>Mã LHP</th>
+                                            <th>Tên môn học</th>
+                                            <th style="text-align: right">Khấu trừ</th>
+                                            <th>Số phiếu</th>
+                                            <th>Người thực hiện</th>
+                                            <th style="text-align: center">Ngày</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-total-section">
+                                <div class="table-total-row">
+                                    <span class="table-total-label">Tổng cộng:</span>
+                                    <span class="table-total-values">
+                                        <span class="table-total-item">
+                                            <span class="table-total-value"
+                                                  id="debt-detail-total-deduction">0</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pagination-wrapper">
+                                <div class="pagination-info"
+                                     id="debt-detail-pagination-info">
+                                    1 - 10 của 13
+                                </div>
+                                <div class="pagination-controls">
+                                    <button class="pagination-btn"
+                                            id="debt-detail-first-btn">
+                                        <i class="fas fa-angle-double-left"></i>
+                                    </button>
+                                    <button class="pagination-btn"
+                                            id="debt-detail-prev-btn">
+                                        <i class="fas fa-angle-left"></i>
+                                    </button>
+                                    <select class="pagination-btn"
+                                            id="debt-detail-page-select">
+                                        <option>1</option>
+                                    </select>
+                                    <button class="pagination-btn"
+                                            id="debt-detail-next-btn">
+                                        <i class="fas fa-angle-right"></i>
+                                    </button>
+                                    <button class="pagination-btn"
+                                            id="debt-detail-last-btn">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Footer -->
+            <div class="summary-footer">
+                <div class="summary-footer-grid">
+                    <div class="summary-footer-item paid">
+                        <span class="summary-footer-label">Tổng nộp học phí:</span>
+                        <span class="summary-footer-value positive">115.340.000₫</span>
+                    </div>
+                    <div class="summary-footer-item paid">
+                        <span class="summary-footer-label">Tổng nộp khoản thu khác:</span>
+                        <span class="summary-footer-value positive">632.000₫</span>
+                    </div>
+                    <div class="summary-footer-item">
+                        <span class="summary-footer-label">Tổng công nợ học phí:</span>
+                        <span class="summary-footer-value">0₫</span>
+                    </div>
+                    <div class="summary-footer-item debt">
+                        <span class="summary-footer-label">Tổng công nợ thu khác:</span>
+                        <span class="summary-footer-value negative">1.000.000₫ <small>(Thiếu tiền)</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/tra-cuu-cong-no.js"></script>
+}
