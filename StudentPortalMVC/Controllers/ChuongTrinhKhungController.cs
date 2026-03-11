@@ -1,11 +1,7 @@
 using System;
-using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -55,6 +51,12 @@ namespace StudentPortalMVC.Controllers
             return repo.GetAll();
         }
 
+        public ActionResult GetCTKData()
+        {
+            var repo = new ChuongTrinhKhungRepository();
+            var data = repo.GetAll();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
 
         private static ChuongTrinhKhungData BuildProgressData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {
@@ -244,25 +246,6 @@ namespace StudentPortalMVC.Controllers
         {
             int offset = (semesterNo - 1) / 2;
             return $"{startYear + offset}-{startYear + offset + 1}";
-        }
-
-        /*public ActionResult GetCTKData()
-        {
-            string filePath = Server.MapPath("~/App_Data/ChuongTrinhKhung/ctk-dataset.json");
-            string json = System.IO.File.ReadAllText(filePath);
-            return Content(json, "application/json");
-        }*/
-
-        public ActionResult GetCTKData()
-        {
-            using (var context = new StudentPortalDbContext())
-            {
-                var data = context.Database.SqlQuery<SP_WEB_XemChuongTrinhKhung>(
-                    "SELECT * FROM tmpCTK"
-                ).ToList();
-
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
         }
     }
 }

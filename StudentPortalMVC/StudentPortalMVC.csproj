@@ -316,7 +316,6 @@
     <Content Include="Scripts\js\tin-tuc-chung.js" />
     <Content Include="Scripts\js\tin-tuc.js" />
     <Content Include="Scripts\js\toggle-util.js" />
-    <Content Include="Scripts\process-chuong-trinh-khung.js" />
     <Content Include="Scripts\process-khoi-kien-thuc.js" />
     <Content Include="Views\KhaiBaoBHYT\Index.cshtml" />
     <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
@@ -421,13 +420,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ChuongTrinhKhungModel.cs" />
     <Compile Include="Models\ChuongTrinhKhungViewModels.cs" />
     <Compile Include="Models\SP_WEB_XemChuongTrinhKhung.cs" />
-    <Compile Include="Models\StudentPortalDbContext.cs" />
     <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
