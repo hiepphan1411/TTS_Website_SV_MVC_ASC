@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Đề xuất biểu mẫu";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/de-xuat-bieu-mau.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-title">Đề xuất biểu mẫu</div>
+        <div class="header-subtitle">
+            Yêu cầu cấp giấy tờ và biểu mẫu hành chính trực tuyến.
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Tab Buttons -->
+        <div class="fs-tab-control">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="forms">
+                    <i class="fas fa-list me-1"></i> Đề xuất biểu mẫu
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <i class="fas fa-history me-1"></i> Lịch sử đề xuất biểu mẫu
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab 1: Forms Grid -->
+        <div class="fs-tab-content active" id="forms-tab">
+            <div class="fs-forms-grid">
+                <!-- JavaScript Render -->
+            </div>
+        </div>
+
+        <!-- Tab 2: History Table -->
+        <div class="fs-tab-content" id="history-tab">
+            <div class="table-frame">
+                <div class="table-responsive">
+                    <table class="table fs-history-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">STT</th>
+                                <th>TÊN BIỂU MẪU ĐỀ XUẤT</th>
+                                <th class="text-center">SỐ LƯỢNG</th>
+                                <th class="text-end">ĐƠN GIÁ</th>
+                                <th class="text-end">THÀNH TIỀN</th>
+                                <th class="text-center">NGÀY GỬI ĐỀ XUẤT</th>
+                                <th class="text-center">TRẠNG THÁI</th>
+                                <th class="text-center">NGÀY GIẢI QUYẾT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- JavaScript Render -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/js/de-xuat-bieu-mau.js"></script>
+}

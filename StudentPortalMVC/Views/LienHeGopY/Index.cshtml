@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ góp ý";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/lien-he-gop-y.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container-lg d-flex flex-column gap-3 pt-4">
+    <!-- Page Header -->
+    <div class="header-section">
+        <div class="header-title">Liên hệ góp ý</div>
+        <div class="header-subtitle">
+            Gửi phản hồi và góp ý để cải thiện dịch vụ
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-wrapper-noborder">
+        <div class="info-section">
+            <h3 class="info-section-title">
+                <i class="fa-solid fa-circle-info"></i>
+                Thông tin liên hệ
+            </h3>
+
+            <div class="info-card blue">
+                <div class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info-details">
+                    <div class="info-card-label">Hotline Hỗ trợ</div>
+                    <div class="info-card-value">028 1234 5678</div>
+                    <div class="info-card-note">
+                        Hỗ trợ 24/7 cho các trường hợp khẩn cấp
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card yellow">
+                <div class="info-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="info-details">
+                    <div class="info-card-label">Email tiếp nhận</div>
+                    <div class="info-card-value">hotrosv@uni.edu.vn</div>
+                    <div class="info-card-note">Phản hồi trong 24h làm việc</div>
+                </div>
+            </div>
+
+            <div class="info-card green">
+                <div class="info-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="info-details">
+                    <div class="info-card-label">Giờ làm việc</div>
+                    <div class="info-card-value">Thứ 2 - Thứ 6: 08:00 - 17:00</div>
+                    <div class="info-card-value">Thứ 7: 08:00 - 11:30</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-header">
+                <div class="title">Gửi phản hồi & góp ý</div>
+                <div class="subtitle">
+                    Gửi liên hệ góp ý nhằm cải thiện môi trường học tập của sinh viên.
+                </div>
+            </div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label class="form-label">
+                        Tiêu đề <span class="required">*</span>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Nhập tiêu đề..."
+                           required />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Nội dung <span class="required">*</span>
+                    </label>
+                    <textarea class="form-control"
+                              placeholder="Nhập nội dung góp ý..."
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Đính kèm minh chứng (Hình ảnh/Tài liệu)
+                    </label>
+                    <div class="upload-area"
+                         onclick="document.getElementById('fileInput').click()">
+                        <i class="bi bi-cloud-upload"></i>
+                        <div class="upload-text">
+                            Kéo thả file hoặc
+                            <span style="color: #4dabf7; cursor: pointer">nhấn để tải lên</span>
+                        </div>
+                        <div class="upload-note">
+                            Định dạng JPG, PNG, PDF (Max 50Mb)
+                        </div>
+                    </div>
+                    <input type="file"
+                           id="fileInput"
+                           style="display: none"
+                           accept=".jpg,.jpeg,.png,.pdf"
+                           multiple />
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-refresh" onclick="resetForm()">
+                        Làm mới
+                    </button>
+                    <button type="submit" class="btn-submit">
+                        Gửi liên hệ hệ góp ý
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        document
+            .getElementById("fileInput")
+            .addEventListener("change", function (e) {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    const uploadArea = document.querySelector(".upload-area");
+                    const fileNames = Array.from(files)
+                        .map((f) => f.name)
+                        .join(", ");
+                    uploadArea.innerHTML = `
+                    <i class="bi bi-file-earmark-check" style="color: #28a745;"></i>
+                    <div class="upload-text" style="color: #28a745;">
+                        ${files.length} file(s) đã chọn
+                    </div>
+                    <div class="upload-note">
+                        ${fileNames}
+                    </div>
+                `;
+                }
+            });
+
+        document
+            .getElementById("feedbackForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                alert(
+                    "Gửi góp ý thành công! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
+                );
+                resetForm();
+            });
+
+        function resetForm() {
+            document.getElementById("feedbackForm").reset();
+            const uploadArea = document.querySelector(".upload-area");
+            uploadArea.innerHTML = `
+                <i class="bi bi-cloud-upload"></i>
+                <div class="upload-text">
+                    Kéo thả file hoặc <span style="color: #4dabf7; cursor: pointer;">nhấn để tải lên</span>
+                </div>
+                <div class="upload-note">
+                    Định dạng JPG, PNG, PDF (Max 50Mb)
+                </div>
+            `;
+        }
+    </script>
+}

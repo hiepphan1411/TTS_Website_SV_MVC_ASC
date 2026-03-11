@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Tin tức theo lớp";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/tin-tuc.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <div class="header-horizontal">
+        <div class="header-section">
+            <div class="header-title">Tin tức theo lớp A.01</div>
+            <div class="header-subtitle">
+                Cập nhật thông tin mới nhất từ nhà trường
+            </div>
+        </div>
+        <div class="news-legend">
+            <div class="sub-news-legend">
+                <span class="legend-news-item unread-legend"></span>
+                Chưa đọc
+            </div>
+            <div class="sub-news-legend">
+                <span class="legend-news-item read-legend"></span>
+                Đã đọc
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="news-container">
+        <!-- Featured News Section -->
+        <div class="featured-news-right" id="newsListContainer">
+            <!-- JavaScript Render -->
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/tin-tuc-chung.js"></script>
+}

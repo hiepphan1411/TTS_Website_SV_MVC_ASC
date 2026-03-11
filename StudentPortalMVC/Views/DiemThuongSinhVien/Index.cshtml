@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "Điểm thưởng sinh viên";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/diem-thuong-sinh-vien.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <div class="header-section">
+        <span class="header-title">Điểm thưởng sinh viên</span>
+        <span class="header-subtitle">Theo dõi và quản lý điểm thưởng sinh viên.</span>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Filter and Search -->
+        <div class="d-flex flex-wrap gap-4 mb-4 align-items-end">
+            <div class="search-box">
+                <label for="periodSelect" class="form-label input-label">Đợt khai báo</label>
+                <select id="periodSelect" class="form-control">
+                    <option value="">Tất cả</option>
+                    <option value="dot1-hk1">Đợt 1 - HK1 2024-2025</option>
+                    <option value="dot2-hk1">Đợt 2 - HK1 2024-2025</option>
+                    <option value="dot1-hk2">Đợt 1 - HK2 2024-2025</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <input type="text"
+                       id="keywordInput"
+                       class="form-control"
+                       placeholder="Từ khóa tìm kiếm (thông tin khen thưởng, mã học phần, ...)" />
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-responsive">
+            <table class="table" id="historyTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th class="ps-4">THÔNG TIN KHEN THƯỞNG</th>
+                        <th class="text-center">ĐIỂM THƯỞNG</th>
+                        <th class="text-center">MÃ HỌC PHẦN</th>
+                        <th class="ps-4">TÊN HỌC PHẦN</th>
+                        <th class="text-center">TỔNG KẾT MÔN</th>
+                        <th class="text-center">SAU CỘNG</th>
+                        <th class="text-center">TRẠNG THÁI</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JavaScript Render -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content-wrapper bg-transparent shadow-none p-0">
+        <div class="stat-cards-grid">
+            <div class="stat-card">
+                <div class="stat-icon badge-total">
+                    <i class="fa-solid fa-list"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Tổng điểm thưởng</span>
+                    <span class="stats-value value-total" id="totalPoints">
+                        <!-- 4.0 điểm -->
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon badge-completed">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Đã áp dụng</span>
+                    <span class="stats-value value-completed" id="applySubjects">
+                        <!-- 2 môn -->
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon badge-improved">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Cải thiện GPA</span>
+                    <span class="stats-value value-improved" id="improvedPoint">
+                        <!-- +0.24 -->
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon badge-progress">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Đang xử lý</span>
+                    <span class="stats-value value-progress" id="inprogressReq">
+                        <!-- 2 yêu cầu -->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/js/diem-thuong-sinh-vien.js"></script>
+}

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Tin tức";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/tin-tuc.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-title">Tin tức</div>
+        <div class="header-subtitle">
+            Cập nhật thông tin mới nhất từ nhà trường và lớp học
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="news-main-container">
+        <div class="news-container">
+            <div class="news-title">
+                <div class="news-title-icon">
+                    <i class="fas fa-bullhorn"></i>
+                    Tin tức chung
+                </div>
+                <a href="/TinTucChung" class="news-view-all">Xem tất cả</a>
+            </div>
+            <!-- Featured News Section -->
+            <div class="featured-news-wrapper">
+                <div class="featured-news-left">
+                    <div class="featured-news-image" id="featuredNewsImage">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="featured-news-meta">
+                        <i class="far fa-clock"></i>
+                        <span id="featuredNewsDate">
+                            <!-- JavaScript Render -->
+                        </span>
+                    </div>
+                    <div class="featured-news-title" id="featuredNewsTitle">
+                        <!-- JavaScript Render -->
+                    </div>
+                    <div class="featured-news-description"
+                         id="featuredNewsDescription">
+                        <!-- JavaScript Render -->
+                    </div>
+                    <a href="../html/chi-tiet-tin-tuc.html"
+                       class="featured-news-button">
+                        <span class="featured-news-button-icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                        Xem chi tiết
+                    </a>
+                </div>
+
+                <div class="featured-news-right" id="newsListContainer">
+                    <!-- JavaScript Render -->
+                </div>
+            </div>
+        </div>
+
+        <!-- News Grid Section -->
+        <div class="news-grid-wrapper">
+            <div class="news-grid-header">
+                <div class="news-grid-title">
+                    <span class="news-grid-title-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </span>
+                    Tin tức sinh viên theo lớp A.01
+                </div>
+                <a href="/TinTucTheoLop" class="news-view-all">Xem tất cả</a>
+            </div>
+            <div class="news-grid" id="newsGridContainer">
+                <!-- News cards will be populated here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/tin-tuc.js"></script>
+}

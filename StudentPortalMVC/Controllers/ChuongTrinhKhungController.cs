@@ -255,6 +255,28 @@ namespace StudentPortalMVC.Controllers
             int offset = (semesterNo - 1) / 2;
             return $"{startYear + offset}-{startYear + offset + 1}";
         }
+
+
+        /*public ActionResult GetCTKData()
+        {
+            string filePath = Server.MapPath("~/App_Data/ChuongTrinhKhung/ctk-dataset.json");
+            string json = System.IO.File.ReadAllText(filePath);
+            return Content(json, "application/json");
+        }*/
+
+        public ActionResult GetCTKData()
+        {
+            using (var context = new StudentPortalDbContext())
+            {
+                var data = context.Database.SqlQuery<SP_WEB_XemChuongTrinhKhung>(
+                    "SELECT * FROM tmpCTK"
+                ).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+    }
+}
     }
 }
 

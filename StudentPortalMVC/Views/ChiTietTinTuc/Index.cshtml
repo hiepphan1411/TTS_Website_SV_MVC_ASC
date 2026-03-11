@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/chi-tiet-tin-tuc.css" />
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+}
+
+<div class="container d-flex flex-column gap-3 pt-4">
+    <!-- Breadcrumb -->
+    <nav class="detail-breadcrumb" aria-label="breadcrumb">
+        <ol class="detail-breadcrumb-list">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/TinTucChung">Tin tức chung</a></li>
+            <li class="detail-breadcrumb-current">
+                Thông báo tổ chức thi lại...
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <div class="detail-content-wrapper">
+        <!-- Main Content -->
+        <div class="detail-main">
+            <!-- News Header -->
+            <div class="detail-news-header">
+                <span class="detail-badge">THÔNG BÁO</span>
+                <span class="detail-date-posted">
+                    <i class="far fa-calendar"></i>
+                    Đăng lúc:
+                    <span id="detailNewsDate">
+                        <!-- 25/06/2024 -->
+                        <!-- JavaScript Render -->
+                    </span>
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="detail-news-title" id="detailNewsTitle">
+                <!-- Thông báo v/v tổ chức thi lại, thi thiên học kỳ 2 và học kỳ 3 năm học 2023-2024 -->
+                <!-- JavaScript Render -->
+            </h1>
+
+            <!-- Content with accent border -->
+            <div class="detail-news-body">
+                <!-- Main description -->
+                <div class="detail-intro-text" id="detailNewsIntro">
+                    <!-- Phòng Đào tạo thông báo về việc tổ chức thi lại, thi thiên học kỳ 2 và học kỳ 3 (học kỳ phụ) năm học 2023-2024. -->
+                    <!-- JavaScript Render -->
+                </div>
+
+                <!-- Sections -->
+                <div class="detail-news-section" id="detailNewsSections">
+                    <!-- JavaScript Render -->
+                </div>
+            </div>
+
+            <!-- Attachments Section -->
+            <div class="detail-attachments-section"
+                 id="detailAttachmentsSection">
+                <div class="detail-attachments-header">
+                    <i class="fas fa-paperclip"></i>
+                    Tệp đính kèm
+                </div>
+                <div class="detail-attachments-list" id="detailAttachmentsList">
+                    <!-- Attachments will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="detail-sidebar">
+            <div class="detail-sidebar-header">
+                <i class="fas fa-star"></i>
+                Tin liên quan
+            </div>
+            <div class="detail-sidebar-list" id="detailRelatedNewsList">
+                <!-- Related news will be populated by JavaScript -->
+            </div>
+        </aside>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/js/chi-tiet-tin-tuc.js"></script>
+}
