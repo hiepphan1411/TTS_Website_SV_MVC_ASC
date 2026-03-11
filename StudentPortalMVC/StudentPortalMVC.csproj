@@ -414,9 +414,6 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\StudentPortalMVC.dll.config" />
-    <Content Include="App_Data\ChuongTrinhKhung\chuong-trinh-khung.json" />
-    <Content Include="App_Data\ChuongTrinhKhung\hoc-ky.json" />
-    <Content Include="App_Data\ChuongTrinhKhung\khoi-kien-thuc.json" />
     <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />

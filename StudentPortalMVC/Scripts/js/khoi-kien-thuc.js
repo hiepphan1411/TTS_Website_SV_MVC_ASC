@@ -45,18 +45,28 @@ var KhoiKienThuc = (function () {
         return all;
     }
 
-    function isPrerequisiteCompleted(prerequisiteStr) {
-        if (!prerequisiteStr || prerequisiteStr === "-") return true;
+    function isPrerequisiteCompleted(HocPhanTienQuyet) {
 
-        var matches = prerequisiteStr.match(/d{6}/g);
+        if (
+            !HocPhanTienQuyet ||
+            HocPhanTienQuyet === "-" ||
+            HocPhanTienQuyet === null
+        )
+            return true;
+
+        var matches = HocPhanTienQuyet.match(/\d{4}\w{3}\d{5}/g);
         if (!matches || matches.length === 0) return true;
 
         var allCourses = getAllCourses();
+        console.log(allCourses);
         for (var i = 0; i < matches.length; i++) {
             var prereqCode = matches[i];
+            var found = false;
+            var found = false;
             for (var j = 0; j < allCourses.length; j++) {
                 if (allCourses[j].courseCode === prereqCode) {
-                    if (!allCourses[j].completed) return false;
+                    found = true;
+                    if (!allCourses[j].isDat) return false;
                     break;
                 }
             }
@@ -64,10 +74,15 @@ var KhoiKienThuc = (function () {
         return true;
     }
 
-    function getPrerequisiteTooltip(prerequisiteStr) {
-        if (!prerequisiteStr || prerequisiteStr === "-") return null;
+    function getPrerequisiteTooltip(HocPhanTienQuyet) {
+        if (
+            !HocPhanTienQuyet ||
+            HocPhanTienQuyet === "-" ||
+            HocPhanTienQuyet === null
+        )
+            return null;
 
-        var matches = prerequisiteStr.match(/d{6}/g);
+        var matches = HocPhanTienQuyet.match(/\w{3}\d{5}/g);
         if (!matches || matches.length === 0) return null;
 
         var allCourses = getAllCourses();
@@ -76,11 +91,11 @@ var KhoiKienThuc = (function () {
         for (var i = 0; i < matches.length; i++) {
             var prereqCode = matches[i];
             for (var j = 0; j < allCourses.length; j++) {
-                if (allCourses[j].courseCode === prereqCode) {
+                if (allCourses[j].maMonHoc === prereqCode) {
                     prerequisites.push({
                         courseName: allCourses[j].courseName,
-                        courseCode: prereqCode,
-                        completed: allCourses[j].completed,
+                        maMonHoc: prereqCode,
+                        isDat: allCourses[j].isDat,
                     });
                     break;
                 }
@@ -89,6 +104,7 @@ var KhoiKienThuc = (function () {
 
         return prerequisites.length > 0 ? prerequisites : null;
     }
+
 
     function safeValue(value) {
         return value ?? "-";
@@ -147,7 +163,7 @@ var KhoiKienThuc = (function () {
             <th class="column-center">${secondColTitle}</th>
             <th>TÊN MÔN HỌC/HỌC PHẦN</th>
             <th class="column-center">MÃ HP</th>
-            <th class="column-center">HP TIÊN QUYẾT</th>
+            <th class="column-center">HỌC PHẦN</th>
             <th class="column-center">HP TƯƠNG ĐƯƠNG</th>
             <th class="column-center">HP THAY THẾ</th>
             <th class="column-center">SỐ TC</th>
@@ -371,12 +387,16 @@ var KhoiKienThuc = (function () {
         }
 
         var tooltip = createTooltipElement();
-        var prerequisites = Array.isArray(tooltipData) ? tooltipData : [tooltipData];
+        var prerequisites = Array.isArray(tooltipData)
+            ? tooltipData
+            : [tooltipData];
+
+        console.log("Tooltip Data: " + tooltipData);
 
         var allCompleted = true;
         var uncompletedCourses = [];
         for (var i = 0; i < prerequisites.length; i++) {
-            if (!prerequisites[i].completed) {
+            if (!prerequisites[i].isDat) {
                 allCompleted = false;
                 uncompletedCourses.push(prerequisites[i].courseName);
             }
@@ -385,37 +405,46 @@ var KhoiKienThuc = (function () {
         var tooltipFrames = "";
         for (var k = 0; k < prerequisites.length; k++) {
             var prereq = prerequisites[k];
-            var statusClass = prereq.completed ? "completed" : "not-completed";
-            var statusText = prereq.completed ? "Đã học" : "Chưa học";
-            var statusIcon = prereq.completed
-                ? `<i class="fa-solid fa-circle-check" style="color: #22C55E"></i>`
-                : `<i class="fa-solid fa-circle-xmark" style="color: #EA5455"></i>`;
-            var requiredText = prereq.completed
+            var statusClass = prereq.isDat ? "completed" : "not-completed";
+            var statusText = prereq.isDat ? "Đã học" : "Chưa học";
+            var statusIcon = prereq.isDat
+                ? '<i class="fa-solid fa-circle-check" style="color: #22C55E"></i>'
+                : '<i class="fa-solid fa-circle-xmark" style="color: #EA5455"></i>';
+            var requiredText = prereq.isDat
                 ? "Đã hoàn thành chương trình"
                 : "Môn phải học tiên quyết";
 
             tooltipFrames += `
-                <div class="tooltip-frame">
-                    <div>${statusIcon}</div>
-                    <div class="tooltip-body">
-                        <div class="tooltip-content">${safeValue(prereq.courseName)}</div>
-                        <div class="tooltip-require">Yêu cầu: <i>${requiredText}</i></div>
-                    </div>
-                    <div class="tooltip-status ${statusClass}">${statusText}</div>
-                </div>`;
+      <div class="tooltip-frame">
+        <div>${statusIcon}</div>
+        <div class="tooltip-body">
+          <div class="tooltip-content">
+            ${prereq.courseName}
+          </div>
+          <div class="tooltip-require">
+            Yêu cầu: <i>${requiredText}</i>
+          </div>
+        </div>
+        <div class="tooltip-status ${statusClass}">${statusText}</div>
+      </div>
+      `;
         }
 
-        var countLabel = prerequisites.length > 1 ? ` (${prerequisites.length} môn)` : "";
         var remindText = allCompleted
             ? "Môn học đã đủ điều kiện đăng ký."
-            : `<span class="remind-text">Bạn <span class="text-danger">CHƯA THỂ ĐĂNG KÝ</span> môn này do chưa hoàn thành học phần tiên quyết: <b>${uncompletedCourses.join(", ")}</b>.</span>`;
+            : '<span class="remind-text">Bạn <span class="text-danger">CHƯA THỂ ĐĂNG KÝ</span> môn này do chưa hoàn thành học phần tiên quyết: <b>' +
+            uncompletedCourses.join(", ") +
+            "</b>.</span>";
 
         tooltip.innerHTML = `
-            <div class="tooltip-title">MÔN HỌC TIÊN QUYẾT${countLabel}</div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                ${tooltipFrames}
-            </div>
-            <div class="tooltip-remind">${remindText}</div>`;
+      <div class="tooltip-title">MÔN HỌC TIÊN QUYẾT ${prerequisites.length > 1 ? " (" + prerequisites.length + " môn)" : ""}</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        ${tooltipFrames}
+      </div>
+      <div class="tooltip-remind">
+        ${remindText}
+      </div>
+    `;
 
         var tooltipLeft = event.clientX - 22;
         tooltip.style.left = tooltipLeft + "px";
@@ -426,7 +455,8 @@ var KhoiKienThuc = (function () {
         tooltip.style.top = event.clientY - tooltipHeight - 8 + "px";
         tooltip.style.visibility = "visible";
 
-        tooltip.style.setProperty("--arrow-left", event.clientX - tooltipLeft - 8 + "px");
+        var arrowLeft = event.clientX - tooltipLeft - 8;
+        tooltip.style.setProperty("--arrow-left", arrowLeft + "px");
 
         tooltipTimeout = setTimeout(function () {
             tooltip.classList.add("show");

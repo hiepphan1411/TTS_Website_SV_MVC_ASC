@@ -160,7 +160,8 @@ var KhoiKienThuc = (function () {
     )
       return true;
 
-    var matches = HocPhanTienQuyet.match(/\w{3}\d{5}/g);
+      var matches = HocPhanTienQuyet.match(/\d{4}\w{3}\d{5}/g);
+
     if (!matches || matches.length === 0) return true;
 
     var allCourses = getAllCourses();
