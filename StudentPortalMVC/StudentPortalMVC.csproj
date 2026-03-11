@@ -374,7 +374,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ChuongTrinhKhungModel.cs" />
+    <Compile Include="Models\SP_WEB_XemChuongTrinhKhung.cs" />
     <Compile Include="Models\ChuongTrinhKhungViewModels.cs" />
     <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
