@@ -48,7 +48,7 @@ var KhoiKienThuc = (function () {
     function isPrerequisiteCompleted(prerequisiteStr) {
         if (!prerequisiteStr || prerequisiteStr === "-") return true;
 
-        var matches = prerequisiteStr.match(/\d{6}/g);
+        var matches = prerequisiteStr.match(/d{6}/g);
         if (!matches || matches.length === 0) return true;
 
         var allCourses = getAllCourses();
@@ -67,7 +67,7 @@ var KhoiKienThuc = (function () {
     function getPrerequisiteTooltip(prerequisiteStr) {
         if (!prerequisiteStr || prerequisiteStr === "-") return null;
 
-        var matches = prerequisiteStr.match(/\d{6}/g);
+        var matches = prerequisiteStr.match(/d{6}/g);
         if (!matches || matches.length === 0) return null;
 
         var allCourses = getAllCourses();
@@ -105,7 +105,7 @@ var KhoiKienThuc = (function () {
         var dataTooltip = tooltipData ? encodeURIComponent(JSON.stringify(tooltipData)) : "";
 
         var completedIcon = course.completed
-            ? `<span class="checkmark">\u2713</span>`
+            ? `<span class="checkmark">✓</span>`
             : `<span class="dash">-</span>`;
 
         var secondColumn = viewMode === "semester"
@@ -140,21 +140,21 @@ var KhoiKienThuc = (function () {
     function buildTableHeader(viewMode) {
         viewMode = viewMode || "knowledgeBlock";
         var secondColTitle = viewMode === "semester"
-            ? "KH\u1eccI KI\u1ebeN TH\u1ee8C"
-            : "H\u1eccC K\u1ef2";
+            ? "KHỐI KIẾN THỨC"
+            : "HỌC KỲ";
         return `<thead><tr>
             <th class="column-center">STT</th>
             <th class="column-center">${secondColTitle}</th>
-            <th>T\u00caN M\u00d4N H\u1eccC/H\u1eccC PH\u1ea6N</th>
-            <th class="column-center">M\u00c3 HP</th>
-            <th class="column-center">H\u1eccC PH\u1ea6N</th>
-            <th class="column-center">HP T\u01af\u01a0NG \u0110\u01af\u01a0NG</th>
-            <th class="column-center">HP THAY TH\u1ebe</th>
-            <th class="column-center">S\u1ed0 TC</th>
-            <th class="column-center">S\u1ed0 TI\u1ebeT L\u00dd</th>
-            <th class="column-center">S\u1ed0 TI\u1ebeT THI</th>
-            <th class="column-center">\u0110\u1ea0T</th>
-            <th class="column-center">\u0110\u1ec0 C\u01af\u01a0NG</th>
+            <th>TÊN MÔN HỌC/HỌC PHẦN</th>
+            <th class="column-center">MÃ HP</th>
+            <th class="column-center">HP TIÊN QUYẾT</th>
+            <th class="column-center">HP TƯƠNG ĐƯƠNG</th>
+            <th class="column-center">HP THAY THẾ</th>
+            <th class="column-center">SỐ TC</th>
+            <th class="column-center">SỐ TIẾT LÝ</th>
+            <th class="column-center">SỐ TIẾT THI</th>
+            <th class="column-center">ĐẠT</th>
+            <th class="column-center">ĐỀ CƯƠNG</th>
         </tr></thead>`;
     }
 
@@ -184,7 +184,7 @@ var KhoiKienThuc = (function () {
                     mandatoryRows += createTableRow($.extend({}, c, { stt: idx + 1 }), "knowledgeBlock");
                 });
                 mandatoryHTML = `
-                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>
+                    <div class="subtitle-header">Học phần bắt buộc</div>
                     <div class="table-frame">
                         <table class="table table-sm mandatory-courses-table">
                             ${tableHeader}
@@ -203,7 +203,7 @@ var KhoiKienThuc = (function () {
                     });
                     groupsHTML += `
                         <div style="width: max-content; min-width: 100%">
-                            <div class="block-type">NH\u00d3M T\u1ef0 CH\u1eccN ${eg.groupNumber}</div>
+                            <div class="block-type">NHÓM TỰ CHỌN ${eg.groupNumber}</div>
                             <table class="table table-sm elective-table">
                                 ${tableHeader}
                                 <tbody>${electiveRows}</tbody>
@@ -211,7 +211,7 @@ var KhoiKienThuc = (function () {
                         </div>`;
                 });
                 electiveHTML = `
-                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>
+                    <div class="subtitle-header">Học phần tự chọn</div>
                     <div class="elective-course">${groupsHTML}</div>`;
             }
 
@@ -223,8 +223,8 @@ var KhoiKienThuc = (function () {
                             <div>
                                 <div class="section-header-text">${safeValue(block.name)}</div>
                                 <div class="section-meta">
-                                    B\u1eaft bu\u1ed9c: <span class="bold-text">${safeValue(block.mandatoryCredits)} t\u00edn ch\u1ec9</span>
-                                    \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">${safeValue(block.electiveCredits)} t\u00edn ch\u1ec9</span>
+                                    Bắt buộc: <span class="bold-text">${safeValue(block.mandatoryCredits)} tín chỉ</span>
+                                    • Tự chọn: <span class="bold-text">${safeValue(block.electiveCredits)} tín chỉ</span>
                                 </div>
                             </div>
                         </div>
@@ -266,7 +266,7 @@ var KhoiKienThuc = (function () {
                     mandatoryRows += createTableRow($.extend({}, c, { stt: idx + 1 }), "semester");
                 });
                 mandatoryHTML = `
-                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>
+                    <div class="subtitle-header">Học phần bắt buộc</div>
                     <div class="table-frame">
                         <table class="table table-sm mandatory-courses-table">
                             ${tableHeader}
@@ -282,7 +282,7 @@ var KhoiKienThuc = (function () {
                     electiveRows += createTableRow($.extend({}, c, { stt: idx + 1 }), "semester");
                 });
                 electiveHTML = `
-                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>
+                    <div class="subtitle-header">Học phần tự chọn</div>
                     <div class="table-frame">
                         <table class="table table-sm">
                             ${tableHeader}
@@ -297,10 +297,10 @@ var KhoiKienThuc = (function () {
                         <div class="semester-title">
                             <div class="semester-head-icon"></div>
                             <div>
-                                <div class="section-header-text">H\u1ecdc k\u1ef3 ${safeValue(semData.semester)}</div>
+                                <div class="section-header-text">Học kỳ ${safeValue(semData.semester)}</div>
                                 <div class="section-meta">
-                                    B\u1eaft bu\u1ed9c: <span class="bold-text">${safeValue(semData.mandatoryCredits)} t\u00edn ch\u1ec9</span>
-                                    \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">${safeValue(semData.electiveCredits)} t\u00edn ch\u1ec9</span>
+                                    Bắt buộc: <span class="bold-text">${safeValue(semData.mandatoryCredits)} tín chỉ</span>
+                                    • Tự chọn: <span class="bold-text">${safeValue(semData.electiveCredits)} tín chỉ</span>
                                 </div>
                             </div>
                         </div>
@@ -386,32 +386,32 @@ var KhoiKienThuc = (function () {
         for (var k = 0; k < prerequisites.length; k++) {
             var prereq = prerequisites[k];
             var statusClass = prereq.completed ? "completed" : "not-completed";
-            var statusText = prereq.completed ? "\u0110\u00e3 h\u1ecdc" : "Ch\u01b0a h\u1ecdc";
+            var statusText = prereq.completed ? "Đã học" : "Chưa học";
             var statusIcon = prereq.completed
                 ? `<i class="fa-solid fa-circle-check" style="color: #22C55E"></i>`
                 : `<i class="fa-solid fa-circle-xmark" style="color: #EA5455"></i>`;
             var requiredText = prereq.completed
-                ? "\u0110\u00e3 ho\u00e0n th\u00e0nh ch\u01b0\u01a1ng tr\u00ecnh"
-                : "M\u00f4n ph\u1ea3i h\u1ecdc ti\u00ean quy\u1ebft";
+                ? "Đã hoàn thành chương trình"
+                : "Môn phải học tiên quyết";
 
             tooltipFrames += `
                 <div class="tooltip-frame">
                     <div>${statusIcon}</div>
                     <div class="tooltip-body">
                         <div class="tooltip-content">${safeValue(prereq.courseName)}</div>
-                        <div class="tooltip-require">Y\u00eau c\u1ea7u: <i>${requiredText}</i></div>
+                        <div class="tooltip-require">Yêu cầu: <i>${requiredText}</i></div>
                     </div>
                     <div class="tooltip-status ${statusClass}">${statusText}</div>
                 </div>`;
         }
 
-        var countLabel = prerequisites.length > 1 ? ` (${prerequisites.length} m\u00f4n)` : "";
+        var countLabel = prerequisites.length > 1 ? ` (${prerequisites.length} môn)` : "";
         var remindText = allCompleted
-            ? "M\u00f4n h\u1ecdc \u0111\u00e3 \u0111\u1ee7 \u0111i\u1ec1u ki\u1ec7n \u0111\u0103ng k\u00fd."
-            : `<span class="remind-text">B\u1ea1n <span class="text-danger">CH\u01af\u0041 TH\u1ec2 \u0110\u0102NG K\u00dd</span> m\u00f4n n\u00e0y do ch\u01b0a ho\u00e0n th\u00e0nh h\u1ecdc ph\u1ea7n ti\u00ean quy\u1ebft: <b>${uncompletedCourses.join(", ")}</b>.</span>`;
+            ? "Môn học đã đủ điều kiện đăng ký."
+            : `<span class="remind-text">Bạn <span class="text-danger">CHƯA THỂ ĐĂNG KÝ</span> môn này do chưa hoàn thành học phần tiên quyết: <b>${uncompletedCourses.join(", ")}</b>.</span>`;
 
         tooltip.innerHTML = `
-            <div class="tooltip-title">M\u00d4N H\u1eccC TI\u00caN QUY\u1ebeT${countLabel}</div>
+            <div class="tooltip-title">MÔN HỌC TIÊN QUYẾT${countLabel}</div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
                 ${tooltipFrames}
             </div>
@@ -546,7 +546,7 @@ var KhoiKienThuc = (function () {
                         <div class="circle-text ${styles.circleClass}">${safeValue(block.code)}</div>
                     </div>
                     <div class="block-title">${safeValue(block.name)}</div>
-                    <div class="block-code">${displayCredits} t\u00edn ch\u1ec9</div>
+                    <div class="block-code">${displayCredits} tín chỉ</div>
                     <div class="timeline-progress">
                         <div class="timeline-progress-bar">
                             ${progressBar.html}

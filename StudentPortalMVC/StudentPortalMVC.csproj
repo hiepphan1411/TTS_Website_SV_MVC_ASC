@@ -257,6 +257,7 @@
     <Content Include="obj\Debug\StudentPortalMVC.dll" />
     <Content Include="obj\Debug\StudentPortalMVC.pdb" />
     <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
+    <Content Include="Scripts\js\chi-tiet-tin-tuc.js" />
     <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
     <Content Include="Scripts\js\dang-ky-danh-gia-hp-hoan-thi.js" />
     <Content Include="Scripts\js\dang-ky-hoan-thi.js" />
@@ -265,10 +266,14 @@
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
     <Content Include="Scripts\js\dang-ky-noi-tru.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
+    <Content Include="Scripts\js\danh-sach-ho-so-ca-nhan.js" />
     <Content Include="Scripts\js\dashboard.js" />
     <Content Include="Scripts\js\common.js" />
+    <Content Include="Scripts\js\de-xuat-bieu-mau.js" />
     <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
+    <Content Include="Scripts\js\de-xuat-chung-chi.js" />
     <Content Include="Scripts\js\de-xuat-khen-thuong.js" />
+    <Content Include="Scripts\js\diem-thuong-sinh-vien.js" />
     <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
     <Content Include="Scripts\js\ho-so-sinh-vien.js" />
     <Content Include="Scripts\js\hoc-bong.js" />
@@ -291,6 +296,8 @@
     <Content Include="Scripts\js\thanh-toan-truc-tuyen.js" />
     <Content Include="Scripts\js\thong-tin-diem-danh.js" />
     <Content Include="Scripts\js\thong-tin-sinh-vien.js" />
+    <Content Include="Scripts\js\tin-tuc-chung.js" />
+    <Content Include="Scripts\js\tin-tuc.js" />
     <Content Include="Scripts\js\toggle-util.js" />
     <Content Include="Scripts\js\tra-cuu-cong-no.js" />
     <Content Include="Scripts\js\xem-diem-tich-luy-nganh-2.js" />
@@ -334,6 +341,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChiTietKhaoSatController.cs" />
+    <Compile Include="Controllers\ChiTietTinTucController.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
     <Compile Include="Controllers\DangKyChuyenNganhController.cs" />
     <Compile Include="Controllers\DangKyHoanThiController.cs" />
@@ -345,9 +353,13 @@
     <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
+    <Compile Include="Controllers\DanhSachHoSoCaNhanController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DeXuatBieuMauController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
+    <Compile Include="Controllers\DeXuatChungChiController.cs" />
     <Compile Include="Controllers\DeXuatKhenThuongController.cs" />
+    <Compile Include="Controllers\DiemThuongSinhVienController.cs" />
     <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
     <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -362,6 +374,7 @@
     <Compile Include="Controllers\LichTheoTienDoController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
     <Compile Include="Controllers\LichToanTruongController.cs" />
+    <Compile Include="Controllers\LienHeGopYController.cs" />
     <Compile Include="Controllers\PhieuThuTongHopController.cs" />
     <Compile Include="Controllers\PhieuThuTrucTuyenController.cs" />
     <Compile Include="Controllers\ThanhToanDichVuController.cs" />
@@ -369,6 +382,9 @@
     <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
     <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
+    <Compile Include="Controllers\TinTucChungController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
+    <Compile Include="Controllers\TinTucTheoLopController.cs" />
     <Compile Include="Controllers\TraCuuCongNoController.cs" />
     <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
@@ -453,6 +469,15 @@
     <Content Include="Views\DangKyMonHocDieuKien\DangKyMonHocDieuKien.cshtml" />
     <Content Include="Views\DeXuatKhenThuong\DeXuatKhenThuong.cshtml" />
     <Content Include="Views\DangKyThiLaiThiCaiThien\DangKyThiLaiThiCaiThien.cshtml" />
+    <Content Include="Views\ChiTietTinTuc\Index.cshtml" />
+    <Content Include="Views\DanhSachHoSoCaNhan\Index.cshtml" />
+    <Content Include="Views\DeXuatBieuMau\Index.cshtml" />
+    <Content Include="Views\DeXuatChungChi\Index.cshtml" />
+    <Content Include="Views\DiemThuongSinhVien\Index.cshtml" />
+    <Content Include="Views\LienHeGopY\Index.cshtml" />
+    <Content Include="Views\TinTucChung\Index.cshtml" />
+    <Content Include="Views\TinTucTheoLop\Index.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

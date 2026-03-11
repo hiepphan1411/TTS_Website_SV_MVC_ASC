@@ -245,12 +245,12 @@ var ChuongTrinhKhung = (function () {
                 "  </div>" +
                 "</div>" +
                 '<div class="timeline-info">' +
-                '  <div class="timeline-semester">H\u1ecdc k\u1ef3 ' +
+                '  <div class="timeline-semester">Học kỳ ' +
                 sem.semester +
                 "</div>" +
                 '  <div class="timeline-credits">' +
                 displayCredits +
-                " t\u00edn ch\u1ec9</div>" +
+                " tín chỉ</div>" +
                 "</div>" +
                 '<div class="timeline-progress">' +
                 '  <div class="timeline-progress-bar">' +
@@ -433,12 +433,12 @@ var ChuongTrinhKhung = (function () {
                     "</span>" +
                     "</div>" +
                     '<div class="timeline-info">' +
-                    '  <div class="timeline-semester">H\u1ecdc k\u1ef3 ' +
+                    '  <div class="timeline-semester">Học kỳ ' +
                     sem.semester +
                     "</div>" +
                     '  <div class="timeline-credits">' +
                     displayCredits +
-                    " t\u00edn ch\u1ec9</div>" +
+                    " tín chỉ</div>" +
                     "</div>" +
                     '<div class="timeline-progress">' +
                     '  <div class="timeline-progress-bar">' +
@@ -451,15 +451,15 @@ var ChuongTrinhKhung = (function () {
                     "  </div>" +
                     "</div>" +
                     '<div class="semester-tooltip">' +
-                    '  <div class="tooltip-row"><span class="tooltip-label">H\u1ecdc k\u1ef3:</span><span class="tooltip-value">HK' +
+                    '  <div class="tooltip-row"><span class="tooltip-label">Học kỳ:</span><span class="tooltip-value">HK' +
                     sem.semester +
                     "</span></div>" +
-                    '  <div class="tooltip-row"><span class="tooltip-label">\u0110\u00e3 h\u1ecdc:</span><span class="tooltip-value">' +
+                    '  <div class="tooltip-row"><span class="tooltip-label">Đã học:</span><span class="tooltip-value">' +
                     sem.completedCredits +
                     "/" +
                     sem.totalCredits +
                     " TC</span></div>" +
-                    '  <div class="tooltip-row"><span class="tooltip-label">\u0110ang h\u1ecdc:</span><span class="tooltip-value">' +
+                    '  <div class="tooltip-row"><span class="tooltip-label">Đang học:</span><span class="tooltip-value">' +
                     sem.currentCredits +
                     " TC</span></div>" +
                     "</div>";
@@ -493,7 +493,7 @@ var ChuongTrinhKhung = (function () {
                 var headerText = section.querySelector(".section-header-text");
                 if (
                     headerText &&
-                    headerText.textContent.indexOf("H\u1ecdc k\u1ef3 " + semester) >= 0
+                    headerText.textContent.indexOf("Học kỳ " + semester) >= 0
                 ) {
                     targetSection = section;
                 }

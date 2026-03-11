@@ -53,7 +53,7 @@ namespace StudentPortalMVC.Controllers
             return repo.GetAll();
         }
 
-
+        //Build data cho phần tổng quan tiến độ học tập
         private static ChuongTrinhKhungData BuildProgressData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {
             int totalCredits = raw.Sum(x => x.DVHT ?? 0);
@@ -149,6 +149,7 @@ namespace StudentPortalMVC.Controllers
             };
         }
 
+        //Build data cho HK
         private static HocKyData BuildHocKyData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {
             var semesters = raw
@@ -173,6 +174,7 @@ namespace StudentPortalMVC.Controllers
             return new HocKyData { Semesters = semesters };
         }
 
+        //Build data cho khối kiến thức
         private static KhoiKienThucData BuildKhoiKienThucData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {
             var blocks = raw
@@ -227,7 +229,7 @@ namespace StudentPortalMVC.Controllers
                 SoTietTHBT = item.SoTietTHBT,
                 Prerequisite = item.HocPhanTienQuyet,
                 Equivalent = item.MaHocPhanTuongDuong,
-                Replacement = item.HocPhanTruoc,
+                Replacement = item.HocPhanTruoc,   //TODO: cần xem xét
                 CoRequisite = item.HocPhanSongHanh,
                 IsBatBuoc = item.IsBatBuoc == true,
                 KhongTinhDiemTBC = item.KhongTinhDiemTBC,
@@ -264,19 +266,19 @@ namespace StudentPortalMVC.Controllers
             return Content(json, "application/json");
         }*/
 
-        public ActionResult GetCTKData()
-        {
-            using (var context = new StudentPortalDbContext())
-            {
-                var data = context.Database.SqlQuery<SP_WEB_XemChuongTrinhKhung>(
-                    "SELECT * FROM tmpCTK"
-                ).ToList();
+        //public ActionResult GetCTKData()
+        //{
+        //    using (var context = new StudentPortalDbContext())
+        //    {
+        //        var data = context.Database.SqlQuery<SP_WEB_XemChuongTrinhKhung>(
+        //            "SELECT * FROM tmpCTK"
+        //        ).ToList();
 
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-        }
-    }
-}
+        //        return Json(data, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
+//    }
+//}
     }
 }
 
