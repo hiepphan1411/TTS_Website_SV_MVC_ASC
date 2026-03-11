@@ -175,26 +175,38 @@ namespace StudentPortalMVC.Controllers
 
         private static KhoiKienThucData BuildKhoiKienThucData(List<SP_WEB_XemChuongTrinhKhung> raw)
         {
-            var mandatoryList = raw.Where(x => x.IsBatBuoc == true).ToList();
-            var electiveList = raw.Where(x => x.IsBatBuoc != true).ToList();
+            var blocks = raw
+                .Where(x => x.IDKhoiKienThuc.HasValue)
+                .GroupBy(x => new { x.IDKhoiKienThuc, x.TenKhoiKienThuc })
+                .OrderBy(g => g.Key.IDKhoiKienThuc)
+                .Select(g =>
+                {
+                    var mandatoryList = g.Where(x => x.IsBatBuoc == true).ToList();
 
-            var electiveGroups = electiveList
-                .GroupBy(x => x.SoNhomTuChon ?? 1)
-                .OrderBy(g => g.Key)
+                    var electiveGroups = g
+                        .Where(x => x.IsBatBuoc != true && x.SoNhomTuChon.HasValue)
+                        .GroupBy(x => x.SoNhomTuChon.Value)
+                        .OrderBy(eg => eg.Key)
+                        .Select(eg => new ElectiveGroup
+                        {
+                            GroupNumber = eg.Key,
+                            Courses = MapCourses(eg.ToList())
+                        })
+                        .ToList();
+
+                    return new KnowledgeBlockSection
+                    {
+                        IDKhoiKienThuc = g.Key.IDKhoiKienThuc ?? 0,
+                        Name = g.Key.TenKhoiKienThuc ?? string.Empty,
+                        MandatoryCredits = g.First().SoTCBatBuoc ?? 0,
+                        ElectiveCredits = g.First().SoTCTuChon ?? 0,
+                        Mandatory = MapCourses(mandatoryList),
+                        ElectiveGroups = electiveGroups
+                    };
+                })
                 .ToList();
 
-            return new KhoiKienThucData
-            {
-                ProfessionalEducation = new ProfessionalEducation
-                {
-                    Mandatory = MapCourses(mandatoryList),
-                    Elective = new ElectiveBlocks
-                    {
-                        Block1 = electiveGroups.Count > 0 ? MapCourses(electiveGroups[0].ToList()) : new List<Course>(),
-                        Block2 = electiveGroups.Count > 1 ? MapCourses(electiveGroups[1].ToList()) : new List<Course>()
-                    }
-                }
-            };
+            return new KhoiKienThucData { Blocks = blocks };
         }
 
         private static List<Course> MapCourses(List<SP_WEB_XemChuongTrinhKhung> items)

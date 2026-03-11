@@ -4,6 +4,7 @@ var KhoiKienThuc = (function () {
     var curriculumData = null;
     var semesterCurriculumData = null;
     var currentView = "semester";
+    var currentFilter = "all";
 
     var tooltipElement = null;
     var tooltipTimeout = null;
@@ -34,11 +35,14 @@ var KhoiKienThuc = (function () {
 
     function getAllCourses() {
         if (!curriculumData) return [];
-        return [].concat(
-            curriculumData.professionalEducation.mandatory,
-            curriculumData.professionalEducation.elective.block1,
-            curriculumData.professionalEducation.elective.block2,
-        );
+        var all = [];
+        $.each(curriculumData.blocks || [], function (_, block) {
+            all = all.concat(block.mandatory || []);
+            $.each(block.electiveGroups || [], function (_, eg) {
+                all = all.concat(eg.courses || []);
+            });
+        });
+        return all;
     }
 
     function isPrerequisiteCompleted(prerequisiteStr) {
@@ -50,10 +54,8 @@ var KhoiKienThuc = (function () {
         var allCourses = getAllCourses();
         for (var i = 0; i < matches.length; i++) {
             var prereqCode = matches[i];
-            var found = false;
             for (var j = 0; j < allCourses.length; j++) {
                 if (allCourses[j].courseCode === prereqCode) {
-                    found = true;
                     if (!allCourses[j].completed) return false;
                     break;
                 }
@@ -111,7 +113,11 @@ var KhoiKienThuc = (function () {
             : `<td class="column-center">${safeValue(course.semester)}</td>`;
 
         return `
-        <tr class="${lockedClass}" style="${bgStyle}" data-tooltip="${dataTooltip}">
+        <tr class="${lockedClass}"
+            style="${bgStyle}"
+            data-tooltip="${dataTooltip}"
+            data-completed="${course.completed ? 'true' : 'false'}"
+            data-mandatory="${course.isBatBuoc ? 'true' : 'false'}">
             <td class="column-center">${safeValue(course.stt)}</td>
             ${secondColumn}
             <td>${safeValue(course.courseName)}</td>
@@ -162,96 +168,76 @@ var KhoiKienThuc = (function () {
         if (timelineSection.length) timelineSection.css("display", "none");
         if (knowledgeSection.length) knowledgeSection.css("display", "block");
 
-        var data = curriculumData.professionalEducation;
         var tableHeader = buildTableHeader("knowledgeBlock");
+        var sectionsHTML = "";
 
-        function buildElectiveBlock(title, courses) {
-            var rows = "";
-            for (var i = 0; i < courses.length; i++) {
-                rows += createTableRow(courses[i], "knowledgeBlock");
-            }
-            return `
-                <div style="width: max-content; min-width: 100%">
-                    <div class="block-type">${title}</div>
-                    <table class="table table-sm elective-table">
-                        ${tableHeader}
-                        <tbody>${rows}</tbody>
-                    </table>
-                </div>`;
-        }
-
-        function buildSection(title, mandatoryCredits, electiveCredits, isExpanded, electiveBlocks) {
+        $.each(curriculumData.blocks || [], function (blockIndex, block) {
+            var isExpanded = blockIndex === 0;
             var expandedClass = isExpanded ? "expanded" : "";
             var rotatedClass = isExpanded ? "rotated" : "";
             var activeClass = isExpanded ? "active" : "";
 
-            var mandatoryRows = "";
-            for (var i = 0; i < data.mandatory.length; i++) {
-                mandatoryRows += createTableRow(data.mandatory[i], "knowledgeBlock");
+            var mandatoryHTML = "";
+            if (block.mandatory && block.mandatory.length > 0) {
+                var mandatoryRows = "";
+                $.each(block.mandatory, function (idx, c) {
+                    mandatoryRows += createTableRow($.extend({}, c, { stt: idx + 1 }), "knowledgeBlock");
+                });
+                mandatoryHTML = `
+                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>
+                    <div class="table-frame">
+                        <table class="table table-sm mandatory-courses-table">
+                            ${tableHeader}
+                            <tbody>${mandatoryRows}</tbody>
+                        </table>
+                    </div>`;
             }
 
-            return `
+            var electiveHTML = "";
+            if (block.electiveGroups && block.electiveGroups.length > 0) {
+                var groupsHTML = "";
+                $.each(block.electiveGroups, function (_, eg) {
+                    var electiveRows = "";
+                    $.each(eg.courses, function (idx, c) {
+                        electiveRows += createTableRow($.extend({}, c, { stt: idx + 1 }), "knowledgeBlock");
+                    });
+                    groupsHTML += `
+                        <div style="width: max-content; min-width: 100%">
+                            <div class="block-type">NH\u00d3M T\u1ef0 CH\u1eccN ${eg.groupNumber}</div>
+                            <table class="table table-sm elective-table">
+                                ${tableHeader}
+                                <tbody>${electiveRows}</tbody>
+                            </table>
+                        </div>`;
+                });
+                electiveHTML = `
+                    <div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>
+                    <div class="elective-course">${groupsHTML}</div>`;
+            }
+
+            sectionsHTML += `
                 <div class="expandable-section">
                     <div class="section-header ${expandedClass}" onclick="KhoiKienThuc.toggleSection(this)">
                         <div class="semester-title">
                             <div class="semester-head-icon"></div>
                             <div>
-                                <div class="section-header-text">${title}</div>
+                                <div class="section-header-text">${safeValue(block.name)}</div>
                                 <div class="section-meta">
-                                    B\u1eaft bu\u1ed9c: <span class="bold-text">${safeValue(mandatoryCredits)} t\u00edn ch\u1ec9</span>
-                                    \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">${safeValue(electiveCredits)} t\u00edn ch\u1ec9</span>
+                                    B\u1eaft bu\u1ed9c: <span class="bold-text">${safeValue(block.mandatoryCredits)} t\u00edn ch\u1ec9</span>
+                                    \u2022 T\u1ef1 ch\u1ecdn: <span class="bold-text">${safeValue(block.electiveCredits)} t\u00edn ch\u1ec9</span>
                                 </div>
                             </div>
                         </div>
                         <div class="section-icon ${rotatedClass}"><i class="fas fa-chevron-up"></i></div>
                     </div>
                     <div class="section-contents ${activeClass}">
-                        <div class="subtitle-header">H\u1ecdc ph\u1ea7n b\u1eaft bu\u1ed9c</div>
-                        <div class="table-frame">
-                            <table class="table table-sm mandatory-courses-table">
-                                ${tableHeader}
-                                <tbody>${mandatoryRows}</tbody>
-                            </table>
-                        </div>
-                        <div class="subtitle-header">H\u1ecdc ph\u1ea7n t\u1ef1 ch\u1ecdn</div>
-                        <div class="elective-course">${electiveBlocks}</div>
+                        ${mandatoryHTML}
+                        ${electiveHTML}
                     </div>
                 </div>`;
-        }
+        });
 
-        container.innerHTML =
-            buildSection(
-                "Kh\u1ed1i ki\u1ebfn th\u1ee9c gi\u00e1o d\u1ee5c \u0111\u1ea1i c\u01b0\u01a1ng",
-                12, 6, false,
-                buildElectiveBlock(
-                    "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG 1",
-                    data.elective.block1,
-                ) +
-                buildElectiveBlock(
-                    "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG 2",
-                    data.elective.block2,
-                ),
-            ) +
-            buildSection(
-                "Kh\u1ed1i ki\u1ebfn th\u1ee9c gi\u00e1o d\u1ee5c chuy\u00ean nghi\u1ec7p",
-                6, 6, true,
-                buildElectiveBlock(
-                    "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C CHUY\u00caN NGHI\u1ec6P 1",
-                    data.elective.block1,
-                ) +
-                buildElectiveBlock(
-                    "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C CHUY\u00caN NGHI\u1ec6P 2",
-                    data.elective.block2,
-                ),
-            ) +
-            buildSection(
-                "Kh\u1ed1i ki\u1ebfn th\u1ee9c ch\u01b0a x\u00e1c \u0111\u1ecbnh",
-                6, 6, false,
-                buildElectiveBlock(
-                    "T\u1ef0 CH\u1eccN KH\u1ed0I KI\u1ebeN TH\u1ee8C GI\u00c1O D\u1ee4C \u0110\u1ea0I C\u01af\u01a0NG",
-                    data.elective.block1,
-                ),
-            );
+        container.innerHTML = sectionsHTML;
     }
 
     function renderSemesterView() {
@@ -330,6 +316,25 @@ var KhoiKienThuc = (function () {
         container.innerHTML = semestersHTML;
     }
 
+    function applyFilter(filter) {
+        currentFilter = filter;
+
+        $(".btn-custom[data-filter]").removeClass("primary");
+        $(".btn-custom[data-filter='" + filter + "']").addClass("primary");
+
+        $("#expandableSections tbody tr").each(function () {
+            var $row = $(this);
+            var completed = $row.attr("data-completed") === "true";
+            var mandatory = $row.attr("data-mandatory") === "true";
+
+            var visible = true;
+            if (filter === "notStudied") visible = !completed;
+            else if (filter === "mandatory") visible = mandatory;
+
+            $row.toggle(visible);
+        });
+    }
+
     function switchView(view) {
         currentView = view;
         $(".tab-btn").removeClass("active");
@@ -342,7 +347,10 @@ var KhoiKienThuc = (function () {
             renderKnowledgeBlockView();
         }
 
-        setTimeout(attachTooltipListeners, 100);
+        setTimeout(function () {
+            attachTooltipListeners();
+            applyFilter(currentFilter);
+        }, 100);
     }
 
     /* Tooltip */
@@ -418,8 +426,7 @@ var KhoiKienThuc = (function () {
         tooltip.style.top = event.clientY - tooltipHeight - 8 + "px";
         tooltip.style.visibility = "visible";
 
-        var arrowLeft = event.clientX - tooltipLeft - 8;
-        tooltip.style.setProperty("--arrow-left", arrowLeft + "px");
+        tooltip.style.setProperty("--arrow-left", event.clientX - tooltipLeft - 8 + "px");
 
         tooltipTimeout = setTimeout(function () {
             tooltip.classList.add("show");
@@ -505,7 +512,6 @@ var KhoiKienThuc = (function () {
                 styles.totalPercent,
             );
             var displayPercent = Math.round(styles.totalPercent);
-
             var completedDash = Math.round((styles.completedPercent / 100) * circumference);
             var currentDash = Math.round((styles.currentPercent / 100) * circumference);
 
@@ -562,13 +568,13 @@ var KhoiKienThuc = (function () {
 
             var tabBtns = $(".tab-btn");
             if (tabBtns.length >= 2) {
-                tabBtns.eq(0).on("click", function () {
-                    switchView("semester");
-                });
-                tabBtns.eq(1).on("click", function () {
-                    switchView("knowledgeBlock");
-                });
+                tabBtns.eq(0).on("click", function () { switchView("semester"); });
+                tabBtns.eq(1).on("click", function () { switchView("knowledgeBlock"); });
             }
+
+            $(".btn-custom[data-filter]").off("click.filter").on("click.filter", function () {
+                applyFilter($(this).attr("data-filter"));
+            });
         });
     }
 
@@ -578,5 +584,6 @@ var KhoiKienThuc = (function () {
         toggleSection: toggleSection,
         renderKnowledgeBlocksOverview: renderKnowledgeBlocksOverview,
         switchView: switchView,
+        applyFilter: applyFilter,
     };
 })();
