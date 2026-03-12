@@ -157,13 +157,11 @@
 
 @section scripts {
     <script src="~/Scripts/js/chuong-trinh-khung.js"></script>
-    <script src="~/Scripts/js/khoi-kien-thuc.js"></script>
+    <script src="~/Scripts/js/process-khoi-kien-thuc.js"></script>
     <script>
         $(document).ready(function () {
             var dataUrls = {
-                progressData: '@Url.Action("GetProgressData", "ChuongTrinhKhung")',
-                hocKy: '@Url.Action("GetHocKyData", "ChuongTrinhKhung")',
-                khoiKienThuc: '@Url.Action("GetKhoiKienThucData", "ChuongTrinhKhung")'
+                ctk: '@Url.Action("GetCTKData", "ChuongTrinhKhung")'
             };
 
             ChuongTrinhKhung.setUrls(dataUrls);

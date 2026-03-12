@@ -1581,7 +1581,7 @@ canvas.gpa-chart {
     .schedule-info p {
         font-size: 12px;
         word-break: break-all;
-        margin-bottom: 2px;
+/*        margin-bottom: 2px;*/
     }
 
     .schedule-info .fw-semibold {

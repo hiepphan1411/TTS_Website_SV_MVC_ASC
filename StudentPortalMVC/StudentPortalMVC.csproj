@@ -343,6 +343,7 @@
     <Content Include="Scripts\lib\jquery-ui-1.14.1.js" />
     <Content Include="Scripts\lib\jquery-ui-1.14.1.min.js" />
     <Content Include="Scripts\lib\kendo.all.min.js" />
+    <Content Include="Scripts\js\process-khoi-kien-thuc.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -399,7 +400,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_WEB_XemChuongTrinhKhung.cs" />
-    <Compile Include="Models\ChuongTrinhKhungViewModels.cs" />
     <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
