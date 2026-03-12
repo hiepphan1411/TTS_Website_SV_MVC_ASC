@@ -261,9 +261,6 @@
     <Content Include="Content\lib\themes\base\theme.css" />
     <Content Include="Content\lib\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
-    <Content Include="obj\Debug\StudentPortalMVC.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\StudentPortalMVC.dll" />
-    <Content Include="obj\Debug\StudentPortalMVC.pdb" />
     <Content Include="Scripts\js\chi-tiet-khao-sat.js" />
     <Content Include="Scripts\js\chi-tiet-tin-tuc.js" />
     <Content Include="Scripts\js\dang-ky-chuyen-nganh.js" />
@@ -402,15 +399,10 @@
     <Compile Include="Models\SP_WEB_XemChuongTrinhKhung.cs" />
     <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\StudentP.7344713D.Up2Date" />
-    <Content Include="obj\Debug\StudentPortalMVC.csproj.AssemblyReference.cache" />
-    <Content Include="obj\Debug\StudentPortalMVC.csproj.CoreCompileInputs.cache" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
     <Content Include="bin\roslyn\csi.exe.config" />
@@ -422,7 +414,6 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\StudentPortalMVC.dll.config" />
-    <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -491,7 +482,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\DangKyPhucKhao\" />
+    <Folder Include="Views\TuDanhGiaKetQuaRenLuyen\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
