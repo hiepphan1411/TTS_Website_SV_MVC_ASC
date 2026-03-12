@@ -52,7 +52,7 @@
 }
 
 .registration-form {
-    background-color: #fff;
+    background-color: white;
     padding: 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid var(--border-color);
@@ -72,18 +72,18 @@
 /* Form Controls */
 .form-select,
 .form-control {
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border-blue-light);
     border-radius: 0.375rem;
     padding: 0.75rem 1rem;
     font-size: 0.95rem;
     transition: all 0.2s ease;
-    background-color: #fff;
+    background-color: white;
     color: var(--text-dark);
 }
 
 .form-select-lg {
     padding: 0.8rem 1.2rem;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .form-select:focus,
@@ -95,8 +95,8 @@
 
 .form-select option {
     color: var(--text-dark);
-    background-color: #fff;
-    padding: 0.5rem;
+    background-color: white;
+    padding: 8px;
 }
 
 .btn-primary {
@@ -104,10 +104,10 @@
     color: white;
 }
 
-    .btn-primary:hover {
-        background-color: #0b5ed7;
-        box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
-    }
+.btn-primary:hover {
+    background-color: var(--color-completed);
+    box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
+}
 
 .d-none {
     display: none !important;
@@ -138,10 +138,10 @@
 }
 
 .form-select:invalid {
-    border-color: #dee2e6;
+    border-color: var(--border-blue-light);
 }
 
-    .form-select:invalid:focus {
-        border-color: var(--danger-color);
-        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
-    }
+.form-select:invalid:focus {
+    border-color: var(--danger-color);
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}

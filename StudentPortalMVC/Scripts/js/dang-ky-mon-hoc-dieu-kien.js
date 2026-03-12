@@ -1421,11 +1421,10 @@ function renderCourseTable() {
     });
 }
 
-// Xem chi tiết môn học trong modal
+// Xem chi tiết môn học
 function viewCourseDetail(course) {
     const classesForCourse = classes[course.id] || [];
 
-    // Thông tin chung - layout ngang
     let modalHtml = `
           <div class="course-info-header">
               <div class="info-item">
@@ -1444,7 +1443,7 @@ function viewCourseDetail(course) {
           </div>
       `;
 
-    // Bảng danh sách lớp học phần
+    // danh sách lớp học phần
     if (classesForCourse.length > 0) {
         modalHtml += `
               <div class="schedule-section-new">
@@ -1540,12 +1539,12 @@ function selectCourse(course) {
     setTimeout(() => {
         const waitingSection = $('.two-column');
         if (waitingSection.length) {
-            $('html, body').animate(
-                {
-                    scrollTop: waitingSection.offset().top - 100,
-                },
-                500,
-            );
+            if (window.innerWidth <= 1200) {
+                $('html, body').animate(
+                    { scrollTop: waitingSection.offset().top - 80 },
+                    400,
+                );
+            }
         }
     }, 100);
 }
@@ -1574,16 +1573,16 @@ function renderWaitingClasses(courseId) {
         // Trạng thái lớp học phần
         let statusClass = 'ready';
         let statusText = 'Chờ sinh viên đăng ký';
-        let canRegister = true; // cho phép đăng ký
+        let canRegister = true;
 
         if (available <= 0) {
             statusClass = 'disabled';
             statusText = 'Đã khóa';
-            canRegister = false; // Không cho phép đăng ký
+            canRegister = false;
         } else if (cls.registered > cls.slots * 0.5) {
             statusClass = 'waiting';
             statusText = 'Đang lên kế hoạch';
-            canRegister = false; // Không cho phép đăng ký
+            canRegister = false;
         }
 
         cls.statusClass = statusClass;
@@ -1612,7 +1611,6 @@ function renderWaitingClasses(courseId) {
     });
 }
 
-// Chọn lớp học phần - Hiển thị chi tiết bên phải
 function selectClass(courseId, classId) {
     const cls = classes[courseId].find((c) => c.id === classId);
     const course = courses.find((c) => c.id === courseId);
@@ -1626,13 +1624,24 @@ function selectClass(courseId, classId) {
         'selected',
     );
 
-    // Hiển thị chi tiết ở panel bên phải
     renderClassDetail(courseId, cls);
+
+    // Scroll xuống chi tiết lớp học
+    if (window.innerWidth <= 1200) {
+        setTimeout(() => {
+            const detailContainer = $('#classDetailContainer');
+            if (detailContainer.length) {
+                $('html, body').animate(
+                    { scrollTop: detailContainer.offset().top - 80 },
+                    400,
+                );
+            }
+        }, 100);
+    }
 }
 
 // Hiển thị modal chi tiết lớp học phần
 function viewClassDetail(course, cls) {
-    // Thông tin chung - layout ngang
     let modalHtml = `
           <div class="course-info-header">
               <div class="info-item">
@@ -1658,7 +1667,7 @@ function viewClassDetail(course, cls) {
           </div>
       `;
 
-    // Bảng lịch học lý thuyết
+    // lịch học lý thuyết
     if (cls.theoryClasses.length > 0) {
         modalHtml += `
               <div class="schedule-section-new">
@@ -1699,7 +1708,7 @@ function viewClassDetail(course, cls) {
           `;
     }
 
-    // Bảng lịch học thực hành
+    // lịch học thực hành
     if (cls.practiceClasses.length > 0) {
         modalHtml += `
               <div class="schedule-section-new">
@@ -1932,7 +1941,7 @@ function registerClass() {
         return;
     }
 
-    // Kiểm tra nếu có thực hành thì phải chọn nhóm
+    // thực hành phải chọn nhóm
     if (cls.practiceClasses.length > 0) {
         const practiceChoice = $('input[name="practice"]:checked').val();
         if (practiceChoice === undefined) {
@@ -1941,7 +1950,6 @@ function registerClass() {
         }
     }
 
-    // Thêm vào danh sách đã đăng ký
     registeredClasses.push({
         courseId: courseId,
         classId: cls.id,
@@ -2051,7 +2059,6 @@ function viewRegistered(index) {
             ? reg.class.practiceClasses[reg.practiceChoice]
             : null;
 
-    // Thông tin chung - layout ngang theo ảnh
     let modalHtml = `
           <div class="course-info-header">
               <div class="info-item">
@@ -2077,7 +2084,6 @@ function viewRegistered(index) {
           </div>
       `;
 
-    // Bảng lịch học và chi tiết
     modalHtml += `
           <div class="schedule-section-new">
               <h3 class="section-title-new">LỊCH HỌC & CHI TIẾT</h3>
@@ -2148,7 +2154,6 @@ function viewRegistered(index) {
     openDetailModal('Chi tiết lớp học phần', modalHtml);
 }
 
-// Mở modal
 function openDetailModal(title, content) {
     const html = `
           <div class="modal-overlay" onclick="closeDetailModal(event)">
@@ -2187,7 +2192,6 @@ $(document).keyup(function (e) {
     }
 });
 
-// Gắn sự kiện
 function attachEventHandlers() {
     $('#searchCourse').on('input', renderCourseTable);
 

@@ -8,12 +8,28 @@ let activeFilter = 'all';
 let scheduleData = null;
 
 const MONTH_NAMES = [
-    'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
-    'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12',
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
 ];
 
 const DAY_NAMES = [
-    'THỨ 2', 'THỨ 3', 'THỨ 4', 'THỨ 5', 'THỨ 6', 'THỨ 7', 'CHỦ NHẬT',
+    'THỨ 2',
+    'THỨ 3',
+    'THỨ 4',
+    'THỨ 5',
+    'THỨ 6',
+    'THỨ 7',
+    'CHỦ NHẬT',
 ];
 
 const TIME_PERIODS = ['Sáng', 'Chiều', 'Tối'];
@@ -21,7 +37,6 @@ const TIME_KEYS = ['morning', 'afternoon', 'evening'];
 
 async function loadScheduleData() {
     try {
-
         const response = await fetch('/LichTheoTuan/GetData');
 
         if (!response.ok) {
@@ -29,7 +44,7 @@ async function loadScheduleData() {
         }
 
         const data = await response.json();
-        scheduleData = data; 
+        scheduleData = data;
         return data;
     } catch (error) {
         console.error('Lỗi khi tải dữ liệu lịch:', error);
@@ -196,7 +211,11 @@ function setupMiniCalendarClick() {
             const dateStr = $(this).data('date');
             const dateParts = dateStr.split('-');
 
-            selectedDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+            selectedDate = new Date(
+                dateParts[0],
+                dateParts[1] - 1,
+                dateParts[2],
+            );
             viewDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
 
             $('.mini-calendar td span').removeClass('selected');
@@ -229,13 +248,57 @@ function formatDate(date) {
 
 function renderWeekCalendar(date) {
     const monday = getMonday(date);
-    renderWeekHeader(monday);
-    renderWeekBody(monday);
+    const emptyDays = computeEmptyDays(monday);
+    renderWeekHeader(monday, emptyDays);
+    renderWeekBody(monday, emptyDays);
+    applyColumnWidths(emptyDays);
     attachEventHandlers();
-    updateEmptyColumns();
 }
 
-function renderWeekHeader(monday) {
+// Tính trước 7 ngày trong tuần: ngày nào không có lịch
+function computeEmptyDays(monday) {
+    const emptyDays = [];
+    for (let i = 0; i < 7; i++) {
+        const currentDay = new Date(monday);
+        currentDay.setDate(monday.getDate() + i);
+        const dateStr = formatDate(currentDay);
+        const daySchedule = scheduleData ? scheduleData[dateStr] || [] : [];
+        const hasEvent = daySchedule.some((e) => {
+            if (activeFilter === 'all') return true;
+            return e.category === activeFilter;
+        });
+        emptyDays.push(!hasEvent);
+    }
+    return emptyDays;
+}
+
+// Set grid-template-columns trực tiếp lên header và body rows
+function applyColumnWidths(emptyDays) {
+    const isMobile = window.innerWidth <= 768;
+
+    // time-slot cố định 60px + 7 cột ngày
+    const colDefs = ['60px'];
+    emptyDays.forEach((isEmpty) => {
+        colDefs.push(isEmpty ? '80px' : '150px');
+    });
+    const gridCols = colDefs.join(' ');
+
+    document
+        .querySelectorAll(
+            '.calendar-header .time-row, .calendar-body .time-row',
+        )
+        .forEach((row) => {
+            if (isMobile) {
+                row.style.display = 'grid';
+                row.style.gridTemplateColumns = gridCols;
+            } else {
+                row.style.display = '';
+                row.style.gridTemplateColumns = '';
+            }
+        });
+}
+
+function renderWeekHeader(monday, emptyDays) {
     let headerHtml = '<div class="time-row">';
     headerHtml += '<div class="time-slot"></div>';
 
@@ -246,9 +309,10 @@ function renderWeekHeader(monday) {
 
         const isToday = currentDay.toDateString() === TODAY.toDateString();
         const todayClass = isToday ? ' today-column' : '';
+        const noEventClass = emptyDays[i] ? ' no-event' : '';
 
         headerHtml += `
-            <div class="day-column${todayClass}">
+            <div class="day-column${todayClass}${noEventClass}" data-col="${i}">
                 <div class="day-name">${DAY_NAMES[i]}</div>
                 <div class="day-number${isToday ? ' today' : ''}">${dayNum}</div>
             </div>
@@ -259,11 +323,13 @@ function renderWeekHeader(monday) {
 }
 
 // ===== SỬA LẠI HÀM RENDER WEEK BODY =====
-function renderWeekBody(monday) {
+function renderWeekBody(monday, emptyDays) {
     // Kiểm tra data đã load chưa
     if (!scheduleData) {
         console.warn('Dữ liệu lịch chưa được tải');
-        $('.calendar-body').html('<div class="text-center p-4">Đang tải dữ liệu...</div>');
+        $('.calendar-body').html(
+            '<div class="text-center p-4">Đang tải dữ liệu...</div>',
+        );
         return;
     }
 
@@ -280,6 +346,7 @@ function renderWeekBody(monday) {
 
             const isToday = currentDay.toDateString() === TODAY.toDateString();
             const todayClass = isToday ? ' today-column' : '';
+            const noEventClass = emptyDays[i] ? ' no-event' : '';
 
             // Lấy dữ liệu từ scheduleData đã cache
             const daySchedule = scheduleData[dateStr] || [];
@@ -291,7 +358,7 @@ function renderWeekBody(monday) {
                 return e.category === activeFilter;
             });
 
-            bodyHtml += `<div class="day-column${todayClass}">${renderEvents(timeEvents)}</div>`;
+            bodyHtml += `<div class="day-column${todayClass}${noEventClass}" data-col="${i}">${renderEvents(timeEvents)}</div>`;
         }
 
         bodyHtml += '</div>';
@@ -332,11 +399,12 @@ function renderEvents(events) {
                 <span class="label-teacher">GV:</span>
                 ${event.teacher}
             </div>
-            ${event.room === 'Trực tuyến'
+            ${
+                event.room === 'Trực tuyến'
                     ? `<div class="event-note"><span class="label-note">Ghi chú:</span> ${event.note}</div>
                        <input type='button' class="btn-join" value="Tham gia">`
                     : ''
-                }
+            }
         </div>
     `,
         )
@@ -344,24 +412,14 @@ function renderEvents(events) {
 }
 
 function updateEmptyColumns() {
-    const headerColumns = document.querySelectorAll('.calendar-header .day-column');
-
-    headerColumns.forEach((_, index) => {
-        const bodyColumns = document.querySelectorAll(
-            `.calendar-body .time-row .day-column:nth-child(${index + 2})`,
-        );
-
-        let hasEvent = false;
-        bodyColumns.forEach((col) => {
-            if (col.querySelector('.event')) {
-                hasEvent = true;
-            }
-        });
-
-        if (!hasEvent) {
-            headerColumns[index].classList.add('no-event');
-        } else {
-            headerColumns[index].classList.remove('no-event');
-        }
-    });
+    // Không dùng nữa - logic đã chuyển vào renderWeekHeader/renderWeekBody
 }
+
+// Re-render khi resize để áp dụng lại inline style đúng breakpoint
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        renderWeekCalendar(viewDate);
+    }, 200);
+});
