@@ -568,7 +568,7 @@ var ChuongTrinhKhung = (function () {
     }
 
     function addTimelineClickHandlers() {
-        $(".timeline-item").on("click", function () {
+        $(".timeline-item[data-semester]").on("click", function () {
             var semester = $(this).attr("data-semester");
             scrollToSemester(semester);
         });
@@ -588,7 +588,7 @@ var ChuongTrinhKhung = (function () {
                 var headerText = section.querySelector(".section-header-text");
                 if (
                     headerText &&
-                    headerText.textContent.indexOf("Học kỳ " + semester) >= 0
+                    headerText.textContent.trim() === "Học kỳ " + semester
                 ) {
                     targetSection = section;
                 }

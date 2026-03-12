@@ -25,6 +25,11 @@ namespace StudentPortalMVC.Controllers
             return View();
         }
 
+        public ActionResult ChuongTrinhKhungNganh2()
+        {
+            return View();
+        }
+
         //public ActionResult GetProgressData()
         //{
         //    var raw = GetRawData();

@@ -349,6 +349,7 @@
     <Compile Include="Controllers\ChiTietKhaoSatController.cs" />
     <Compile Include="Controllers\ChiTietTinTucController.cs" />
     <Compile Include="Controllers\ChuongTrinhKhungController.cs" />
+    <Compile Include="Controllers\ChuongTrinhKhungNganh2Controller.cs" />
     <Compile Include="Controllers\DangKyChuyenNganhController.cs" />
     <Compile Include="Controllers\DangKyHoanThiController.cs" />
     <Compile Include="Controllers\DangKyHocPhanController.cs" />
@@ -474,6 +475,7 @@
     <Content Include="Views\TinTucChung\Index.cshtml" />
     <Content Include="Views\TinTucTheoLop\Index.cshtml" />
     <Content Include="Views\TinTuc\Index.cshtml" />
+    <Content Include="Views\ChuongTrinhKhung\ChuongTrinhKhungNganh2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -482,6 +484,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\ChuongTrinhKhungNganh2\" />
     <Folder Include="Views\DangKyPhucKhao\" />
     <Folder Include="Views\TuDanhGiaKetQuaRenLuyen\" />
   </ItemGroup>
