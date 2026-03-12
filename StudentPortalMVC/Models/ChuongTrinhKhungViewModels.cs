@@ -20,14 +20,14 @@ namespace StudentPortalMVC.Models
 
     public class KnowledgeBlock
     {
-        public int IDKhoiKienThuc { get; set; }  
+        public int IDKhoiKienThuc { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
         public int CompletedCredits { get; set; }
         public int CurrentCredits { get; set; }
         public int TotalCredits { get; set; }
-        public int RequiredCredits { get; set; }  
-        public int ElectiveCredits { get; set; }  
+        public int RequiredCredits { get; set; }
+        public int ElectiveCredits { get; set; }
     }
 
     public class TimelineSemester
@@ -45,35 +45,35 @@ namespace StudentPortalMVC.Models
     {
         public int Stt { get; set; }
         public int Semester { get; set; }
-        public int IDKhoiKienThuc { get; set; }         
+        public int IDKhoiKienThuc { get; set; }
         public string KnowledgeBlock { get; set; }
-        public string MaMonHoc { get; set; }           
+        public string MaMonHoc { get; set; }
         public string CourseName { get; set; }
-        public string CourseCode { get; set; }           
-        public string SoTinChi { get; set; }           
-        public int Credits { get; set; }               
+        public string CourseCode { get; set; }
+        public string SoTinChi { get; set; }
+        public int Credits { get; set; }
         public int TheoryHours { get; set; }
         public int PracticeHours { get; set; }
-        public int? SoTietTHBT { get; set; }           
-        public string Prerequisite { get; set; }        
-        public string Equivalent { get; set; }         
-        public string Replacement { get; set; }         
-        public string CoRequisite { get; set; }        
-        public bool IsBatBuoc { get; set; }            
-        public bool? KhongTinhDiemTBC { get; set; }    
-        public int? SoNhomTuChon { get; set; }         
-        public decimal? DiemTongKet { get; set; }       
-        public bool? IsDat { get; set; }                
-        public bool? IsDuSTCNhomTC { get; set; }        
-        public int? TrangThaiHocTap { get; set; }     
+        public int? SoTietTHBT { get; set; }
+        public string Prerequisite { get; set; }
+        public string Equivalent { get; set; }
+        public string Replacement { get; set; }
+        public string CoRequisite { get; set; }
+        public bool IsBatBuoc { get; set; }
+        public bool? KhongTinhDiemTBC { get; set; }
+        public int? SoNhomTuChon { get; set; }
+        public decimal? DiemTongKet { get; set; }
+        public bool? IsDat { get; set; }
+        public bool? IsDuSTCNhomTC { get; set; }
+        public int? TrangThaiHocTap { get; set; }
         public bool Completed { get; set; }
-        public int? IDHinhThucThi { get; set; }         
-        public string TenHinhThucThi { get; set; }     
-        public int? IDLoaiHinhGiangDay { get; set; }     
-        public string TenLoaiHinhGiangDay { get; set; }  
-        public int? IDDeCuongMonHoc { get; set; }       
-        public string UrlDeCuongMonHoc { get; set; }    
-        public int? IDDeCuongHocPhan { get; set; }      
+        public int? IDHinhThucThi { get; set; }
+        public string TenHinhThucThi { get; set; }
+        public int? IDLoaiHinhGiangDay { get; set; }
+        public string TenLoaiHinhGiangDay { get; set; }
+        public int? IDDeCuongMonHoc { get; set; }
+        public string UrlDeCuongMonHoc { get; set; }
+        public int? IDDeCuongHocPhan { get; set; }
     }
 
     public class SemesterCurriculum
@@ -85,17 +85,23 @@ namespace StudentPortalMVC.Models
         public List<Course> Elective { get; set; }
     }
 
-    public class ElectiveBlocks
+
+    public class ElectiveGroup
     {
-        public List<Course> Block1 { get; set; }
-        public List<Course> Block2 { get; set; }
+        public int GroupNumber { get; set; }
+        public List<Course> Courses { get; set; }
     }
 
-    public class ProfessionalEducation
+    public class KnowledgeBlockSection
     {
+        public int IDKhoiKienThuc { get; set; }
+        public string Name { get; set; }
+        public int MandatoryCredits { get; set; }
+        public int ElectiveCredits { get; set; }
         public List<Course> Mandatory { get; set; }
-        public ElectiveBlocks Elective { get; set; }
+        public List<ElectiveGroup> ElectiveGroups { get; set; }
     }
+
 
     public class ChuongTrinhKhungData
     {
@@ -113,6 +119,6 @@ namespace StudentPortalMVC.Models
 
     public class KhoiKienThucData
     {
-        public ProfessionalEducation ProfessionalEducation { get; set; }
+        public List<KnowledgeBlockSection> Blocks { get; set; }
     }
 }

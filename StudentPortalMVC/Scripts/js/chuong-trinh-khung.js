@@ -6,31 +6,163 @@ var ChuongTrinhKhung = (function () {
     var timelineData = [];
     var chartData = null;
     var knowledgeBlocksData = null;
+    var _rawData = null;
+    var _startYear = new Date().getFullYear() - 2;
 
-    // Data demo
     var dataUrls = {
-        progressData: "",
-        hocKy: "",
-        khoiKienThuc: "",
+        ctk: "",
     };
 
     function setUrls(urls) {
         dataUrls = urls;
+        if (urls.startYear) _startYear = parseInt(urls.startYear, 10);
+    }
+
+    function getAcademicYear(semesterNo, startYear) {
+        var offset = Math.floor((semesterNo - 1) / 2);
+        return startYear + offset + "-" + (startYear + offset + 1);
     }
 
     function loadProgressData() {
-        return $.getJSON(dataUrls.progressData)
-            .then(function (data) {
-                progressData = data.progressData;
-                currentAcademicYear = data.currentAcademicYear;
-                timelineData = data.timelineData;
-                chartData = data.chartData;
-                knowledgeBlocksData = data.knowledgeBlocks;
-                return data;
+        return $.getJSON(dataUrls.ctk)
+            .then(function (raw) {
+                _rawData = raw;
+                _buildProgressData(raw);
+                return raw;
             })
             .fail(function () {
-                console.error("Loi khi tai du lieu tien do.");
+                console.error("Loi khi tai du lieu CTK.");
             });
+    }
+
+    function _buildProgressData(raw) {
+        var totalCredits = 0,
+            completedCredits = 0,
+            currentCredits = 0;
+        var semGroups = {};
+
+        for (var i = 0; i < raw.length; i++) {
+            var x = raw[i];
+            var dvht = x.DVHT || 0;
+            totalCredits += dvht;
+            if (x.IsDat === true) completedCredits += dvht;
+            if (x.TrangThaiHocTap === 1 && x.IsDat === null) currentCredits += dvht;
+
+            var hk = x.HocKy || 0;
+            if (!semGroups[hk]) semGroups[hk] = [];
+            semGroups[hk].push(x);
+        }
+
+        var remainingCredits = totalCredits - completedCredits - currentCredits;
+        var pctCompleted =
+            totalCredits > 0
+                ? Math.round((completedCredits / totalCredits) * 100)
+                : 0;
+        var pctCurrent =
+            totalCredits > 0 ? Math.round((currentCredits / totalCredits) * 100) : 0;
+        var pctRemaining = 100 - pctCompleted - pctCurrent;
+
+        var timeline = [];
+        var _currentAcademicYear = "";
+
+        var sortedKeys = Object.keys(semGroups)
+            .map(Number)
+            .sort(function (a, b) {
+                return a - b;
+            });
+        for (var s = 0; s < sortedKeys.length; s++) {
+            var semNo = sortedKeys[s];
+            var group = semGroups[semNo];
+            var semTotal = 0,
+                semDone = 0,
+                semCurrent = 0,
+                hasActive = false;
+
+            for (var j = 0; j < group.length; j++) {
+                var c = group[j];
+                semTotal += c.DVHT || 0;
+                if (c.IsDat === true) semDone += c.DVHT || 0;
+                if (c.TrangThaiHocTap === 1 && c.IsDat === null)
+                    semCurrent += c.DVHT || 0;
+                if (c.TrangThaiHocTap === 1) hasActive = true;
+            }
+
+            var semProgress =
+                semTotal > 0
+                    ? Math.round(((semDone + semCurrent) / semTotal) * 100)
+                    : 0;
+            var status;
+            if (semDone === semTotal && semTotal > 0) status = "completed";
+            else if (semCurrent > 0 || hasActive) status = "active";
+            else status = "upcoming";
+
+            var year = getAcademicYear(semNo, _startYear);
+            if (status === "active") _currentAcademicYear = year;
+
+            timeline.push({
+                semester: semNo,
+                year: year,
+                status: status,
+                progress: semProgress,
+                completedCredits: semDone,
+                currentCredits: semCurrent,
+                totalCredits: semTotal,
+            });
+        }
+
+        if (!_currentAcademicYear && timeline.length > 0) {
+            var done = timeline.filter(function (t) {
+                return t.status === "completed";
+            });
+            if (done.length > 0) _currentAcademicYear = done[done.length - 1].year;
+        }
+
+        var kbMap = {};
+        for (var i = 0; i < raw.length; i++) {
+            var x = raw[i];
+            if (x.IDKhoiKienThuc == null) continue;
+            var id = x.IDKhoiKienThuc;
+            if (!kbMap[id]) {
+                kbMap[id] = {
+                    idKhoiKienThuc: id,
+                    code: String(id),
+                    name: x.TenKhoiKienThuc || "",
+                    totalCredits: 0,
+                    completedCredits: 0,
+                    currentCredits: 0,
+                    requiredCredits: x.SoTCBatBuoc || 0,
+                    electiveCredits: x.SoTCTuChon || 0,
+                };
+            }
+            kbMap[id].totalCredits += x.DVHT || 0;
+            if (x.IsDat === true) kbMap[id].completedCredits += x.DVHT || 0;
+            if (x.TrangThaiHocTap === 1 && x.IsDat === null)
+                kbMap[id].currentCredits += x.DVHT || 0;
+        }
+        var knowledgeBlocks = Object.keys(kbMap)
+            .map(Number)
+            .sort(function (a, b) {
+                return a - b;
+            })
+            .map(function (id) {
+                return kbMap[id];
+            });
+
+        progressData = {
+            totalCredits: totalCredits,
+            completedCredits: completedCredits,
+            currentCredits: currentCredits,
+            remainingCredits: remainingCredits,
+            progressDiff: "+0%",
+        };
+        currentAcademicYear = _currentAcademicYear;
+        timelineData = timeline;
+        chartData = {
+            completed: pctCompleted,
+            current: pctCurrent,
+            remaining: pctRemaining,
+        };
+        knowledgeBlocksData = knowledgeBlocks;
     }
 
     function renderProgress() {
@@ -107,7 +239,6 @@ var ChuongTrinhKhung = (function () {
     }
 
     /* Timeline */
-
     function getCircleStyles(sem) {
         var completedPercent = (sem.completedCredits / sem.totalCredits) * 100;
         var currentPercent = (sem.currentCredits / sem.totalCredits) * 100;
@@ -163,25 +294,14 @@ var ChuongTrinhKhung = (function () {
         var textClass = "";
 
         if (completedPercent > 0 && currentPercent > 0) {
-            html =
-                '<div class="timeline-progress-segment completed" style="width: ' +
-                completedPercent +
-                '%;"></div>' +
-                '<div class="timeline-progress-segment active" style="width: ' +
-                currentPercent +
-                '%;"></div>';
+            html = `<div class="timeline-progress-segment completed" style="width: ${completedPercent}%;"></div>
+        <div class="timeline-progress-segment active" style="width:${currentPercent}%;"></div>`;
             textClass = totalPercent > 50 ? "light" : "";
         } else if (completedPercent > 0) {
-            html =
-                '<div class="timeline-progress-segment completed" style="width: ' +
-                completedPercent +
-                '%;"></div>';
+            html = `<div class="timeline-progress-segment completed" style="width: ${completedPercent}%;"></div>`;
             textClass = completedPercent > 50 ? "light" : "";
         } else if (currentPercent > 0) {
-            html =
-                '<div class="timeline-progress-segment active" style="width: ' +
-                currentPercent +
-                '%;"></div>';
+            html = `<div class="timeline-progress-segment active" style="width: ${currentPercent}%;"></div>`;
             textClass = currentPercent > 50 ? "light" : "";
         }
 
@@ -232,36 +352,27 @@ var ChuongTrinhKhung = (function () {
             var displayCredits =
                 sem.completedCredits + sem.currentCredits + "/" + sem.totalCredits;
 
-            item.innerHTML =
-                '<div class="timeline-circle-wrapper">' +
-                '  <div class="timeline-circle ' +
-                styles.circleClass +
-                '" ' +
-                styles.circleStyle +
-                ">" +
-                "    <span>HK" +
-                sem.semester +
-                "</span>" +
-                "  </div>" +
-                "</div>" +
-                '<div class="timeline-info">' +
-                '  <div class="timeline-semester">H\u1ecdc k\u1ef3 ' +
-                sem.semester +
-                "</div>" +
-                '  <div class="timeline-credits">' +
-                displayCredits +
-                " t\u00edn ch\u1ec9</div>" +
-                "</div>" +
-                '<div class="timeline-progress">' +
-                '  <div class="timeline-progress-bar">' +
-                progressBar.html +
-                '    <div class="timeline-progress-text ' +
-                progressBar.textClass +
-                '">' +
-                displayPercent +
-                "%</div>" +
-                "  </div>" +
-                "</div>";
+            item.innerHTML = `
+                <div class="timeline-circle-wrapper">
+                  <div class="timeline-circle ${styles.circleClass}" ${styles.circleStyle}>
+                    <span>HK${sem.semester}</span>
+                  </div>
+                </div>
+
+                <div class="timeline-info">
+                  <div class="timeline-semester">Học kỳ ${sem.semester}</div>
+                  <div class="timeline-credits">${displayCredits} tín chỉ</div>
+                </div>
+
+                <div class="timeline-progress">
+                  <div class="timeline-progress-bar">
+                    ${progressBar.html}
+                    <div class="timeline-progress-text ${progressBar.textClass}">
+                      ${displayPercent}%
+                    </div>
+                  </div>
+                </div>
+                `;
 
             container.appendChild(item);
         });
@@ -270,8 +381,7 @@ var ChuongTrinhKhung = (function () {
         var startMarker = document.createElement("div");
         startMarker.className = "timeline-year-marker";
         startMarker.style.left = "0%";
-        startMarker.innerHTML =
-            '<div class="timeline-year-dot current"></div><div class="timeline-year-label">9/2022</div>';
+        startMarker.innerHTML = `<div class="timeline-year-dot current"></div><div class="timeline-year-label">9/2022</div>`;
         markersContainer.appendChild(startMarker);
 
         // Năm tiếp theo
@@ -295,15 +405,9 @@ var ChuongTrinhKhung = (function () {
                 marker.innerHTML = "";
             } else {
                 marker.innerHTML =
-                    '<div class="timeline-year-dot ' +
-                    dotClass +
-                    '"></div>' +
-                    '<div class="timeline-year-label">' +
-                    year +
-                    "</div>" +
-                    '<div class="timeline-year-semesters">' +
-                    semestersList +
-                    "</div>";
+                    `<div class="timeline-year-dot ${dotClass}"></div>` +
+                    `<div class="timeline-year-label">${year}</div>` +
+                    `<div class="timeline-year-semesters">${semestersList}</div>`;
             }
             markersContainer.appendChild(marker);
         });
@@ -313,10 +417,8 @@ var ChuongTrinhKhung = (function () {
         endMarker.className = "timeline-year-marker";
         endMarker.style.left = "100%";
         endMarker.innerHTML =
-            '<div class="timeline-year-dot ' +
-            (currentYearIndex >= 0 ? "future" : "current") +
-            '"></div>' +
-            '<div class="timeline-year-label">6/2028</div>';
+            `<div class="timeline-year-dot ${currentYearIndex >= 0 ? "future" : "current"}"></div>` +
+            `<div class="timeline-year-label">6/2028</div>`;
         markersContainer.appendChild(endMarker);
 
         var minItemWidth = 140;
@@ -422,47 +524,40 @@ var ChuongTrinhKhung = (function () {
                 var displayCredits =
                     sem.completedCredits + sem.currentCredits + "/" + sem.totalCredits;
 
-                card.innerHTML =
-                    '<div class="timeline-circle ' +
-                    styles.circleClass +
-                    '" ' +
-                    styles.circleStyle +
-                    ">" +
-                    "  <span>HK" +
-                    sem.semester +
-                    "</span>" +
-                    "</div>" +
-                    '<div class="timeline-info">' +
-                    '  <div class="timeline-semester">H\u1ecdc k\u1ef3 ' +
-                    sem.semester +
-                    "</div>" +
-                    '  <div class="timeline-credits">' +
-                    displayCredits +
-                    " t\u00edn ch\u1ec9</div>" +
-                    "</div>" +
-                    '<div class="timeline-progress">' +
-                    '  <div class="timeline-progress-bar">' +
-                    progressBar.html +
-                    '    <div class="timeline-progress-text ' +
-                    progressBar.textClass +
-                    '">' +
-                    displayPercent +
-                    "%</div>" +
-                    "  </div>" +
-                    "</div>" +
-                    '<div class="semester-tooltip">' +
-                    '  <div class="tooltip-row"><span class="tooltip-label">H\u1ecdc k\u1ef3:</span><span class="tooltip-value">HK' +
-                    sem.semester +
-                    "</span></div>" +
-                    '  <div class="tooltip-row"><span class="tooltip-label">\u0110\u00e3 h\u1ecdc:</span><span class="tooltip-value">' +
-                    sem.completedCredits +
-                    "/" +
-                    sem.totalCredits +
-                    " TC</span></div>" +
-                    '  <div class="tooltip-row"><span class="tooltip-label">\u0110ang h\u1ecdc:</span><span class="tooltip-value">' +
-                    sem.currentCredits +
-                    " TC</span></div>" +
-                    "</div>";
+                card.innerHTML = `
+                    <div class="timeline-circle ${styles.circleClass}" ${styles.circleStyle}>
+                      <span>HK${sem.semester}</span>
+                    </div>
+
+                    <div class="timeline-info">
+                      <div class="timeline-semester">Học kỳ ${sem.semester}</div>
+                      <div class="timeline-credits">${displayCredits} tín chỉ</div>
+                    </div>
+
+                    <div class="timeline-progress">
+                      <div class="timeline-progress-bar">
+                        ${progressBar.html}
+                        <div class="timeline-progress-text ${progressBar.textClass}">
+                          ${displayPercent}%
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="semester-tooltip">
+                      <div class="tooltip-row">
+                        <span class="tooltip-label">Học kỳ:</span>
+                        <span class="tooltip-value">HK${sem.semester}</span>
+                      </div>
+                      <div class="tooltip-row">
+                        <span class="tooltip-label">Đã học:</span>
+                        <span class="tooltip-value">${sem.completedCredits}/${sem.totalCredits} TC</span>
+                      </div>
+                      <div class="tooltip-row">
+                        <span class="tooltip-label">Đang học:</span>
+                        <span class="tooltip-value">${sem.currentCredits} TC</span>
+                      </div>
+                    </div>
+                    `;
 
                 semestersContainer.appendChild(card);
             });
@@ -493,7 +588,7 @@ var ChuongTrinhKhung = (function () {
                 var headerText = section.querySelector(".section-header-text");
                 if (
                     headerText &&
-                    headerText.textContent.indexOf("H\u1ecdc k\u1ef3 " + semester) >= 0
+                    headerText.textContent.indexOf("Học kỳ " + semester) >= 0
                 ) {
                     targetSection = section;
                 }

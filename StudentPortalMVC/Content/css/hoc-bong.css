@@ -373,7 +373,7 @@
 
     .info-value.amount {
         color: #10b981;
-        font-size: 15px;
+        font-size: 16px;
     }
 
 .application-footer {
@@ -1194,13 +1194,11 @@
     }
 
 .amount-pending {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--primary-yellow);
 }
 
-/* =============================================
-   RESPONSIVE - Tablet (≤ 1024px)
-   ============================================= */
+
 @media (max-width: 1024px) {
     .scholarships-grid {
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1211,18 +1209,15 @@
     }
 }
 
-/* =============================================
-   RESPONSIVE - Mobile (≤ 768px)
-   ============================================= */
+
 @media (max-width: 768px) {
-    /* Page header */
+
     .page-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
     }
 
-    /* Section header: stack title and controls */
     .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1253,7 +1248,6 @@
         width: 100%;
     }
 
-    /* Application card */
     .application-header {
         flex-direction: column;
         gap: 0.5rem;
@@ -1272,12 +1266,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Scholarship grid */
     .scholarships-grid {
         grid-template-columns: 1fr;
     }
 
-        /* Table view: horizontal scroll on mobile */
         .scholarships-grid.table-view {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -1287,7 +1279,6 @@
         min-width: 600px;
     }
 
-    /* Modal */
     .modal-dialog {
         margin: 0.5rem;
     }
@@ -1319,17 +1310,14 @@
             justify-content: center;
         }
 
-    /* Detail grid in modal: 1 column */
     .detail-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Form rows in modal: 1 column */
     .form-row {
         grid-template-columns: 1fr;
     }
 
-    /* Progress timeline: tighten up */
     .progress-timeline {
         padding: 12px 0.5rem;
     }
@@ -1347,7 +1335,6 @@
         max-width: 70px;
     }
 
-    /* Scholarship card footer: stack buttons */
     .scholarship-card-footer {
         flex-direction: column;
     }
@@ -1359,9 +1346,6 @@
     }
 }
 
-/* =============================================
-   RESPONSIVE - Small mobile (≤ 480px)
-   ============================================= */
 @media (max-width: 480px) {
     .application-info-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1377,7 +1361,6 @@
         text-align: center;
     }
 
-    /* Hide step dates entirely and shrink icons */
     .progress-step .step-icon {
         width: 26px;
         height: 26px;
@@ -1389,7 +1372,6 @@
         max-width: 56px;
     }
 
-    /* Scholarship card: compact */
     .scholarship-card {
         padding: 12px;
     }
@@ -1402,12 +1384,10 @@
         font-size: 1.125rem;
     }
 
-    /* Application title wraps */
     .application-title h4 {
         font-size: 0.8125rem;
     }
 
-    /* Modal full-screen on very small screens */
     .modal-dialog {
         margin: 0;
         max-width: 100%;

@@ -47,17 +47,10 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -179,9 +172,13 @@
     <Content Include="Content\css\de-xuat-chung-chi.css" />
     <Content Include="Content\css\diem-thuong-sinh-vien.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
+    <Content Include="Content\css\danh-sach-ho-so-ca-nhan.css" />
     <Content Include="Content\css\dashboard.css" />
+    <Content Include="Content\css\de-xuat-bieu-mau.css" />
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
+    <Content Include="Content\css\de-xuat-chung-chi.css" />
     <Content Include="Content\css\de-xuat-khen-thuong.css" />
+    <Content Include="Content\css\diem-thuong-sinh-vien.css" />
     <Content Include="Content\css\ghi-chu-nhac-nho.css" />
     <Content Include="Content\css\ho-so-sinh-vien.css" />
     <Content Include="Content\css\hoc-bong.css" />
@@ -199,12 +196,15 @@
     <Content Include="Content\images\default-news.jpg" />
     <Content Include="Content\css\lich-theo-tuan.css" />
     <Content Include="Content\css\lich-toan-truong.css" />
+    <Content Include="Content\css\lien-he-gop-y.css" />
     <Content Include="Content\css\phieu-thu-tong-hop.css" />
     <Content Include="Content\css\phieu-thu-truc-tuyen.css" />
     <Content Include="Content\css\thanh-toan-noi-tru.css" />
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
     <Content Include="Content\css\thong-tin-diem-danh.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
+    <Content Include="Content\css\tin-tuc-chung.css" />
+    <Content Include="Content\css\tin-tuc.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
     <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />
@@ -288,10 +288,14 @@
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
     <Content Include="Scripts\js\dang-ky-noi-tru.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
+    <Content Include="Scripts\js\danh-sach-ho-so-ca-nhan.js" />
     <Content Include="Scripts\js\dashboard.js" />
     <Content Include="Scripts\js\common.js" />
+    <Content Include="Scripts\js\de-xuat-bieu-mau.js" />
     <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
+    <Content Include="Scripts\js\de-xuat-chung-chi.js" />
     <Content Include="Scripts\js\de-xuat-khen-thuong.js" />
+    <Content Include="Scripts\js\diem-thuong-sinh-vien.js" />
     <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
     <Content Include="Scripts\js\ho-so-sinh-vien.js" />
     <Content Include="Scripts\js\hoc-bong.js" />
@@ -316,7 +320,6 @@
     <Content Include="Scripts\js\tin-tuc-chung.js" />
     <Content Include="Scripts\js\tin-tuc.js" />
     <Content Include="Scripts\js\toggle-util.js" />
-    <Content Include="Scripts\process-khoi-kien-thuc.js" />
     <Content Include="Views\KhaiBaoBHYT\Index.cshtml" />
     <Content Include="Views\KhaoSatSuKien\Index.cshtml" />
     <Content Include="Views\ChiTietKhaoSat\Index.cshtml" />
@@ -386,9 +389,13 @@
     <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
+    <Compile Include="Controllers\DanhSachHoSoCaNhanController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DeXuatBieuMauController.cs" />
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
+    <Compile Include="Controllers\DeXuatChungChiController.cs" />
     <Compile Include="Controllers\DeXuatKhenThuongController.cs" />
+    <Compile Include="Controllers\DiemThuongSinhVienController.cs" />
     <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
     <Compile Include="Controllers\HocBongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -408,6 +415,7 @@
     <Compile Include="Controllers\TinTucTheoLopController.cs" />
     <Compile Include="Controllers\LichTheoTuanController.cs" />
     <Compile Include="Controllers\LichToanTruongController.cs" />
+    <Compile Include="Controllers\LienHeGopYController.cs" />
     <Compile Include="Controllers\PhieuThuTongHopController.cs" />
     <Compile Include="Controllers\PhieuThuTrucTuyenController.cs" />
     <Compile Include="Controllers\ThanhToanDichVuController.cs" />
@@ -415,6 +423,9 @@
     <Compile Include="Controllers\ThanhToanTrucTuyenController.cs" />
     <Compile Include="Controllers\ThongTinDiemDanhController.cs" />
     <Compile Include="Controllers\ThongTinSinhVienController.cs" />
+    <Compile Include="Controllers\TinTucChungController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
+    <Compile Include="Controllers\TinTucTheoLopController.cs" />
     <Compile Include="Controllers\TraCuuCongNoController.cs" />
     <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
@@ -442,9 +453,6 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\StudentPortalMVC.dll.config" />
-    <Content Include="App_Data\ChuongTrinhKhung\chuong-trinh-khung.json" />
-    <Content Include="App_Data\ChuongTrinhKhung\hoc-ky.json" />
-    <Content Include="App_Data\ChuongTrinhKhung\khoi-kien-thuc.json" />
     <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
@@ -510,7 +518,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\SP_WEB_XemChuongTrinhKhung\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

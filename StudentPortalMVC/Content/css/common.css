@@ -357,11 +357,6 @@ body {
   transition: all 0.2s;
 }
 
-.sidebar-toggle:hover {
-  background-color: #f0f0f0;
-  border-radius: 4px;
-}
-
 .sidebar-toggle i {
   transition: transform 0.3s ease;
 }
@@ -572,10 +567,6 @@ body {
   color: var(--color-text-primary);
   text-decoration: none;
   transition: all 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background: var(--light-bg);
 }
 
 .dropdown-item i {
@@ -888,7 +879,6 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 #f1f5f9;
 }
@@ -966,4 +956,13 @@ body {
   .left-header-container .search-bar {
     display: none;
   }
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
