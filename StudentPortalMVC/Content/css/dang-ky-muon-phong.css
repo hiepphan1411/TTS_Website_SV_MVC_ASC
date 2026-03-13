@@ -720,3 +720,9 @@ body {
         font-size: 11px;
     }
 }
+
+@media (max-width: 410px) {
+    .search-section div {
+        grid-template-columns: 1fr;
+    }
+}

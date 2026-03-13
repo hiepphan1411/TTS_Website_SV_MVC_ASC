@@ -657,6 +657,15 @@ body {
     align-items: center;
     transition: background-color 0.3s;
 }
+.section-head {
+    background-color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
 
 .section-header:hover {
   background-color: var(--color-blue-light);
@@ -878,7 +887,7 @@ body {
     }
 
 .tab-content {
-  display: none;
+  /* display: none; */
   padding: 20px 0;
   animation: fadeIn 0.3s ease;
 }

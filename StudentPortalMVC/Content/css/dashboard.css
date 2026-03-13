@@ -613,7 +613,7 @@
 .gpa-display-card {
   flex: 0 0 auto;
   min-width: 200px;
-  background: #56a2e8;
+  background: var(--primary-blue);
   text-align: center;
   display: flex;
   flex-direction: column;

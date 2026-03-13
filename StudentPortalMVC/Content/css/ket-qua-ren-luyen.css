@@ -327,17 +327,17 @@ p {
 
     .semester-stat-label {
         font-size: 8px;
-        margin-bottom: 2px;
     }
 
     .semester-stat-value {
         font-size: 1rem;
         font-weight: 700;
+        padding: 3px 8px !important;
     }
 
     .status-badge {
-        width: auto;
-        font-size: 10px;
+        width: 80px;
+        font-size: 10px !important;
         padding: 3px 8px !important;
     }
 
@@ -354,11 +354,17 @@ p {
         padding: 0.75rem;
         font-size: 11px;
     }
+    .material-symbols-outlined {
+        font-size: 10px;
+    }
+    .semester-info {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 430px) {
     .semester-info {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .status-badge {
@@ -374,7 +380,7 @@ p {
         font-size: 12px !important;
         padding: 4px 12px !important;
     }
-    .semester-details{
-      padding: 0 10px 10px 10px;
+    .semester-details {
+        padding: 0 10px 10px 10px;
     }
 }

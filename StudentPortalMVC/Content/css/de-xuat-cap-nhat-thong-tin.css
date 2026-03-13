@@ -8,35 +8,8 @@
     --text-muted: #6c757d;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    color: var(--text-dark);
-    background-color: var(--light-bg);
-    font-size: 14px;
-    line-height: 1.5;
-}
 
-.container-lg {
-    padding: 20px;
-}
-
-h2 {
-    color: var(--text-dark);
-    font-weight: 700;
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-}
-
-.text-muted {
-    color: var(--text-muted) !important;
-    font-size: 0.95rem;
-}
 
 .card {
     border: 1px solid var(--border-color);
@@ -79,17 +52,17 @@ h2 {
     margin-bottom: -2px !important;
 }
 
-    .nav-link:hover {
-        color: #0d6efd;
-        border-bottom-color: rgba(13, 110, 253, 0.3) !important;
-    }
+.nav-link:hover {
+    color: #0d6efd;
+    border-bottom-color: rgba(13, 110, 253, 0.3) !important;
+}
 
-    .nav-link.active {
-        color: #0d6efd !important;
-        background-color: transparent !important;
-        border-bottom: 2px solid #0d6efd !important;
-        font-weight: 600;
-    }
+.nav-link.active {
+    color: #0d6efd !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid #0d6efd !important;
+    font-weight: 600;
+}
 
 .tab-pane {
     animation: fadeIn 0.3s ease-in-out;
@@ -147,21 +120,21 @@ h2 {
     color: var(--text-dark);
 }
 
-    .form-control:focus,
-    .form-select:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
-        outline: none;
-    }
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    outline: none;
+}
 
-    .form-control::placeholder {
-        color: #adb5bd;
-    }
+.form-control::placeholder {
+    color: #adb5bd;
+}
 
-    .form-select option {
-        color: var(--text-dark);
-        background-color: #fff;
-    }
+.form-select option {
+    color: var(--text-dark);
+    background-color: #fff;
+}
 
 .form-check {
     margin-right: 2rem;
@@ -178,10 +151,10 @@ h2 {
     border-radius: 0.25em;
 }
 
-    .form-check-input:checked {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-    }
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
 
 .form-check-label {
     cursor: pointer;
@@ -209,10 +182,10 @@ h2 {
     background-color: transparent;
 }
 
-    .btn-outline-secondary:hover {
-        background-color: var(--secondary-color);
-        color: white;
-    }
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
 
 .btn-sm {
     padding: 0.35rem 0.75rem;
@@ -233,10 +206,10 @@ h2 {
     justify-content: center;
 }
 
-    .btn-danger:hover {
-        background-color: #c82333;
-        transform: scale(1.1);
-    }
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
 
 .certificate-item-wrapper {
     position: relative;
@@ -247,10 +220,10 @@ h2 {
     transition: all 0.3s ease;
 }
 
-    .certificate-item-wrapper:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-color: #dee2e6;
-    }
+.certificate-item-wrapper:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: #dee2e6;
+}
 
 .btn-remove-certificate {
     position: absolute;
@@ -273,15 +246,15 @@ h2 {
     z-index: 10;
 }
 
-    .btn-remove-certificate:hover {
-        background-color: #bb2d3b;
-        transform: scale(1.1);
-        box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
-    }
+.btn-remove-certificate:hover {
+    background-color: #bb2d3b;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
+}
 
-    .btn-remove-certificate i {
-        line-height: 1;
-    }
+.btn-remove-certificate i {
+    line-height: 1;
+}
 
 .family-item-wrapper {
     position: relative;
@@ -292,10 +265,10 @@ h2 {
     transition: all 0.3s ease;
 }
 
-    .family-item-wrapper:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-color: #dee2e6;
-    }
+.family-item-wrapper:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: #dee2e6;
+}
 
 .btn-remove-family {
     position: absolute;
@@ -318,15 +291,15 @@ h2 {
     z-index: 10;
 }
 
-    .btn-remove-family:hover {
-        background-color: #bb2d3b;
-        transform: scale(1.1);
-        box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
-    }
+.btn-remove-family:hover {
+    background-color: #bb2d3b;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
+}
 
-    .btn-remove-family i {
-        line-height: 1;
-    }
+.btn-remove-family i {
+    line-height: 1;
+}
 
 .family-item,
 .certificate-item {
@@ -337,11 +310,11 @@ h2 {
     animation: slideIn 0.3s ease-out;
 }
 
-    .family-item:hover,
-    .certificate-item:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        border-color: var(--primary-color);
-    }
+.family-item:hover,
+.certificate-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
 
 @keyframes slideIn {
     from {
@@ -465,9 +438,9 @@ h2 {
         gap: 0.5rem;
     }
 
-        .d-flex.justify-content-end .btn {
-            width: 100%;
-        }
+    .d-flex.justify-content-end .btn {
+        width: 100%;
+    }
 
     .card-footer {
         flex-direction: column;
