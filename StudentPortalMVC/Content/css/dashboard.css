@@ -1386,16 +1386,6 @@ canvas.gpa-chart {
 }
 
 @media (max-width: 992px) {
-    .sidebar {
-        position: fixed;
-        left: -250px;
-        transition: left 0.3s;
-        z-index: 999;
-    }
-
-        .sidebar.active {
-            left: 0;
-        }
 
     .dashboard-content {
         width: 100%;
