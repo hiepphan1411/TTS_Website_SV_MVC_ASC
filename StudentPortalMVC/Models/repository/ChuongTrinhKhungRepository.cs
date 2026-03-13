@@ -14,7 +14,7 @@ namespace StudentPortalMVC.Models.repository
 
         public ChuongTrinhKhungRepository()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["StudentPortalDb"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["TempDbsContext"].ConnectionString;
         }
 
         // Lấy danh sách CCK 
