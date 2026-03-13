@@ -923,6 +923,10 @@ body {
         font-size: 18px;
     }
 
+    .main-content.sidebar-open {
+        padding-left: 0px;
+    }
+
     .content-wrapper {
         padding: 15px;
     }
