@@ -27,22 +27,7 @@ body {
 }
 
 .header-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin-bottom: 20px;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #505050;
-}
-
-.header-subtitle {
-    font-size: 13px;
-    font-weight: 400;
-    color: #8e8e8e;
+    margin-bottom: 5px;
 }
 
 .semesterSelect {
@@ -500,7 +485,7 @@ body {
         background-color: transparent !important;
         width: auto !important;
         min-width: unset !important;
-        max-width: none !important;
+      
     }
 
     .total-label-sticky {
@@ -598,11 +583,11 @@ body {
 .category-row td:first-child::before {
     content: '▶';
     position: absolute;
-    left: 10px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     transition: transform 0.3s ease;
-    font-size: 13px;
+    font-size: 8px;
     color: #003087;
 }
 
@@ -903,6 +888,7 @@ tr td:first-child:is([data-level='3']) {
     .category-row td:first-child {
         margin-left: 10px !important;
         background: #052e07 !important;
+        font-size: 13px !important;
     }
 
     .total-label-sticky {
