@@ -1,5 +1,5 @@
-@{
-    ViewBag.Title = "Chương trình khung đào tạo và tiến độ học tập";
+﻿@{
+    ViewBag.Title = "Chương trình khung đào tạo và tiến độ học tập ngành 2";
 }
 
 @section styles {
@@ -11,7 +11,7 @@
     <div class="container-lg d-flex flex-column gap-3" style="padding: 20px">
         <div>
             <h1 class="fs-4 fw-bold" style="color: var(--color-text-primary)">
-                Chương trình khung đào tạo và tiến độ học tập
+                Chương trình khung đào tạo và tiến độ học tập ngành 2
             </h1>
             <p class="small fw-semibold text-secondary mb-0">
                 Xem chương trình đào tạo và tiến độ học tập của bạn
@@ -130,9 +130,7 @@
         <div class="content-wrapper">
             <div class="knowledge-block-overview">
                 <div class="section-title">Tổng quan khối kiến thức</div>
-                <div class="block-wrapper">
-                    <div class="timeline-items" id="knowledgeBlocksContainer"></div>
-                </div>
+                <div class="knowledge-blocks" id="knowledgeBlocksContainer"></div>
             </div>
 
             <div class="legend">

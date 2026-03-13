@@ -41,7 +41,7 @@ namespace StudentPortalMVC.Models.repository
                 conn.Open();
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.CommandType = CommandType.Text;   
+                    cmd.CommandType = CommandType.Text;
 
                     using (var reader = cmd.ExecuteReader())
                     {
