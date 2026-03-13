@@ -54,9 +54,9 @@
 }
 
 .filter-btns .btn-outline-secondary:hover {
-    background: #f8f9fa;
+    background: var(--color-blue-light);
     color: var(--color-text-primary);
-    border-color: #d1d5db;
+    border-color: var(--border-color);
 }
 
 .accordion {
@@ -79,9 +79,9 @@
 }
 
 .accordion-header {
-    background: #fff !important;
+    background: white !important;
     margin-bottom: 0;
-    border-bottom: 0.5px solid #e4e4e4;
+    border-bottom: 0.5px solid var(--border-color);
 }
 
 .accordion-button {
@@ -90,7 +90,7 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--secondary-blue) !important;
-    background: #fff !important;
+    background: white !important;
     box-shadow: none !important;
     border: none;
     display: block;
@@ -276,5 +276,8 @@
     .accordion-body {
         padding: 12px;
         font-size: 13px;
+    }
+    .accordion-button::after {
+        top: 70%;
     }
 }

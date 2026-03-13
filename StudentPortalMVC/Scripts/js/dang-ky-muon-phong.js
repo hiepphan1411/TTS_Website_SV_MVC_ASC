@@ -421,14 +421,14 @@ function populateDropdowns() {
     populateSelect(
         'fromPeriod',
         Array.from({ length: 12 }, (_, i) => i + 1),
-        '-- Chọn --',
+        'Chọn',
     );
     populateSelect(
         'toPeriod',
         Array.from({ length: 12 }, (_, i) => i + 1),
-        '-- Chọn --',
+        'Chọn',
     );
-    populateSelect('faculty', dropdownData.departments, '-- Chọn đơn vị --');
+    populateSelect('faculty', dropdownData.departments, '-- Chọn --');
     populateSelect('status', dropdownData.statuses, '-- Chọn trạng thái --');
 
     // Populate cho filter section - Cơ sở dropdown
