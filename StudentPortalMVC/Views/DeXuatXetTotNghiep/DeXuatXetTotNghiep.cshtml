@@ -1,0 +1,391 @@
+﻿@{
+    ViewBag.Title = "Đề xuất xét tốt nghiệp";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/de-xuat-xet-tot-nghiep.css" />
+}
+<div class="container-lg pt-4">
+    <!-- Page Header -->
+    <div class="header-section">
+        <div class="header-title">Đề xuất xét tốt nghiệp</div>
+        <div class="header-subtitle">
+            Đề xuất và xem kết quả đề xuất xét tốt nghiệp
+        </div>
+    </div>
+
+    <!-- Content here -->
+    <div class="section-card">
+        <div class="section-title">ĐỢT XÉT TỐT NGHIỆP</div>
+
+        <div class="alert-warning mb-3">
+            <i class="bi bi-exclamation-circle-fill"
+               style="font-size: 18px"></i>
+            <span>
+                Ghi chú: Hiện đang có đợt đề xuất tốt nghiệp. Thực
+                hiện xét thử và đề xuất
+            </span>
+        </div>
+
+        <div class="btn-group-actions">
+            <button class="btn-propose">Đề xuất xét TN</button>
+            <button class="btn-cancel">Hủy đề xuất</button>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <div class="section-title">
+            DANH SÁCH ĐÃ ĐĂNG KÝ XÉT TỐT NGHIỆP
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px"></th>
+                        <th style="width: 50px">STT</th>
+                        <th>ĐỢT XÉT TN</th>
+                        <th>ĐỢT ĐỀ XUẤT</th>
+                        <th>NGÀY ĐÊ XUẤT</th>
+                        <th>TRẠNG THÁI ĐỀ XUẤT</th>
+                        <th>NGÀY PHẢN HỒI</th>
+                        <th>NỘI DUNG PHẢN HỒI</th>
+                        <th>KẾT QUẢ XÉT THỬ</th>
+                        <th>GHI CHÚ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="main-row" data-row="1">
+                        <td>
+                            <input type="checkbox"
+                                   onclick="event.stopPropagation()" />
+                        </td>
+                        <td>1</td>
+                        <td>ĐƯỢT XÉT TN KHÓA 46 TEST</td>
+                        <td>Đợt xét TN Khóa 46 Test</td>
+                        <td>11:32 23/01/2026</td>
+                        <td>Đã đề xuất, chờ duyệt</td>
+                        <td>22/01/2026</td>
+                        <td>-</td>
+                        <td>
+                            <span class="badge-success">Đạt</span>
+                        </td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="detail-row" id="detail-1">
+                        <td colspan="10">
+                            <div class="detail-content">
+                                <div class="detail-tabs">
+                                    <span class="detail-tab active"
+                                          onclick="
+                                                        showTab(event, 'tab1-1')
+                                                    ">Chi tiết kết quả</span>
+                                    <span class="detail-tab"
+                                          onclick="
+                                                        showTab(event, 'tab1-2')
+                                                    ">
+                                        Danh sách hồ sơ đính
+                                        kèm
+                                    </span>
+                                </div>
+
+                                <div id="tab1-1"
+                                     class="tab-content active">
+                                    <div class="detail-grid">
+                                        <div class="detail-item">
+                                            <span class="detail-label">SỐ TC CTĐT:</span>
+                                            <span class="detail-value">140</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM TBC TL HỆ
+                                                10:
+                                            </span>
+                                            <span class="detail-value">7.77</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM RÈN LUYỆN TOÀN
+                                                KHÓA:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC PHẢI TÍCH
+                                                LŨY:
+                                            </span>
+                                            <span class="detail-value">129</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM TBC TL HỆ
+                                                4:
+                                            </span>
+                                            <span class="detail-value">3.13</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                XẾP LOẠI RÈN LUYỆN
+                                                TOÀN KHÓA:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">SỐ TC ĐÃ HỌC:</span>
+                                            <span class="detail-value">146</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                TỶ LỆ HỌC
+                                                LẠI:
+                                            </span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                GHI CHÚ HÀ BẤT
+                                                TN:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC TÍCH
+                                                LŨY:
+                                            </span>
+                                            <span class="detail-value">131</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">CÔNG NỢ:</span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">KẾT QUẢ:</span>
+                                            <span class="detail-value">Đạt</span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC KHÔNG
+                                                ĐẠT:
+                                            </span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">XẾP LOẠI:</span>
+                                            <span class="detail-value">Khá</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">GHI CHÚ:</span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab1-2"
+                                     class="tab-content">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="
+                                                                    width: 60px;
+                                                                ">
+                                                    STT
+                                                </th>
+                                                <th>
+                                                    HỒ SƠ ĐÍNH KÈM
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="empty-state">
+                                                        Không có dữ
+                                                        liệu hiện
+                                                        thi
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="main-row" data-row="2">
+                        <td>
+                            <input type="checkbox"
+                                   onclick="event.stopPropagation()" />
+                        </td>
+                        <td>2</td>
+                        <td>ĐƯỢT XÉT TN KHÓA 46 TEST</td>
+                        <td>Đợt xét TN Khóa 46 Test</td>
+                        <td>09:30 24/01/2026</td>
+                        <td>Đã đề xuất, chờ duyệt</td>
+                        <td>22/01/2026</td>
+                        <td>-</td>
+                        <td>
+                            <span class="badge-success">Đạt</span>
+                        </td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="detail-row" id="detail-2">
+                        <td colspan="10">
+                            <div class="detail-content">
+                                <div class="detail-tabs">
+                                    <span class="detail-tab active"
+                                          onclick="
+                                                        showTab(event, 'tab2-1')
+                                                    ">Chi tiết kết quả</span>
+                                    <span class="detail-tab"
+                                          onclick="
+                                                        showTab(event, 'tab2-2')
+                                                    ">
+                                        Danh sách hồ sơ đính
+                                        kèm
+                                    </span>
+                                </div>
+
+                                <div id="tab2-1"
+                                     class="tab-content active">
+                                    <div class="detail-grid">
+                                        <div class="detail-item">
+                                            <span class="detail-label">SỐ TC CTĐT:</span>
+                                            <span class="detail-value">140</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM TBC TL HỆ
+                                                10:
+                                            </span>
+                                            <span class="detail-value">7.77</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM RÈN LUYỆN TOÀN
+                                                KHÓA:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC PHẢI TÍCH
+                                                LŨY:
+                                            </span>
+                                            <span class="detail-value">129</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                ĐIỂM TBC TL HỆ
+                                                4:
+                                            </span>
+                                            <span class="detail-value">3.13</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                XẾP LOẠI RÈN LUYỆN
+                                                TOÀN KHÓA:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">SỐ TC ĐÃ HỌC:</span>
+                                            <span class="detail-value">146</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                TỶ LỆ HỌC
+                                                LẠI:
+                                            </span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                GHI CHÚ HÀ BẤT
+                                                TN:
+                                            </span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC TÍCH
+                                                LŨY:
+                                            </span>
+                                            <span class="detail-value">131</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">CÔNG NỢ:</span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">KẾT QUẢ:</span>
+                                            <span class="detail-value">Đạt</span>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <span class="detail-label">
+                                                SỐ TC KHÔNG
+                                                ĐẠT:
+                                            </span>
+                                            <span class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">XẾP LOẠI:</span>
+                                            <span class="detail-value">Khá</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">GHI CHÚ:</span>
+                                            <span class="detail-value neutral"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab2-2"
+                                     class="tab-content">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="
+                                                                    width: 60px;
+                                                                ">
+                                                    STT
+                                                </th>
+                                                <th>
+                                                    HỒ SƠ ĐÍNH KÈM
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="empty-state">
+                                                        Không có dữ
+                                                        liệu hiện
+                                                        thi
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/js/de-xuat-xet-tot-nghiep.js"></script>
+}
+

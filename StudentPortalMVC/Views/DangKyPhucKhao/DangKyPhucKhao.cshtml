@@ -1,27 +1,26 @@
-﻿
-@{
-    ViewBag.Title = "Đăng ký thi lại - thi cải thiện";
+﻿@{
+    ViewBag.Title = "Đăng ký phúc khảo";
 }
 
-@section styles{
-    <link rel="stylesheet" href="~/Content/css/common.css" />
+@section  styles{
+
     <link rel="stylesheet" href="~/Content/css/dang-ky-phuc-khao.css" />
-
+    <link rel="stylesheet" href="~/Content/css/common.css" />
 }
 
-<div class="container-lg mb-4">
+<div class="container-lg mt-4"
+    >
+    <div class="header-title">Đăng ký phúc khảo</div>
 
-    <div class="header-title">Đăng ký thi</div>
-
-    <div class="d-flex flex-column gap-3 mb-4 mt-3">
+    <div class="d-flex align-items-center gap-3 mb-4 mt-3 control-row">
         <div class="d-flex align-items-center gap-2">
-            <span class="tab-label">Chọn</span>
+            <span class="tab-label">Kết quả</span>
             <div class="tab-buttons-dkpk">
-                <button class="btn active" data-tab="thi-lai">
-                    Thi lại
+                <button class="btn active" data-tab="lan-1">
+                    Điểm thi lần 1
                 </button>
-                <button class="btn" data-tab="cai-thien">
-                    Cải thiện
+                <button class="btn" data-tab="lan-2">
+                    Điểm thi lần 2
                 </button>
             </div>
         </div>
@@ -29,17 +28,23 @@
         <div class="d-flex align-items-center gap-2">
             <span class="tab-label">Học kỳ</span>
             <select class="form-select" id="semesterSelect">
-                <option value="HK1 (2025 - 2026)">HK1 (2025 - 2026)</option>
-                <option value="HK2 (2024 - 2025)">HK2 (2024 - 2025)</option>
-                <option value="HK1 (2024 - 2025)">HK1 (2024 - 2025)</option>
+                <option value="HK1 (2025-2026)">
+                    HK1 (2025 - 2026)
+                </option>
+                <option value="HK2 (2024-2025)">
+                    HK2 (2024 - 2025)
+                </option>
+                <option value="HK1 (2024-2025)">
+                    HK1 (2024 - 2025)
+                </option>
             </select>
         </div>
     </div>
 
     <div class="mb-4">
-        <div class="title-register d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-3 title-register">
             <div class="section-header-dkpk">
-                HỌC PHẦN ĐƯỢC PHÉP ĐĂNG KÝ THI
+                MÔN HỌC ĐƯỢC PHÉP ĐĂNG KÝ
             </div>
             <button class="btn-refresh"
                     onclick="refreshAllowedTable()">
@@ -57,13 +62,14 @@
                                    id="selectAll" />
                         </th>
                         <th>MÃ MÔN</th>
-                        <th>LỚP HỌC PHẦN</th>
                         <th>TÊN MÔN HỌC</th>
+                        <th>LỚP HỌC PHẦN</th>
+
                         <th class="text-center-col">SỐ TÍN CHỈ</th>
+                        <th class="text-center-col">ĐIỂM THI</th>
                         <th class="text-center-col">
-                            KẾT QUẢ LẦN 1
+                            THỜI HẠN PHÚC KHẢO
                         </th>
-                        <th class="text-center-col">GHI CHÚ</th>
                     </tr>
                 </thead>
                 <tbody id="allowedTableBody"></tbody>
@@ -77,11 +83,9 @@
         </button>
     </div>
 
-    <div class="mt-4">
-        <div class="title-register d-flex justify-content-between align-items-center mb-3">
-            <div class="section-header-dkpk">
-                HỌC PHẦN ĐÃ ĐĂNG KÝ THI
-            </div>
+    <div>
+        <div class="section-header mb-3">
+            MÔN HỌC ĐÃ ĐĂNG KÝ PHÚC KHẢO
         </div>
 
         <div class="table-container scroll-container">
@@ -90,14 +94,18 @@
                 <thead>
                     <tr>
                         <th class="text-center-col">STT</th>
+                        <th>MÃ MÔN</th>
                         <th>MÃ LHP</th>
                         <th>TÊN MÔN HỌC</th>
-                        <th class="text-center-col">TÍN CHỈ</th>
+                        <th class="text-center-col">ĐIỂM THI</th>
                         <th class="text-center-col">LỆ PHÍ</th>
                         <th class="text-center-col">TT LỆ PHÍ</th>
                         <th class="text-center-col">
-                            NGÀY ĐĂNG KÝ
+                            ĐIỂM PHÚC KHẢO
                         </th>
+                        <th>PHẢN HỒI PHÚC KHẢO</th>
+                        <th class="text-center-col">TRẠNG THÁI</th>
+                        <th>LÝ DO</th>
                     </tr>
                 </thead>
                 <tbody id="registeredTableBody"></tbody>
@@ -106,7 +114,8 @@
     </div>
 </div>
 
+
 @section scripts{
-    <script src="~/Scripts/js/common.js"></script>
-    <script src="~/Scripts/js/dang-ky-thi-lai-thi-cai-thien.js"></script>
+    <script src="~/Scripts/js/dang-ky-phuc-khao.js"></script>
 }   
+

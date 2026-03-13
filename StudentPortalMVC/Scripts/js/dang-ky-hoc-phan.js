@@ -27,8 +27,8 @@
         name: 'Cơ sở dữ liệu',
         credits: 3,
         required: true,
-        condition: 'A', 
-        prerequisiteId: 1, 
+        condition: 'A',
+        prerequisiteId: 1,
         type: 'new',
     },
 
@@ -38,8 +38,8 @@
         name: 'Lập trình Web',
         credits: 4,
         required: true,
-        condition: 'B', 
-        prerequisiteId: 1, 
+        condition: 'B',
+        prerequisiteId: 1,
         type: 'new',
     },
 
@@ -49,7 +49,7 @@
         name: 'Hệ điều hành',
         credits: 3,
         required: true,
-        condition: 'C', 
+        condition: 'C',
         prerequisiteId: 2,
         type: 'new',
     },
@@ -71,8 +71,8 @@
         name: 'Công nghệ phần mềm',
         credits: 3,
         required: true,
-        condition: 'B', 
-        prerequisiteId: 3, 
+        condition: 'B',
+        prerequisiteId: 3,
         type: 'new',
     },
 
@@ -82,8 +82,8 @@
         name: 'Phát triển ứng dụng di động',
         credits: 4,
         required: false,
-        condition: 'A', 
-        prerequisiteId: 4, 
+        condition: 'A',
+        prerequisiteId: 4,
         type: 'new',
     },
 
@@ -94,7 +94,7 @@
         credits: 3,
         required: false,
         condition: 'C',
-        prerequisiteId: 2, 
+        prerequisiteId: 2,
         type: 'new',
     },
 
@@ -104,7 +104,7 @@
         name: 'An toàn thông tin',
         credits: 3,
         required: true,
-        condition: 'A', 
+        condition: 'A',
         prerequisiteId: 6,
         type: 'new',
     },
@@ -115,8 +115,8 @@
         name: 'Thực tập dự án',
         credits: 4,
         required: true,
-        condition: 'B', 
-        prerequisiteId: 7, 
+        condition: 'B',
+        prerequisiteId: 7,
         type: 'new',
     },
 
@@ -126,8 +126,8 @@
         name: 'Phân tích dữ liệu lớn',
         credits: 3,
         required: false,
-        condition: 'B', 
-        prerequisiteId: 3, 
+        condition: 'B',
+        prerequisiteId: 3,
         type: 'new',
     },
 ];
@@ -135,7 +135,6 @@
 // Data lớp học phần
 const classes = {
     1: [
-
         {
             id: '01',
             courseCode: 'THCS101',
@@ -1642,6 +1641,19 @@ function selectClass(courseId, classId) {
 
     // chi tiết
     renderClassDetail(courseId, cls);
+
+    // Scroll xuống chi tiết lớp học 
+    if (window.innerWidth <= 1200) {
+        setTimeout(() => {
+            const detailContainer = $('#classDetailContainer');
+            if (detailContainer.length) {
+                $('html, body').animate(
+                    { scrollTop: detailContainer.offset().top - 80 },
+                    400,
+                );
+            }
+        }, 100);
+    }
 }
 
 //chi tiết lớp học phần

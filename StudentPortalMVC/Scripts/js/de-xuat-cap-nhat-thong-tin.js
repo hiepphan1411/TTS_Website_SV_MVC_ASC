@@ -1,6 +1,7 @@
 ﻿const $ = window.jQuery;
 const bootstrap = window.bootstrap;
 
+// Declare variables
 let clearFamilyForm = function () {
     $('#familyName').val('');
     $('#familyRelation').val('');
