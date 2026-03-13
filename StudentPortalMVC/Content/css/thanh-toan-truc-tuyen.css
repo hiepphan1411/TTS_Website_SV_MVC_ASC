@@ -1,11 +1,11 @@
 ﻿.back-btn {
     padding: 10px 20px;
-    background: #f5f5f5;
+    background: var(--light-gray);
     border: none;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    color: #666;
+    color: var(--text-light);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -25,14 +25,14 @@
     border: 1px solid var(--border-color);
 }
 
-    .back-btn:hover {
-        background: var(--border-color);
-    }
+.back-btn:hover {
+    background: var(--border-color);
+}
 
 /* Main Layout */
 .payment-layout {
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid-template-columns: 1fr 22%;
     gap: 20px;
 }
 
@@ -41,11 +41,12 @@
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    height: fit-content;
 }
 
 .section-header {
-    background: #f8f9fa;
-    color: var(--text-dark);
+    background: var(--color-blue-light);
+    color: var(--color-text-primary);
     padding: 18px 24px;
     display: flex;
     align-items: center;
@@ -64,7 +65,7 @@
     }
 
     .table-wrapper::-webkit-scrollbar-track {
-        background: #f5f5f5;
+        background: var(--light-gray);
         border-radius: 10px;
     }
 
@@ -74,7 +75,7 @@
     }
 
         .table-wrapper::-webkit-scrollbar-thumb:hover {
-            background: #9e9e9e;
+            background: var(--color-text-secondary);
         }
 
 .section-title {
@@ -83,12 +84,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    color: var(--color-text-primary);
 }
 
 .filter-dropdown {
     background: rgba(255, 255, 255, 0.15);
-    border: 1px solid var(--text-dark);
-    color: var(--text-dark);
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
     padding: 8px 14px;
     border-radius: 6px;
     font-size: 13px;
@@ -97,7 +99,7 @@
 }
 
     .filter-dropdown option {
-        color: #333;
+        color: var(--color-text-primary);
     }
 
 /* Payment Table */
@@ -128,8 +130,8 @@
 
     .payment-table td {
         padding: 14px 18px;
-        border-bottom: 1px solid #f0f0f0;
-        color: #333;
+        border-bottom: 1px solid var(--color-red-light);
+        color: var(--color-text-primary);
         font-size: 14px;
     }
 
@@ -139,11 +141,11 @@
     }
 
         .payment-table tbody tr:hover {
-            background: #f9f9f9;
+            background: var(--color-blue-light);
         }
 
         .payment-table tbody tr.selected {
-            background: #e3f2fd;
+            background: var(--color-blue-heavy);
         }
 
 .action-cell {
@@ -151,7 +153,7 @@
 }
 
 .select-btn {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     padding: 4px 16px;
@@ -166,7 +168,7 @@
 }
 
 .search-btn {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     padding: 8px 16px;
@@ -174,18 +176,12 @@
 }
 
 .select-all-btn {
-    float: right;
-    margin: 20px;
     padding: 6px 18px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .select-btn i {
     font-size: 11px;
-}
-
-.select-btn:hover:not(:disabled) {
-    background: var(--primary-color);
 }
 
 .select-btn:disabled {
@@ -194,7 +190,8 @@
 }
 
 .select-btn.selected {
-    background: #4caf50;
+    color: white !important;
+    background: #4caf50 !important;
 }
 
     .select-btn.selected:hover {
@@ -217,7 +214,7 @@
     }
 
     .status-badge.optional {
-        background: #e3f2fd;
+        background: var(--color-blue-heavy);
         color: var(--secondary-color);
     }
 
@@ -232,7 +229,7 @@
 
 /* Total Row */
 .total-row {
-    background: #f5f5f5;
+    background: var(--light-gray);
     border-top: 2px solid var(--border-color);
 }
 
@@ -240,7 +237,7 @@
         padding: 18px;
         font-size: 15px;
         font-weight: 700;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
 .total-amount {
@@ -264,8 +261,8 @@
 }
 
 .selected-items-header {
-    background: #f8f9fa;
-    color: var(--text-dark);
+    background: var(--color-blue-light);
+    color: var(--color-text-primary);
     padding: 14px 20px;
     font-weight: 700;
     font-size: 15px;
@@ -285,7 +282,7 @@
     }
 
     .selected-items-body::-webkit-scrollbar-track {
-        background: #f5f5f5;
+        background: var(--light-gray);
         border-radius: 10px;
     }
 
@@ -323,7 +320,7 @@
 }
 
     .selected-item:hover {
-        background: #f5f5f5;
+        background: var(--light-gray);
         border-color: #bdbdbd;
     }
 
@@ -338,7 +335,7 @@
 
 .selected-item-name {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     margin-bottom: 4px;
     overflow: hidden;
@@ -359,7 +356,7 @@
 }
 
 .remove-item-btn {
-    background: #f5f5f5;
+    background: var(--light-gray);
     color: var(--danger-color);
     border: 1px solid var(--border-color);
     width: 26px;
@@ -382,7 +379,7 @@
 
 .selected-items-total {
     padding: 14px 20px;
-    background: #f8f9fa;
+    background: var(--color-blue-light);
     border-top: 2px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -391,7 +388,7 @@
 
 .selected-total-label {
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 14px;
 }
 
@@ -414,7 +411,7 @@
     padding: 14px 20px;
     border-bottom: 1px solid var(--border-color);
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -449,7 +446,7 @@
 
     .method-option.selected {
         border-color: var(--secondary-color);
-        background: #e3f2fd;
+        background: var(--color-blue-heavy);
     }
 
 .method-radio {
@@ -473,7 +470,7 @@
 
 .method-name {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     margin-bottom: 2px;
 }
@@ -524,8 +521,8 @@
 
 .btn-removeAll {
     background-color: white !important;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
 }
 
 .payment-btn:disabled {
@@ -582,13 +579,13 @@
 .modal-title {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     margin-bottom: 8px;
 }
 
 .countdown {
     font-size: 13px;
-    color: #666;
+    color: var(--text-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -662,13 +659,13 @@
     }
 
 .info-label {
-    color: #666;
+    color: var(--text-light);
     font-size: 13px;
 }
 
 .info-value {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -715,8 +712,8 @@
     }
 
 .close-btn {
-    background: #f5f5f5;
-    color: #666;
+    background: var(--light-gray);
+    color: var(--text-light);
 }
 
     .close-btn:hover {
@@ -745,18 +742,18 @@
         padding: 12px;
     }
 
-    .page-header {
-        padding: 16px 20px;
-        flex-direction: column;
-        gap: 12px;
-    }
-
     .payment-table thead {
         display: none;
     }
 
+    .payment-table tbody {
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .payment-table,
-    .payment-table tbody,
     .payment-table tr,
     .payment-table td {
         display: block;
@@ -764,17 +761,19 @@
     }
 
         .payment-table tr {
-            margin-bottom: 15px;
-            border: 1.5px solid var(--border-color);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 15px;
             background: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
         }
 
             .payment-table tr.selected {
                 border-color: var(--secondary-color);
-                background: #e3f2fd;
+                background: var(--color-blue-heavy);
             }
 
         .payment-table td {
@@ -788,49 +787,53 @@
                 display: none;
             }
 
+            .payment-table td:nth-child(3),
+            .payment-table td:nth-child(6) {
+                order: 1;
+                width: 49%;
+                padding: 0 0 10px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
             .payment-table td:nth-child(3) {
                 font-weight: 700;
                 font-size: 15px;
                 color: var(--secondary-color);
-                padding: 0 0 10px 0;
-                border-bottom: 1px solid var(--border-color);
-                margin-bottom: 10px;
+                text-align: left !important;
             }
-
-            .payment-table td:nth-child(4),
-            .payment-table td:nth-child(5) {
-                display: inline-block;
-                width: auto;
-                padding: 5px 0;
-                margin-right: 15px;
-            }
-
-                .payment-table td:nth-child(4)::before {
-                    content: "Tín chỉ: ";
-                    font-weight: 600;
-                    color: #666;
-                    font-size: 13px;
-                }
 
             .payment-table td:nth-child(6) {
                 font-size: 18px;
                 font-weight: 700;
-                padding: 10px 0;
-                margin: 10px 0;
-                border-top: 1px solid var(--border-color);
-                border-bottom: 1px solid var(--border-color);
-                text-align: center !important;
+                color: var(--danger-color);
+                border-top: none;
+                text-align: right !important;
             }
 
-                .payment-table td:nth-child(6)::before {
-                    content: "Số tiền: ";
-                    font-weight: 600;
-                    color: #666;
-                    font-size: 14px;
-                    margin-right: 8px;
+            .payment-table td:nth-child(4),
+            .payment-table td:nth-child(5) {
+                order: 2;
+                width: auto;
+                display: inline-block;
+                padding: 5px 0;
+                margin-right: 15px;
+                text-align: center !important;
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-light);
+            }
+
+                .payment-table td:nth-child(4)::before {
+                    content: "Tín chỉ: ";
                 }
 
+            .payment-table td:nth-child(6)::before {
+                content: "Số tiền: ";
+                font-size: 14px;
+            }
+
             .payment-table td:last-child {
+                order: 3;
                 padding: 10px 0 0 0;
             }
 
@@ -844,11 +847,11 @@
     .select-all-btn {
         width: calc(100% - 40px);
         float: none;
-        margin: 20px;
         font-size: 16px;
     }
 
     .table-wrapper {
+        padding-top: 15px;
         max-height: none;
     }
 
@@ -914,4 +917,31 @@
     .scan-instruction {
         font-size: 15px;
     }
+
+    .selected-item-name {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal {
+        --bs-modal-margin: 30px;
+    }
+}
+
+@media (max-width: 368px) {
+    .payment-table td:nth-child(6) {
+        text-align: left !important;
+    }
+
+        .payment-table td:nth-child(6)::before {
+            content: "";
+        }
+
+        .payment-table td:nth-child(6)::after {
+            content: " đ";
+        }
 }

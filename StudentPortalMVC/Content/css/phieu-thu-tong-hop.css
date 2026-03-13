@@ -1,5 +1,4 @@
-﻿
-.filter-btn {
+﻿.filter-btn {
     background: white;
     border: 1px solid var(--border-color);
     padding: 8px 16px;
@@ -163,7 +162,7 @@
     border: 1px solid var(--border-color);
     border-radius: 6px;
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,7 +174,7 @@
     padding: 6px 12px;
     border-radius: 6px;
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -361,7 +360,7 @@
 .filter-label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -461,7 +460,7 @@
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
 }
 
 .filter-close-btn {
@@ -480,7 +479,7 @@
 
     .filter-close-btn:hover {
         background: #f0f0f0;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
 .filter-dropdown-body {

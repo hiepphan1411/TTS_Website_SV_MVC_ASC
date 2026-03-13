@@ -1,12 +1,4 @@
-﻿
-/*.page-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}*/
-
-.semester-filter {
+﻿.semester-filter {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -32,7 +24,6 @@
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    margin-bottom: 15px;
     overflow: hidden;
 }
 
@@ -46,6 +37,7 @@
     flex: 1;
     padding: 12px 20px;
     border: none;
+    border-radius: 0;
     background: transparent;
     font-size: 14px;
     font-weight: 600;
@@ -83,7 +75,6 @@
     .tab-content.active {
         display: block;
     }
-
 
 .unpaid-section {
     background: white;
@@ -142,7 +133,7 @@
     .unpaid-table td {
         padding: 12px 15px;
         border-bottom: 1px solid #f0f0f0;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
     .unpaid-table tbody tr:hover {
@@ -179,7 +170,13 @@
     border-radius: 16px;
     min-width: 300px;
     background-color: white;
-    padding: 25px;
+    padding: 20px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .unpaid-deadline {
@@ -502,12 +499,6 @@
 }
 
 @media (max-width: 768px) {
-    .page-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
     .tabs-nav {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -559,10 +550,6 @@
 }
 
 @media (max-width: 480px) {
-    .page-title {
-        font-size: 20px;
-    }
-
     .semester-filter select {
         min-width: 120px;
         font-size: 13px;
@@ -581,13 +568,30 @@
         font-size: 11px;
         padding: 5px 10px;
     }
+
+    .card-head {
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+    }
+
+        .card-head div:last-child {
+            width: 100%;
+        }
+
+            .card-head div:last-child button {
+                width: 100%;
+            }
+
+    .semester-filter select {
+        flex: 1;
+    }
 }
 /* Summary Footer */
 .summary-footer {
     background: #f8f9fa;
     padding: 20px;
     border-radius: 8px;
-    margin-top: 20px;
 }
 
 .summary-footer-grid {
@@ -603,7 +607,7 @@
     padding: 12px;
     background: white;
     border-radius: 6px;
-    border: 0.5px solid #15389816;
+    border: 0.5px solid white;
 }
 
     .summary-footer-item.debt {
@@ -634,7 +638,6 @@
         color: var(--success-color);
     }
 
-/
 .status-icon {
     display: inline-flex;
     align-items: center;
@@ -696,7 +699,6 @@
     border-top: 1px solid var(--border-color);
     margin-top: 0;
 }
-
 
 .table-total-section {
     background: #fff9e6;

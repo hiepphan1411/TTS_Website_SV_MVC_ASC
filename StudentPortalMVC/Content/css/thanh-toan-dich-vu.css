@@ -1,0 +1,186 @@
+.select-btn.selected {
+  color: white !important;
+  background: var(--success-green) !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+  }
+
+  .payment-table thead {
+    display: none;
+  }
+
+  .payment-table tbody {
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .payment-table,
+  .payment-table tr,
+  .payment-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .payment-table tr {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .payment-table tr.selected {
+    border-color: var(--secondary-color);
+    background: var(--color-blue-heavy);
+  }
+
+  .payment-table td {
+    padding: 8px 0;
+    border: none;
+    min-width: 0;
+    text-align: left !important;
+  }
+
+  .payment-table td:nth-child(1),
+  .payment-table td:nth-child(2) {
+    display: none;
+  }
+
+  .payment-table td:nth-child(3),
+  .payment-table td:nth-child(6) {
+    order: 1;
+    width: calc(50% - 8px);
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .payment-table td:nth-child(3) {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--secondary-color);
+    overflow-wrap: anywhere;
+    text-align: left !important;
+  }
+
+  .payment-table td:nth-child(6) {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--danger-color);
+    border-top: none;
+    text-align: right !important;
+  }
+
+  .payment-table td:nth-child(4),
+  .payment-table td:nth-child(5) {
+    order: 2;
+    width: auto;
+    display: inline-block;
+    padding: 5px 0;
+    margin-right: 15px;
+    text-align: center !important;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+  }
+
+  .payment-table td:nth-child(7) {
+    order: 3;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--danger-color);
+    border-top: 1px solid var(--border-color);
+    text-align: center !important;
+  }
+
+  .payment-table td:nth-child(4)::before {
+    content: "";
+  }
+
+  .payment-table td:nth-child(5)::before {
+    content: "Tín chỉ: ";
+    vertical-align: middle;
+  }
+
+  .payment-table td:nth-child(6)::before {
+    content: "Đơn giá: ";
+    font-size: 14px;
+  }
+
+  .payment-table td:nth-child(7)::before {
+    content: "Tổng tiền: ";
+  }
+
+  .payment-table td:last-child {
+    order: 4;
+  }
+}
+
+@media (max-width: 418px) {
+  .payment-table tbody {
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .payment-table tr,
+  .payment-table tr.selected {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+    align-self: stretch;
+    overflow: hidden;
+  }
+
+  .payment-table td:nth-child(3),
+  .payment-table td:nth-child(6),
+  .payment-table td:nth-child(7) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 368px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section-header > div {
+    width: 100%;
+  }
+
+  .payment-table tbody {
+    padding: 0 12px;
+  }
+
+  .payment-table td:nth-child(3),
+  .payment-table td:nth-child(6) {
+    width: 100%;
+  }
+
+  .payment-table td:nth-child(6) {
+    text-align: left !important;
+  }
+
+  .payment-table td:nth-child(6)::before {
+    content: "";
+  }
+
+  .payment-table td:nth-child(6)::after {
+    content: " đ";
+  }
+}

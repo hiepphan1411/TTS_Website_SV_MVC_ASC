@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="~/Content/css/tra-cuu-cong-no.css" />
 }
 
-<div class="container-lg d-flex flex-column gap-3 pt-4">
+<div class="container-lg d-flex flex-column gap-3 py-4">
     <!-- Page Header -->
-    <div class="page-header">
-        <h2 class="page-title">Tra cứu công nợ</h2>
+    <div class="header-section">
+        <div class="header-title">Tra cứu công nợ</div>
     </div>
-    <div class="card-access shadow-sm mb-4">
+    <div class="card-access shadow-sm">
         <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="card-title mb-0">Các khoản chưa thanh toán</h5>
+            <div class="card-head d-flex justify-content-between">
+                <div class="card-title">Các khoản chưa thanh toán</div>
                 <div class="btn-group btn-group-sm">
                     <button class="btn-payment" onclick="window.location.href='@Url.Action("Index", "ThanhToanTrucTuyen")'">
                         Chuyển đến trang thanh toán
@@ -32,8 +32,8 @@
                                 <th>Loại khoản thu</th>
                                 <th>Nội dung</th>
                                 <th>Năm học / Học kỳ</th>
-                                <th style="text-align: right">Số tiền</th>
-                                <th style="text-align: center">Hạn thanh toán</th>
+                                <th class="text-end">Số tiền</th>
+                                <th class="text-center">Hạn thanh toán</th>
                             </tr>
                         </thead>
                         <tbody id="unpaid-table-body"></tbody>
@@ -47,10 +47,10 @@
         </div>
     </div>
 
-    <div class="card-access shadow-sm mb-4">
+    <div class="card-access shadow-sm">
         <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="card-title mb-0">Danh sách khoản thu</h5>
+            <div class="card-head d-flex justify-content-between">
+                <div class="card-title">Danh sách khoản thu</div>
                 <div class="semester-filter">
                     <label>Học Kỳ</label>
                     <select>
@@ -95,11 +95,11 @@
                                     <th>Tên đợt</th>
                                     <th>Mã khoản thu</th>
                                     <th>Tên khoản thu khác</th>
-                                    <th style="text-align: right">Mức nộp</th>
-                                    <th style="text-align: center">Bắt buộc</th>
-                                    <th style="text-align: center">Ngày nộp</th>
-                                    <th style="text-align: right">Số tiền nộp</th>
-                                    <th style="text-align: right">Công nợ</th>
+                                    <th class="text-end">Mức nộp</th>
+                                    <th class="text-center">Bắt buộc</th>
+                                    <th class="text-center">Ngày nộp</th>
+                                    <th class="text-end">Số tiền nộp</th>
+                                    <th class="text-end">Công nợ</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -144,19 +144,19 @@
                                     <th>Mã</th>
                                     <th>Mã LHP</th>
                                     <th>Nội dung</th>
-                                    <th style="text-align: center">Số TC</th>
-                                    <th style="text-align: right">Mức phí ban đầu</th>
-                                    <th style="text-align: center">% Miễn giảm</th>
-                                    <th style="text-align: right">Số tiền miễn giảm</th>
-                                    <th style="text-align: right">Mức nộp</th>
+                                    <th class="text-center">Số TC</th>
+                                    <th class="text-end">Mức phí ban đầu</th>
+                                    <th class="text-center">% Miễn giảm</th>
+                                    <th class="text-end">Số tiền miễn giảm</th>
+                                    <th class="text-end">Mức nộp</th>
                                     <th>Trạng thái ĐK</th>
-                                    <th style="text-align: center">Ngày nộp</th>
-                                    <th style="text-align: right">Số tiền nộp</th>
-                                    <th style="text-align: right">Khấu trừ (+)</th>
-                                    <th style="text-align: right">Trừ nợ (-)</th>
-                                    <th style="text-align: right">Công nợ</th>
-                                    <th style="text-align: center">Trạng thái</th>
-                                    <th style="text-align: center">
+                                    <th class="text-center">Ngày nộp</th>
+                                    <th class="text-end">Số tiền nộp</th>
+                                    <th class="text-end">Khấu trừ (+)</th>
+                                    <th class="text-end">Trừ nợ (-)</th>
+                                    <th class="text-end">Công nợ</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th class="text-center">
                                         Không truy cứu công nợ
                                     </th>
                                 </tr>
@@ -168,28 +168,28 @@
                                     <td>4203001549</td>
                                     <td>420300154901</td>
                                     <td>Kiến trúc và Thiết kế Phần mềm</td>
-                                    <td style="text-align: center">4</td>
-                                    <td style="text-align: right">3.380.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">3.380.000</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-end">3.380.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">3.380.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">11/12/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">11/12/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         3.380.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -202,28 +202,28 @@
                                     <td>4203003147</td>
                                     <td>420300314705</td>
                                     <td>Công nghệ mới trong phát triển ứng dụng CNTT</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.630.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.630.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.630.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.630.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">11/12/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">11/12/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.630.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -236,28 +236,28 @@
                                     <td>4203003098</td>
                                     <td>420300309801</td>
                                     <td>Thực tập doanh nghiệp</td>
-                                    <td style="text-align: center">5</td>
-                                    <td style="text-align: right">3.750.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">3.750.000</td>
+                                    <td class="text-center">5</td>
+                                    <td class="text-end">3.750.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">3.750.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">07/01/2026</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">07/01/2026</td>
+                                    <td class="text-end" class="amount-positive">
                                         3.750.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -268,17 +268,17 @@
                                     data-group="tuition-hk2-2025">
                                     <td></td>
                                     <td colspan="4"></td>
-                                    <td style="text-align: center">12</td>
-                                    <td style="text-align: right">9.760.000</td>
+                                    <td class="text-center">12</td>
+                                    <td class="text-end">9.760.000</td>
                                     <td></td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">9.760.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">9.760.000</td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: right">9.760.000</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-end">9.760.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -298,28 +298,28 @@
                                     <td>4203001366</td>
                                     <td>420300136602</td>
                                     <td>Automat & ngôn ngữ hình thức</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.250.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.250.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.250.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.250.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">29/07/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">29/07/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.250.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -332,28 +332,28 @@
                                     <td>4203001432</td>
                                     <td>420300143201</td>
                                     <td>Lập trình cho thiết bị di động</td>
-                                    <td style="text-align: center">4</td>
-                                    <td style="text-align: right">3.380.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">3.380.000</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-end">3.380.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">3.380.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">19/09/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">19/09/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         3.380.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -366,28 +366,28 @@
                                     <td>4203003592</td>
                                     <td>420300359202</td>
                                     <td>Đảm bảo chất lượng và Kiểm thử phần mềm</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.630.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.630.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.630.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.630.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">19/09/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">19/09/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.630.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -400,28 +400,28 @@
                                     <td>4203003621</td>
                                     <td>420300362102</td>
                                     <td>Lập trình WWW (Java)</td>
-                                    <td style="text-align: center">4</td>
-                                    <td style="text-align: right">3.380.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">3.380.000</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-end">3.380.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">3.380.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">19/09/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">19/09/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         3.380.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -434,28 +434,28 @@
                                     <td>4203002329</td>
                                     <td>420300232902</td>
                                     <td>Nhập môn dữ liệu lớn</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.630.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.630.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.630.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.630.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">19/09/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">19/09/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.630.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -466,17 +466,17 @@
                                     data-group="tuition-hk1-2025">
                                     <td></td>
                                     <td colspan="4"></td>
-                                    <td style="text-align: center">17</td>
-                                    <td style="text-align: right">14.270.000</td>
+                                    <td class="text-center">17</td>
+                                    <td class="text-end">14.270.000</td>
                                     <td></td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">14.270.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">14.270.000</td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: right">14.270.000</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-end">14.270.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -496,28 +496,28 @@
                                     <td>4203001004</td>
                                     <td>420300100401</td>
                                     <td>Nhập môn an toàn thông tin</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.160.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.160.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.160.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -530,28 +530,28 @@
                                     <td>4203001111</td>
                                     <td>420300111101</td>
                                     <td>Công nghệ phần mềm</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.160.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.160.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.160.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -564,28 +564,28 @@
                                     <td>4203002031</td>
                                     <td>420300203102</td>
                                     <td>Lập trình phân tích dữ liệu 1</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -598,28 +598,28 @@
                                     <td>4203002146</td>
                                     <td>420300214603</td>
                                     <td>Lập trình phân tán với công nghệ Java</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -632,28 +632,28 @@
                                     <td>4203003451</td>
                                     <td>420300345101</td>
                                     <td>Thống kê máy tính và ứng dụng</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -666,28 +666,28 @@
                                     <td>4203015413</td>
                                     <td>420301541301</td>
                                     <td>Phát triển giao diện ứng dụng</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">28/02/2025</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">28/02/2025</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -697,17 +697,17 @@
                                 <tr class="total-row">
                                     <td></td>
                                     <td colspan="4"></td>
-                                    <td style="text-align: center">18</td>
-                                    <td style="text-align: right">14.480.000</td>
+                                    <td class="text-center">18</td>
+                                    <td class="text-end">14.480.000</td>
                                     <td></td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">14.480.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">14.480.000</td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: right">14.480.000</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-end">14.480.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -725,26 +725,26 @@
                                     <td>4203015254</td>
                                     <td>420301525401</td>
                                     <td>Tiếng Anh 2</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">-</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-times-circle"
                                                style="color: #f44336"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-square" style="color: #999"></i>
                                         </span>
@@ -756,28 +756,28 @@
                                     <td>4203003198</td>
                                     <td>420300319813</td>
                                     <td>Phương pháp luận nghiên cứu khoa học</td>
-                                    <td style="text-align: center">2</td>
-                                    <td style="text-align: right">1.440.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">1.440.000</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-end">1.440.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">1.440.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">30/07/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">30/07/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         1.440.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -790,28 +790,28 @@
                                     <td>4203014193</td>
                                     <td>420301419311</td>
                                     <td>Kỹ năng sử dụng bàn phím và thiết bị văn phòng</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">30/07/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">30/07/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -824,28 +824,28 @@
                                     <td>4203002422</td>
                                     <td>420300242203</td>
                                     <td>Pháp luật đại cương</td>
-                                    <td style="text-align: center">2</td>
-                                    <td style="text-align: right">1.440.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">1.440.000</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-end">1.440.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">1.440.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">13/09/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">13/09/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         1.440.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -858,28 +858,28 @@
                                     <td>4203000908</td>
                                     <td>420300090802</td>
                                     <td>Lý thuyết đồ thị</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.160.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.160.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">22/09/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">22/09/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.160.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -892,28 +892,28 @@
                                     <td>4203003501</td>
                                     <td>420300350103</td>
                                     <td>Phát triển ứng dụng</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.540.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.540.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.540.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.540.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">22/09/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">22/09/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.540.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -926,28 +926,28 @@
                                     <td>4203014168</td>
                                     <td>420301416803</td>
                                     <td>Mô hình hóa dữ liệu NoSQL MongoDB</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.160.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.160.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">22/09/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">22/09/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.160.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -960,28 +960,28 @@
                                     <td>4203015414</td>
                                     <td>420301541403</td>
                                     <td>Tư duy thiết kế và Trải nghiệm người dùng</td>
-                                    <td style="text-align: center">3</td>
-                                    <td style="text-align: right">2.160.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">2.160.000</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-end">2.160.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">2.160.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">22/09/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">22/09/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         2.160.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -991,17 +991,17 @@
                                 <tr class="total-row">
                                     <td></td>
                                     <td colspan="4"></td>
-                                    <td style="text-align: center">22</td>
-                                    <td style="text-align: right">16.600.000</td>
+                                    <td class="text-center">22</td>
+                                    <td class="text-end">16.600.000</td>
                                     <td></td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">14.440.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">14.440.000</td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: right">14.440.000</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-end">14.440.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -1019,28 +1019,28 @@
                                     <td>4203014169</td>
                                     <td>420301416909</td>
                                     <td>Lịch sử Đảng Cộng sản Việt Nam</td>
-                                    <td style="text-align: center">2</td>
-                                    <td style="text-align: right">1.380.000</td>
-                                    <td style="text-align: center">-</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">1.380.000</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-end">1.380.000</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">1.380.000</td>
                                     <td>
                                         <span class="status-badge registered">Đăng ký mới</span>
                                     </td>
-                                    <td style="text-align: center">31/05/2024</td>
-                                    <td style="text-align: right" class="amount-positive">
+                                    <td class="text-center">31/05/2024</td>
+                                    <td class="text-end" class="amount-positive">
                                         1.380.000
                                     </td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right" class="amount-zero">0</td>
-                                    <td style="text-align: center">
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end" class="amount-zero">0</td>
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-circle"
                                                style="color: #4caf50"></i>
                                         </span>
                                     </td>
-                                    <td style="text-align: center">
+                                    <td class="text-center">
                                         <span class="status-icon">
                                             <i class="fas fa-check-square"
                                                style="color: #4caf50"></i>
@@ -1050,17 +1050,17 @@
                                 <tr class="total-row">
                                     <td></td>
                                     <td colspan="4"></td>
-                                    <td style="text-align: center">2</td>
-                                    <td style="text-align: right">1.380.000</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-end">1.380.000</td>
                                     <td></td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">1.380.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">1.380.000</td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: right">1.380.000</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
-                                    <td style="text-align: right">0</td>
+                                    <td class="text-end">1.380.000</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
+                                    <td class="text-end">0</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -1079,19 +1079,19 @@
                                     <th>Đợt</th>
                                     <th>Mã môn học</th>
                                     <th>Mã LHP</th>
-                                    <th style="text-align: right">Đơn giá</th>
+                                    <th class="text-end">Đơn giá</th>
                                     <th>Tên môn</th>
-                                    <th style="text-align: center">Số TC</th>
-                                    <th style="text-align: center">Ngày đăng ký</th>
+                                    <th class="text-center">Số TC</th>
+                                    <th class="text-center">Ngày đăng ký</th>
                                     <th>Trạng thái ĐK</th>
                                     <th>Trạng thái LHP</th>
-                                    <th style="text-align: right">Học phí ban đầu</th>
-                                    <th style="text-align: right">Miễn giảm</th>
-                                    <th style="text-align: right">Mức nộp</th>
-                                    <th style="text-align: center">Không tính công nợ</th>
-                                    <th style="text-align: right">Đã nộp</th>
-                                    <th style="text-align: center">Có điểm</th>
-                                    <th style="text-align: right">Công nợ</th>
+                                    <th class="text-end">Học phí ban đầu</th>
+                                    <th class="text-end">Miễn giảm</th>
+                                    <th class="text-end">Mức nộp</th>
+                                    <th class="text-center">Không tính công nợ</th>
+                                    <th class="text-end">Đã nộp</th>
+                                    <th class="text-center">Có điểm</th>
+                                    <th class="text-end">Công nợ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1139,8 +1139,8 @@
                                             <th>Tên đợt</th>
                                             <th>Mã LHP</th>
                                             <th>Tên môn học</th>
-                                            <th style="text-align: right">Đã nộp</th>
-                                            <th style="text-align: right">Trừ nợ</th>
+                                            <th class="text-end">Đã nộp</th>
+                                            <th class="text-end">Trừ nợ</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -1200,10 +1200,10 @@
                                             <th>Đợt</th>
                                             <th>Mã LHP</th>
                                             <th>Tên môn học</th>
-                                            <th style="text-align: right">Khấu trừ</th>
+                                            <th class="text-end">Khấu trừ</th>
                                             <th>Số phiếu</th>
                                             <th>Người thực hiện</th>
-                                            <th style="text-align: center">Ngày</th>
+                                            <th class="text-center">Ngày</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>

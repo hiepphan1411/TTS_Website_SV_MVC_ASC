@@ -328,12 +328,12 @@
 }
 
 @media (max-width: 1499px) {
-   .row .col-md-3 {
+    .row .col-md-3 {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
-   .row .col {
+    .row .col {
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
@@ -349,7 +349,7 @@
         padding: 1.25rem;
     }
 
-   .row .col-lg-3 {
+    .row .col-lg-3 {
         flex: 0 0 50%;
         max-width: 50%;
     }
@@ -372,7 +372,7 @@
 }
 
 @media (max-width: 689px) {
-   .row .col-md-3 {
+    .row .col-md-3 {
         flex: 0 0 100%;
         max-width: 100%;
     }
