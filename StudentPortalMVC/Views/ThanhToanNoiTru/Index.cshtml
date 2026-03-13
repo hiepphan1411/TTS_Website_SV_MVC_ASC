@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/Content/css/thanh-toan-noi-tru.css" />
 }
 
-<div class="container-lg d-flex flex-column gap-3 pt-4">
+<div class="container-lg d-flex flex-column gap-3 py-4">
     <!-- Page Header -->
     <div class="header-section">
         <div class="header-title">Thanh toán nội trú</div>
@@ -43,7 +43,7 @@
                             <th class="text-center">Phòng</th>
                             <th class="text-center">Giường</th>
                             <th class="text-center">Tháng/Năm</th>
-                            <th style="text-align: right; width: auto">
+                            <th class="text-end w-auto">
                                 Số tiền (VNĐ)
                             </th>
                             <th style="min-width: 130px; width: 130px">Chọn</th>
@@ -52,11 +52,7 @@
                     <tbody id="tableBody"></tbody>
                 </table>
             </div>
-            <div class="d-flex align-items-center justify-content-end gap-4 p-3">
-                <button class="refresh-btn"
-                        id="discardAll">
-                    Bỏ chọn tất cả
-                </button>
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end py-3 px-0 p-md-3">
                 <button class="select-btn select-all-btn">
                     Chọn tất cả
                 </button>
@@ -123,7 +119,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-body d-flex flex-row gap-2">
+            <div class="modal-body d-flex flex-row gap-2 pt-0">
                 <div>
                     <div class="qr-container">
                         <img src="~/Content/images/QR-payment.png"
@@ -169,7 +165,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer pb-0">
                 <button type="submit"
                         form="applyForm"
                         class="modal-btn download-btn">

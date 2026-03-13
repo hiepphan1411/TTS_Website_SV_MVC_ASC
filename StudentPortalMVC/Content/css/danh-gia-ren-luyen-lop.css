@@ -355,43 +355,42 @@
 @media (max-width: 635px) {
     .status-container {
         width: 80%;
-       
     }
-
 }
 
-    @media (max-width: 490px) {
-        .semester-label {
-            font-size: 11px;
-            width: 45px;
-        }
-
-        .form-select {
-            font-size: 11px;
-        }
-
-        .status-item {
-            padding: 6px 10px;
-            font-size: 10px;
-            gap: 6px;
-        }
-
-        .status-label {
-            font-size: 10px;
-        }
-
-        .status-container {
-            width: 100%;
-            flex-direction: row;
-            gap: 10px;
-            justify-content: space-between;
-        }
-
-        .status-value {
-            font-size: 10px;
-            padding: 2px 6px;
-        }
+@media (max-width: 490px) {
+    .semester-label {
+        font-size: 11px;
+        width: 45px;
     }
+
+    .form-select {
+        font-size: 11px;
+    }
+
+    .status-item {
+        padding: 6px 10px;
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .status-label {
+        font-size: 10px;
+    }
+
+    .status-container {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .status-value {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
 @media (max-width: 365px) {
     .form-select {
         width: 100% !important;

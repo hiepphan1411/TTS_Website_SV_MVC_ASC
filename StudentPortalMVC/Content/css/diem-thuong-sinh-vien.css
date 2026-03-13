@@ -1,18 +1,4 @@
-﻿:root {
-    --primary-color: #3a74f0;
-    --secondary-color: #2e5266;
-    --success-color: #2e7d32;
-    --warning-color: #ff9800;
-    --danger-color: #d32f2f;
-    --light-bg: #f5f7fa;
-    --dark-bg: #1a1a1a;
-    --text-dark: #505050;
-    --text-light: #666;
-    --border-color: #e4e4e4;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.badge {
+﻿.badge {
     padding: 6px 12px;
     border-radius: 12px;
     font-weight: 550;
@@ -20,17 +6,17 @@
 }
 
 .badge-completed {
-    color: #4caf50;
+    color: var(--success-green);
     background-color: #e9fbea;
 }
 
 .badge-progress {
-    color: #ff9f43;
+    color: var(--warning-color);
     background-color: #fff3d7;
 }
 
 .badge-denied {
-    color: #ea5455;
+    color: var(--color-danger);
     background-color: #fdeeee;
 }
 
@@ -40,7 +26,7 @@
 }
 
 .badge-improved {
-    color: var(--primary-color);
+    color: var(--primary-blue);
     background-color: #f4fbff;
 }
 
@@ -85,19 +71,19 @@
 }
 
 .value-total {
-    color: var(--text-dark);
+    color: var(--color-text-primary);
 }
 
 .value-completed {
-    color: #348137;
+    color: var(--color-green-completed);
 }
 
 .value-improved {
-    color: #2a4591;
+    color: var(--color-completed-heavy);
 }
 
 .value-progress {
-    color: #7c2d12;
+    color: var(--color-brown-heavy);
 }
 
 @media (max-width: 1200px) {
@@ -117,12 +103,6 @@
 }
 
 @media (max-width: 480px) {
-    .stat-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
     .stat-icon {
         width: 40px;
         height: 40px;

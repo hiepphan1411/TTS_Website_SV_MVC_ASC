@@ -322,6 +322,19 @@ function createTableRow(course, attendanceStatus) {
 function renderAttendanceTable() {
   const container = document.getElementById("expandableSections");
 
+  const legendAttendanceHTML = `
+    <div class="d-flex align-items-center gap-3">
+      <div class="legend-item">
+        <span class="legend-color legend-authorized"></span>
+        <span>Nghỉ có phép</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color legend-unauthorized"></span>
+        <span>Nghỉ không phép</span>
+      </div>
+    </div>
+  `;
+
   const semesterGroup = {};
   attendanceData.forEach((c) => {
     const key = `${c.year}:${c.semester}`;
@@ -395,7 +408,7 @@ function renderAttendanceTable() {
                 </div>
               </div>
               <div class="section-summary">
-                <div class="attendance-summary ${idx === 0 ? "d-none" : ""}" id="attendance-summary-${sem}-${idx}">
+                <div class="attendance-summary" id="attendance-summary-${sem}-${idx}" style="display: ${idx === 0 ? "none" : "flex"}">
                   <span class="attendance-total-card authorized-leave">${totalAuthorizedLeave} <span class="attendance-note">có phép</span></span>
                   <span class="attendance-total-card unauthorized-leave">${totalUnauthorizedLeave} <span class="attendance-note">không phép</span></span>
                 </div>
@@ -411,7 +424,7 @@ function renderAttendanceTable() {
                     <tr>
                       <th class="column-center">STT</th>
                       <th class="column-center">MÃ LHP</th>
-                      <th class="ps-2">TÊN HP</th>
+                      <th class="ps-2" style="min-width: 120px">TÊN HP</th>
                       <th class="column-center">TÍN CHỈ</th>
                       <th class="column-center">NGHỈ CÓ PHÉP</th>
                       <th class="column-center">NGHỈ KHÔNG PHÉP</th>
@@ -434,6 +447,7 @@ function renderAttendanceTable() {
                           ${totalActualAbsences}
                         </span>
                       </td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -444,13 +458,21 @@ function renderAttendanceTable() {
     })
     .join("");
 
-  container.innerHTML = semesters;
+  container.innerHTML =
+    //legendAttendanceHTML +
+    semesters;
 }
 
 function renderSemesterButtonGroup() {
   const buttonGroup = document.getElementById("semesterButtonGroup");
 
   if (!buttonGroup) return;
+
+  const allButton = `
+    <button class="btn-custom primary" onclick="renderAttendanceTable()" id="filterAll">
+      <i class="fas fa-bars"></i>
+      Tất cả
+    </button>`;
 
   const semesterGroup = {};
   attendanceData.forEach((c) => {
@@ -481,7 +503,7 @@ function renderSemesterButtonGroup() {
     })
     .join("");
 
-  buttonGroup.innerHTML = semesters;
+  buttonGroup.innerHTML = allButton + semesters;
 }
 
 document.addEventListener("DOMContentLoaded", function () {

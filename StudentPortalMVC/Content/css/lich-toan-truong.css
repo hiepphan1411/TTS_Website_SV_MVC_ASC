@@ -247,7 +247,7 @@
     border: 1px solid var(--border-color);
     border-radius: 6px;
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,7 +264,6 @@
     color: white;
     border-color: var(--primary-blue);
 }
-
 
 /* Responsive */
 @media (max-width: 1200px) {

@@ -25,12 +25,13 @@ body {
     padding: 15px;
     border-radius: 8px;
 }
+
 .icon-info {
     color: var(--primary-blue);
 }
 
 .name-student {
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-weight: bold;
     font-size: 18px;
     margin-top: 20px;
@@ -71,7 +72,7 @@ body {
 }
 
 .info-value {
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 15px;
     font-weight: 600;
 }
@@ -91,7 +92,7 @@ body {
         margin-bottom: 10px;
         font-size: 15px;
         font-weight: 600;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
 .student-block {
@@ -106,11 +107,11 @@ body {
     display: flex;
     font-weight: 600;
     font-size: 14px;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
 }
 
     .student-block-header p:nth-child(1) {
-        color: var(--text-dark);
+        color: var(--color-text-primary);
         padding: 10px;
         border-radius: 8px;
         background-color: var(--bg-light);
@@ -186,7 +187,7 @@ body {
 }
 
 .grid-value {
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     font-size: 15px;
     font-weight: 600;
 }

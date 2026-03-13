@@ -1,5 +1,4 @@
-﻿
-/* Page Layout */
+﻿/* Page Layout */
 .scholarship-content {
     padding: 20px;
     max-width: 100%;
@@ -992,7 +991,7 @@
 .card-access {
     height: fit-content;
     border-radius: 12px;
-    background-color: var(--white);
+    background-color: white;
 }
 
 .detail-highlight {
@@ -1199,7 +1198,6 @@
     color: var(--primary-yellow);
 }
 
-
 @media (max-width: 1024px) {
     .scholarships-grid {
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1210,9 +1208,7 @@
     }
 }
 
-
 @media (max-width: 768px) {
-
     .page-header {
         flex-direction: column;
         align-items: flex-start;
