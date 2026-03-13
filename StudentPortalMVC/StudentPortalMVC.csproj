@@ -167,6 +167,8 @@
     <Content Include="Content\css\dang-ky-hoc-phan.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
     <Content Include="Content\css\dang-ky-noi-tru.css" />
+    <Content Include="Content\css\dang-ky-phuc-khao.css" />
+    <Content Include="Content\css\dang-ky-thi-lai-thi-cai-thien.css" />
     <Content Include="Content\css\danh-gia-ren-luyen-lop.css" />
     <Content Include="Content\css\danh-sach-ho-so-ca-nhan.css" />
     <Content Include="Content\css\dashboard.css" />
@@ -174,6 +176,7 @@
     <Content Include="Content\css\de-xuat-cap-nhat-thong-tin.css" />
     <Content Include="Content\css\de-xuat-chung-chi.css" />
     <Content Include="Content\css\de-xuat-khen-thuong.css" />
+    <Content Include="Content\css\de-xuat-xet-tot-nghiep.css" />
     <Content Include="Content\css\diem-thuong-sinh-vien.css" />
     <Content Include="Content\css\ghi-chu-nhac-nho.css" />
     <Content Include="Content\css\ho-so-sinh-vien.css" />
@@ -197,6 +200,7 @@
     <Content Include="Content\css\tin-tuc-chung.css" />
     <Content Include="Content\css\tin-tuc.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
+    <Content Include="Content\css\tu-danh-gia-ket-qua-ren-luyen.css" />
     <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
@@ -270,6 +274,8 @@
     <Content Include="Scripts\js\dang-ky-mon-hoc-dieu-kien.js" />
     <Content Include="Scripts\js\dang-ky-muon-phong.js" />
     <Content Include="Scripts\js\dang-ky-noi-tru.js" />
+    <Content Include="Scripts\js\dang-ky-phuc-khao.js" />
+    <Content Include="Scripts\js\dang-ky-thi-lai-thi-cai-thien.js" />
     <Content Include="Scripts\js\danh-gia-ren-luyen-lop.js" />
     <Content Include="Scripts\js\danh-sach-ho-so-ca-nhan.js" />
     <Content Include="Scripts\js\dashboard.js" />
@@ -278,6 +284,7 @@
     <Content Include="Scripts\js\de-xuat-cap-nhat-thong-tin.js" />
     <Content Include="Scripts\js\de-xuat-chung-chi.js" />
     <Content Include="Scripts\js\de-xuat-khen-thuong.js" />
+    <Content Include="Scripts\js\de-xuat-xet-tot-nghiep.js" />
     <Content Include="Scripts\js\diem-thuong-sinh-vien.js" />
     <Content Include="Scripts\js\ghi-chu-nhac-nho.js" />
     <Content Include="Scripts\js\ho-so-sinh-vien.js" />
@@ -305,6 +312,7 @@
     <Content Include="Scripts\js\tin-tuc.js" />
     <Content Include="Scripts\js\toggle-util.js" />
     <Content Include="Scripts\js\tra-cuu-cong-no.js" />
+    <Content Include="Scripts\js\tu-danh-gia-ket-qua-ren-luyen.js" />
     <Content Include="Scripts\js\xem-diem-tich-luy-nganh-2.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.js" />
     <Content Include="Scripts\lib\bootstrap.bundle.min.js" />
@@ -476,6 +484,7 @@
     <Content Include="Views\TinTucTheoLop\Index.cshtml" />
     <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\ChuongTrinhKhung\ChuongTrinhKhungNganh2.cshtml" />
+    <Content Include="Views\DeXuatXetTotNghiep\DeXuatXetTotNghiep.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
