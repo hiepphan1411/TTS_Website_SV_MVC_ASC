@@ -101,62 +101,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
-    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\csi.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
-    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
-    <Content Include="bin\roslyn\System.AppContext.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Console.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
-    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
-    <Content Include="bin\roslyn\System.IO.Compression.dll" />
-    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
-    <Content Include="bin\roslyn\System.Net.Http.dll" />
-    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
-    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
-    <Content Include="bin\roslyn\System.ValueTuple.dll" />
-    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
-    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
-    <Content Include="bin\StudentPortalMVC.dll" />
-    <Content Include="bin\StudentPortalMVC.pdb" />
-    <Content Include="bin\System.Web.Helpers.dll" />
-    <Content Include="bin\System.Web.Helpers.xml" />
-    <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Mvc.xml" />
-    <Content Include="bin\System.Web.Razor.dll" />
-    <Content Include="bin\System.Web.Razor.xml" />
-    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
-    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
-    <Content Include="bin\System.Web.Webpages.dll" />
-    <Content Include="bin\System.Web.Webpages.Razor.dll" />
-    <Content Include="bin\System.Web.Webpages.Razor.xml" />
-    <Content Include="bin\System.Web.Webpages.xml" />
     <Content Include="Content\css\chi-tiet-khao-sat.css" />
     <Content Include="Content\css\chi-tiet-tin-tuc.css" />
     <Content Include="Content\css\chuong-trinh-khung.css" />
@@ -365,6 +309,7 @@
     <Compile Include="Controllers\DangKyMonHocDieuKienController.cs" />
     <Compile Include="Controllers\DangKyMuonPhongController.cs" />
     <Compile Include="Controllers\DangKyNoiTruController.cs" />
+    <Compile Include="Controllers\DangKyPhucKhaoController.cs" />
     <Compile Include="Controllers\DangKyThiLaiThiCaiThienController.cs" />
     <Compile Include="Controllers\DanhGiaRenLuyenLopController.cs" />
     <Compile Include="Controllers\DanhKyDanhGiaLaiHPHoanThiController.cs" />
@@ -374,6 +319,7 @@
     <Compile Include="Controllers\DeXuatCapNhatThongTinController.cs" />
     <Compile Include="Controllers\DeXuatChungChiController.cs" />
     <Compile Include="Controllers\DeXuatKhenThuongController.cs" />
+    <Compile Include="Controllers\DeXuatXetTotNghiepController.cs" />
     <Compile Include="Controllers\DiemThuongSinhVienController.cs" />
     <Compile Include="Controllers\GhiChuNhacNhoController.cs" />
     <Compile Include="Controllers\HocBongController.cs" />
@@ -401,28 +347,17 @@
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Controllers\TinTucTheoLopController.cs" />
     <Compile Include="Controllers\TraCuuCongNoController.cs" />
+    <Compile Include="Controllers\TuDanhGiaKetQuaRenLuyenController.cs" />
     <Compile Include="Controllers\XemDiemTichLuyNganh2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_WEB_XemChuongTrinhKhung.cs" />
     <Compile Include="Models\repository\ChuongTrinhKhungRepository.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.exe.config" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\StudentPortalMVC.dll.config" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -485,6 +420,8 @@
     <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\ChuongTrinhKhung\ChuongTrinhKhungNganh2.cshtml" />
     <Content Include="Views\DeXuatXetTotNghiep\DeXuatXetTotNghiep.cshtml" />
+    <Content Include="Views\TuDanhGiaKetQuaRenLuyen\TuDanhGiaKetQuaRenLuyen.cshtml" />
+    <Content Include="Views\DangKyPhucKhao\DangKyPhucKhao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -492,11 +429,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ChuongTrinhKhungNganh2\" />
-    <Folder Include="Views\DangKyPhucKhao\" />
-    <Folder Include="Views\TuDanhGiaKetQuaRenLuyen\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -745,7 +745,7 @@ var KhoiKienThuc = (function () {
 
             blocksHTML +=
                 '<div class="timeline-item" style="cursor:pointer;" onclick="KhoiKienThuc.scrollToBlock(\'' +
-                block.name.replace(/'/g, "\\'") + '\')">' +
+                block.name.replace(/'/g, "\\'").trim() + '\')">' +
                 '  <div class="circle-progress">' +
                 '    <svg viewBox="0 0 120 120">' +
                 svgCircles +
@@ -827,6 +827,7 @@ var KhoiKienThuc = (function () {
 
             sections.forEach(function (section) {
                 var headerText = section.querySelector(".section-header-text");
+                console.log("Tên khối kiến thức debug: " + block + " , Khối kiến thức: " + headerText.textContent)
                 if (headerText && headerText.textContent.trim().indexOf("Khối kiến thức " + block) >= 0) {
                     targetSection = section;
                 }

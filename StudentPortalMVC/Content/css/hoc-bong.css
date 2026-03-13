@@ -201,7 +201,8 @@
 }
 
 .filter-tab {
-    padding: 0.4rem 16px;
+    width: fit-content;
+    padding: 5px 10px;
     border: 1px solid #d1d5db;
     background: white;
     border-radius: 6px;
@@ -1224,28 +1225,33 @@
         gap: 12px;
     }
 
+    .progress-timeline {
+        display: none;
+    }
+
     .filter-tabs {
         width: 100%;
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row !important;
     }
 
     .scholarship-filters {
-        flex-direction: column;
+/*        flex-direction: column;*/
         width: 100%;
         align-items: flex-start;
     }
 
     .view-toggle {
-        width: 100%;
+        /* width: 100%; */
     }
 
     .view-toggle-btn {
-        flex: 1;
+        /* flex: 1; */
         text-align: center;
     }
 
     .filter-select {
-        width: 100%;
+        /* width: 100%; */
     }
 
     .application-header {
@@ -1353,12 +1359,8 @@
 
     .filter-tabs {
         flex-direction: column;
-        width: 100%;
-    }
-
-    .filter-tab {
-        width: 100%;
         text-align: center;
+        width: fit-content;
     }
 
     .progress-step .step-icon {

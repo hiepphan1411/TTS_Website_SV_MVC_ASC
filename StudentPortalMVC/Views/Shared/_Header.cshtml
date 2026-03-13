@@ -21,12 +21,12 @@
     </div>
     <div class="right-header-container">
         <a class="text-decoration-none"
-           href="../../TTS_Website_SV_ASC/html/index.html">
+           href="@Url.Action("Index", "Dashboard")">
             <i class="fa-regular fa-house"></i>
             <span>Trang chủ</span>
         </a>
         <a class="text-decoration-none notification-btn"
-           href="../../TTS_Website_SV_ASC/html/tin-tuc.html"
+           href="@Url.Action("Index", "TinTuc")"
            title="Tin tức & thông báo">
             <div class="notification-icon-wrap">
                 <i class="fa-regular fa-bell"></i>
@@ -41,7 +41,7 @@
             <span>Asc Test</span>
             <i class="fa-solid fa-angle-down"></i>
             <div class="user-dropdown">
-                <a href="#" class="dropdown-item">
+                <a href="@Url.Action("Index", "ThongTinSinhVien")" class="dropdown-item">
                     <span>Thông tin cá nhân</span>
                 </a>
                 <a href="#" class="dropdown-item">

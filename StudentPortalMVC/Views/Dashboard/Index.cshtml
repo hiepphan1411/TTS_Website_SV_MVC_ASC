@@ -117,9 +117,37 @@
                             <strong>ThS. Trần Văn B</strong>
                         </div>
                     </div>
+
+                    <!-- item 3 -->
+                    <div class="schedule-item orange">
+                        <div class="time-box flex-shrink-0">
+                            <span>Tiết</span>
+                            <strong>10-12</strong>
+                        </div>
+
+                        <div class="schedule-info">
+                            <p class="fw-bold" style="color: #7c2d12; word-break: break-all; font-size: 13px;">
+                                DHKTPM18A-420300314705
+                            </p>
+                            <div class="fw-semibold" style="color: #fb933e">
+                                Kiến trúc hệ thống
+                            </div>
+                            <div class="meta">
+                                <i class="fa-solid fa-clock"></i>
+                                15h10 - 5h40 &nbsp; • &nbsp;
+                                <i class="fa-solid fa-location-dot"></i>
+                                Phòng A403
+                            </div>
+                        </div>
+
+                        <div class="teacher">
+                            Giảng viên<br />
+                            <strong>ThS. Trần Văn C</strong>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-end mt-auto">
-                    <a href="../html/lich-theo-tuan.html"
+                    <a href="@Url.Action("Index", "LichTheoTuan")"
                        class="profile-link course-code">
                         Xem chi tiết
                     </a>
@@ -130,7 +158,7 @@
         <!-- RIGHT: SUMMARY -->
         <div class="col-12 col-xl-2">
             <div class="sumary h-100">
-                <a href="../html/lich-theo-tuan.html" class="text-decoration-none sumary-link">
+                <a href="@Url.Action("Index", "LichTheoTuan")" class="text-decoration-none sumary-link">
                     <div class="summary-card blue">
                         <div class="summary-title-study">
                             <i class="fas fa-book-open" style="font-size: 20px"></i>
@@ -145,7 +173,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="../html/lich-theo-tuan.html" class="text-decoration-none sumary-link">
+                <a href="@Url.Action("Index", "LichTheoTuan")" class="text-decoration-none sumary-link">
                     <div class="summary-card orange">
                         <div class="summary-title-exam">
                             <i class="fa-solid fa-pen-fancy" style="font-size: 20px"></i>
@@ -160,7 +188,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="../html/ghi-chu-nhac-nho.html" class="text-decoration-none sumary-link">
+                <a href="@Url.Action("Index", "GhiChuNhacNho")" class="text-decoration-none sumary-link">
                     <div class="summary-card gray">
                         <div class="summary-title-remind">
                             <i class="fa-solid fa-bell" style="font-size: 20px"></i>
@@ -197,7 +225,7 @@
             <!-- Compact View -->
             <div class="quick-access-compact">
                 <button class="card-access-quick shadow-sm"
-                        onclick="window.location.href = '../html/ket-qua-hoc-tap.html'">
+                        onclick="window.location.href='@Url.Action("Index", "KetQuaHocTap")'">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
                              style="background-color: var(--primary-blue)">
@@ -215,7 +243,7 @@
                 </button>
 
                 <button class="card-access-quick shadow-sm"
-                        onclick="window.location.href = '../html/dang-ky-hoc-phan.html'">
+                        onclick="window.location.href='@Url.Action("Index", "DangKyHocPhan")'">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
                              style="background-color: var(--primary-blue)">
@@ -233,7 +261,7 @@
                 </button>
 
                 <button class="card-access-quick shadow-sm"
-                        onclick="window.location.href = '../html/lich-theo-tuan.html'">
+                        onclick="window.location.href='@Url.Action("Index", "LichTheoTuan")'">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
                              style="background-color: var(--primary-blue)">
@@ -251,7 +279,7 @@
                 </button>
 
                 <button class="card-access-quick shadow-sm"
-                        onclick="window.location.href = '../html/tra-cuu-cong-no.html'">
+                        onclick="window.location.href='@Url.Action("Index", "TraCuuCongNo")'">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
                              style="background-color: var(--primary-blue)">
@@ -269,7 +297,7 @@
                 </button>
 
                 <button class="card-access-quick shadow-sm"
-                        onclick="window.location.href = '../html/khao-sat-su-kien.html'">
+                        onclick="window.location.href='@Url.Action("Index", "KhaoSatSuKien")'">
                     <div class="card-body d-flex align-items-center gap-3">
                         <div class="quick-access-icon rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
                              style="background-color: var(--primary-blue)">
@@ -292,7 +320,7 @@
                 <div class="quick-access-grid">
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/lich-theo-tuan.html'">
+                         onclick="window.location.href='@Url.Action("Index", "LichTheoTuan")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-calendar-alt"></i>
                         </div>
@@ -301,9 +329,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/dang-ky-hoc-phan.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "DangKyHocPhan")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-book"></i>
                         </div>
@@ -312,9 +338,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/ket-qua-hoc-tap.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "KetQuaHocTap")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -323,9 +347,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/tra-cuu-cong-no.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "TraCuuCongNo")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-credit-card"></i>
                         </div>
@@ -334,9 +356,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/thanh-toan-truc-tuyen.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "ThanhToanTrucTuyen")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-check-circle"></i>
                         </div>
@@ -347,9 +367,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/phieu-thu-tong-hop.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "PhieuThuTongHop")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-clipboard-list"></i>
                         </div>
@@ -360,9 +378,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/lich-theo-tien-do.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "LichTheoTienDo")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-list-check"></i>
                         </div>
@@ -371,7 +387,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/lich-theo-tuan.html'">
+                         onclick="window.location.href='@Url.Action("Index", "LichTheoTuan")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-pencil-alt"></i>
                         </div>
@@ -380,9 +396,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/ghi-chu-nhac-nho.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "GhiChuNhacNho")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-bell"></i>
                         </div>
@@ -391,7 +405,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/khao-sat.html'">
+                         onclick="window.location.href='@Url.Action("Index", "KhaoSatSuKien")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-id-card"></i>
                         </div>
@@ -400,7 +414,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/ho-so-dien-tu.html'">
+                         onclick="window.location.href='@Url.Action("Index", "HoSoSinhVien")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-folder"></i>
                         </div>
@@ -409,7 +423,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/hoc-bong.html'">
+                         onclick="window.location.href='@Url.Action("Index", "HocBong")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-trophy"></i>
                         </div>
@@ -418,9 +432,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/dang-ky-noi-tru.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "DangKyNoiTru")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-bed"></i>
                         </div>
@@ -429,9 +441,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="
-                    window.location.href = '../html/de-xuat-bieu-mau.html'
-                  ">
+                         onclick="window.location.href='@Url.Action("Index", "DeXuatBieuMau")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-file-signature"></i>
                         </div>
@@ -441,8 +451,7 @@
                     <div class="quick-access-item-expanded"
                          role="button"
                          onclick="
-                    window.location.href = '../html/thong-tin-sinh-vien.html'
-                  ">
+                   onclick="window.location.href='@Url.Action("Index", "ThongTinSinhVien")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-user-graduate"></i>
                         </div>
@@ -453,7 +462,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                         onclick="window.location.href = '../html/lien-he-gop-y.html'">
+                        onclick="window.location.href='@Url.Action("Index", "LienHeGopY")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-comments"></i>
                         </div>
