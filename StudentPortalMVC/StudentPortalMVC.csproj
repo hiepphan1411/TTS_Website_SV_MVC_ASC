@@ -144,6 +144,7 @@
     <Content Include="Content\css\tin-tuc.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
     <Content Include="Content\css\tu-danh-gia-ket-qua-ren-luyen.css" />
+    <Content Include="Content\images\default-news.jpg" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
     <Content Include="Content\images\user.png" />
