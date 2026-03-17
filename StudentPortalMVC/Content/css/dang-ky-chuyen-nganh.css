@@ -104,10 +104,10 @@
     color: white;
 }
 
-.btn-primary:hover {
-    background-color: var(--color-completed);
-    box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
-}
+    .btn-primary:hover {
+        background-color: var(--color-completed);
+        box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
+    }
 
 .d-none {
     display: none !important;
@@ -141,7 +141,7 @@
     border-color: var(--border-blue-light);
 }
 
-.form-select:invalid:focus {
-    border-color: var(--danger-color);
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
-}
+    .form-select:invalid:focus {
+        border-color: var(--danger-color);
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+    }
