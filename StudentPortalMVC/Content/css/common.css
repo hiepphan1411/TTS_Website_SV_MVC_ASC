@@ -845,7 +845,7 @@ body {
     }
 
 .tab-content {
-    display: none;
+/*    display: none;*/
     padding: 20px 0;
     animation: fadeIn 0.3s ease;
 }
