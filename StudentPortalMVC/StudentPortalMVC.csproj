@@ -167,7 +167,6 @@
     <Content Include="Content\css\dang-ky-hoc-phan.css" />
     <Content Include="Content\css\dang-ky-muon-phong.css" />
     <Content Include="Content\css\dang-ky-noi-tru.css" />
-    <Content Include="Content\css\danh-sach-ho-so-ca-nhan.css" />
     <Content Include="Content\css\de-xuat-bieu-mau.css" />
     <Content Include="Content\css\de-xuat-chung-chi.css" />
     <Content Include="Content\css\diem-thuong-sinh-vien.css" />
@@ -187,7 +186,6 @@
     <Content Include="Content\css\lich-theo-tien-do.css" />
     <Content Include="Content\css\lien-he-gop-y.css" />
     <Content Include="Content\css\thong-tin-diem-danh.css" />
-    <Content Include="Content\css\tin-tuc-chung.css" />
     <Content Include="Content\css\tin-tuc.css" />
     <Content Include="Content\images\default-news.jpg" />
     <Content Include="Content\css\lich-theo-tuan.css" />
@@ -198,7 +196,6 @@
     <Content Include="Content\css\thanh-toan-truc-tuyen.css" />
     <Content Include="Content\css\thong-tin-sinh-vien.css" />
     <Content Include="Content\css\tra-cuu-cong-no.css" />
-    <Content Include="Content\css\xem-diem-tich-luy-nganh-2.css" />
     <Content Include="Content\images\napas-logo.png" />
     <Content Include="Content\images\QR-payment.png" />
     <Content Include="Content\images\user.png" />
@@ -434,7 +431,7 @@
     <Content Include="obj\Release\StudentPortalMVC.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <Content Include="Views\ChuongTrinhKhung\Index.cshtml" />
-	<Content Include="Views\ChiTietTinTuc\Index.cshtml" />
+    <Content Include="Views\ChiTietTinTuc\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
@@ -461,10 +458,10 @@
     <Content Include="Views\DangKyMuonPhong\DangKyMuonPhong.cshtml" />
     <Content Include="Views\DanhGiaRenLuyenLop\DanhGiaRenLuyenLop.cshtml" />
     <Content Include="Views\DeXuatCapNhatThongTin\DeXuatCapNhatThongTin.cshtml" />
-	<Content Include="Views\DanhSachHoSoCaNhan\Index.cshtml" />
-	<Content Include="Views\DeXuatBieuMau\Index.cshtml" />
-	<Content Include="Views\DeXuatChungChi\Index.cshtml" />
-	<Content Include="Views\DiemThuongSinhVien\Index.cshtml" />
+    <Content Include="Views\DanhSachHoSoCaNhan\Index.cshtml" />
+    <Content Include="Views\DeXuatBieuMau\Index.cshtml" />
+    <Content Include="Views\DeXuatChungChi\Index.cshtml" />
+    <Content Include="Views\DiemThuongSinhVien\Index.cshtml" />
     <Content Include="Views\GhiChuNhacNho\GhiChuNhacNho.cshtml" />
     <Content Include="Views\HoSoSinhVien\HoSoSinhVien.cshtml" />
     <Content Include="Views\KetQuaRenLuyen\KetQuaRenLuyen.cshtml" />
