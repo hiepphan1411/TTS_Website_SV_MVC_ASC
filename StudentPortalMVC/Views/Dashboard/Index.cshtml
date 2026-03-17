@@ -38,7 +38,7 @@
                     <span class="fw-semibold row-content">Tài chính - Ngân hàng</span>
                 </div>
 
-                <a href="../html/thong-tin-sinh-vien.html"
+                <a href="@Url.Action("Index", "ThongTinSinhVien")"
                    class="fw-bold profile-link mt-3 d-inline-block">
                     Xem chi tiết hồ sơ
                 </a>
@@ -171,7 +171,7 @@
                         <div class="summary-desc-study blue">Lịch học trong tuần</div>
                         <div style="display: flex">
                             <div class="summary-value-study">2</div>
-                            <div style="font-size: 11px; color: var(--primary-blue); font-style: italic; margin-top: 14px;">
+                            <div style="color: var(--primary-blue); font-size: 12px;" class="d-flex flex-row mt-auto fst-italic">
                                 môn học
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                         <div class="summary-desc-exam orange">Lịch thi sắp tới</div>
                         <div style="display: flex">
                             <div class="summary-value-exam">1</div>
-                            <div style="font-size: 11px; color: var(--warning-orange); font-style: italic; margin-top: 14px;">
+                            <div style="color: var(--warning-orange); font-size: 12px;" class="d-flex flex-row mt-auto fst-italic">
                                 môn học
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                         <div class="summary-desc-remind gray">Nhắc nhở mới</div>
                         <div class="d-flex flex-row align-items-center mt-[-10px]">
                             <div class="summary-value-remind">0</div>
-                            <div class="d-flex flex-row fs-6 mt-auto fst-italic" style="color: var(--primary-gray);">
+                            <div class="d-flex flex-row mt-auto fst-italic" style="color: var(--primary-gray); font-size: 12px;">
                                 chưa xem
                             </div>
                         </div>
@@ -455,7 +455,7 @@
                     <div class="quick-access-item-expanded"
                          role="button"
                          onclick="
-                   onclick="window.location.href='@Url.Action("Index", "ThongTinSinhVien")'">
+                         onclick="window.location.href='@Url.Action("Index", "ThongTinSinhVien")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-user-graduate"></i>
                         </div>
@@ -466,7 +466,7 @@
 
                     <div class="quick-access-item-expanded"
                          role="button"
-                        onclick="window.location.href='@Url.Action("Index", "LienHeGopY")'">
+                         onclick="window.location.href='@Url.Action("Index", "LienHeGopY")'">
                         <div class="quick-access-icon-simple">
                             <i class="fas fa-comments"></i>
                         </div>
