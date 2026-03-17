@@ -1,1 +1,112 @@
 ﻿
+@{
+    ViewBag.Title = "Đăng ký thi lại - thi cải thiện";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/css/common.css" />
+    <link rel="stylesheet" href="~/Content/css/dang-ky-phuc-khao.css" />
+
+}
+
+<div class="container-lg mb-4">
+
+    <div class="header-title">Đăng ký thi</div>
+
+    <div class="d-flex flex-column gap-3 mb-4 mt-3">
+        <div class="d-flex align-items-center gap-2">
+            <span class="tab-label">Chọn</span>
+            <div class="tab-buttons-dkpk">
+                <button class="btn active" data-tab="thi-lai">
+                    Thi lại
+                </button>
+                <button class="btn" data-tab="cai-thien">
+                    Cải thiện
+                </button>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <span class="tab-label">Học kỳ</span>
+            <select class="form-select" id="semesterSelect">
+                <option value="HK1 (2025 - 2026)">HK1 (2025 - 2026)</option>
+                <option value="HK2 (2024 - 2025)">HK2 (2024 - 2025)</option>
+                <option value="HK1 (2024 - 2025)">HK1 (2024 - 2025)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="title-register d-flex justify-content-between align-items-center mb-3">
+            <div class="section-header-dkpk">
+                HỌC PHẦN ĐƯỢC PHÉP ĐĂNG KÝ THI
+            </div>
+            <button class="btn-refresh"
+                    onclick="refreshAllowedTable()">
+                Làm mới
+            </button>
+        </div>
+
+        <div class="table-container scroll-container">
+            <table class="custom-table" id="allowedTable">
+                <thead>
+                    <tr>
+                        <th class="checkbox-col">
+                            <input type="checkbox"
+                                   class="custom-checkbox"
+                                   id="selectAll" />
+                        </th>
+                        <th>MÃ MÔN</th>
+                        <th>LỚP HỌC PHẦN</th>
+                        <th>TÊN MÔN HỌC</th>
+                        <th class="text-center-col">SỐ TÍN CHỈ</th>
+                        <th class="text-center-col">
+                            KẾT QUẢ LẦN 1
+                        </th>
+                        <th class="text-center-col">GHI CHÚ</th>
+                    </tr>
+                </thead>
+                <tbody id="allowedTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn-register" onclick="registerSubjects()">
+            Đăng ký
+        </button>
+    </div>
+
+    <div class="mt-4">
+        <div class="title-register d-flex justify-content-between align-items-center mb-3">
+            <div class="section-header-dkpk">
+                HỌC PHẦN ĐÃ ĐĂNG KÝ THI
+            </div>
+        </div>
+
+        <div class="table-container scroll-container">
+            <table class="custom-table registered-table"
+                   id="registeredTable">
+                <thead>
+                    <tr>
+                        <th class="text-center-col">STT</th>
+                        <th>MÃ LHP</th>
+                        <th>TÊN MÔN HỌC</th>
+                        <th class="text-center-col">TÍN CHỈ</th>
+                        <th class="text-center-col">LỆ PHÍ</th>
+                        <th class="text-center-col">TT LỆ PHÍ</th>
+                        <th class="text-center-col">
+                            NGÀY ĐĂNG KÝ
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="registeredTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/js/common.js"></script>
+    <script src="~/Scripts/js/dang-ky-thi-lai-thi-cai-thien.js"></script>
+}   

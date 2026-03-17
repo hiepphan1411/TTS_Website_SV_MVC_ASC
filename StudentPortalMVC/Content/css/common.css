@@ -845,7 +845,7 @@ body {
     }
 
 .tab-content {
-    display: none;
+/*    display: none;*/
     padding: 20px 0;
     animation: fadeIn 0.3s ease;
 }
@@ -921,6 +921,10 @@ body {
 @media (max-width: 526px) {
     .header-title {
         font-size: 18px;
+    }
+
+    .main-content.sidebar-open {
+        padding-left: 0px;
     }
 
     .content-wrapper {

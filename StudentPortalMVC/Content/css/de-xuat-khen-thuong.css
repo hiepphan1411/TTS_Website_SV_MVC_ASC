@@ -3,27 +3,27 @@
     color: #4caf50;
 }
 
-    .icon-copy:hover {
-        color: #388e3c;
-    }
+.icon-copy:hover {
+    color: #388e3c;
+}
 
 .icon-edit {
     cursor: pointer;
-    color: #505050;
+    color: var(--color-text-primary);
 }
 
-    .icon-edit:hover {
-        color: #000000;
-    }
+.icon-edit:hover {
+    color: #000000;
+}
 
 .icon-delete {
     cursor: pointer;
     color: #ee2929;
 }
 
-    .icon-delete:hover {
-        color: #d32f2f;
-    }
+.icon-delete:hover {
+    color: #d32f2f;
+}
 
 .button {
     border: none;
@@ -34,32 +34,31 @@
 }
 
 .btn-add {
-    background-color: #3a74f0;
-    color: #ffffff;
+    background-color: var(--primary-blue);
+    color: white;
 }
 
-    .btn-add:hover {
-        background-color: #2e86de;
-    }
+.btn-add:hover {
+    background-color: #2e86de;
+}
 
 .btn-propose {
     background-color: #f9b200;
     color: #ffffff;
 }
 
-    .btn-propose:hover {
-        background-color: #d18c00;
-    }
+.btn-propose:hover {
+    background-color: #d18c00;
+}
 
 .btn-delete {
     background-color: #ee2929;
     color: #ffffff;
 }
 
-    .btn-delete:hover {
-        background-color: #d32f2f;
-    }
-
+.btn-delete:hover {
+    background-color: var(--danger-color);
+}
 
 /* Modal */
 .modal-overlay {
@@ -99,7 +98,7 @@
 .modal-title {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: var(--color-text-primary);
     margin: 0;
 }
 
@@ -108,7 +107,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #666;
+    color: var(--text-light);
     padding: 0;
     width: 30px;
     height: 30px;
@@ -117,9 +116,9 @@
     justify-content: center;
 }
 
-    .modal-close:hover {
-        color: #333;
-    }
+.modal-close:hover {
+    color: var(--color-text-primary);
+}
 
 .modal-body {
     padding: 20px;
@@ -143,7 +142,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #333;
+    color: var(--color-text-primary);
     font-size: 14px;
 }
 
@@ -161,50 +160,50 @@
     font-family: inherit;
 }
 
-    .form-input:focus,
-    .form-textarea:focus {
-        outline: none;
-        border-color: #56a2e8;
-    }
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
 
 .form-textarea {
     resize: vertical;
 }
 
 .file-upload-area {
-    border: 2px dashed #ddd;
+    border: 2px dashed var(--border-color);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
     transition: all 0.3s;
 }
 
-    .file-upload-area.dragover {
-        border-color: #56a2e8;
-        background-color: #f0f8ff;
-    }
+.file-upload-area.dragover {
+    border-color: var(--primary-blue);
+    background-color: #f0f8ff;
+}
 
 .upload-placeholder {
     cursor: pointer;
     padding: 20px;
 }
 
-    .upload-placeholder i {
-        font-size: 48px;
-        color: #56a2e8;
-        margin-bottom: 10px;
-    }
+.upload-placeholder i {
+    font-size: 48px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
 
-    .upload-placeholder p {
-        margin: 10px 0 5px 0;
-        color: #333;
-        font-weight: 500;
-    }
+.upload-placeholder p {
+    margin: 10px 0 5px 0;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
 
-    .upload-placeholder small {
-        color: #666;
-        font-size: 12px;
-    }
+.upload-placeholder small {
+    color: var(--text-light);
+    font-size: 12px;
+}
 
 .file-list {
     margin-top: 15px;
@@ -215,35 +214,35 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: var(--light-gray);
     border-radius: 4px;
     margin-bottom: 8px;
 }
 
-    .file-item span {
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 14px;
-    }
+.file-item span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
 
-    .file-item button {
-        background: none;
-        border: none;
-        color: #ee2929;
-        cursor: pointer;
-        padding: 5px;
-        font-size: 18px;
-    }
+.file-item button {
+    background: none;
+    border: none;
+    color: #ee2929;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+}
 
-        .file-item button:hover {
-            color: #d32f2f;
-        }
+.file-item button:hover {
+    color: var(--danger-color);
+}
 
 .certificate-modal-footer {
     padding: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -261,33 +260,37 @@
 
 .btn-cancel {
     background-color: #f5f5f5;
-    color: #333;
+    color: var(--color-text-primary);
 }
 
-    .btn-cancel:hover {
-        background-color: #e0e0e0;
-    }
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+}
 
 .btn-save {
-    background-color: #56a2e8;
+    background-color: var(--primary-blue);
     color: white;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-    .btn-save:hover {
-        background-color: #2e86de;
-    }
+.btn-save:hover {
+    background-color: #2e86de;
+}
 
 @media (max-width: 768px) {
-    .btn-add, .btn-propose, .btn-delete {
+    .btn-add,
+    .btn-propose,
+    .btn-delete {
         margin-top: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .btn-add, .btn-propose, .btn-delete {
+    .btn-add,
+    .btn-propose,
+    .btn-delete {
         margin-top: 15px;
     }
 }

@@ -173,7 +173,7 @@ function renderNewsGrid(gridData = newsData.grid) {
     `;
 
     newsCard.addEventListener("click", () => {
-      window.location.href = `chi-tiet-tin-tuc.html`;
+        window.location.href = newsDetailUrl;
     });
 
     container.appendChild(newsCard);

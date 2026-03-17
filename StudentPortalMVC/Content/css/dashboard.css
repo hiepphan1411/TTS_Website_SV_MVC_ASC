@@ -103,6 +103,8 @@
 .schedule-item-border {
     border-left: 2px solid #f7f7f7;
     padding: 20px 0 0 20px;
+    height: 310px;
+    overflow-x: auto;
 }
 
 .schedule-item {
@@ -241,19 +243,32 @@
     padding: 20px 20px 0 20px;
     background-color: white;
     border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 .summary-card {
     border-radius: 12px;
     height: 120px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 4 px;
+    margin-bottom: 20px;
 }
+
+    /*.sumary {*/
+    /*  padding: 20px 20px 0 20px;*/
+    /*  background-color: white;*/
+    /*  border-radius: 12px;*/
+    /*  display: flex;*/
+    /*  flex-direction: column;*/
+    /*  gap: 20px;*/
+    /*}*/
+
+    /*.summary-card {*/
+    /*  border-radius: 12px;*/
+    /*  height: 120px;*/
+    /*  padding: 20px;*/
+    /*  display: flex;*/
+    /*  flex-direction: column;*/
+    /*  gap: 4 px;*/
+    /*}*/
 
     .summary-card.blue {
         border: 0.5px solid #dcebfe;
@@ -317,6 +332,13 @@
         color: var(--color-text-secondary);
     }
 
+    .summary-title-remind p {
+        color: var(--color-text-secondary);
+        font-size: 10px;
+        width: 100%;
+        text-align: right;
+    }
+
 .summary-value-study,
 .summary-value-exam,
 .summary-value-remind {
@@ -334,7 +356,7 @@
 }
 
 .summary-card.gray .summary-value-remind {
-    color: #334155;
+    color: var(--blue-between-heavy);
 }
 
 .summary-desc-study.blue {
@@ -1276,7 +1298,7 @@ canvas.gpa-chart {
     padding: 0px;
     gap: 7.03px;
     width: 100%;
-    max-width: 100%;
+    max-width: 326.99px;
     height: auto;
     min-height: 52.03px;
     flex: none;
@@ -1291,7 +1313,7 @@ canvas.gpa-chart {
     padding: 0px;
     gap: 12px;
     width: 100%;
-    max-width: 100%;
+    max-width: 326.99px;
     height: auto;
     min-height: 22px;
     flex: none;
@@ -1386,16 +1408,6 @@ canvas.gpa-chart {
 }
 
 @media (max-width: 992px) {
-    .sidebar {
-        position: fixed;
-        left: -250px;
-        transition: left 0.3s;
-        z-index: 999;
-    }
-
-        .sidebar.active {
-            left: 0;
-        }
 
     .dashboard-content {
         width: 100%;
@@ -1570,8 +1582,8 @@ canvas.gpa-chart {
         flex-direction: column;
         width: 100%;
         padding: 16px !important;
-        flex-direction: row;
-        display: flex;
+        /*flex-direction: row;*/
+        /*display: flex;*/
         align-items: center;
         justify-content: space-between;
         gap: 12px;
@@ -1612,26 +1624,6 @@ canvas.gpa-chart {
 
     .semester-info-open {
         margin-top: 0;
-    }
-
-    .schedule-info p {
-        font-size: 12px;
-        word-break: break-all;
-        /*        margin-bottom: 2px;*/
-    }
-
-    .schedule-info .fw-semibold {
-        font-size: 13px;
-    }
-
-    .badge-group {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
-    .badge {
-        font-size: 11px;
-        padding: 4px 8px;
     }
 }
 
@@ -1874,6 +1866,8 @@ canvas.gpa-chart {
 
 /* Quick Access Styles */
 
+/* Quick Access Styles */
+
 .card-body {
     height: fit-content;
 }
@@ -1926,14 +1920,14 @@ canvas.gpa-chart {
     min-height: 80px;
     border-radius: 12px;
     background-color: white;
-    border: 1px solid var(--border-color-d0);
+    border: 1px solid #e8e8e8;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
     .card-access-quick:hover {
-        border-color: var(--border-color-d0);
+        border-color: #d0d0d0;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
@@ -2106,7 +2100,19 @@ canvas.gpa-chart {
     }
 }
 
+@media (min-width: 1200px) {
+    .quick-access-compact {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+    }
+}
+
 @media (max-width: 576px) {
+    .card-access {
+        margin-bottom: 12px;
+    }
+
     .meta {
         gap: 8px;
     }
@@ -2223,5 +2229,89 @@ canvas.gpa-chart {
     .semester-stats {
         grid-template-columns: 1fr;
         gap: 10px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .sumary {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px;
+        align-items: stretch;
+        background-color: var(--white);
+        border-radius: 12px;
+    }
+
+    .sumary-link {
+        flex: 1;
+        display: flex;
+    }
+
+        .sumary-link .summary-card {
+            flex: 1;
+            height: auto;
+            min-height: 100px;
+            margin-bottom: 0;
+            padding: 12px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+    .summary-title-study,
+    .summary-title-exam,
+    .summary-title-remind {
+        margin-bottom: 4px;
+    }
+
+        .summary-title-study p,
+        .summary-title-exam p,
+        .summary-title-remind p {
+            display: none;
+        }
+
+    .summary-value-study,
+    .summary-value-exam,
+    .summary-value-remind {
+        font-size: 26px;
+        margin-top: -4px;
+    }
+
+    .summary-desc-study,
+    .summary-desc-exam,
+    .summary-desc-remind {
+        font-size: 11px;
+        margin-top: -4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sumary {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .sumary-link .summary-card {
+        min-height: 85px;
+        padding: 10px 8px;
+    }
+
+    .summary-card i {
+        font-size: 16px !important;
+        margin-bottom: 2px;
+    }
+
+    .summary-value-study,
+    .summary-value-exam,
+    .summary-value-remind {
+        font-size: 22px;
+    }
+
+    .summary-desc-study,
+    .summary-desc-exam,
+    .summary-desc-remind {
+        font-size: 10px;
     }
 }

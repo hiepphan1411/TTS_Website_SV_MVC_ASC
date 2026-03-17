@@ -3,7 +3,7 @@
         id: 1,
         title: 'Thông báo v/v đề xuất hoãn xét tốt nghiệp và xét tốt nghiệp cho sinh viên',
         startDate: '16/01/2026',
-        endDate: '19/01/2026',
+        endDate: '19/04/2026',
         uploadTime: '2 giờ trước',
         status: 'new',
         content: [

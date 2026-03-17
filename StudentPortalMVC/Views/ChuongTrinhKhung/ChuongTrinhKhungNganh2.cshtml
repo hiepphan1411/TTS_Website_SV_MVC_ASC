@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Chương trình khung đào tạo và tiến độ học tập ngành 2";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/chuong-trinh-khung.css" />
+}
+
+<!-- Content -->
+<main class="container-lg section-content content-area">
+    <div class="container-lg d-flex flex-column gap-3" style="padding: 20px">
+        <div>
+            <h1 class="fs-4 fw-bold" style="color: var(--color-text-primary)">
+                Chương trình khung đào tạo và tiến độ học tập ngành 2
+            </h1>
+            <p class="small fw-semibold text-secondary mb-0">
+                Xem chương trình đào tạo và tiến độ học tập của bạn
+            </p>
+        </div>
+
+        <!-- Tiến độ học tập -->
+        <div class="content-wrapper">
+            <div class="progress-section">
+                <div class="learning-progress-title">
+                    <div class="section-title">Tiến độ học tập</div>
+                    <div class="progress-label">
+                        <span><i class="fa-solid fa-circle badge-completed"></i> Đã hoàn thành</span>
+                        <span><i class="fa-solid fa-circle badge-progress"></i> Tin chỉ đang học</span>
+                        <span><i class="fa-solid fa-circle badge-notstart"></i> Tin chỉ còn lại</span>
+                    </div>
+                </div>
+                <div class="progress-bar-div">
+                    <div class="progress-bar-title">
+                        <div>Đã hoàn thành</div>
+                        <div>
+                            <span class="progress-percentage" id="overallPercentage">75%</span>
+                        </div>
+                    </div>
+                    <div id="chart" class="progress-chart" style="width: 100%"></div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number green" id="totalCredits">162</div>
+                        <div class="stat-label">Tổng tin chỉ</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number blue" id="completedCredits">122</div>
+                        <div class="stat-label">Đã hoàn thành</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number yellow" id="currentCredits">24</div>
+                        <div class="stat-label">Tin chỉ đang học</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number gray" id="remainingCredits">16</div>
+                        <div class="stat-label">Tin chỉ còn lại</div>
+                    </div>
+                    <div class="stat-box-end">
+                        <div class="stat-number yellow" id="progressDiff">+ 2%</div>
+                        <div class="stat-label">Tiến độ so với kế hoạch</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thanh Tab + Tìm kiếm + Lọc -->
+        <div class="content-wrapper-tab-group">
+            <div class="tab-buttons">
+                <button class="tab-btn active">Học kỳ</button>
+                <button class="tab-btn">Khối kiến thức</button>
+            </div>
+
+            <div class="controls-section">
+                <div class="search-box">
+                    <input type="text" class="form-control"
+                           placeholder="Tìm kiếm môn học theo tên hoặc mã..."
+                           hidden />
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn-custom primary" data-filter="all">
+                        Tất cả
+                    </button>
+                    <button class="btn-custom" data-filter="notStudied">
+                        Chưa học
+                    </button>
+                    <button class="btn-custom" data-filter="mandatory">
+                        Bắt buộc
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lộ trình học tập -->
+        <div class="content-wrapper">
+            <h2 class="section-title">Lộ trình học tập</h2>
+            <div class="timeline-section">
+                <div class="timeline-container">
+                    <div class="timeline-wrapper">
+                        <div class="timeline-items" id="timelineItems"></div>
+                        <div class="timeline-bottom">
+                            <div class="timeline-track-container">
+                                <div class="timeline-track">
+                                    <div class="timeline-track-progress" id="timelineTrackProgress"></div>
+                                </div>
+                                <div class="timeline-year-markers" id="timelineYearMarkers"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-footer">
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: var(--success-green)"></div>
+                            <span>Hoàn thành</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: var(--primary-yellow)"></div>
+                            <span>Đang học</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #ccc"></div>
+                            <span>Chưa học</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Khối kiến thức -->
+        <div class="content-wrapper">
+            <div class="knowledge-block-overview">
+                <div class="section-title">Tổng quan khối kiến thức</div>
+                <div class="knowledge-blocks" id="knowledgeBlocksContainer"></div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--success-green)"></div>
+                    <span>Hoàn thành</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--primary-yellow)"></div>
+                    <span>Đang học</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ccc"></div>
+                    <span>Chưa học</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh sách môn học (JS render)  -->
+        <div class="content-wrapper" id="expandableSections"></div>
+
+    </div>
+</main>
+
+@section scripts {
+    <script src="~/Scripts/js/chuong-trinh-khung.js"></script>
+    <script src="~/Scripts/js/process-khoi-kien-thuc.js"></script>
+    <script>
+        $(document).ready(function () {
+            var dataUrls = {
+                ctk: '@Url.Action("GetCTKData", "ChuongTrinhKhung")'
+            };
+
+            ChuongTrinhKhung.setUrls(dataUrls);
+            KhoiKienThuc.init(dataUrls);
+            ChuongTrinhKhung.init();
+        });
+    </script>
+}

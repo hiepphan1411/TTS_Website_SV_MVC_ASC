@@ -45,7 +45,7 @@
                          id="featuredNewsDescription">
                         <!-- JavaScript Render -->
                     </div>
-                    <a href="../html/chi-tiet-tin-tuc.html"
+                    <a href="@Url.Action("Index", "ChiTietTinTuc")"
                        class="featured-news-button">
                         <span class="featured-news-button-icon">
                             <i class="fas fa-arrow-right"></i>
@@ -69,7 +69,7 @@
                     </span>
                     Tin tức sinh viên theo lớp A.01
                 </div>
-                <a href="/TinTucTheoLop" class="news-view-all">Xem tất cả</a>
+                <a href="@Url.Action("Index", "TinTucTheoLop")" class="news-view-all">Xem tất cả</a>
             </div>
             <div class="news-grid" id="newsGridContainer">
                 <!-- News cards will be populated here -->
@@ -79,5 +79,9 @@
 </div>
 
 @section scripts {
+    <script>
+        const newsDetailUrl = '@Url.Action("Index", "ChiTietTinTuc")';
+    </script>
     <script src="~/Scripts/js/tin-tuc.js"></script>
+
 }

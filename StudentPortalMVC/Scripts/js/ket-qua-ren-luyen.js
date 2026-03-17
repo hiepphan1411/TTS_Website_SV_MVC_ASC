@@ -1,17 +1,15 @@
-﻿
-let trainingResultsData = [];
+﻿let trainingResultsData = [];
 
 function getClassificationClass(classification) {
     const classMap = {
         'Xuất sắc': 'status-xuatsac',
-        'Khá': 'status-kha',
+        Khá: 'status-kha',
         'Trung bình': 'status-trungbinh',
-        'Yếu': 'status-yeu',
-        'Kém': 'status-kem',
+        Yếu: 'status-yeu',
+        Kém: 'status-kem',
     };
     return classMap[classification] || '';
 }
-
 
 function getScoreClass(score) {
     if (score >= 90) return 'score';
@@ -19,7 +17,6 @@ function getScoreClass(score) {
     if (score >= 50) return 'score-low';
     return 'score-fail';
 }
-
 
 function getStatusColor(score) {
     if (score >= 90) return 'emerald';
@@ -30,7 +27,6 @@ function getStatusColor(score) {
     return 'red';
 }
 
-
 function getStatusText(score) {
     if (score >= 90) return 'Xuất sắc';
     if (score >= 80) return 'Khá';
@@ -39,11 +35,9 @@ function getStatusText(score) {
     return 'Kém';
 }
 
-
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
-
 
 async function loadTrainingResultsData() {
     try {
@@ -108,12 +102,12 @@ function renderSemesterCard(data) {
                         <span class="material-symbols-outlined"><i class="fa-solid fa-calendar"></i></span>
                     </div>
                     <div class="semester-info">
-                        <h3>${data.semester}</h3>
+                        <p>${data.semester}</p>
                     </div>
                 </div>
                 <div class="semester-right">
                     <div class="semester-stat">
-                        <p class="semester-stat-label">Điểm rèn luyện</p>
+                        <p class="semester-stat-label">Điểm</p>
                         <p class="semester-stat-value ${getScoreClass(data.score)}">${data.score}</p>
                     </div>
                     <div class="semester-stat">
@@ -141,14 +135,15 @@ function renderSemesterCard(data) {
                         </tbody>
                     </table>
                 </div>
-                ${data.violations && data.violations.length > 0
-            ? `
+                ${
+                    data.violations && data.violations.length > 0
+                        ? `
                 <div class="detail-buttons">
                     <button class="btn-detail" onclick="viewDetailReport('${data.semester}')">Xem báo cáo chi tiết</button>
                 </div>
                 `
-            : ''
-        }
+                        : ''
+                }
             </div>
         </div>
     `;
@@ -162,7 +157,8 @@ async function initializeTrainingResults() {
         return;
     }
 
-    container.innerHTML = '<div class="text-center p-4">Đang tải dữ liệu...</div>';
+    container.innerHTML =
+        '<div class="text-center p-4">Đang tải dữ liệu...</div>';
 
     // Load data
     await loadTrainingResultsData();
@@ -209,8 +205,8 @@ function toggleSemester(element, semesterId) {
 
 // Function to view detail report
 function viewDetailReport(semester) {
-    // Chuyển sang URL của ASP.NET MVC
-    window.location.href = '/KetQuaRenLuyen/ChiTiet?semester=' + encodeURIComponent(semester);
+    // Chuyển sang trang tự đánh giá kết quả rèn luyện
+    window.location.href = '/TuDanhGiaKetQuaRenLuyen';
 }
 
 // Initialize when document is ready
@@ -221,4 +217,4 @@ document.addEventListener('DOMContentLoaded', function () {
 // jQuery ready fallback (nếu sử dụng jQuery)
 $(document).ready(function () {
     // Additional jQuery-based initialization if needed
-}); 
+});

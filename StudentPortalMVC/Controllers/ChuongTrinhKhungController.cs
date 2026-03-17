@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -19,6 +21,11 @@ namespace StudentPortalMVC.Controllers
 
         // GET: /ChuongTrinhKhung/
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult ChuongTrinhKhungNganh2()
         {
             return View();
         }

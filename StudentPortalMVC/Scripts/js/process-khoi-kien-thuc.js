@@ -240,7 +240,7 @@ var KhoiKienThuc = (function () {
                 : '<td class="column-center">' + (course.HocKy || "-") + "</td>";
 
         return `
-      <tr ${lockedClass} ${bgStyle} ${dataTooltip} data-completed="${course.IsDat ? 'true' : 'false'}" data-mandatory="${course.IsBatBuoc ? 'true' : 'false'}">
+      <tr ${lockedClass} ${bgStyle} ${dataTooltip} data-completed="${course.IsDat ? "true" : "false"}" data-mandatory="${course.IsBatBuoc ? "true" : "false"}">
         <td class="column-center">${course.stt || ""}</td>
         <td class="column-center">${viewMode === "semester" ? course.TenKhoiKienThuc || "-" : course.HocKy || "-"}</td>
         <td>${course.TenMonHoc || ""}</td>
@@ -744,7 +744,8 @@ var KhoiKienThuc = (function () {
             }
 
             blocksHTML +=
-                '<div class="knowledge-block">' +
+                '<div class="timeline-item" style="cursor:pointer;" onclick="KhoiKienThuc.scrollToBlock(\'' +
+                block.name.replace(/'/g, "\\'").trim() + '\')">' +
                 '  <div class="circle-progress">' +
                 '    <svg viewBox="0 0 120 120">' +
                 svgCircles +
@@ -752,7 +753,7 @@ var KhoiKienThuc = (function () {
                 '    <div class="circle-text ' +
                 styles.circleClass +
                 '">' +
-            block.code + "Test tên blog" +
+                getAbbreviation(block.name) +
                 "</div>" +
                 "  </div>" +
                 '  <div class="block-title">' +
@@ -777,6 +778,24 @@ var KhoiKienThuc = (function () {
         container.innerHTML = blocksHTML;
     }
 
+    function getAbbreviation(text) {
+        text = removeVietnameseTones(text);
+
+        return text
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .toUpperCase();
+    }
+
+    function removeVietnameseTones(str) {
+        return str
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D");
+    }
+
     function applyFilter(filter) {
         currentFilter = filter;
 
@@ -796,6 +815,44 @@ var KhoiKienThuc = (function () {
         });
     }
 
+    function scrollToBlock(block) {
+        var knowledgeTab = document.querySelector(".tab-btn:last-child");
+        if (knowledgeTab && !knowledgeTab.classList.contains("active")) {
+            knowledgeTab.click();
+        }
+
+        setTimeout(function () {
+            var sections = document.querySelectorAll(".expandable-section");
+            var targetSection = null;
+
+            sections.forEach(function (section) {
+                var headerText = section.querySelector(".section-header-text");
+                console.log("Tên khối kiến thức debug: " + block + " , Khối kiến thức: " + headerText.textContent)
+                if (headerText && headerText.textContent.trim().indexOf("Khối kiến thức " + block) >= 0) {
+                    targetSection = section;
+                }
+            });
+
+            if (targetSection) {
+                var header = targetSection.querySelector(".section-header");
+                if (!header.classList.contains("expanded")) {
+                    header.click();
+                }
+
+                setTimeout(function () {
+                    var headerHeight = 70;
+                    var headerEl = document.querySelector(".header-container");
+                    if (headerEl) headerHeight = headerEl.offsetHeight;
+                    var y =
+                        targetSection.getBoundingClientRect().top +
+                        window.pageYOffset -
+                        headerHeight -
+                        20;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                }, 100);
+            }
+        }, 200);
+    }
     function init(dataUrls) {
         ChuongTrinhKhung._dataUrls = dataUrls;
 
@@ -812,9 +869,11 @@ var KhoiKienThuc = (function () {
                     switchView("knowledgeBlock");
                 });
             }
-            $(".btn-custom[data-filter]").off("click.filter").on("click.filter", function () {
-                applyFilter($(this).attr("data-filter"));
-            });
+            $(".btn-custom[data-filter]")
+                .off("click.filter")
+                .on("click.filter", function () {
+                    applyFilter($(this).attr("data-filter"));
+                });
         });
     }
 
@@ -825,5 +884,10 @@ var KhoiKienThuc = (function () {
         renderKnowledgeBlocksOverview: renderKnowledgeBlocksOverview,
         switchView: switchView,
         applyFilter: applyFilter,
+        scrollToBlock: scrollToBlock,
     };
 })();
+
+window.scrollToSemester = function (block) {
+    KhoiKienThuc.scrollToSemester(block);
+};
