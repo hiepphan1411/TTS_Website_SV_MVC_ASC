@@ -49,15 +49,15 @@ body {
     overflow: hidden;
 }
 
-    .student-avatar i {
-        width: 50%;
-        height: 50%;
-    }
+.student-avatar i {
+    width: 50%;
+    height: 50%;
+}
 
-    .student-avatar i {
-        font-size: 48px;
-        color: white;
-    }
+.student-avatar i {
+    font-size: 48px;
+    color: white;
+}
 
 .info-row {
     display: flex;
@@ -88,12 +88,12 @@ body {
     margin: 0;
 }
 
-    .info-list li {
-        margin-bottom: 10px;
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--color-text-primary);
-    }
+.info-list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
 
 .student-block {
     border-radius: 8px;
@@ -110,21 +110,21 @@ body {
     color: var(--color-text-primary);
 }
 
-    .student-block-header p:nth-child(1) {
-        color: var(--color-text-primary);
-        padding: 10px;
-        border-radius: 8px;
-        background-color: var(--bg-light);
-        border: 8px;
-    }
+.student-block-header p:nth-child(1) {
+    color: var(--color-text-primary);
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--blue-bg-light);
+    border: 8px;
+}
 
-    .student-block-header p:nth-child(2) {
-        display: flex;
-        height: auto;
-        padding: 0 10px;
-        font-size: 20px;
-        align-items: center;
-    }
+.student-block-header p:nth-child(2) {
+    display: flex;
+    height: auto;
+    padding: 0 10px;
+    font-size: 20px;
+    align-items: center;
+}
 
 .student-block-body {
     background-color: #f9fbff;
@@ -150,11 +150,12 @@ body {
     background: white;
 }
 
-.section-header {
+.section-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
+    padding-left: 0 !important;
     height: fit-content;
 }
 
@@ -212,29 +213,29 @@ body {
     border: none;
 }
 
-    .accordion-button:not(.collapsed) {
-        background: var(--light-gray);
-        color: #333;
-        box-shadow: none;
-    }
+.accordion-button:not(.collapsed) {
+    background: var(--light-gray);
+    color: #333;
+    box-shadow: none;
+}
 
-    .accordion-button:focus {
-        box-shadow: none;
-        border: none;
-    }
+.accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
 
-    .accordion-button::after {
-        display: none;
-    }
+.accordion-button::after {
+    display: none;
+}
 
-    .accordion-button i {
-        font-size: 12px;
-        transition: transform 0.3s;
-    }
+.accordion-button i {
+    font-size: 12px;
+    transition: transform 0.3s;
+}
 
-    .accordion-button.collapsed i.fa-chevron-up {
-        transform: rotate(180deg);
-    }
+.accordion-button.collapsed i.fa-chevron-up {
+    transform: rotate(180deg);
+}
 
 .accordion-body {
     padding: 16px;
@@ -269,19 +270,19 @@ body {
     transition: all 0.2s;
 }
 
-    .family-accordion-button:hover {
-        background: #ebebeb;
-    }
+.family-accordion-button:hover {
+    background: #ebebeb;
+}
 
-    .family-accordion-button i {
-        font-size: 14px;
-        color: #666;
-        transition: transform 0.3s;
-    }
+.family-accordion-button i {
+    font-size: 14px;
+    color: #666;
+    transition: transform 0.3s;
+}
 
-    .family-accordion-button.collapsed {
-        background: var(--light-gray);
-    }
+.family-accordion-button.collapsed {
+    background: var(--light-gray);
+}
 
 .family-accordion-body {
     padding: 20px;
@@ -306,9 +307,9 @@ body {
     gap: 4px;
 }
 
-    .family-col.full-width {
-        grid-column: 1 / -1;
-    }
+.family-col.full-width {
+    grid-column: 1 / -1;
+}
 
 .family-label {
     font-size: 12px;
