@@ -5,12 +5,6 @@
     margin-bottom: 20px;
 }
 
-.page-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--color-text-primary);
-}
-
 .btn-create {
     background-color: var(--primary-blue);
     color: white;
@@ -41,7 +35,7 @@
 }
 
 .message-item {
-    padding: 20px 24px;
+    padding: 16px 24px;
     cursor: pointer;
     transition: background-color 0.2s;
     background-color: #f8f9fa;
@@ -205,7 +199,7 @@
 }
 
 .modal-body {
-    padding: 24px;
+    padding: 24px 24px 0 24px;
 }
 
 .form-row {
@@ -288,7 +282,6 @@ textarea.form-control {
     gap: 8px;
     color: var(--color-text-primary);
     font-size: 14px;
-    padding: 12px 0;
     cursor: pointer;
 }
 

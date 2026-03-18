@@ -1,1 +1,12 @@
 ﻿
+
+.tab-label {
+    min-width: fit-content;
+}
+
+@media (max-width: 529px) {
+    .button-group div:last-child,
+    .button-group .form-select div {
+        width: 100%;
+    }
+}

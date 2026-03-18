@@ -292,3 +292,18 @@
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 476px) {
+    .pagination-wrapper {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        align-items: end;
+    }
+
+    .pagination-wrapper div:first-child {
+        width: 100%;
+    }
+}

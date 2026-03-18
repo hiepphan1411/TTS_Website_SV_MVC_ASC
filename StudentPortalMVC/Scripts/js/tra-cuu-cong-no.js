@@ -145,14 +145,16 @@
         var totalDebt = items.reduce(function (s, i) { return s + i.debt; }, 0);
 
         var html =
-            '<tr class="total-row">' +
-            '<td></td><td colspan="4"></td>' +
-            '<td style="text-align:right">' + fmt(totalAmount) + '</td>' +
-            '<td></td><td></td>' +
-            '<td style="text-align:right">' + fmt(totalPaid) + '</td>' +
-            '<td style="text-align:right" class="amount-negative">' + fmt(totalDebt) + '</td>' +
-            '<td></td>' +
-            '</tr>';
+            `<tr class="total-row">
+                <td></td>
+                <td colspan="4"></td>
+                <td class="text-end">${fmt(totalAmount)}</td>
+                <td></td><td></td>
+                <td class="text-end">${fmt(totalPaid)}</td>
+                <td style="text-align:right" class="amount-negative">
+                    ${fmt(totalDebt)}
+                </td>
+            </tr>`;
 
         $.each(items, function (_, item) {
             var reqIcon = item.required

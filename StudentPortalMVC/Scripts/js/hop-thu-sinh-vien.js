@@ -43,13 +43,13 @@
             sendReply($(this));
         });
 
-        $(document).on('click', '.attach-btn', function () {
-            $(this).siblings('input[type="file"]').trigger('click');
-        });
+        //$(document).on('click', '.attach-btn', function () {
+        //    $(this).siblings('input[type="file"]').trigger('click');
+        //});
 
-        $(document).on('click', '.file-attach', function () {
-            $('#messageFileInput').trigger('click');
-        });
+        //$(document).on('click', '.file-attach', function () {
+        //    $('#messageFileInput').trigger('click');
+        //});
 
         $(document).on('change', '#messageFileInput', function () {
             var count = this.files.length;

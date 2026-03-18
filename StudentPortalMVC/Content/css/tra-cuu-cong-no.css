@@ -20,6 +20,11 @@
     }
 
 /* Tabs Navigation */
+.tab-content {
+    padding-bottom: 0;
+}
+
+
 .tabs-container {
     background: white;
     border-radius: 8px;
@@ -229,7 +234,6 @@
 .summary-section {
     background: #fff3cd;
     padding: 10px 15px;
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
