@@ -1,25 +1,4 @@
-﻿:root {
-    --primary-color: #3a74f0;
-    --light-bg: #f5f7fa;
-    --text-dark: #505050;
-    --text-secondary: #656565;
-    --text-light: #878787;
-    --border-color: #e0e0e0;
-    --color-bg-blue-light: #f8f9fa;
-    --color-bg-blue-lighter: #e8eef5;
-}
-
-* {
-    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-}
-
-body {
-    background-color: var(--color-bg-blue-lighter);
-    padding: 0;
-    color: var(--text-dark);
-}
-
-.header-section {
+﻿.header-section {
     margin-bottom: 5px;
 }
 
@@ -44,14 +23,14 @@ body {
     .page-header h1 {
         font-size: 24px;
         font-weight: 700;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
         margin: 0 0 0.5rem 0;
     }
 
     .page-header p {
         font-size: 13px;
         font-weight: 600;
-        color: var(--text-light);
+        color: var(--color-text-secondary);
         margin: 0;
     }
 
@@ -60,15 +39,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
     border-bottom: 1px solid var(--color-bg-blue-lighter);
 }
 
 .section-title-room-reservation {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
     margin: 0;
 }
 
@@ -87,7 +66,7 @@ body {
 .btn-search,
 .btn-refresh,
 .btn-delete-selected {
-    background-color: var(--primary-color);
+    background-color: var(--primary-blue);
     color: white;
     border: none;
     padding: 0.5rem 1.2rem;
@@ -104,7 +83,7 @@ body {
     }
 
 .btn-refresh {
-    background-color: var(--primary-color);
+    background-color: var(--primary-blue);
 }
 
 .btn-delete-selected {
@@ -124,6 +103,9 @@ body {
 /* Search Form */
 .search-form {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .form-select {
@@ -146,7 +128,7 @@ body {
         .form-grid-2x4 .form-group label {
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--color-text-primary);
         }
 
         .form-grid-2x4 .form-group .required {
@@ -160,7 +142,7 @@ body {
             border: 1px solid #f0f3f8;
             border-radius: 6px;
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--gray-icon-color);
             padding: 0.75rem 1rem;
             min-height: 42px;
             width: 100%;
@@ -169,8 +151,8 @@ body {
             .form-grid-2x4 .form-group .form-select:focus,
             .form-grid-2x4 .form-group .form-control:focus {
                 background-color: #f8fafc;
-                border-color: var(--primary-color);
-                color: var(--text-secondary);
+                border-color: var(--primary-blue);
+                color: var(--gray-icon-color);
                 box-shadow: 0 0 0 0.2rem rgba(86, 162, 232, 0.25);
                 outline: none;
             }
@@ -198,7 +180,7 @@ body {
     .double-input-item label {
         font-size: 13px;
         font-weight: 600;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
     .double-input-item .required {
@@ -211,7 +193,7 @@ body {
         border: 1px solid #f0f3f8;
         border-radius: 6px;
         font-size: 13px;
-        color: var(--text-secondary);
+        color: var(--gray-icon-color);
         padding: 0.5rem 0.75rem;
         min-height: 42px;
         width: 100%;
@@ -219,8 +201,8 @@ body {
 
         .double-input-item .form-select:focus {
             background-color: #f8fafc;
-            border-color: var(--primary-color);
-            color: var(--text-secondary);
+            border-color: var(--primary-blue);
+            color: var(--gray-icon-color);
             box-shadow: 0 0 0 0.2rem rgba(86, 162, 232, 0.25);
             outline: none;
         }
@@ -235,7 +217,6 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
 .form-group {
@@ -247,7 +228,7 @@ body {
     .form-group label {
         font-size: 13px;
         font-weight: 600;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
     .form-group .form-select,
@@ -256,7 +237,7 @@ body {
         border: 1px solid #f0f3f8;
         border-radius: 6px;
         font-size: 13px;
-        color: var(--text-secondary);
+        color: var(--gray-icon-color);
         padding: 0.75rem 1rem;
         min-height: 42px;
     }
@@ -264,20 +245,20 @@ body {
         .form-group .form-select:focus,
         .form-group .form-control:focus {
             background-color: #f8fafc;
-            border-color: var(--primary-color);
-            color: var(--text-secondary);
+            border-color: var(--primary-blue);
+            color: var(--gray-icon-color);
             box-shadow: 0 0 0 0.2rem rgba(86, 162, 232, 0.25);
         }
 
 /* List Section */
 .list-section {
-    background: #ffffff;
+    background: white;
     border-radius: 0 0 8px 8px;
     padding: 20px;
 }
 
 .create-new-btn {
-    background-color: var(--primary-color);
+    background-color: var(--primary-blue);
     color: white;
     border: none;
     padding: 0.5rem 1.2rem;
@@ -318,7 +299,7 @@ body {
             padding: 1rem 1.25rem;
             text-align: left;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--color-text-primary);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -334,7 +315,7 @@ body {
     .table-custom tbody td {
         padding: 1.25rem;
         border-bottom: 1px solid var(--color-bg-blue-lighter);
-        color: var(--text-dark);
+        color: var(--color-text-primary);
         text-align: center;
     }
 
@@ -401,14 +382,14 @@ body {
 
 /* Detail Section */
 .collapsible-detail {
-    background-color: #ffffff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-e0);
 }
 
 .collapsible-detail-title {
-    color: var(--primary-color);
+    color: var(--primary-blue);
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 1rem;
@@ -432,14 +413,14 @@ body {
 .detail-item-label {
     font-size: 12px;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
 
 .detail-item-value {
     font-size: 13px;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
 }
 
     .detail-item-value.dash {
@@ -456,7 +437,7 @@ body {
 
 .btn-edit,
 .btn-delete {
-    background-color: var(--primary-color);
+    background-color: var(--primary-blue);
     color: white;
     border: none;
     padding: 0.4rem 0.8rem;
@@ -482,7 +463,7 @@ body {
 
 /* Action Links */
 .action-text {
-    color: var(--primary-color);
+    color: var(--primary-blue);
     cursor: pointer;
     font-weight: 600;
 }
@@ -506,7 +487,7 @@ body {
     width: 100%;
     padding: 10px;
     text-align: center;
-    color: var(--text-dark);
+    color: var(--color-text-primary);
 }
 
 .modal-body {
@@ -528,7 +509,7 @@ body {
         .form-grid-additional .form-group label {
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--color-text-primary);
         }
 
         .form-grid-additional .form-group .required {
@@ -542,7 +523,7 @@ body {
             border: 1px solid #f0f3f8;
             border-radius: 6px;
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--gray-icon-color);
             padding: 0.75rem 1rem;
             min-height: 42px;
             width: 100%;
@@ -551,8 +532,8 @@ body {
             .form-grid-additional .form-group .form-select:focus,
             .form-grid-additional .form-group .form-control:focus {
                 background-color: #f8fafc;
-                border-color: var(--primary-color);
-                color: var(--text-secondary);
+                border-color: var(--primary-blue);
+                color: var(--gray-icon-color);
                 box-shadow: 0 0 0 0.2rem rgba(86, 162, 232, 0.25);
                 outline: none;
             }
@@ -575,7 +556,7 @@ body {
 
     .modal-footer .btn-secondary {
         background-color: #f8fafc;
-        color: var(--text-secondary);
+        color: var(--gray-icon-color);
         border: none;
     }
 
@@ -584,7 +565,7 @@ body {
         }
 
     .modal-footer .btn-primary {
-        background-color: var(--primary-color);
+        background-color: var(--primary-blue);
         border: none;
     }
 
@@ -663,7 +644,7 @@ body {
     .section-title-room-reservation {
         font-size: 14px;
         font-weight: bold;
-        color: var(--text-dark);
+        color: var(--color-text-primary);
     }
 
     .search-controls {

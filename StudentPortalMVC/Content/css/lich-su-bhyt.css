@@ -1,14 +1,4 @@
-﻿/* BHYT History Styles */
-:root {
-    --danger: #ea5455;
-    --danger-light: #fdeeee;
-    --success: #4caf50;
-    --success-light: #e2f3ec;
-    --warning: #ff9f43;
-    --warning-light: #fff5ec;
-}
-
-.bhyt-history-status-badge {
+﻿.bhyt-history-status-badge {
     display: inline-block;
     padding: 4px 12px;
     border-radius: 8px;
@@ -17,18 +7,18 @@
 }
 
     .bhyt-history-status-badge.pending {
-        background-color: var(--warning-light);
-        color: var(--warning);
+        background-color: var(--orange-bg-light);
+        color: var(--warning-color);
     }
 
     .bhyt-history-status-badge.approved {
-        background-color: var(--success-light);
-        color: var(--success);
+        background-color: var(--color-green-lighter);
+        color: var(--success-green);
     }
 
     .bhyt-history-status-badge.rejected {
-        background-color: var(--danger-light);
-        color: var(--danger);
+        background-color: var(--color-red-lighter);
+        color: var(--color-danger);
     }
 
 /* Date Input Styling */

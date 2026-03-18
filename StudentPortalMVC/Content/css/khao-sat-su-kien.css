@@ -1,10 +1,4 @@
-﻿:root {
-    --sv-danger-color: #ff4444;
-    --sv-success-color: #28a745;
-    --sv-warning-color: #ffc107;
-}
-
-.content-section-full {
+﻿.content-section-full {
     display: flex;
     flex-direction: column;
     background: white;
@@ -30,7 +24,7 @@
     border-radius: 6px;
     background-color: white;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px #f0f5ff;
+    box-shadow: 0 2px 8px var(--color-blue-lighter);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,12 +66,12 @@
 
     .sv-survey-status.draft {
         background-color: #ffebee;
-        color: var(--sv-danger-color);
+        color: var(--danger-color);
     }
 
     .sv-survey-status.completed {
         background-color: #e8f5e9;
-        color: var(--sv-success-color);
+        color: var(--success-green);
     }
 
 .sv-survey-meta {

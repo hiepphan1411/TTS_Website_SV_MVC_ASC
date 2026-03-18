@@ -1,14 +1,4 @@
-﻿:root {
-    --color-theory: #d4d4d4;
-    --color-practice: #10b981;
-    --color-exam: #efa840;
-    --color-offline: #fd5353;
-    --color-online: #1a73e8;
-    --color-border: #e4e4e4;
-    --color-bg: #f8f8f8;
-}
-
-.container-schedule {
+﻿.container-schedule {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
@@ -41,7 +31,7 @@
 
 .control-btn {
     padding: 6px 16px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--border-color);
     background-color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -84,13 +74,13 @@
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
 }
 
     .schedule-table thead {
         background-color: #fafafa;
-        border-bottom: 2px solid var(--color-border);
+        border-bottom: 2px solid var(--border-color);
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
     }
@@ -114,7 +104,7 @@
         font-weight: 600;
         font-size: 13px;
         color: var(--color-text-primary);
-        border-right: 1px solid var(--color-border);
+        border-right: 1px solid var(--border-color);
     }
 
         .schedule-table th:last-child {
@@ -123,8 +113,8 @@
 
     .schedule-table td {
         padding: 8px;
-        border-right: 1px solid var(--color-border);
-        border-bottom: 1px solid var(--color-border);
+        border-right: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
         vertical-align: top;
         font-size: 12px;
         position: relative;
@@ -170,7 +160,7 @@
 
 .gantt-bar.theory {
     background-color: #f1f5f9;
-    border-left: 3px solid var(--color-theory);
+    border-left: 3px solid var(--color-red-heavy);
 }
 
     .gantt-bar.theory .gantt-bar-text {
@@ -179,38 +169,38 @@
 
 .gantt-bar.practice {
     background-color: #ecfdf5;
-    border-left: 3px solid var(--color-practice);
+    border-left: 3px solid var(--success-green);
 }
 
     .gantt-bar.practice .gantt-bar-text {
-        color: var(--color-practice);
+        color: var(--success-green);
     }
 
 .gantt-bar.exam {
     background-color: #fff0da;
-    border-left: 3px solid var(--color-exam);
+    border-left: 3px solid var(--orange-badge);
 }
 
     .gantt-bar.exam .gantt-bar-text {
-        color: var(--color-exam);
+        color: var(--orange-badge);
     }
 
 .gantt-bar.offline {
-    background-color: var(--color-offline);
-    border-left: 3px solid var(--color-offline);
+    background-color: var(--color-danger);
+    border-left: 3px solid var(--color-danger);
 }
 
     .gantt-bar.offline .gantt-bar-text {
-        color: var(--color-offline);
+        color: var(--color-danger);
     }
 
 .gantt-bar.online {
     background-color: #f0f9ff;
-    border-left: 3px solid var(--color-online);
+    border-left: 3px solid var(--blue-badge);
 }
 
     .gantt-bar.online .gantt-bar-text {
-        color: var(--color-online);
+        color: var(--blue-badge);
     }
 
 .gantt-tooltip {
@@ -313,11 +303,11 @@
 }
 
 .status-ongoing {
-    color: var(--color-practice);
+    color: var(--success-green);
 }
 
 .status-ended {
-    color: var(--color-offline);
+    color: var(--color-danger);
 }
 
 .tooltip-footer i {
@@ -374,25 +364,25 @@
 }
 
 .theory {
-    background-color: var(--color-theory);
+    background-color: var(--color-red-heavy);
     color: var(--color-text-primary);
 }
 
 .practice {
-    background-color: var(--color-practice);
+    background-color: var(--success-green);
 }
 
 .exam {
-    background-color: var(--color-exam);
+    background-color: var(--orange-badge);
     color: var(--color-text-primary);
 }
 
 .offline {
-    background-color: var(--color-offline);
+    background-color: var(--color-danger);
 }
 
 .online {
-    background-color: var(--color-online);
+    background-color: var(--blue-badge);
 }
 
 .month-header {
@@ -400,7 +390,7 @@
     color: var(--color-text-primary);
     padding: 12px 8px;
     text-align: center;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .day-range {
@@ -409,13 +399,13 @@
     text-align: center;
     padding: 8px 4px;
     background-color: #fafafa;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .legend {
     padding: 16px 24px;
     background-color: #fafafa;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--border-color);
     display: flex;
     flex-wrap: wrap;
     gap: 24px;

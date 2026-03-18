@@ -150,8 +150,8 @@ function createSurveyItem(survey, index, type) {
 function startSurvey(surveyId) {
   const survey = surveyData.pending.find((s) => s.id === surveyId);
   if (survey) {
-    alert(`Bắt đầu khảo sát: ${survey.title}`);
-    window.location.href = `../html/chi-tiet-khao-sat.html?surveyId=${surveyId}`;
+      alert(`Bắt đầu khảo sát: ${survey.title}`);
+      window.location.href = `/ChiTietKhaoSat?surveyId=${surveyId}`;
   }
 }
 

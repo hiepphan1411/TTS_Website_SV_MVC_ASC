@@ -667,21 +667,22 @@
       });
 
       parts.push(
-        '<div class="semester-table-wrapper">' +
-          '<div style="background-color:var(--primary-color);padding:16px 24px;min-width:100%;">' +
-          '<h4 style="color:white;margin:0;font-size:18px;font-weight:600;">' +
-          semester.hocKy +
-          " (" +
-          semester.namHoc +
-          ")</h4></div>" +
-          '<div class="table-container" style="margin-top:0;">' +
-          '<table class="results-table">' +
-          renderTableHeader(cols.maxThuongXuyen, cols.maxThucHanh) +
-          "<tbody>" +
-          rows.join("") +
-          "</tbody></table></div>" +
-          renderSemesterSummary(semester) +
-          "</div>",
+        `<div class="semester-table-wrapper">
+              <div style="background-color:var(--primary-color); padding:16px 24px; min-width:100%; ">
+                  <h4 style="color:white;margin:0;font-size:18px;font-weight:600;">
+                  ${semester.hocKy} (${semester.namHoc})
+                  </h4>
+              </div>
+              <div class="table-container" style="margin-top:0;">
+                  <table class="results-table">
+                      ${renderTableHeader(cols.maxThuongXuyen, cols.maxThucHanh)}
+                  <tbody>
+                      ${rows.join("")}
+                  </tbody>
+                  </table>
+              </div>
+              ${renderSemesterSummary(semester)}
+          </div>`,
       );
     });
 
@@ -708,34 +709,37 @@
     for (var i = 1; i <= maxThuongXuyen; i++) txCols += "<th>" + i + "</th>";
     for (var j = 1; j <= maxThucHanh; j++) thCols += "<th>" + j + "</th>";
 
-    return (
-      "<thead><tr>" +
-      '<th rowspan="2" style="width:30px;min-width:30px;max-width:30px;">STT</th>' +
-      '<th rowspan="2" style="width:100px;min-width:100px;max-width:100px;">Mã môn học</th>' +
-      '<th rowspan="2" style="width:200px;min-width:200px;">Tên môn học</th>' +
-      '<th rowspan="2" style="width:40px;min-width:40px;max-width:40px;">Số TC</th>' +
-      '<th rowspan="2" style="width:55px;min-width:55px;max-width:55px;">Giữa kỳ</th>' +
-      (maxThuongXuyen > 0
-        ? '<th colspan="' +
-          maxThuongXuyen +
-          '" style="text-align:center;width:100px;min-width:70px;">Thường xuyên</th>'
-        : "<th>Thường xuyên</th>") +
-      (maxThucHanh > 0
-        ? '<th colspan="' +
-          maxThucHanh +
-          '" style="text-align:center;width:100px;min-width:70px;">Thực hành</th>'
-        : "") +
-      '<th rowspan="2" style="width:55px;min-width:55px;max-width:55px;">Cuối kỳ</th>' +
-      '<th rowspan="2" style="width:85px;min-width:85px;max-width:85px;">Điểm tổng kết</th>' +
-      '<th rowspan="2" style="width:85px;min-width:85px;max-width:85px;">Thang điểm 4</th>' +
-      '<th rowspan="2" style="width:50px;min-width:50px;max-width:50px;">Điểm chữ</th>' +
-      '<th rowspan="2" style="width:80px;min-width:80px;max-width:80px;">Xếp loại</th>' +
-      '<th rowspan="2" style="width:100px;min-width:100px;max-width:100px;">Đạt</th>' +
-      "</tr><tr>" +
-      txCols +
-      thCols +
-      "</tr></thead>"
-    );
+    return `
+        <thead>
+          <tr>
+            <th rowspan="2" style="width:30px;min-width:30px;max-width:30px;">STT</th>
+            <th rowspan="2" style="width:100px;min-width:100px;max-width:100px;">Mã môn học</th>
+            <th rowspan="2" style="width:200px;min-width:200px;">Tên môn học</th>
+            <th rowspan="2" style="width:40px;min-width:40px;max-width:40px;">Số TC</th>
+            <th rowspan="2" style="width:55px;min-width:55px;max-width:55px;">Giữa kỳ</th>
+            ${
+              maxThuongXuyen > 0
+                ? `<th colspan="${maxThuongXuyen}" style="text-align:center; width:100px; min-width:70px;">Thường xuyên</th>`
+                : "<th>Thường xuyên</th>"
+            }
+            ${
+              maxThucHanh > 0
+                ? `<th colspan="${maxThucHanh}" style="text-align:center; width:100px; min-width:70px;">Thực hành</th>`
+                : ""
+            }
+            <th rowspan="2" style="width: 55px; min-width: 55px; max-width: 55px;">Cuối kỳ</th>
+            <th rowspan="2" style="width: 85px; min-width: 85px; max-width: 85px;">Điểm tổng kết</th>
+            <th rowspan="2" style="width: 85px; min-width: 85px; max-width: 85px;">Thang điểm 4</th>
+            <th rowspan="2" style="width: 50px; min-width: 50px; max-width: 50px;">Điểm chữ</th>
+            <th rowspan="2" style="width: 80px; min-width: 80px; max-width: 80px;">Xếp loại</th>
+            <th rowspan="2" style="width: 100px; min-width: 100px; max-width: 100px;">Đạt</th>
+          </tr>
+          <tr>
+            ${txCols}
+            ${thCols}
+          </tr>
+        </thead>
+       `;
   }
 
   function renderTable(semester) {
@@ -758,29 +762,29 @@
 
     if (visibleCount === 0) {
       rows.push(
-        '<tr><td colspan="' +
-          (12 + cols.maxThuongXuyen + cols.maxThucHanh) +
-          '"' +
-          ' style="text-align:center;padding:40px;color:#666;">' +
-          '<i class="fas fa-check-circle" style="font-size:48px;color:var(--success-color);margin-bottom:16px;"></i>' +
-          '<p style="font-size:16px;margin:0;">Không có môn nào cần cải thiện</p>' +
-          "</td></tr>",
+        `<tr>
+          <td colspan="${12 + cols.maxThuongXuyen + cols.maxThucHanh}" style="text-align: center; padding: 40px; color: #666;"></td>
+            <i class="fas fa-check-circle" style="font-size:48px; color:var(--success-color); margin-bottom:16px;"></i>
+            <p style="font-size: 16px; margin: 0;">Không có môn nào cần cải thiện</p>
+          </td>
+        </tr>
+        `,
       );
     }
 
-    var html =
-      '<div style="background-color:var(--primary-color);padding:16px 24px;min-width:1100px;">' +
-      '<h4 style="color:white;margin:0;font-size:18px;font-weight:600;">' +
-      semester.hocKy +
-      " (" +
-      semester.namHoc +
-      ")</h4></div>" +
-      '<table class="results-table">' +
-      renderTableHeader(cols.maxThuongXuyen, cols.maxThucHanh) +
-      "<tbody>" +
-      rows.join("") +
-      "</tbody></table>" +
-      renderSemesterSummary(semester);
+    var html = `<div style="background-color: var(--primary-blue); padding: 16px 24px; min-width: 1100px;">
+      <h4 style="color: white; margin: 0; font-size: 18px; font-weight: 600;">
+      ${semester.hocKy} (${semester.namHoc})
+      </h4>
+    </div>
+      <table class="results-table">
+        ${renderTableHeader(cols.maxThuongXuyen, cols.maxThucHanh)}
+        <tbody>
+          ${rows.join("")}
+        </tbody>
+      </table>
+      ${renderSemesterSummary(semester)}
+    `;
 
     $(".table-container").html(html);
   }
@@ -811,117 +815,67 @@
         "</td>";
     }
 
-    return (
-      '<tr class="' +
-      (mon.trangThai === "Đạt" ? "" : "improvement-row") +
-      '">' +
-      '<td class="text-center">' +
-      stt +
-      "</td>" +
-      '<td class="text-center">' +
-      mon.maMonHoc +
-      "</td>" +
-      '<td class="subject-name">' +
-      mon.tenMonHoc +
-      "</td>" +
-      '<td class="text-center">' +
-      mon.soTinChi +
-      "</td>" +
-      '<td class="text-center"' +
-      scoreStyle(mon.diem.giuaKy) +
-      ">" +
-      (mon.diem.giuaKy || "-") +
-      "</td>" +
-      txCells +
-      thCells +
-      '<td class="text-center"' +
-      scoreStyle(mon.diem.cuoiKy) +
-      ">" +
-      (mon.diem.cuoiKy || "-") +
-      "</td>" +
-      '<td class="text-center">' +
-      mon.diem.diemTK.toFixed(2) +
-      "</td>" +
-      '<td class="text-center">' +
-      mon.diem.diemHe4.toFixed(2) +
-      "</td>" +
-      '<td class="text-center"><span class="grade-badge ' +
-      badgeClass +
-      '">' +
-      mon.diem.diemChu +
-      "</span></td>" +
-      '<td class="text-center"><span class="ranking-badge ' +
-      badgeClass +
-      '">' +
-      mon.xepLoai +
-      "</span></td>" +
-      '<td class="text-center"><span class="status-badge ' +
-      (mon.trangThai === "Đạt" ? "passed" : "failed") +
-      '">' +
-      mon.trangThai +
-      "</span></td>" +
-      "</tr>"
-    );
+    return `
+        <tr class=${mon.trangThai === "Đạt" ? "" : "improvement-row"}>
+          <td class="text-center">${stt}</td>
+          <td class="text-center">${mon.maMonHoc}</td>
+          <td class="subject-name">${mon.tenMonHoc}</td>
+          <td class="text-center">${mon.soTinChi}</td>
+          <td class="text-center"${scoreStyle(mon.diem.giuaKy)}>${mon.diem.giuaKy || "-"}</td>
+          ${txCells}
+          ${thCells}
+          <td class="text-center"${scoreStyle(mon.diem.cuoiKy)}>${mon.diem.cuoiKy || "-"}</td>
+          <td class="text-center">${mon.diem.diemTK.toFixed(2)}</td>
+          <td class="text-center">${mon.diem.diemHe4.toFixed(2)}</td>
+          <td class="text-center"><span class="grade-badge ${badgeClass}">${mon.diem.diemChu}</span></td>
+          <td class="text-center"><span class="ranking-badge ${badgeClass}">${mon.xepLoai}</span></td>
+          <td class="text-center"><span class="status-badge ${mon.trangThai === "Đạt" ? "passed" : "failed"}">${mon.trangThai}</span></td>
+        </tr>
+      `;
   }
 
   function renderSemesterSummary(semester) {
     var rankingClass = getRankingClass(semester.tongKetHocKy.xepLoaiHocKy);
     var tk = semester.tongKetHocKy;
 
-    return (
-      '<div class="semester-summary">' +
-      '<div class="semester-summary-title">Tổng kết học kỳ ' +
-      semester.hocKy +
-      " (" +
-      semester.namHoc +
-      ")</div>" +
-      '<div class="summary-stats">' +
-      makeStat("award", "ĐIỂM TB HK", tk.diemTrungBinhHocKy) +
-      makeStat(
-        "calendar-alt",
-        "ĐTB TÍCH LŨY (HỆ 10)",
-        tk.diemTrungBinhTichLuyHe10,
-      ) +
-      makeStat(
-        "chart-line",
-        "ĐTB TÍCH LŨY (HỆ 4)",
-        tk.diemTrungBinhTichLuyHe4,
-      ) +
-      makeStat("book", "TC ĐÃ ĐĂNG KÝ", tk.tinChiDangKy) +
-      makeStat("check-circle", "TC ĐÃ TÍCH LŨY", tk.tinChiTichLuy) +
-      '<div class="summary-stat ranking-highlight ' +
-      rankingClass +
-      '">' +
-      '<div class="summary-stat-icon"><i class="fas fa-award"></i></div>' +
-      '<div class="summary-stat-content">' +
-      '<div class="summary-stat-label">XẾP LOẠI HK</div>' +
-      '<div class="summary-stat-value">' +
-      tk.xepLoaiHocKy +
-      "</div>" +
-      "</div></div>" +
-      "</div></div>"
-    );
+    return `
+        <div class="semester-summary">
+          <div class="semester-summary-title">Tổng kết học kỳ ${semester.hocKy} (${semester.namHoc})</div>
+          <div class="summary-stats">
+            ${makeStat("award", "ĐIỂM TB HK", tk.diemTrungBinhHocKy)}
+            ${makeStat("calendar-alt", "ĐTB TÍCH LŨY (HỆ 10)", tk.diemTrungBinhTichLuyHe10)}
+            ${makeStat("chart-line", "ĐTB TÍCH LŨY (HỆ 4)", tk.diemTrungBinhTichLuyHe4)}
+            ${makeStat("book", "TC ĐÃ ĐĂNG KÝ", tk.tinChiDangKy)}
+            ${makeStat("check-circle", "TC ĐÃ TÍCH LŨY", tk.tinChiTichLuy)}
+            <div class="summary-stat ranking-highlight ${rankingClass}">
+              <div class="summary-stat-icon"><i class="fas fa-award"></i></div>
+              <div class="summary-stat-content">
+                <div class="summary-stat-label">XẾP LOẠI HK</div>
+                <div class="summary-stat-value">${tk.xepLoaiHocKy}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
   }
 
   function makeStat(icon, label, value) {
-    return (
-      '<div class="summary-stat">' +
-      '<div class="summary-stat-icon blue"><i class="fas fa-' +
-      icon +
-      '"></i></div>' +
-      '<div class="summary-stat-content">' +
-      '<div class="summary-stat-label">' +
-      label +
-      "</div>" +
-      '<div class="summary-stat-value">' +
-      value +
-      "</div>" +
-      "</div></div>"
-    );
+    return `
+        <div class="summary-stat">
+          <div class="summary-stat-icon"><i class="fas fa-${icon}"></i></div>
+          <div class="summary-stat-content">
+            <div class="summary-stat-label">
+              ${label}
+            </div>
+            <div class="summary-stat-value">
+              ${value}
+            </div>
+          </div>
+        </div>
+      `;
   }
 
   // Kendo
-
   function initCharts() {
     createGradeComparisonChart();
     createGpaTrendChart();
@@ -933,17 +887,7 @@
 
     var opts = $.map(academicResultsData, function (semester, index) {
       var isLatest = index === academicResultsData.length - 1;
-      return (
-        '<option value="' +
-        index +
-        '"' +
-        (isLatest ? " selected" : "") +
-        ">" +
-        semester.hocKy +
-        " (" +
-        semester.namHoc +
-        ")</option>"
-      );
+      return `<option value="${index}"${isLatest ? " selected" : ""}>${semester.hocKy} (${semester.namHoc})</option>`;
     });
 
     $select.html(opts.join(""));
@@ -1047,32 +991,24 @@
           var fullName = semester.monHoc[idx]
             ? semester.monHoc[idx].tenMonHoc
             : data.points[0].category;
-          var html =
-            '<div style="padding:6px 10px;background:white;color:#505050;border-radius:8px;font-size:12px;min-width:160px;">' +
-            '<div style="font-weight:700;margin-bottom:6px;border-bottom:1px solid #eee;padding-bottom:4px;">' +
-            fullName +
-            "</div>";
+          var html = `
+            <div style="padding: 6px 10px; background: white; color: #505050; border-radius: 8px; font-size: 12px; min-width: 160px;">
+              <div style="font-weight: 700; margin-bottom: 6px; border-bottom: 1px solid #eee; padding-bottom: 4px;"></div>
+                ${fullName}
+              </div>
+          `;
           $.each(data.points, function (_, p) {
-            html +=
-              '<div style="margin:2px 0;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' +
-              p.series.color +
-              ';margin-right:5px;"></span>' +
-              p.series.name +
-              ": <strong>" +
-              p.value.toFixed(2) +
-              "</strong></div>";
+            html += `
+              <div style="margin: 2px 0;">
+                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: ${p.series.color}; margin-right: 5px;"></span>${p.series.name}: <strong>${p.value.toFixed(2)}</strong></div>
+            `;
           });
           if (studentVal !== null && classVal !== null) {
             var diff = (studentVal - classVal).toFixed(2);
             var color = diff >= 0 ? "#4caf50" : "#f15464";
-            html +=
-              '<div style="margin-top:6px;border-top:1px solid #eee;padding-top:4px;color:' +
-              color +
-              ';font-weight:600;">' +
-              "Chênh lệch: " +
-              (diff >= 0 ? "+" : "") +
-              diff +
-              "</div>";
+            html += `
+              <div style="margin-top: 6px; border-top: 1px solid #eee; padding-top: 4px; color: ${color}; font-weight: 600;">Chênh lệch: ${diff >= 0 ? "+" : ""}${diff}</div>
+            `;
           }
           return html + "</div>";
         },
@@ -1163,11 +1099,10 @@
           var label = sem
             ? sem.hocKy + " (" + sem.namHoc + ")"
             : data.points[0].category;
-          var html =
-            '<div style="padding:6px 10px;background:white;color:#505050;border-radius:8px;font-size:13px;min-width:180px;">' +
-            '<div style="font-weight:700;margin-bottom:6px;border-bottom:1px solid #eee;padding-bottom:4px;">' +
-            label +
-            "</div>";
+          var html = `
+            <div style="padding: 6px 10px; background: white; color: #505050; border-radius: 8px; font-size: 13px; min-width: 180px;">
+              <div style="font-weight: 700; margin-bottom: 6px; border-bottom: 1px solid #eee; padding-bottom: 4px;">${label}</div>
+            `;
           $.each(data.points, function (_, p) {
             var v = p.value;
             var rank =
@@ -1180,16 +1115,11 @@
                     : v >= 2.0
                       ? "Trung bình"
                       : "Yếu";
-            html +=
-              '<div style="margin:2px 0;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' +
-              p.series.color +
-              ';margin-right:5px;"></span>' +
-              p.series.name +
-              ": <strong>" +
-              v.toFixed(2) +
-              '</strong> <span style="opacity:0.75;font-size:11px;">(' +
-              rank +
-              ")</span></div>";
+            html += `
+              <div style="margin: 2px 0;">
+                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: ${p.series.color}; margin-right: 5px;"></span>${p.series.name}: <strong>${v.toFixed(2)}</strong> <span style="opacity: 0.75; font-size: 11px;">(${rank})</span>
+              </div>
+            `;
           });
           return html + "</div>";
         },
